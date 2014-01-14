@@ -31,11 +31,11 @@ $(function(){
       this.listenTo(this.model, 'change', this.render);
     },
     render: function() {
-      var html = '<input id="toggle-activate" type="checkbox" ';
+      var html = '<label><input id="toggle-activate" type="checkbox" ';
       if(this.model.get('active')==1) {
         html+= 'checked="checked" ';
       }
-      html+= '/> '+this.model.get('name');
+      html+= '/>'+this.model.get('name')+'</label>';
       html+= '<img src="images/default.jpg" />';
 
       this.el.innerHTML = html;
