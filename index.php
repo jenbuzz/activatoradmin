@@ -1,16 +1,21 @@
 <?php
 
 require_once('lib/Slim/Slim.php');
+require_once('config/config.php');
 
 \Slim\Slim::registerAutoloader();
 
-$app = new \Slim\Slim();
+$app = new \Slim\Slim(
+  array(
+    'custom' => $config
+  )
+);
 
 /**
  * Setup mysql connection
  */
-function getConnection() {
-  $db = new mysqli( 'localhost', 'root', '', 'activatoradmin' );
+function getConnection($config) {
+  $db = new mysqli( $config['db']['host'], $config['db']['user'], $config['db']['pass'], $config['db']['name'] );
   return $db;
 }
 
@@ -24,8 +29,8 @@ $app->get('/', function() use($app) {
 /**
  * GET all items
  */
-$app->get('/items', function() {
-  $db = getConnection();
+$app->get('/items', function() use($app) {
+  $db = getConnection($app->config('custom'));
   $arrItems = array();
 
   $sql = "SELECT * FROM items";
@@ -42,8 +47,8 @@ $app->get('/items', function() {
 /**
  * GET a single item
  */
-$app->get('/item/:id', function($id) {
-  $db = getConnection();
+$app->get('/item/:id', function($id) use($app) {
+  $db = getConnection($app->config('custom'));
   $arrItem = array();
 
   $sql = "SELECT * FROM items WHERE id=".$db->real_escape_string($id);
@@ -59,7 +64,7 @@ $app->get('/item/:id', function($id) {
  * PUT (update) a single item
  */
 $app->put('/item/:id', function($id) use($app) {
-  $db = getConnection();
+  $db = getConnection($app->config('custom'));
 
   $request = json_decode($app->request->getBody());
   
