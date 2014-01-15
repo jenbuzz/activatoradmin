@@ -5,6 +5,18 @@
     <meta charset="utf-8">
     <title>ActivatorAdmin</title>
 
+    <script id="item" type="text/template">
+
+      <li class="well">
+        <label>
+          <input id="toggle-activate" type="checkbox" <% if(active==1) { %>checked="checked" <% } %>/>
+          <%=name%>
+        </label>
+        <img src="<% if(image) { %><%=image%><% } else { %>images/default.jpg<% } %>" />
+      </li>
+
+    </script>
+
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="css/activatoradmin.css" rel="stylesheet">

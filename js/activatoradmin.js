@@ -22,8 +22,7 @@ $(function(){
 
   // View
   var ActivatorView = Backbone.View.extend({
-    tagName: 'li',
-    className: 'well',
+    template: _.template($('#item').html()),
     events: {
       'click #toggle-activate': 'toggleActivate'
     },
@@ -31,16 +30,9 @@ $(function(){
       this.listenTo(this.model, 'change', this.render);
     },
     render: function() {
-      var html = '<label><input id="toggle-activate" type="checkbox" ';
-      if(this.model.get('active')==1) {
-        html+= 'checked="checked" ';
-      }
-      html+= '/>'+this.model.get('name')+'</label>';
-      html+= '<img src="images/default.jpg" />';
-
-      this.el.innerHTML = html;
-
-      return this;
+      this.$el.html(this.template(this.model.toJSON()));
+ 
+      return this.$el;
     },
     toggleActivate: function() {
       var isActive = this.$el.find('#toggle-activate').get(0).checked;
@@ -62,7 +54,7 @@ $(function(){
             var view = new ActivatorView({
               model: item
             });
-            $("#itemlist").append(view.render().el);
+            $("#itemlist").append(view.render());
           });
         }
       });
