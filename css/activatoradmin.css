@@ -1,3 +1,6 @@
+.well {
+  padding: 10px;
+}
 .list-unstyled li label {
   width: 220px;
 }
