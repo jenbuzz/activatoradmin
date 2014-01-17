@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <title>ActivatorAdmin</title>
 
+    <meta name="robots" content="noindex,nofollow" />
+
     <script id="item" type="text/template">
 
       <li class="well">
