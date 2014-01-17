@@ -35,12 +35,8 @@ $(function(){
       return this.$el;
     },
     toggleActivate: function() {
-      var isActive = this.$el.find('#toggle-activate').get(0).checked;
-      if(isActive) {
-        this.model.save({'active': 1});
-      } else {
-        this.model.save({'active': 0});
-      }
+      var activeState = this.$el.find('#toggle-activate').get(0).checked ? 1 : 0;
+      this.model.save({'active': activeState});
     }
   });
 
