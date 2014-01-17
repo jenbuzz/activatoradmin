@@ -12,7 +12,7 @@
           <input id="toggle-activate" type="checkbox" <% if(active==1) { %>checked="checked" <% } %>/>
           <%=name%>
         </label>
-        <img src="<% if(image) { %><%=image%><% } else { %>images/default.jpg<% } %>" />
+        <img src="<% if(image) { %><%=image%><% } else { %>images/default.jpg<% } %>" height="90px" />
       </li>
 
     </script>
