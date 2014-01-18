@@ -30,7 +30,13 @@ $(function(){
       this.listenTo(this.model, 'change', this.render);
     },
     render: function() {
-      this.$el.html(this.template(this.model.toJSON()));
+      var json = this.model.toJSON();
+      json.imagePath = '';
+      if( typeof appConfig != 'undefined' && appConfig.hasOwnProperty('imagePath') && appConfig.imagePath!='' ) {
+        json.imagePath = appConfig.imagePath;
+      }
+
+      this.$el.html(this.template(json));
  
       return this.$el;
     },

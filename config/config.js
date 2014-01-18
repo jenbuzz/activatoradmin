@@ -1,0 +1,3 @@
+var appConfig = {
+  imagePath: 'images/'
+}

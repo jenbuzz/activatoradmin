@@ -14,7 +14,7 @@
           <input id="toggle-activate" type="checkbox" <% if(active==1) { %>checked="checked" <% } %>/>
           <%=name%>
         </label>
-        <img src="<% if(image) { %><%=image%><% } else { %>images/default.jpg<% } %>" height="90px" />
+        <img src="<% if(image) { %><%=imagePath%><%=image%><% } else { %>images/default.jpg<% } %>" height="90px" />
       </li>
 
     </script>
@@ -36,6 +36,7 @@
     <script src="js/lib/jquery.min.js"></script>
     <script src="js/lib/underscore-min.js"></script>
     <script src="js/lib/backbone-min.js"></script>
+    <script src="config/config.js"></script>
     <script src="js/activatoradmin.js"></script>
   </body>
 
