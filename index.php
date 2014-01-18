@@ -59,6 +59,8 @@ $app->get('/item/:id', function($id) use($app) {
     }
 
     echo json_encode($arrItem);
+  } else {
+    echo json_encode(array('success'=>false));
   }
 });
 
@@ -73,7 +75,10 @@ $app->put('/item/:id', function($id) use($app) {
   
     $sql = "UPDATE items SET active=".$db->real_escape_string($request->active)." WHERE id=".$db->real_escape_string($id);
     $db->query($sql);
+  } else {
+    echo json_encode(array('success'=>false));
   }
+
 });
 
 
