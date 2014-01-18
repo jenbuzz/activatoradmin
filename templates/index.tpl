@@ -9,13 +9,11 @@
 
     <script id="item" type="text/template">
 
-      <li class="well">
         <label>
           <input id="toggle-activate" type="checkbox" <% if(active==1) { %>checked="checked" <% } %>/>
           <%=name%>
         </label>
         <img class="img-thumbnail" src="<% if(image) { %><%=imagePath%><%=image%><% } else { %>images/default.jpg<% } %>" height="90px" />
-      </li>
 
     </script>
 

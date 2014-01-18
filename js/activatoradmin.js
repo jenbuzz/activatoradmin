@@ -22,6 +22,8 @@ $(function(){
 
   // View
   var ActivatorView = Backbone.View.extend({
+    tagName: 'li',
+    className: 'well',
     template: _.template($('#item').html()),
     events: {
       'click #toggle-activate': 'toggleActivate'
@@ -37,7 +39,7 @@ $(function(){
       }
 
       this.$el.html(this.template(json));
- 
+
       return this.$el;
     },
     toggleActivate: function() {
