@@ -6,4 +6,5 @@
 }
 .list-unstyled li input, .list-unstyled li label {
   margin-right: 15px;
+  cursor: pointer;
 }
