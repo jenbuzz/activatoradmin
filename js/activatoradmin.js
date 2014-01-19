@@ -27,7 +27,8 @@ $(function(){
     className: 'well',
     template: _.template($('#item').html()),
     events: {
-      'click #toggle-activate': 'toggleActivate'
+      'click #toggle-activate': 'toggleActivate',
+      'click img': 'toggleImage'
     },
     initialize: function() {
       this.listenTo(this.model, 'change', this.render);
@@ -46,6 +47,26 @@ $(function(){
     toggleActivate: function() {
       var activeState = this.$el.find('#toggle-activate').get(0).checked ? 1 : 0;
       this.model.save({'active': activeState});
+    },
+    toggleImage: function() {
+      var image = 'images/default.jpg';
+      if( this.model.get('image')!='' && 
+          this.model.get('image')!=null && 
+          typeof appConfig != 'undefined' && 
+          appConfig.hasOwnProperty('imagePath') && 
+          appConfig.imagePath!='' ) {
+
+        image = appConfig.imagePath + this.model.get('image');
+      }
+
+      $('#background').show('fast', 'linear', function() {
+        $('#container').append('<img class="img-thumbnail img-full" src="'+image+'" />');
+      });
+
+      $('#background').on('click', function() {
+        $(this).hide();
+        $('#container').find('.img-full').remove();
+      });
     }
   });
 

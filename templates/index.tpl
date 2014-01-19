@@ -31,6 +31,8 @@
       <ul id="itemlist" class="list-unstyled"></ul>
     </div>
 
+    <div id="background"></div>
+
     <script src="js/lib/jquery.min.js"></script>
     <script src="js/lib/underscore-min.js"></script>
     <script src="js/lib/backbone-min.js"></script>

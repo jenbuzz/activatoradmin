@@ -8,3 +8,24 @@
   margin-right: 15px;
   cursor: pointer;
 }
+.list-unstyled li img {
+  cursor: pointer;
+}
+#background {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  opacity: 0.5;
+}
+.img-full {
+  position: absolute; 
+  top: 50%;
+  left: 50%;
+  z-index: 100;
+  max-width: 100%;
+  height: auto;
+}
