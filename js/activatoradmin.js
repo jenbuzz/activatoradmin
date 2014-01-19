@@ -1,4 +1,5 @@
 $(function(){
+  "use strict";
 
   // Model
   var ActivatorItem = Backbone.Model.extend({
