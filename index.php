@@ -7,7 +7,8 @@ require_once('config/config.php');
 
 $app = new \Slim\Slim(
   array(
-    'custom' => $config
+    'custom' => $config,
+    'templates.path' => 'templates'
   )
 );
 
@@ -23,7 +24,7 @@ function getConnection($config) {
  * Render startup template (index)
  */
 $app->get('/', function() use($app) {
-  $app->render('../templates/index.tpl');
+  $app->render('index.tpl');
 });
 
 /**
