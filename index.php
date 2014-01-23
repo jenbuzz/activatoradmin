@@ -8,7 +8,7 @@ require_once('config/config.php');
 $app = new \Slim\Slim(
   array(
     'custom' => $config,
-    'templates.path' => 'templates'
+    'templates.path' => __DIR__ . '/templates'
   )
 );
 
