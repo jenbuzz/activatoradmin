@@ -20,11 +20,11 @@ class DB
     /**
      * Setup mysql connection
      */
-    function getConnection($config)
+    public function getConnection($config)
     {
         $db = new \mysqli($config['db']['host'], $config['db']['user'], $config['db']['pass'], $config['db']['name']);
+
         return $db;
     }
 
 }
-
