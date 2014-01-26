@@ -1,7 +1,7 @@
 INSERT INTO items (active, name) VALUES (1, 'Item 1');
-INSERT INTO items (active, name) VALUES (1, 'Item 2');
+INSERT INTO items (active, name, image) VALUES (1, 'Item 2', 'test-image-001.jpg');
 INSERT INTO items (active, name) VALUES (0, 'Item 3');
-INSERT INTO items (active, name) VALUES (1, 'Item 4');
+INSERT INTO items (active, name, image) VALUES (1, 'Item 4', 'test-image-002.jpg');
 INSERT INTO items (active, name) VALUES (1, 'Item 5');
 INSERT INTO items (active, name) VALUES (0, 'Item 6');
 INSERT INTO items (active, name) VALUES (1, 'Item 7');
