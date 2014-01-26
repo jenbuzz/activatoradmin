@@ -1,7 +1,9 @@
 <?php
 
+require('config/config.php');
+
 require_once('lib/Slim/Slim.php');
-require_once('config/config.php');
+require_once('lib/DB.class.php');
 
 \Slim\Slim::registerAutoloader();
 
@@ -11,15 +13,6 @@ $app = new \Slim\Slim(
         'templates.path' => __DIR__ . '/templates'
     )
 );
-
-/**
- * Setup mysql connection
- */
-function getConnection($config)
-{
-    $db = new mysqli($config['db']['host'], $config['db']['user'], $config['db']['pass'], $config['db']['name']);
-    return $db;
-}
 
 /**
  * Render startup template (index)
@@ -32,7 +25,8 @@ $app->get('/', function() use($app) {
  * GET all items
  */
 $app->get('/items', function() use($app) {
-    $db = getConnection($app->config('custom'));
+    $objDB = \ActivatorAdmin\Lib\DB::getInstance();
+    $db = $objDB->getConnection($app->config('custom'));
     $arrItems = array();
 
     $sql = "SELECT * FROM items";
@@ -51,7 +45,8 @@ $app->get('/items', function() use($app) {
  */
 $app->get('/item/:id', function($id) use($app) {
     if ($id>0 && is_numeric($id)) {
-        $db = getConnection($app->config('custom'));
+        $objDB = \ActivatorAdmin\Lib\DB::getInstance();
+        $db = $objDB->getConnection($app->config('custom'));
         $arrItem = array();
 
         $sql = "SELECT * FROM items WHERE id=".$db->real_escape_string($id);
@@ -71,7 +66,8 @@ $app->get('/item/:id', function($id) use($app) {
  */
 $app->put('/item/:id', function($id) use($app) {
     if ($id>0 && is_numeric($id)) {
-        $db = getConnection($app->config('custom'));
+        $objDB = \ActivatorAdmin\Lib\DB::getInstance();
+        $db = $objDB->getConnection($app->config('custom'));
 
         $request = json_decode($app->request->getBody());
   
