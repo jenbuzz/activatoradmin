@@ -17,6 +17,7 @@
 }
 .list-unstyled li img {
   cursor: pointer;
+  max-height: 90px;
 }
 #background {
   display: none;
