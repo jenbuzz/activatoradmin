@@ -73,9 +73,13 @@ $app->put('/item/:id', function($id) use($app) {
         $db = $objDB->getConnection($config);
 
         $request = json_decode($app->request->getBody());
-  
-        $sql = "UPDATE ".$config['db']['table']." SET active=".$db->real_escape_string($request->active)." WHERE id=".$db->real_escape_string($id);
-        $db->query($sql);
+ 
+        if (is_object($request) && isset($request->active)) { 
+            $sql = "UPDATE ".$config['db']['table']." SET active=".$db->real_escape_string($request->active)." WHERE id=".$db->real_escape_string($id);
+            $db->query($sql);
+        } else {
+            echo json_encode(array('success'=>false));
+        }
     } else {
         echo json_encode(array('success'=>false));
     }
