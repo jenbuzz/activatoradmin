@@ -38,5 +38,17 @@ class RoutingTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(200, $this->response->status());
     }
 
+    public function testGetItem()
+    {
+        $this->request('GET', '/item/1');
+        $this->assertEquals(200, $this->response->status());
+    }
+
+    public function testPutItem()
+    {
+        $this->request('PUT', '/item/1');
+        $this->assertEquals(200, $this->response->status());
+    }
+
 }
 
