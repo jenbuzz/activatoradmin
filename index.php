@@ -25,11 +25,12 @@ $app->get('/', function() use($app) {
  * GET all items
  */
 $app->get('/items', function() use($app) {
+    $config = $app->config('custom');
     $objDB = \ActivatorAdmin\Lib\DB::getInstance();
-    $db = $objDB->getConnection($app->config('custom'));
+    $db = $objDB->getConnection($config);
     $arrItems = array();
 
-    $sql = "SELECT * FROM items";
+    $sql = "SELECT * FROM ".$config['db']['table'];
     $res = $db->query($sql);
     if ($res && $res->num_rows>0) {
         while ($row = $res->fetch_array(MYSQLI_ASSOC)) {
@@ -45,11 +46,12 @@ $app->get('/items', function() use($app) {
  */
 $app->get('/item/:id', function($id) use($app) {
     if ($id>0 && is_numeric($id)) {
+        $config = $app->config('custom');
         $objDB = \ActivatorAdmin\Lib\DB::getInstance();
-        $db = $objDB->getConnection($app->config('custom'));
+        $db = $objDB->getConnection($config);
         $arrItem = array();
 
-        $sql = "SELECT * FROM items WHERE id=".$db->real_escape_string($id);
+        $sql = "SELECT * FROM ".$config['db']['table']." WHERE id=".$db->real_escape_string($id);
         $res = $db->query($sql);
         if ($res && $res->num_rows>0) {
             $arrItem = $res->fetch_array(MYSQLI_ASSOC);
@@ -66,12 +68,13 @@ $app->get('/item/:id', function($id) use($app) {
  */
 $app->put('/item/:id', function($id) use($app) {
     if ($id>0 && is_numeric($id)) {
+        $config = $app->config('custom');
         $objDB = \ActivatorAdmin\Lib\DB::getInstance();
-        $db = $objDB->getConnection($app->config('custom'));
+        $db = $objDB->getConnection($config);
 
         $request = json_decode($app->request->getBody());
   
-        $sql = "UPDATE items SET active=".$db->real_escape_string($request->active)." WHERE id=".$db->real_escape_string($id);
+        $sql = "UPDATE ".$config['db']['table']." SET active=".$db->real_escape_string($request->active)." WHERE id=".$db->real_escape_string($id);
         $db->query($sql);
     } else {
         echo json_encode(array('success'=>false));

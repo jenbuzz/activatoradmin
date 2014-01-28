@@ -5,7 +5,8 @@ $config = array(
         'host' => 'localhost',
         'name' => 'activatoradmin',
         'user' => 'root',
-        'pass' => ''
+        'pass' => '',
+        'table' => 'items'
     )
 );
 
