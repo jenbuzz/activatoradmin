@@ -21,7 +21,7 @@
 }
 #background {
   display: none;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -30,9 +30,6 @@
   opacity: 0.5;
 }
 .img-full {
-  position: absolute; 
-  top: 50%;
-  left: 50%;
   z-index: 100;
   max-width: 100%;
   height: auto;

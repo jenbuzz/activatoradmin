@@ -59,8 +59,11 @@ $(function(){
         image = appConfig.imagePath + this.model.get('image');
       }
 
+      var imgTop = this.$el.find('img').get(0).offsetTop;
+      var imgLeft = this.$el.find('img').get(0).offsetLeft;
+
       $('#background').show('fast', 'linear', function() {
-        $('#container').append('<img class="img-thumbnail img-full" src="'+image+'" />');
+        $('#container').append('<img class="img-thumbnail img-full" src="'+image+'" style="position: absolute; top: '+imgTop+'px; left: '+imgLeft+'px" />');
       });
 
       $('#background').on('click', function() {
