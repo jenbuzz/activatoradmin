@@ -9,7 +9,7 @@
   padding: 10px;
 }
 .list-unstyled li label {
-  width: 220px;
+  min-width: 230px;
 }
 .list-unstyled li input, .list-unstyled li label {
   margin-right: 15px;
