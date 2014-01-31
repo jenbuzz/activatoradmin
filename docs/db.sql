@@ -12,7 +12,7 @@ USE `activatoradmin`;
 DROP TABLE IF EXISTS `items`;
 CREATE TABLE `items` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `active` tinyint(4) DEFAULT '0',
+  `isactive` tinyint(4) DEFAULT '0',
   `name` varchar(255) DEFAULT '',
   `image` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)

@@ -34,7 +34,7 @@ $(function(){
     },
     toggleActivate: function() {
       var activeState = this.$el.find('#toggle-activate').get(0).checked ? 1 : 0;
-      this.model.save({'active': activeState});
+      this.model.save({'isactive': activeState});
     },
     toggleImage: function() {
       var image = this.model.get('image');

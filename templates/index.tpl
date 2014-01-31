@@ -10,7 +10,7 @@
     <script id="item" type="text/template">
 
         <label>
-          <input id="toggle-activate" type="checkbox" <% if(active==1) { %>checked="checked" <% } %>/>
+          <input id="toggle-activate" type="checkbox" <% if(isactive==1) { %>checked="checked" <% } %>/>
           <%=name%>
         </label>
         <img class="img-thumbnail" src="<% if(image) { %><%=image%><% } else { %>images/default.jpg<% } %>" />

@@ -74,8 +74,8 @@ $app->put('/item/:id', function($id) use($app) {
 
         $request = json_decode($app->request->getBody());
  
-        if (is_object($request) && isset($request->active)) { 
-            $sql = "UPDATE ".$config['db']['table']." SET active=".$db->real_escape_string($request->active)." WHERE id=".$db->real_escape_string($id);
+        if (is_object($request) && isset($request->isactive)) { 
+            $sql = "UPDATE ".$config['db']['table']." SET isactive=".$db->real_escape_string($request->isactive)." WHERE id=".$db->real_escape_string($id);
             $db->query($sql);
         } else {
             echo json_encode(array('success'=>false));
