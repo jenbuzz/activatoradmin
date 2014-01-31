@@ -34,14 +34,7 @@ $(function(){
       this.listenTo(this.model, 'change', this.render);
     },
     render: function() {
-      var json = this.model.toJSON();
-      json.imagePath = '';
-      if( typeof appConfig != 'undefined' && appConfig.hasOwnProperty('imagePath') && appConfig.imagePath!='' ) {
-        json.imagePath = appConfig.imagePath;
-      }
-
-      this.$el.html(this.template(json));
-
+      this.$el.html(this.template(this.model.toJSON()));
       return this.$el;
     },
     toggleActivate: function() {
@@ -49,16 +42,7 @@ $(function(){
       this.model.save({'active': activeState});
     },
     toggleImage: function() {
-      var image = 'images/default.jpg';
-      if( this.model.get('image')!='' && 
-          this.model.get('image')!=null && 
-          typeof appConfig != 'undefined' && 
-          appConfig.hasOwnProperty('imagePath') && 
-          appConfig.imagePath!='' ) {
-
-        image = appConfig.imagePath + this.model.get('image');
-      }
-
+      var image = this.model.get('image');
       var imgTop = this.$el.find('img').get(0).offsetTop;
       var imgLeft = this.$el.find('img').get(0).offsetLeft;
 
@@ -80,6 +64,17 @@ $(function(){
       ActivatorItems.fetch({
         success: function(model, response) {
           $(model.models).each(function(index,item) {
+            var image = 'images/default.jpg';
+            if( item.get('image')!='' &&
+                item.get('image')!=null &&
+                typeof appConfig != 'undefined' &&
+                appConfig.hasOwnProperty('imagePath') &&
+                appConfig.imagePath!='' ) {
+
+              image = appConfig.imagePath + item.get('image');
+            }
+            item.set('image', image);
+            
             var view = new ActivatorView({
               model: item
             });
