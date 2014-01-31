@@ -4,12 +4,7 @@ $(function(){
   // Model
   var ActivatorItem = Backbone.Model.extend({
     urlRoot: 'index.php/item',
-    idAttribute: 'id',
-
-    id: '',
-    active: '',
-    name: '',
-    image: '',
+    idAttribute: 'id'
   });
 
   // Collection
