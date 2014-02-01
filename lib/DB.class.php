@@ -3,18 +3,17 @@ namespace ActivatorAdmin\Lib;
 
 class DB
 {
+    private static $instance;
 
     private function __construct() {}
 
     public static function getInstance()
     {
-        static $instance;
-
-        if (!isset($instance)) {
-            $instance = new DB();
+        if (static::$instance === null) {
+            static::$instance = new static();
         }
 
-        return $instance;
+        return static::$instance;
     }
 
     /**
