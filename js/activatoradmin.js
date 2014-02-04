@@ -34,13 +34,13 @@ $(function(){
       perPage: 10,
       totalPages: 10
     },
-    parse: function (response) {
+    parse: function(response) {
       return response;
     }
   });
 
   // Global Collection
-  var ActivatorItems = new ActivatorList;
+  var ActivatorItems = new ActivatorList();
 
   // View
   var ActivatorView = Backbone.View.extend({
@@ -56,7 +56,7 @@ $(function(){
     },
     render: function() {
       if( this.model.get('image')!='' &&
-          this.model.get('image')!=null &&
+          this.model.get('image')!==null &&
           typeof appConfig != 'undefined' &&
           appConfig.hasOwnProperty('imagePath') &&
           appConfig.imagePath!='' &&
@@ -109,23 +109,23 @@ $(function(){
       this.$el.html(this.template(ActivatorItems.info()));
       $('#pagination-container').append(this.$el);
     },
-    gotoFirst: function (e) {
+    gotoFirst: function(e) {
       e.preventDefault();
       ActivatorItems.goTo(1);
     },
-    gotoPrev: function (e) {
+    gotoPrev: function(e) {
       e.preventDefault();
       ActivatorItems.previousPage();
     },
-    gotoNext: function (e) {
+    gotoNext: function(e) {
       e.preventDefault();
       ActivatorItems.nextPage();
     },
-    gotoLast: function (e) {
+    gotoLast: function(e) {
       e.preventDefault();
       ActivatorItems.goTo(ActivatorItems.information.lastPage);
     },
-    gotoPage: function (e) {
+    gotoPage: function(e) {
       e.preventDefault();
       var page = $(e.target).text();
       ActivatorItems.goTo(page);
@@ -161,6 +161,6 @@ $(function(){
   });
 
   // Start app
-  var ActivatorApp = new ActivatorAppView;
+  var ActivatorApp = new ActivatorAppView();
 
 });
