@@ -6,3 +6,4 @@ ActivatorAdmin
 - Backbone.Paginator 0.9.0-dev
 - jQuery 2.1.0
 - Bootstrap 3.1.0
+- PHPUnit
