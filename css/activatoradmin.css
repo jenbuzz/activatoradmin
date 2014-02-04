@@ -38,4 +38,7 @@
   .jumbotron h1 {
     font-size: 35px;
   }
+  .list-unstyled li input {
+    margin-right: 100%;
+  }
 }
