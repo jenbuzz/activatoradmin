@@ -43,7 +43,7 @@ $(function(){
   var ActivatorItems = new ActivatorList();
 
   // View
-  var ActivatorView = Backbone.View.extend({
+  var ActivatorItemView = Backbone.View.extend({
     tagName: 'li',
     className: 'well',
     template: _.template($('#item').html()),
@@ -152,7 +152,7 @@ $(function(){
       $('#itemlist').empty();
 
       ActivatorItems.each(function(item) {
-        var view = new ActivatorView({
+        var view = new ActivatorItemView({
           model: item
         });
         $('#itemlist').append(view.render());
