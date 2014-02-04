@@ -55,6 +55,20 @@ $(function(){
       this.listenTo(this.model, 'change', this.render);
     },
     render: function() {
+      if( this.model.get('image')!='' &&
+          this.model.get('image')!=null &&
+          typeof appConfig != 'undefined' &&
+          appConfig.hasOwnProperty('imagePath') &&
+          appConfig.imagePath!='' &&
+          this.model.get('image').indexOf(appConfig.imagePath)!==0 ) {
+
+        var image = appConfig.imagePath + this.model.get('image');
+        this.model.set('image', image);
+      } else if( this.model.get('image')=='' || this.model.get('image')===null ) {
+        var image = 'images/default.jpg';
+        this.model.set('image', image);
+      }
+
       this.$el.html(this.template(this.model.toJSON()));
       return this.$el;
     },
@@ -127,20 +141,6 @@ $(function(){
       ActivatorItems.fetch({
         reset: true,
         success: function(model, response) {
-          model.each(function(item) {
-            var image = 'images/default.jpg';
-            if( item.get('image')!='' &&
-                item.get('image')!=null &&
-                typeof appConfig != 'undefined' &&
-                appConfig.hasOwnProperty('imagePath') &&
-                appConfig.imagePath!='' &&
-                item.get('image').indexOf(appConfig.imagePath)!==0 ) {
-
-              image = appConfig.imagePath + item.get('image');
-            }
-            item.set('image', image);
-          });
-
           ActivatorItems.pager();
 
           var PaginationView = new ActivatorPaginationView();
