@@ -19,23 +19,19 @@
 
     <script id="pagination" type="text/template">
 
-        <span class="cell last pages">
-            <% if (currentPage != 1) { %>
-                <a href="#" class="first">First</a>
-                <a href="#" class="prev">Previous</a>
+        <ul class="pagination">
+          <li<% if (currentPage == 1) { %> class="disabled"<% } %>><a href="#" class="first">First</a></li>
+          <li<% if (currentPage == 1) { %> class="disabled"<% } %>><a href="#" class="prev">Previous</a></li>
+          <% _.each (pageSet, function (p) { %>
+            <% if (currentPage == p) { %>
+              <li class="active"><a href="#"><%= p %></a></li>
+            <% } else { %>
+              <li><a href="#" class="page"><%= p %></a></li>
             <% } %>
-            <% _.each (pageSet, function (p) { %>
-                <% if (currentPage == p) { %>
-                    <span class="page selected"><%= p %></span>
-                <% } else { %>
-                    <a href="#" class="page"><%= p %></a>
-                <% } %>
-            <% }); %>
-            <% if (lastPage != currentPage && lastPage != 0) { %>
-                <a href="#" class="next">Next</a>
-                <a href="#" class="last">Last</a>
-            <% } %>
-        </span>
+          <% }); %>
+          <li<% if (lastPage == currentPage || lastPage == 0) { %> class="disabled"<% } %>><a href="#" class="next">Next</a></li>
+          <li<% if (lastPage == currentPage || lastPage == 0) { %> class="disabled"<% } %>><a href="#" class="last">Last</a></li>
+        </ul>
 
     </script>
 
