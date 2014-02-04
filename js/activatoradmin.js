@@ -21,9 +21,22 @@ $(function(){
   });
 
   // Collection
-  var ActivatorList = Backbone.Collection.extend({
+  var ActivatorList = Backbone.Paginator.clientPager.extend({
     model: ActivatorItem,
-    url: 'index.php/items'
+    paginator_core: {
+      type: 'GET',
+      dataType: 'json',
+      url: 'index.php/items'
+    },
+    paginator_ui: {
+      firstPage: 1,
+      currentPage: 1,
+      perPage: 10,
+      totalPages: 10
+    },
+    parse: function (response) {
+      return response;
+    }
   });
 
   // Global Collection
@@ -65,30 +78,84 @@ $(function(){
     }
   });
 
+  // PaginationView
+  var ActivatorPaginationView = Backbone.View.extend({
+    events: {
+      'click a.first': 'gotoFirst',
+      'click a.prev': 'gotoPrev',
+      'click a.next': 'gotoNext',
+      'click a.last': 'gotoLast',
+      'click a.page': 'gotoPage'
+    },
+    template: _.template($('#pagination').html()),
+    initialize: function() {
+      ActivatorItems.on('reset', this.render, this);
+    },
+    render: function() {
+      this.$el.html(this.template(ActivatorItems.info()));
+      $('#pagination-container').append(this.$el);
+    },
+    gotoFirst: function (e) {
+      e.preventDefault();
+      ActivatorItems.goTo(1);
+    },
+    gotoPrev: function (e) {
+      e.preventDefault();
+      ActivatorItems.previousPage();
+    },
+    gotoNext: function (e) {
+      e.preventDefault();
+      ActivatorItems.nextPage();
+    },
+    gotoLast: function (e) {
+      e.preventDefault();
+      ActivatorItems.goTo(ActivatorItems.information.lastPage);
+    },
+    gotoPage: function (e) {
+      e.preventDefault();
+      var page = $(e.target).text();
+      ActivatorItems.goTo(page);
+    }
+  });
+
   // AppView
   var ActivatorAppView = Backbone.View.extend({
     el: $('#container'),
     initialize: function() {
+      ActivatorItems.on('reset', this.addItems, this);
+
       ActivatorItems.fetch({
+        reset: true,
         success: function(model, response) {
-          $(model.models).each(function(index,item) {
+          model.each(function(item) {
             var image = 'images/default.jpg';
             if( item.get('image')!='' &&
                 item.get('image')!=null &&
                 typeof appConfig != 'undefined' &&
                 appConfig.hasOwnProperty('imagePath') &&
-                appConfig.imagePath!='' ) {
+                appConfig.imagePath!='' &&
+                item.get('image').indexOf(appConfig.imagePath)!==0 ) {
 
               image = appConfig.imagePath + item.get('image');
             }
             item.set('image', image);
-            
-            var view = new ActivatorView({
-              model: item
-            });
-            $("#itemlist").append(view.render());
           });
+
+          ActivatorItems.pager();
+
+          var PaginationView = new ActivatorPaginationView();
+          PaginationView.render();
         }
+      });
+    },
+    addItems: function() {
+      $('#itemlist').empty();
+
+      ActivatorItems.each(function(item) {
+        var view = new ActivatorView({
+          model: item
+        });
+        $('#itemlist').append(view.render());
       });
     }
   });
