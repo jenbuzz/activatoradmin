@@ -2,7 +2,7 @@ $(function(){
   "use strict";
 
   // Model
-  var ActivatorItem = Backbone.Model.extend({
+  window.ActivatorItem = Backbone.Model.extend({
     urlRoot: 'index.php/item',
     idAttribute: 'id',
     initialize: function() {
@@ -21,7 +21,7 @@ $(function(){
   });
 
   // Collection
-  var ActivatorList = Backbone.Paginator.clientPager.extend({
+  window.ActivatorList = Backbone.Paginator.clientPager.extend({
     model: ActivatorItem,
     paginator_core: {
       type: 'GET',
@@ -43,7 +43,7 @@ $(function(){
   var ActivatorItems = new ActivatorList();
 
   // View
-  var ActivatorItemView = Backbone.View.extend({
+  window.ActivatorItemView = Backbone.View.extend({
     tagName: 'li',
     className: 'well',
     template: _.template($('#item').html()),
@@ -98,7 +98,7 @@ $(function(){
   });
 
   // PaginationView
-  var ActivatorPaginationView = Backbone.View.extend({
+  window.ActivatorPaginationView = Backbone.View.extend({
     events: {
       'click a.first': 'gotoFirst',
       'click a.prev': 'gotoPrev',
@@ -138,7 +138,7 @@ $(function(){
   });
 
   // AppView
-  var ActivatorAppView = Backbone.View.extend({
+  window.ActivatorAppView = Backbone.View.extend({
     el: $('#container'),
     initialize: function() {
       ActivatorItems.on('reset', this.addItems, this);
