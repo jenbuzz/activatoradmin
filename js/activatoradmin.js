@@ -70,6 +70,11 @@ $(function(){
       }
 
       this.$el.html(this.template(this.model.toJSON()));
+
+      this.$el.find('input').tooltip({
+        placement : 'top'
+      });
+
       return this.$el;
     },
     toggleActivate: function() {

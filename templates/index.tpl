@@ -10,7 +10,7 @@
     <script id="item" type="text/template">
 
         <label>
-          <input id="toggle-activate" type="checkbox" <% if(isactive==1) { %>checked="checked" <% } %>/>
+          <input id="toggle-activate" type="checkbox" <% if(isactive==1) { %>checked="checked" <% } %>title="<% if(isactive==1) { %>de<% } %>activate" />
           <%=name%>
         </label>
         <img class="img-thumbnail" src="<% if(image) { %><%=image%><% } else { %>images/default.jpg<% } %>" />
@@ -54,6 +54,7 @@
     <div id="background"></div>
 
     <script src="js/lib/jquery.min.js"></script>
+    <script src="js/lib/bootstrap.min.js"></script>
     <script src="js/lib/underscore-min.js"></script>
     <script src="js/lib/backbone-min.js"></script>
     <script src="js/lib/backbone.paginator.min.js"></script>
