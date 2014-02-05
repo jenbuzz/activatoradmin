@@ -7,3 +7,4 @@ ActivatorAdmin
 - jQuery 2.1.0
 - Bootstrap 3.1.0
 - PHPUnit
+- Jasmine 2.0.0
