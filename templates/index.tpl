@@ -37,7 +37,7 @@
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/bootstrap-theme.min.css" rel="stylesheet">
-    <link href="css/activatoradmin.css" rel="stylesheet">
+    <link href="css/activatoradmin.min.css" rel="stylesheet">
   </head>
 
   <body>
@@ -59,7 +59,7 @@
     <script src="js/lib/backbone-min.js"></script>
     <script src="js/lib/backbone.paginator.min.js"></script>
     <script src="config/config.js"></script>
-    <script src="js/activatoradmin.js"></script>
+    <script src="js/activatoradmin.min.js"></script>
   </body>
 
 </html>
