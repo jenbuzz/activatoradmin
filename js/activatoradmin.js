@@ -1,11 +1,21 @@
 requirejs.config({
   paths: {
-    'text': 'js/lib/text'
+    text: 'js/lib/text',
+    jquery: 'js/lib/jquery.min',
+    bootstrap: 'js/lib/bootstrap.min',
+    underscore: 'js/lib/underscore-min',
+    backbone: 'js/lib/backbone-min',
+    backbonePaginator: 'js/lib/backbone.paginator.min'
   }
 });
 require([
   'text!templates/item.tpl',
-  'text!templates/pagination.tpl'
+  'text!templates/pagination.tpl',
+  'jquery',
+  'bootstrap',
+  'underscore',
+  'backbone',
+  'backbonePaginator'
 ], function(tplItem, tplPagination) {
   "use strict";
 

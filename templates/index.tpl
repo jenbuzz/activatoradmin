@@ -25,11 +25,6 @@
 
     <div id="background"></div>
 
-    <script src="js/lib/jquery.min.js"></script>
-    <script src="js/lib/bootstrap.min.js"></script>
-    <script src="js/lib/underscore-min.js"></script>
-    <script src="js/lib/backbone-min.js"></script>
-    <script src="js/lib/backbone.paginator.min.js"></script>
     <script src="js/lib/require.js"></script>
     <script src="config/config.js"></script>
     <script src="js/activatoradmin.min.js"></script>
