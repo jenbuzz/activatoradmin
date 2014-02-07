@@ -1,4 +1,12 @@
-$(function(){
+requirejs.config({
+  paths: {
+    'text': 'js/lib/text'
+  }
+});
+require([
+  'text!templates/item.tpl',
+  'text!templates/pagination.tpl'
+], function(tplItem, tplPagination) {
   "use strict";
 
   // Model
@@ -46,7 +54,7 @@ $(function(){
   window.ActivatorItemView = Backbone.View.extend({
     tagName: 'li',
     className: 'well',
-    template: _.template($('#item').html()),
+    template: _.template(tplItem),
     events: {
       'click #toggle-activate': 'toggleActivate',
       'click img': 'toggleImage'
@@ -106,7 +114,7 @@ $(function(){
       'click a.last': 'gotoLast',
       'click a.page': 'gotoPage'
     },
-    template: _.template($('#pagination').html()),
+    template: _.template(tplPagination),
     initialize: function() {
       ActivatorItems.on('reset', this.render, this);
     },
