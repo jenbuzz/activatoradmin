@@ -1,25 +1,3 @@
-requirejs.config({
-  paths: {
-    text: 'js/lib/text',
-    jquery: 'js/lib/jquery.min',
-    bootstrap: 'js/lib/bootstrap.min',
-    underscore: 'js/lib/underscore-min',
-    backbone: 'js/lib/backbone-min',
-    backbonePaginator: 'js/lib/backbone.paginator.min'
-  },
-  shim: {
-    underscore: {
-      exports: '_'
-    },
-    backbone: {
-      deps: ['underscore', 'jquery'],
-      exports: 'Backbone'
-    },
-    backbonePaginator: {
-      deps: ['backbone']
-    }
-  }
-});
 require([
   'text!templates/item.tpl',
   'text!templates/pagination.tpl',
