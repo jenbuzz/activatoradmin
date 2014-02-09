@@ -6,6 +6,18 @@ requirejs.config({
     underscore: 'js/lib/underscore-min',
     backbone: 'js/lib/backbone-min',
     backbonePaginator: 'js/lib/backbone.paginator.min'
+  },
+  shim: {
+    underscore: {
+      exports: '_'
+    },
+    backbone: {
+      deps: ['underscore', 'jquery'],
+      exports: 'Backbone'
+    },
+    backbonePaginator: {
+      deps: ['backbone']
+    }
   }
 });
 require([
