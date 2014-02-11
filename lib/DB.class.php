@@ -23,6 +23,8 @@ class DB
     {
         $db = new \mysqli($config['db']['host'], $config['db']['user'], $config['db']['pass'], $config['db']['name']);
 
+        $db->query("SET NAMES 'utf8'");
+
         return $db;
     }
 
