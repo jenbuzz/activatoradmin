@@ -29,13 +29,13 @@ class DB
     /**
      * getConnection connects to a MySQL database and returns an instance of mysqli for further communication with the database.
      *
-     * @param array $config is the configuration array that is setup in config/config.php
+     * @param array $config is the db entry in the configuration array that is setup in config/config.php.
      *
      * @return object mysqli
      */
     public function getConnection($config)
     {
-        $db = new \mysqli($config['db']['host'], $config['db']['user'], $config['db']['pass'], $config['db']['name']);
+        $db = new \mysqli($config['host'], $config['user'], $config['pass'], $config['name']);
 
         $db->query("SET NAMES 'utf8'");
 
