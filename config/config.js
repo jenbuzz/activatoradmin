@@ -1,4 +1,5 @@
 var appConfig = {
+  baseUrl: '/activatoradmin/',
   imagePath: 'images/',
   db_mapping: {
     name: 'name',

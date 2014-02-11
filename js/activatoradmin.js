@@ -9,9 +9,15 @@ require([
 ], function(tplItem, tplPagination) {
   "use strict";
 
+  // Setup baseUrl (if ActivatorAdmin is in root the baseUrl should be /)
+  var baseUrl = '';
+  if( typeof appConfig != 'undefined' && appConfig.hasOwnProperty('baseUrl') ) {
+    baseUrl = appConfig.baseUrl;
+  }
+
   // Model
   window.ActivatorItem = Backbone.Model.extend({
-    urlRoot: 'index.php/item',
+    urlRoot: baseUrl+'index.php/item',
     idAttribute: 'id',
     initialize: function() {
       if( typeof appConfig != 'undefined' && appConfig.hasOwnProperty('db_mapping') ) {
@@ -34,7 +40,7 @@ require([
     paginator_core: {
       type: 'GET',
       dataType: 'json',
-      url: 'index.php/items'
+      url: baseUrl+'index.php/items'
     },
     paginator_ui: {
       firstPage: 1,
@@ -68,12 +74,12 @@ require([
           typeof appConfig != 'undefined' &&
           appConfig.hasOwnProperty('imagePath') &&
           appConfig.imagePath!='' &&
-          this.model.get('image').indexOf(appConfig.imagePath)!==0 ) {
+          this.model.get('image').indexOf(baseUrl+appConfig.imagePath)!==0 ) {
 
-        var image = appConfig.imagePath + this.model.get('image');
+        var image = baseUrl + appConfig.imagePath + this.model.get('image');
         this.model.set('image', image);
       } else if( this.model.get('image')=='' || this.model.get('image')===null ) {
-        var image = 'images/default.jpg';
+        var image = baseUrl + 'images/default.jpg';
         this.model.set('image', image);
       }
 
