@@ -1,6 +1,11 @@
 var appConfig = {
+  // Path to this application (should be '/' if in root)
   baseUrl: '/activatoradmin/',
+
+  // Path to images (excluding default.jpg)
   imagePath: 'images/',
+
+  // Map default db column structure to other naming conventions
   db_mapping: {
     name: 'name',
     isactive: 'isactive',
@@ -8,6 +13,7 @@ var appConfig = {
   }
 };
 
+/* require.js configuration should not be manipulated! */
 requirejs.config({
   paths: {
     text: 'js/lib/text',
