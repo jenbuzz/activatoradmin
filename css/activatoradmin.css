@@ -19,6 +19,28 @@
   cursor: pointer;
   max-height: 90px;
 }
+.itemContainer {
+  display: table;
+  width: 100%;
+}
+.itemContainer div {
+  display: table-cell;
+  vertical-align: middle;
+}
+.modal-open {
+  overflow: visible;
+}
+.modal {
+  overflow: auto;
+}
+.btn {
+  font-size: 20px;
+  line-height: 0.7;
+}
+.btn-info {
+  opacity: 0.5;
+  border-radius: 15px;
+}
 #background {
   display: none;
   position: fixed;
