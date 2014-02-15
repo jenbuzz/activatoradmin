@@ -11,3 +11,4 @@ ActivatorAdmin
 - Faker 1.3.0 (https://github.com/fzaninotto/Faker)
 - RequireJS 2.1.10
 - RequireJS text 2.0.10 (https://github.com/requirejs/text)
+- phpDocumentor 2.2.0
