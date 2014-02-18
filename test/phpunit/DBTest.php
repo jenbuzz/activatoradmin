@@ -15,7 +15,8 @@ class DBTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetInstance()
     {
-        $db = \ActivatorAdmin\Lib\DB::getInstance();
+        require(__DIR__ . '/../../config/config.php');
+        $db = \ActivatorAdmin\Lib\DB::getInstance($config['db']);
         $this->assertInstanceOf('\ActivatorAdmin\Lib\DB', $db);
     }
 
@@ -25,9 +26,9 @@ class DBTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetConnection()
     {
-        require_once(__DIR__ . '/../../config/config.php');
-        $db = \ActivatorAdmin\Lib\DB::getInstance();
-        $mysqli = $db->getConnection($config['db']);
+        require(__DIR__ . '/../../config/config.php');
+        $db = \ActivatorAdmin\Lib\DB::getInstance($config['db']);
+        $mysqli = $db->getConnection();
         $this->assertInstanceOf('mysqli', $mysqli);
     }
 
