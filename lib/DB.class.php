@@ -9,37 +9,44 @@ namespace ActivatorAdmin\Lib;
 class DB
 {
     private static $instance;
+    private $mysqli;
 
-    private function __construct() {}
+    /**
+     * Connect to a MySQL database with the credentials from the $config['db'] array.
+     *
+     * @param array $config is the db entry in the configuration array that is setup in config/config.php.
+     */
+    private function __construct($config)
+    {
+        $this->mysqli = new \mysqli($config['host'], $config['user'], $config['pass'], $config['name']);
+    }
 
     /**
      * getInstance returns an instance of DB (Singleton Pattern).
      *
+     * @param array $config is the db entry in the configuration array that is setup in config/config.php.
+     *
      * @return object DB
      */
-    public static function getInstance()
+    public static function getInstance($config)
     {
         if (static::$instance === null) {
-            static::$instance = new static();
+            static::$instance = new static($config);
         }
 
         return static::$instance;
     }
 
     /**
-     * getConnection connects to a MySQL database and returns an instance of mysqli for further communication with the database.
-     *
-     * @param array $config is the db entry in the configuration array that is setup in config/config.php.
+     * getConnection returns a reference to the mysqli object created in the contructer.
      *
      * @return object mysqli
      */
-    public function getConnection($config)
+    public function getConnection()
     {
-        $db = new \mysqli($config['host'], $config['user'], $config['pass'], $config['name']);
+        $this->mysqli->query("SET NAMES 'utf8'");
 
-        $db->query("SET NAMES 'utf8'");
-
-        return $db;
+        return $this->mysqli;
     }
 
 }

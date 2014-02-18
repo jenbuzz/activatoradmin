@@ -26,8 +26,8 @@ $app->get('/', function() use($app) {
  */
 $app->get('/items', function() use($app) {
     $config = $app->config('custom');
-    $objDB = \ActivatorAdmin\Lib\DB::getInstance();
-    $db = $objDB->getConnection($config['db']);
+    $objDB = \ActivatorAdmin\Lib\DB::getInstance($config['db']);
+    $db = $objDB->getConnection();
     $arrItems = array();
 
     $sql = "SELECT * FROM ".$config['db']['table'];
@@ -47,8 +47,8 @@ $app->get('/items', function() use($app) {
 $app->get('/item/:id', function($id) use($app) {
     if ($id>0 && is_numeric($id)) {
         $config = $app->config('custom');
-        $objDB = \ActivatorAdmin\Lib\DB::getInstance();
-        $db = $objDB->getConnection($config['db']);
+        $objDB = \ActivatorAdmin\Lib\DB::getInstance($config['db']);
+        $db = $objDB->getConnection();
         $arrItem = array();
 
         $sql = "SELECT * FROM ".$config['db']['table']." WHERE id=".$db->real_escape_string($id);
@@ -69,8 +69,8 @@ $app->get('/item/:id', function($id) use($app) {
 $app->put('/item/:id', function($id) use($app) {
     if ($id>0 && is_numeric($id)) {
         $config = $app->config('custom');
-        $objDB = \ActivatorAdmin\Lib\DB::getInstance();
-        $db = $objDB->getConnection($config['db']);
+        $objDB = \ActivatorAdmin\Lib\DB::getInstance($config['db']);
+        $db = $objDB->getConnection();
 
         $request = json_decode($app->request->getBody());
  
