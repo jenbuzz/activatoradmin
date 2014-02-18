@@ -27,11 +27,9 @@ $app->get('/', function() use($app) {
 $app->get('/items', function() use($app) {
     $config = $app->config('custom');
     $objDB = \ActivatorAdmin\Lib\DB::getInstance($config['db']);
-    $db = $objDB->getConnection();
     $arrItems = array();
 
-    $sql = "SELECT * FROM ".$config['db']['table'];
-    $res = $db->query($sql);
+    $res = $objDB->select($config['db']['table']);
     if ($res && $res->num_rows>0) {
         while ($row = $res->fetch_array(MYSQLI_ASSOC)) {
             $arrItems[] = $row;
@@ -51,8 +49,7 @@ $app->get('/item/:id', function($id) use($app) {
         $db = $objDB->getConnection();
         $arrItem = array();
 
-        $sql = "SELECT * FROM ".$config['db']['table']." WHERE id=".$db->real_escape_string($id);
-        $res = $db->query($sql);
+        $res = $objDB->select($config['db']['table'], '*', 'id='.$db->real_escape_string($id));
         if ($res && $res->num_rows>0) {
             $arrItem = $res->fetch_array(MYSQLI_ASSOC);
         }

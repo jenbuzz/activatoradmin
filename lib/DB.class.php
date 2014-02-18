@@ -49,4 +49,25 @@ class DB
         return $this->mysqli;
     }
 
+    /**
+     * Execute a select query defined using the parameters.
+     *
+     * @param string $table is the name of table to run the select query on.
+     * @param string $columns are the names of the columns to return. Not required. Default * (all columns).
+     * @param string $where is the where clause for filtering the records. Not required.
+     * @param int $limit is the number of records to return. Not required.
+     */
+    public function select($table, $columns='*', $where=false, $limit=false)
+    {
+        $sql = 'SELECT '.$columns.' FROM '.$table;
+        if ($where) {
+            $sql.= ' WHERE '.$where;
+        }
+        if ($limit) {
+            $sql.= ' LIMIT '.$limit;
+        }
+
+        return $this->mysqli->query($sql);
+    }
+
 }
