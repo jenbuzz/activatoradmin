@@ -71,6 +71,16 @@ class DB
     }
 
     /**
+     * Execute an insert query defined using the parameters.
+     *
+     * TODO: so far just a dummy function.
+     */
+    public function insert($sql)
+    {
+        $this->mysqli->query($sql);
+    }
+
+    /**
      * Execute an update query defined using the parameters.
      *
      * @param string table is the name of table to run the select query on.
@@ -90,6 +100,16 @@ class DB
             $sql.= ' WHERE '.$where;
         }
 
+        $this->mysqli->query($sql);
+    }
+
+    /**
+     * Execute a delete query defined using the parameters.
+     *
+     * TODO: so far just a dummy function.
+     */
+    public function delete($sql)
+    {
         $this->mysqli->query($sql);
     }
 
