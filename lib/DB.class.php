@@ -70,4 +70,27 @@ class DB
         return $this->mysqli->query($sql);
     }
 
+    /**
+     * Execute an update query defined using the parameters.
+     *
+     * @param string table is the name of table to run the select query on.
+     * @param array data is an array of fields to update - array key = column_name.
+     * @param string where is the where clause for specifying what to records to update.
+     */
+    public function update($table, $data, $where=false)
+    {
+        $fields = array();
+
+        foreach ($data AS $column_name => $value) {
+            $fields[] = $column_name.'='.$value;
+        }
+
+        $sql = 'UPDATE '.$table.' SET '.implode(',', $fields);
+        if ($where) {
+            $sql.= ' WHERE '.$where;
+        }
+
+        $this->mysqli->query($sql);
+    }
+
 }
