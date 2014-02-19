@@ -106,10 +106,13 @@ class DB
     /**
      * Execute a delete query defined using the parameters.
      *
-     * TODO: so far just a dummy function.
+     * @param string $table is the name of table to run the delete query on.
+     * @param string $where is the where clause for specifying what to records to delete.
      */
-    public function delete($sql)
+    public function delete($table, $where)
     {
+        $sql = 'DELETE FROM '.$table.' WHERE '.$where;
+
         $this->mysqli->query($sql);
     }
 
