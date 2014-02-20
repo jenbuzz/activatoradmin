@@ -9,8 +9,10 @@
 
   <div>
     <button type="button" class="btn btn-info pull-right" data-toggle="modal" data-target="#itemInfo-<%=id%>">i</button>
+    <% if(show_delete) { %>
     <br /><br />
     <button type="button" class="btn btn-danger pull-right" data-toggle="modal" data-target="#itemDelete-<%=id%>">x</button>
+    <% } %>
   </div>
 </div>
 
@@ -45,6 +47,7 @@
   </div>
 </div>
 
+<% if(show_delete) { %>
 <div class="modal fade" id="itemDelete-<%=id%>">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -62,4 +65,4 @@
     </div>
   </div>
 </div>
-
+<% } %>

@@ -10,7 +10,10 @@ var appConfig = {
     name: 'name',
     isactive: 'isactive',
     image: 'image'
-  }
+  },
+
+  // Show delete button for deleting a single item
+  show_delete: true
 };
 
 /* require.js configuration should not be manipulated! */

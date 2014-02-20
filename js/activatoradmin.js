@@ -85,18 +85,32 @@ require([
         model.set('image', image);
       }
 
-      this.$el.html(this.template(model.toJSON()));
+      var json = model.toJSON();
+      if( typeof appConfig != 'undefined' &&
+          appConfig.hasOwnProperty('show_delete') &&
+          appConfig.show_delete ) {
+
+        json.show_delete = appConfig.show_delete;
+      } else {
+        json.show_delete = false;
+      }
+      this.$el.html(this.template(json));
 
       this.$el.find('input').tooltip({
         placement : 'top'
       });
 
-      this.$el.find('#itemDelete-'+model.get('id')).find('#itemDeleteConfirm').on('click', function() {
-        model.destroy({success: function(model, response) {
-          ActivatorItems.pager();
-          $('.modal-backdrop').remove();
-        }});
-      });
+      if( typeof appConfig != 'undefined' &&
+          appConfig.hasOwnProperty('show_delete') &&
+          appConfig.show_delete ) {
+
+        this.$el.find('#itemDelete-'+model.get('id')).find('#itemDeleteConfirm').on('click', function() {
+          model.destroy({success: function(model, response) {
+            ActivatorItems.pager();
+            $('.modal-backdrop').remove();
+          }});
+        });
+      }
 
       return this.$el;
     },
