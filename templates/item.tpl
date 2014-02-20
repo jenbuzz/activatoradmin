@@ -14,7 +14,7 @@
   </div>
 </div>
 
-<div class="modal fade" id="itemInfo-<%=id%>" tabindex="-1" role="dialog">
+<div class="modal fade" id="itemInfo-<%=id%>">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
