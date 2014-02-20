@@ -69,24 +69,33 @@ require([
       this.listenTo(this.model, 'change', this.render);
     },
     render: function() {
-      if( this.model.get('image')!='' &&
-          this.model.get('image')!==null &&
+      var model = this.model;
+
+      if( model.get('image')!='' &&
+          model.get('image')!==null &&
           typeof appConfig != 'undefined' &&
           appConfig.hasOwnProperty('imagePath') &&
           appConfig.imagePath!='' &&
-          this.model.get('image').indexOf(baseUrl+appConfig.imagePath)!==0 ) {
+          model.get('image').indexOf(baseUrl+appConfig.imagePath)!==0 ) {
 
-        var image = baseUrl + appConfig.imagePath + this.model.get('image');
-        this.model.set('image', image);
-      } else if( this.model.get('image')=='' || this.model.get('image')===null ) {
+        var image = baseUrl + appConfig.imagePath + model.get('image');
+        model.set('image', image);
+      } else if( model.get('image')=='' || model.get('image')===null ) {
         var image = baseUrl + 'images/default.jpg';
-        this.model.set('image', image);
+        model.set('image', image);
       }
 
-      this.$el.html(this.template(this.model.toJSON()));
+      this.$el.html(this.template(model.toJSON()));
 
       this.$el.find('input').tooltip({
         placement : 'top'
+      });
+
+      this.$el.find('#itemDelete-'+model.get('id')).find('#itemDeleteConfirm').on('click', function() {
+        model.destroy({success: function(model, response) {
+          ActivatorItems.pager();
+          $('.modal-backdrop').remove();
+        }});
       });
 
       return this.$el;

@@ -34,12 +34,13 @@
   overflow: auto;
 }
 .btn {
-  font-size: 20px;
+  font-size: 15px;
   line-height: 0.7;
 }
-.btn-info {
+.btn-info, .btn-danger {
   opacity: 0.5;
   border-radius: 15px;
+  width: 25px;
 }
 #background {
   display: none;

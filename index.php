@@ -81,6 +81,23 @@ $app->put('/item/:id', function($id) use($app) {
     }
 });
 
+/**
+ * DELETE a single item
+ */
+$app->delete('/item/:id', function($id) use($app) {
+    if ($id>0 && is_numeric($id)) {
+        $config = $app->config('custom');
+        $objDB = \ActivatorAdmin\Lib\DB::getInstance($config['db']);
+        $db = $objDB->getConnection();
+
+        $objDB->delete($config['db']['table'], 'id='.$db->real_escape_string($id));
+
+        echo json_encode(array('success'=>true));
+    } else {
+        echo json_encode(array('success'=>false));
+    }
+});
+
 
 $app->run();
 
