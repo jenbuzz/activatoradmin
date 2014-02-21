@@ -7,15 +7,22 @@
     <img class="img-thumbnail" src="<% if(image) { %><%=image%><% } else { %>images/default.jpg<% } %>" />
   </div>
 
+  <% if(show_info || show_delete) { %>
   <div>
+    <% if(show_info) { %>
     <button type="button" class="btn btn-info pull-right" data-toggle="modal" data-target="#itemInfo-<%=id%>">i</button>
-    <% if(show_delete) { %>
+    <% } %>
+    <% if(show_info && show_delete) { %>
     <br /><br />
+    <% } %>
+    <% if(show_delete) { %>
     <button type="button" class="btn btn-danger pull-right" data-toggle="modal" data-target="#itemDelete-<%=id%>">x</button>
     <% } %>
   </div>
+  <% } %>
 </div>
 
+<% if(show_info) { %>
 <div class="modal fade" id="itemInfo-<%=id%>">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -46,6 +53,7 @@
     </div>
   </div>
 </div>
+<% } %>
 
 <% if(show_delete) { %>
 <div class="modal fade" id="itemDelete-<%=id%>">

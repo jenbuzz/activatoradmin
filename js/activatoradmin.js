@@ -94,6 +94,14 @@ require([
       } else {
         json.show_delete = false;
       }
+      if( typeof appConfig != 'undefined' &&
+          appConfig.hasOwnProperty('show_info') &&
+          appConfig.show_info ) {
+
+        json.show_info = appConfig.show_info;
+      } else {
+        json.show_info = false;
+      }
       this.$el.html(this.template(json));
 
       this.$el.find('input').tooltip({

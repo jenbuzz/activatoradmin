@@ -12,6 +12,9 @@ var appConfig = {
     image: 'image'
   },
 
+  // Show info button for each item
+  show_info: true,
+
   // Show delete button for deleting a single item
   show_delete: true
 };
