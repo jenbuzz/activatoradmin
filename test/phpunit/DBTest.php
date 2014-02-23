@@ -10,25 +10,32 @@ require_once(__DIR__ . '/../../lib/DB.class.php');
 
 class DBTest extends \PHPUnit_Framework_TestCase
 {
+    protected $db;
+
     /**
-     * Test the singleton function getInstance().
+     * Connects to a MySQL database and gets an instance of DB.
+     * MySQL connection credentials are pulled from /config/config.php.
      */
-    public function testGetInstance()
+    protected function setUp()
     {
         require(__DIR__ . '/../../config/config.php');
-        $db = \ActivatorAdmin\Lib\DB::getInstance($config['db']);
-        $this->assertInstanceOf('\ActivatorAdmin\Lib\DB', $db);
+        $this->db = \ActivatorAdmin\Lib\DB::getInstance($config['db']);
     }
 
     /**
-     * Test setting up a databse connection.
-     * MySQL connection credentials are pulled from /config/config.php.
+     * Test the if the singleton function getInstance() returns DB.
+     */
+    public function testGetInstance()
+    {
+        $this->assertInstanceOf('\ActivatorAdmin\Lib\DB', $this->db);
+    }
+
+    /**
+     * Test getting a database connection.
      */
     public function testGetConnection()
     {
-        require(__DIR__ . '/../../config/config.php');
-        $db = \ActivatorAdmin\Lib\DB::getInstance($config['db']);
-        $mysqli = $db->getConnection();
+        $mysqli = $this->db->getConnection();
         $this->assertInstanceOf('mysqli', $mysqli);
     }
 
