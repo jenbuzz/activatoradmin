@@ -6,17 +6,21 @@
     });
     it("should not have an empty string urlRoot", function() {
       var item = new ActivatorItem();
-      return expect(item.get('urlRoot')).not.toBe("");
+      return expect(item.get("urlRoot")).not.toBe("");
     });
     it("should not have an empty string idAttribute", function() {
       var item = new ActivatorItem();
-      return expect(item.get('idAttribute')).not.toBe("");
+      return expect(item.get("idAttribute")).not.toBe("");
     });
   });
 
   describe("ActivatorAdmin Collection", function() {
     it("should exist", function() {
       return expect(ActivatorList).toBeDefined();
+    });
+    it("should have the model equal ActivatorItem", function() {
+      var collection = new ActivatorList();
+      return expect(collection.model).toEqual(ActivatorItem);
     });
   });
 
