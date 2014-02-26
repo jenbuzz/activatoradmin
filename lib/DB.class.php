@@ -75,8 +75,17 @@ class DB
      *
      * TODO: so far just a dummy function.
      */
-    public function insert($sql)
+    public function insert($table, $data)
     {
+        $fields = array();
+        $values = array();
+
+        foreach ($data AS $column_name => $value) {
+            $fields[] = $column_name;
+            $values[] = '"'.$value.'"';
+        }
+
+        $sql = 'INSERT INTO '.$table.' ('.implode(',', $fields).') VALUES ('.implode(',', $values).')';
         $this->mysqli->query($sql);
     }
 
