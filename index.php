@@ -72,7 +72,7 @@ $app->put('/item/:id', function($id) use($app) {
         $request = json_decode($app->request->getBody());
  
         if (is_object($request) && isset($request->isactive)) { 
-            $objDB->update($config['db']['table'], array('isactive'=>$db->real_escape_string($request->isactive)), 'id='.$db->real_escape_string($id));
+            $objDB->update($config['db']['table'], array('isactive'=>$request->isactive), 'id='.$db->real_escape_string($id));
         } else {
             echo json_encode(array('success'=>false));
         }

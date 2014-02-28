@@ -82,7 +82,7 @@ class DB
 
         foreach ($data AS $column_name => $value) {
             $fields[] = $column_name;
-            $values[] = '"'.$value.'"';
+            $values[] = '"'.$this->mysqli->real_escape_string($value).'"';
         }
 
         $sql = 'INSERT INTO '.$table.' ('.implode(',', $fields).') VALUES ('.implode(',', $values).')';
@@ -101,7 +101,7 @@ class DB
         $fields = array();
 
         foreach ($data AS $column_name => $value) {
-            $fields[] = $column_name.'='.$value;
+            $fields[] = $column_name.'='.$this->mysqli->real_escape_string($value);
         }
 
         $sql = 'UPDATE '.$table.' SET '.implode(',', $fields);
