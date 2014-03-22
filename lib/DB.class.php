@@ -54,14 +54,15 @@ class DB
      *
      * @param string $table is the name of table to run the select query on.
      * @param string $columns are the names of the columns to return. Not required. Default * (all columns).
-     * @param string $where is the where clause for filtering the records. Not required.
+     * @param string $whereColoumn is the column name for the where clause for filtering the records. Not required.
+	 * @param string $whereValue is the value for the where clause for filtering the records. Not required.
      * @param int $limit is the number of records to return. Not required.
      */
-    public function select($table, $columns='*', $where=false, $limit=false)
+    public function select($table, $columns='*', $whereColumn=false, $whereValue=false, $limit=false)
     {
         $sql = 'SELECT '.$columns.' FROM '.$table;
-        if ($where) {
-            $sql.= ' WHERE '.$where;
+        if ($whereColumn && $whereValue) {
+            $sql.= ' WHERE '.$whereColumn.'='.$this->mysqli->real_escape_string($whereValue);
         }
         if ($limit) {
             $sql.= ' LIMIT '.$limit;
@@ -94,9 +95,10 @@ class DB
      *
      * @param string table is the name of table to run the select query on.
      * @param array data is an array of fields to update - array key = column_name.
-     * @param string where is the where clause for specifying what to records to update.
+     * @param string whereColumn is the column name for the where clause for specifying what to records to update.
+	 * @param string whereValue is the value for the where clause for specifying what to records to update.
      */
-    public function update($table, $data, $where=false)
+    public function update($table, $data, $whereColumn=false, $whereValue=false)
     {
         $fields = array();
 
@@ -105,8 +107,8 @@ class DB
         }
 
         $sql = 'UPDATE '.$table.' SET '.implode(',', $fields);
-        if ($where) {
-            $sql.= ' WHERE '.$where;
+        if ($whereColumn && $whereValue) {
+            $sql.= ' WHERE '.$whereColumn.'='.$this->mysqli->real_escape_string($whereValue);
         }
 
         $this->mysqli->query($sql);
@@ -116,11 +118,12 @@ class DB
      * Execute a delete query defined using the parameters.
      *
      * @param string $table is the name of table to run the delete query on.
-     * @param string $where is the where clause for specifying what to records to delete.
+     * @param string $whereColumn is the column name for the where clause for specifying what to records to delete.
+	 * @param string $whereValue is the value for the where clause for specifying what to records to delete.
      */
-    public function delete($table, $where)
+    public function delete($table, $whereColumn, $whereValue)
     {
-        $sql = 'DELETE FROM '.$table.' WHERE '.$where;
+        $sql = 'DELETE FROM '.$table.' WHERE '.$whereColumn.'='.$whereValue;
 
         $this->mysqli->query($sql);
     }

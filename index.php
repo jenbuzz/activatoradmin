@@ -46,10 +46,9 @@ $app->get('/item/:id', function($id) use($app) {
     if ($id>0 && is_numeric($id)) {
         $config = $app->config('custom');
         $objDB = \ActivatorAdmin\Lib\DB::getInstance($config['db']);
-        $db = $objDB->getConnection();
         $arrItem = array();
 
-        $res = $objDB->select($config['db']['table'], '*', 'id='.$db->real_escape_string($id));
+        $res = $objDB->select($config['db']['table'], '*', 'id', $id);
         if ($res && $res->num_rows>0) {
             $arrItem = $res->fetch_array(MYSQLI_ASSOC);
         }
@@ -67,12 +66,11 @@ $app->put('/item/:id', function($id) use($app) {
     if ($id>0 && is_numeric($id)) {
         $config = $app->config('custom');
         $objDB = \ActivatorAdmin\Lib\DB::getInstance($config['db']);
-        $db = $objDB->getConnection();
 
         $request = json_decode($app->request->getBody());
  
         if (is_object($request) && isset($request->isactive)) { 
-            $objDB->update($config['db']['table'], array('isactive'=>$request->isactive), 'id='.$db->real_escape_string($id));
+            $objDB->update($config['db']['table'], array('isactive'=>$request->isactive), 'id', $id);
         } else {
             echo json_encode(array('success'=>false));
         }
@@ -88,9 +86,8 @@ $app->delete('/item/:id', function($id) use($app) {
     if ($id>0 && is_numeric($id)) {
         $config = $app->config('custom');
         $objDB = \ActivatorAdmin\Lib\DB::getInstance($config['db']);
-        $db = $objDB->getConnection();
 
-        $objDB->delete($config['db']['table'], 'id='.$db->real_escape_string($id));
+        $objDB->delete($config['db']['table'], 'id', $id);
 
         echo json_encode(array('success'=>true));
     } else {
