@@ -27,14 +27,8 @@ $app->get('/', function() use($app) {
 $app->get('/items', function() use($app) {
     $config = $app->config('custom');
     $objDB = \ActivatorAdmin\Lib\DB::getInstance($config['db']);
-    $arrItems = array();
-
-    $res = $objDB->select($config['db']['table']);
-    if ($res && $res->num_rows>0) {
-        while ($row = $res->fetch_array(MYSQLI_ASSOC)) {
-            $arrItems[] = $row;
-        }
-    }
+    
+    $arrItems = $objDB->select($config['db']['table']);
 
     echo json_encode($arrItems);
 });
@@ -46,13 +40,9 @@ $app->get('/item/:id', function($id) use($app) {
     if ($id>0 && is_numeric($id)) {
         $config = $app->config('custom');
         $objDB = \ActivatorAdmin\Lib\DB::getInstance($config['db']);
-        $arrItem = array();
-
-        $res = $objDB->select($config['db']['table'], '*', 'id', $id);
-        if ($res && $res->num_rows>0) {
-            $arrItem = $res->fetch_array(MYSQLI_ASSOC);
-        }
-
+        
+		$arrItem = $objDB->select($config['db']['table'], '*', 'id', $id);
+        
         echo json_encode($arrItem);
     } else {
         echo json_encode(array('success'=>false));

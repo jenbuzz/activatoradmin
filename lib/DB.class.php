@@ -67,8 +67,20 @@ class DB
         if ($limit) {
             $sql.= ' LIMIT '.$limit;
         }
+		
+		$result = $this->mysqli->query($sql);
+		$arrData = array();
+		if ($result && $result->num_rows>0) {
+			while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
+				$arrData[] = $row;
+			}
+		}
+		
+		if (count($arrData)===1) {
+		    $arrData = $arrData[0];
+		}
 
-        return $this->mysqli->query($sql);
+        return $arrData;
     }
 
     /**
