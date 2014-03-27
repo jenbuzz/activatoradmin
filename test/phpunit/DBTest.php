@@ -6,6 +6,7 @@
  */
 namespace ActivatorAdmin\Test\PHPunit;
 
+require_once(__DIR__ . '/../../lib/ConfigHelper.class.php');
 require_once(__DIR__ . '/../../lib/DB.class.php');
 
 class DBTest extends \PHPUnit_Framework_TestCase
@@ -18,8 +19,9 @@ class DBTest extends \PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        require(__DIR__ . '/../../config/config.php');
-        $this->db = \ActivatorAdmin\Lib\DB::getInstance($config['db']);
+        $config = new \ActivatorAdmin\Lib\ConfigHelper();
+        $dbConfig = $config->get('db');
+        $this->db = \ActivatorAdmin\Lib\DB::getInstance($dbConfig);
     }
 
     /**
