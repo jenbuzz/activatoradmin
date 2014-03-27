@@ -1,9 +1,11 @@
 <?php
 
-require('config/config.php');
-
+require_once('lib/ConfigHelper.class.php');
 require_once('lib/Slim/Slim.php');
 require_once('lib/DB.class.php');
+
+$config = new \ActivatorAdmin\Lib\ConfigHelper();
+$dbConfig = $config->get('db');
 
 \Slim\Slim::registerAutoloader();
 
@@ -24,11 +26,10 @@ $app->get('/', function() use($app) {
 /**
  * GET all items
  */
-$app->get('/items', function() use($app) {
-    $config = $app->config('custom');
-    $objDB = \ActivatorAdmin\Lib\DB::getInstance($config['db']);
+$app->get('/items', function() use($app, $dbConfig) {
+    $objDB = \ActivatorAdmin\Lib\DB::getInstance($dbConfig);
     
-    $arrItems = $objDB->select($config['db']['table']);
+    $arrItems = $objDB->select($dbConfig['table']);
 
     echo json_encode($arrItems);
 });
@@ -36,12 +37,11 @@ $app->get('/items', function() use($app) {
 /**
  * GET a single item
  */
-$app->get('/item/:id', function($id) use($app) {
+$app->get('/item/:id', function($id) use($app, $dbConfig) {
     if ($id>0 && is_numeric($id)) {
-        $config = $app->config('custom');
-        $objDB = \ActivatorAdmin\Lib\DB::getInstance($config['db']);
+        $objDB = \ActivatorAdmin\Lib\DB::getInstance($dbConfig);
         
-		$arrItem = $objDB->select($config['db']['table'], '*', 'id', $id);
+	$arrItem = $objDB->select($dbConfig['table'], '*', 'id', $id);
         
         echo json_encode($arrItem);
     } else {
@@ -52,15 +52,14 @@ $app->get('/item/:id', function($id) use($app) {
 /**
  * PUT (update) a single item
  */
-$app->put('/item/:id', function($id) use($app) {
+$app->put('/item/:id', function($id) use($app, $dbConfig) {
     if ($id>0 && is_numeric($id)) {
-        $config = $app->config('custom');
-        $objDB = \ActivatorAdmin\Lib\DB::getInstance($config['db']);
+        $objDB = \ActivatorAdmin\Lib\DB::getInstance($dbConfig);
 
         $request = json_decode($app->request->getBody());
  
         if (is_object($request) && isset($request->isactive)) { 
-            $objDB->update($config['db']['table'], array('isactive'=>$request->isactive), 'id', $id);
+            $objDB->update($dbConfig['table'], array('isactive'=>$request->isactive), 'id', $id);
         } else {
             echo json_encode(array('success'=>false));
         }
@@ -72,12 +71,11 @@ $app->put('/item/:id', function($id) use($app) {
 /**
  * DELETE a single item
  */
-$app->delete('/item/:id', function($id) use($app) {
+$app->delete('/item/:id', function($id) use($app, $dbConfig) {
     if ($id>0 && is_numeric($id)) {
-        $config = $app->config('custom');
-        $objDB = \ActivatorAdmin\Lib\DB::getInstance($config['db']);
+        $objDB = \ActivatorAdmin\Lib\DB::getInstance($dbConfig);
 
-        $objDB->delete($config['db']['table'], 'id', $id);
+        $objDB->delete($dbConfig['table'], 'id', $id);
 
         echo json_encode(array('success'=>true));
     } else {

@@ -6,14 +6,14 @@ class ConfigHelper
 {
     private $config;
 
-    private function __construct()
-	{
-	    // TODO: load config file
-	}
+    public function __construct()
+    {
+        $this->config = parse_ini_file(__DIR__.'/../config/config.ini', true);
+    }
 
-    public function get(String $key)
-	{
-	    // TODO: check if $key is in $config and return
-	}
+    public function get($key)
+    {
+        return $this->config[$key];
+    }
 
 }
