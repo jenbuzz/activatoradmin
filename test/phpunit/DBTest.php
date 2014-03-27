@@ -15,7 +15,7 @@ class DBTest extends \PHPUnit_Framework_TestCase
 
     /**
      * Connects to a MySQL database and gets an instance of DB.
-     * MySQL connection credentials are pulled from /config/config.php.
+     * MySQL connection credentials are pulled using class ConfigHelper.
      */
     protected function setUp()
     {
