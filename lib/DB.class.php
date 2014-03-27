@@ -14,7 +14,7 @@ class DB
     /**
      * Connect to a MySQL database with the credentials from the $config['db'] array.
      *
-     * @param array $config is the db entry in the configuration array that is setup in config/config.php.
+     * @param array $config is the db entry in the configuration array that is setup in class ConfigHelper.
      */
     private function __construct($config)
     {
@@ -24,7 +24,7 @@ class DB
     /**
      * getInstance returns an instance of DB (Singleton Pattern).
      *
-     * @param array $config is the db entry in the configuration array that is setup in config/config.php.
+     * @param array $config is the db entry in the configuration array that is setup in class ConfigHelper.
      *
      * @return object DB
      */
