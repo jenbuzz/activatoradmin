@@ -6,28 +6,38 @@
  */
 namespace ActivatorAdmin\Test\PHPunit;
 
+require_once(__DIR__ . '/../../lib/ConfigHelper.class.php');
 require_once(__DIR__ . '/../../lib/DB.class.php');
 
 class DBTest extends \PHPUnit_Framework_TestCase
 {
+    protected $db;
+
     /**
-     * Test the singleton function getInstance().
+     * Connects to a MySQL database and gets an instance of DB.
+     * MySQL connection credentials are pulled using class ConfigHelper.
      */
-    public function testGetInstance()
+    protected function setUp()
     {
-        $db = \ActivatorAdmin\Lib\DB::getInstance();
-        $this->assertInstanceOf('\ActivatorAdmin\Lib\DB', $db);
+        $config = new \ActivatorAdmin\Lib\ConfigHelper();
+        $dbConfig = $config->get('db');
+        $this->db = \ActivatorAdmin\Lib\DB::getInstance($dbConfig);
     }
 
     /**
-     * Test setting up a databse connection.
-     * MySQL connection credentials are pulled from /config/config.php.
+     * Test the if the singleton function getInstance() returns DB.
+     */
+    public function testGetInstance()
+    {
+        $this->assertInstanceOf('\ActivatorAdmin\Lib\DB', $this->db);
+    }
+
+    /**
+     * Test getting a database connection.
      */
     public function testGetConnection()
     {
-        require_once(__DIR__ . '/../../config/config.php');
-        $db = \ActivatorAdmin\Lib\DB::getInstance();
-        $mysqli = $db->getConnection($config['db']);
+        $mysqli = $this->db->getConnection();
         $this->assertInstanceOf('mysqli', $mysqli);
     }
 

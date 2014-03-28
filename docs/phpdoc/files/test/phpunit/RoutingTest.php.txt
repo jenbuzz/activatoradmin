@@ -73,6 +73,16 @@ class RoutingTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(200, $this->response->status());
     }
 
+    /**
+     * Test the 'item' route: Delete an item.
+     * DELETE request on path '/item/id'. id should be an integer/id of an item.
+     */
+    public function testDeleteItem()
+    {
+        $this->request('DELETE', '/item/id');
+        $this->assertEquals(200, $this->response->status());
+    }
+
 }
 
 
