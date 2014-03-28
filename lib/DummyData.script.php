@@ -2,21 +2,21 @@
 
 require_once(__DIR__.'/ConfigHelper.class.php');
 require_once(__DIR__.'/DB.class.php');
-require_once(__DIR__.'/Faker/autoload.php');
 
 $config = new \ActivatorAdmin\Lib\ConfigHelper();
 $dbConfig = $config->get('db');
 
 $objDB = \ActivatorAdmin\Lib\DB::getInstance($dbConfig);
+$mysqli = $objDB->getConnection();
 
-$objFaker = \Faker\Factory::create();
-
-for ($i=0; $i<50; $i++) {
-    $isactive = 0;
-    if ($i%3) {
-      $isactive = 1;
+$handle = @fopen(__DIR__.'/../docs/db-dummy-data-2.sql', 'r');
+if ($handle) {
+    while (($line = fgets($handle, 4096)) !== false) {
+        $mysqli->query($line);
     }
-    
-    $objDB->insert($dbConfig['table'], array('isactive'=>$isactive, 'name'=>$objFaker->name));
+    if (!feof($handle)) {
+        echo "Error: unexpected fgets() fail\n";
+    }
+    fclose($handle);
 }
 
