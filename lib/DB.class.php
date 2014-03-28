@@ -55,7 +55,7 @@ class DB
      * @param string $table is the name of table to run the select query on.
      * @param string $columns are the names of the columns to return. Not required. Default * (all columns).
      * @param string $whereColoumn is the column name for the where clause for filtering the records. Not required.
-	 * @param string $whereValue is the value for the where clause for filtering the records. Not required.
+     * @param string $whereValue is the value for the where clause for filtering the records. Not required.
      * @param int $limit is the number of records to return. Not required.
      */
     public function select($table, $columns='*', $whereColumn=false, $whereValue=false, $limit=false)
@@ -86,7 +86,8 @@ class DB
     /**
      * Execute an insert query defined using the parameters.
      *
-     * TODO: so far just a dummy function.
+     * @param string $table is the name of table to run the insert query on.
+     * @param array $data is array of data to insert. Array key is column name.
      */
     public function insert($table, $data)
     {
@@ -108,7 +109,7 @@ class DB
      * @param string table is the name of table to run the select query on.
      * @param array data is an array of fields to update - array key = column_name.
      * @param string whereColumn is the column name for the where clause for specifying what to records to update.
-	 * @param string whereValue is the value for the where clause for specifying what to records to update.
+     * @param string whereValue is the value for the where clause for specifying what to records to update.
      */
     public function update($table, $data, $whereColumn=false, $whereValue=false)
     {
@@ -131,7 +132,7 @@ class DB
      *
      * @param string $table is the name of table to run the delete query on.
      * @param string $whereColumn is the column name for the where clause for specifying what to records to delete.
-	 * @param string $whereValue is the value for the where clause for specifying what to records to delete.
+     * @param string $whereValue is the value for the where clause for specifying what to records to delete.
      */
     public function delete($table, $whereColumn, $whereValue)
     {
