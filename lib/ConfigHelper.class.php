@@ -16,7 +16,11 @@ class ConfigHelper
 
     public function get($key)
     {
-        return $this->config[$key];
+        if (isset($this->config[$key])) {
+          return $this->config[$key];
+        } else {
+            throw new \ErrorException('Error: '.$key.' is not set in config.ini');
+        }
     }
 
 }
