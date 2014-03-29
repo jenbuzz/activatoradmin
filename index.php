@@ -4,14 +4,14 @@ require_once('lib/ConfigHelper.class.php');
 require_once('lib/Slim/Slim.php');
 require_once('lib/DB.class.php');
 
-$config = new \ActivatorAdmin\Lib\ConfigHelper();
-$dbConfig = $config->get('db');
+$objConfigHelper = new \ActivatorAdmin\Lib\ConfigHelper();
+$dbConfig = $objConfigHelper->get('db');
 
 \Slim\Slim::registerAutoloader();
 
 $app = new \Slim\Slim(
     array(
-        'custom' => $config,
+        'custom' => $objConfigHelper,
         'templates.path' => __DIR__ . '/templates'
     )
 );

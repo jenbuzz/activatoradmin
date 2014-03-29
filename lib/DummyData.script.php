@@ -3,8 +3,8 @@
 require_once(__DIR__.'/ConfigHelper.class.php');
 require_once(__DIR__.'/DB.class.php');
 
-$config = new \ActivatorAdmin\Lib\ConfigHelper();
-$dbConfig = $config->get('db');
+$objConfigHelper = new \ActivatorAdmin\Lib\ConfigHelper();
+$dbConfig = $objConfigHelper->get('db');
 
 $objDB = \ActivatorAdmin\Lib\DB::getInstance($dbConfig);
 $mysqli = $objDB->getConnection();
