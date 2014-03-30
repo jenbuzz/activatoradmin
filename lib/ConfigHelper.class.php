@@ -14,13 +14,18 @@ class ConfigHelper
         }
     }
 
-    public function get($key)
+    public function get($section, $key=false)
     {
-        if (isset($this->config[$key])) {
-          return $this->config[$key];
+        if (isset($this->config[$section])) {
+            if ($key && isset($this->config[$section][$key])) {
+                return $this->config[$section][$key];
+            } else {
+                return $this->config[$section];
+            }
         } else {
-            throw new \ErrorException('Error: '.$key.' is not set in config.ini');
+            throw new \ErrorException('Error: '.$section.' - '.$key.' is not set in config.ini');
         }
     }
 
 }
+
