@@ -19,8 +19,8 @@ class DBTest extends \PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $config = new \ActivatorAdmin\Lib\ConfigHelper();
-        $dbConfig = $config->get('db');
+        $objConfigHelper = new \ActivatorAdmin\Lib\ConfigHelper();
+        $dbConfig = $objConfigHelper->get('db');
         $this->db = \ActivatorAdmin\Lib\DB::getInstance($dbConfig);
     }
 

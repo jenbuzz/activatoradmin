@@ -19,6 +19,8 @@ class DB
     private function __construct($config)
     {
         $this->mysqli = new \mysqli($config['host'], $config['user'], $config['pass'], $config['name']);
+
+        $this->mysqli->query("SET NAMES 'utf8'");
     }
 
     /**
@@ -44,8 +46,6 @@ class DB
      */
     public function getConnection()
     {
-        $this->mysqli->query("SET NAMES 'utf8'");
-
         return $this->mysqli;
     }
 
@@ -68,17 +68,17 @@ class DB
             $sql.= ' LIMIT '.$limit;
         }
 		
-		$result = $this->mysqli->query($sql);
-		$arrData = array();
-		if ($result && $result->num_rows>0) {
-			while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
-				$arrData[] = $row;
-			}
-		}
+        $result = $this->mysqli->query($sql);
+        $arrData = array();
+        if ($result && $result->num_rows>0) {
+            while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
+                $arrData[] = $row;
+            }
+        }
 		
-		if (count($arrData)===1) {
-		    $arrData = $arrData[0];
-		}
+        if (count($arrData)===1) {
+            $arrData = $arrData[0];
+        }
 
         return $arrData;
     }
@@ -106,10 +106,10 @@ class DB
     /**
      * Execute an update query defined using the parameters.
      *
-     * @param string table is the name of table to run the select query on.
-     * @param array data is an array of fields to update - array key = column_name.
-     * @param string whereColumn is the column name for the where clause for specifying what to records to update.
-     * @param string whereValue is the value for the where clause for specifying what to records to update.
+     * @param string $table is the name of table to run the select query on.
+     * @param array $data is an array of fields to update - array key = column_name.
+     * @param string $whereColumn is the column name for the where clause for specifying what to records to update.
+     * @param string $whereValue is the value for the where clause for specifying what to records to update.
      */
     public function update($table, $data, $whereColumn=false, $whereValue=false)
     {
@@ -136,7 +136,7 @@ class DB
      */
     public function delete($table, $whereColumn, $whereValue)
     {
-        $sql = 'DELETE FROM '.$table.' WHERE '.$whereColumn.'='.$whereValue;
+        $sql = 'DELETE FROM '.$table.' WHERE '.$whereColumn.'='.$this->mysqli->real_escape_string($whereValue);
 
         $this->mysqli->query($sql);
     }
