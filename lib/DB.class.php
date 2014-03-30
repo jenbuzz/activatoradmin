@@ -101,6 +101,8 @@ class DB
 
         $sql = 'INSERT INTO '.$table.' ('.implode(',', $fields).') VALUES ('.implode(',', $values).')';
         $this->mysqli->query($sql);
+
+        return $this->mysqli->insert_id;
     }
 
     /**
