@@ -3,10 +3,13 @@
 require_once(__DIR__.'/ConfigHelper.class.php');
 require_once(__DIR__.'/DB.class.php');
 
-$objConfigHelper = new \ActivatorAdmin\Lib\ConfigHelper();
+use \ActivatorAdmin\Lib\ConfigHelper;
+use \ActivatorAdmin\Lib\DB;
+
+$objConfigHelper = new ConfigHelper();
 $dbConfig = $objConfigHelper->get('db');
 
-$objDB = \ActivatorAdmin\Lib\DB::getInstance($dbConfig);
+$objDB = DB::getInstance($dbConfig);
 $mysqli = $objDB->getConnection();
 
 $handle = @fopen(__DIR__.'/../docs/db-dummy-data-2.sql', 'r');

@@ -7,6 +7,8 @@ namespace ActivatorAdmin\Test\PHPunit;
 
 require_once(__DIR__ . '/../../lib/ConfigHelper.class.php');
 
+use \ActivatorAdmin\Lib\ConfigHelper;
+
 class ConfigHelperTest extends \PHPUnit_Framework_TestCase
 {
 
@@ -15,7 +17,7 @@ class ConfigHelperTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetSection()
     {
-        $objConfigHelper = new \ActivatorAdmin\Lib\ConfigHelper();
+        $objConfigHelper = new ConfigHelper();
         $dbConfig = $objConfigHelper->get('db');
 
         $this->assertGreaterThan(0, sizeof($dbConfig));
@@ -27,7 +29,7 @@ class ConfigHelperTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetSectionKey()
     {
-        $objConfigHelper = new \ActivatorAdmin\Lib\ConfigHelper();
+        $objConfigHelper = new ConfigHelper();
         $dbConfigHost = $objConfigHelper->get('db', 'host');
 
         $this->assertGreaterThan(0, strlen($dbConfigHost));

@@ -9,6 +9,9 @@ namespace ActivatorAdmin\Test\PHPunit;
 require_once(__DIR__ . '/../../lib/ConfigHelper.class.php');
 require_once(__DIR__ . '/../../lib/DB.class.php');
 
+use \ActivatorAdmin\Lib\ConfigHelper;
+use \ActivatorAdmin\Lib\DB;
+
 class DBTest extends \PHPUnit_Framework_TestCase
 {
     protected $db;
@@ -19,9 +22,9 @@ class DBTest extends \PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $objConfigHelper = new \ActivatorAdmin\Lib\ConfigHelper();
+        $objConfigHelper = new ConfigHelper();
         $dbConfig = $objConfigHelper->get('db');
-        $this->db = \ActivatorAdmin\Lib\DB::getInstance($dbConfig);
+        $this->db = DB::getInstance($dbConfig);
     }
 
     /**
