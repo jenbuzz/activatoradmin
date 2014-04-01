@@ -65,9 +65,7 @@ require([
       'click #toggle-activate': 'toggleActivate',
       'click img': 'toggleImage'
     },
-    initialize: function() {
-      this.listenTo(this.model, 'change', this.render);
-    },
+    initialize: function() {},
     render: function() {
       var model = this.model;
 
