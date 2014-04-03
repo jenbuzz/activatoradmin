@@ -9,19 +9,43 @@ namespace ActivatorAdmin\Test\PHPunit;
 require_once(__DIR__ . '/../../lib/ConfigHelper.class.php');
 require_once(__DIR__ . '/../../lib/DB.class.php');
 
+use \ActivatorAdmin\Lib\ConfigHelper;
+use \ActivatorAdmin\Lib\DB;
+
 class DBTest extends \PHPUnit_Framework_TestCase
 {
     protected $db;
+    protected $dbConfig;
 
     /**
      * Connects to a MySQL database and gets an instance of DB.
      * MySQL connection credentials are pulled using class ConfigHelper.
+     * Setup a test table before running test cases.
      */
     protected function setUp()
     {
-        $objConfigHelper = new \ActivatorAdmin\Lib\ConfigHelper();
-        $dbConfig = $objConfigHelper->get('db');
-        $this->db = \ActivatorAdmin\Lib\DB::getInstance($dbConfig);
+        $objConfigHelper = new ConfigHelper();
+        $this->dbConfig = $objConfigHelper->get('db');
+        $this->db = DB::getInstance($this->dbConfig);
+
+        // Create pseudo table for testing
+        $mysqli = $this->db->getConnection();
+        $sql = "CREATE TABLE IF NOT EXISTS ".$this->dbConfig['table']."_test ";
+        $sql.= "(id INT(11) NOT NULL AUTO_INCREMENT, isactive TINYINT(4), name VARCHAR(255), image VARCHAR(255) DEFAULT NULL, PRIMARY KEY(id))";
+        $mysqli->query($sql);
+    }
+
+    /**
+     * Drop test table after running testcases.
+     */
+    protected function tearDown()
+    {
+        $this->db = DB::getInstance($this->dbConfig);
+
+        // Create pseudo table for testing
+        $mysqli = $this->db->getConnection();
+        $sql = "DROP TABLE ".$this->dbConfig['table']."_test";
+        $mysqli->query($sql);
     }
 
     /**
@@ -39,6 +63,71 @@ class DBTest extends \PHPUnit_Framework_TestCase
     {
         $mysqli = $this->db->getConnection();
         $this->assertInstanceOf('mysqli', $mysqli);
+    }
+
+    /**
+     * Test select function.
+     * First inserting a record into the test table and then testing the size of the test table.
+     */
+    public function testSelect()
+    {
+        $mysqli = $this->db->getConnection();
+
+        // Insert test record
+        $sqlInsert = "INSERT INTO ".$this->dbConfig['table']."_test (isactive, name) VALUES (1, 'Test Record 1')";
+        $mysqli->query($sqlInsert);
+
+        // Test select function
+        $result = $this->db->select($this->dbConfig['table']."_test");
+        $this->assertGreaterThan(0, sizeof($result));
+    }
+
+    /**
+     * Test insert function.
+     * Insert a test record and check the insert_id that is returned by the insert function.
+     */
+    public function testInsert()
+    {
+        $insert_id = $this->db->insert($this->dbConfig['table']."_test", array('isactive'=>0, 'name'=>'Test Record 2'));
+        $this->assertGreaterThan(0, $insert_id);
+    }
+
+    /**
+     * Test update function.
+     * Insert a test record, update that record, and select it to check to updated name value.
+     */
+    public function testUpdate()
+    {
+        // Insert test record
+        $insert_id = $this->db->insert($this->dbConfig['table']."_test", array('isactive'=>0, 'name'=>'Test Record 3'));
+        
+        // Update test record
+        $this->db->update($this->dbConfig['table']."_test", array('name'=>'New Test Record 3'), 'id', $insert_id);
+
+        // Get the updated record
+        $result = $this->db->select($this->dbConfig['table']."_test", '*', 'id', $insert_id);
+
+        // Check that test record has new name
+        $this->assertEquals($result['name'], 'New Test Record 3');
+    }
+
+    /**
+     * Test delete function.
+     * Insert a test record, delete it, and try to getting using the select function. Should return 0.
+     */
+    public function testDelete()
+    {
+        // Insert test record
+        $insert_id = $this->db->insert($this->dbConfig['table']."_test", array('isactive'=>0, 'name'=>'Test Record 4'));
+
+        // Delete record
+        $this->db->delete($this->dbConfig['table']."_test", 'id', $insert_id);
+
+        // Try to get the deleted record
+        $result = $this->db->select($this->dbConfig['table']."_test", '*', 'id', $insert_id);
+
+        // Check that no records were returned upon select
+        $this->assertEquals(0, sizeof($result));
     }
 
 }
