@@ -111,5 +111,24 @@ class DBTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($result['name'], 'New Test Record 3');
     }
 
+    /**
+     * Test delete function.
+     * Insert a test record, delete it, and try to getting using the select function. Should return 0.
+     */
+    public function testDelete()
+    {
+        // Insert test record
+        $insert_id = $this->db->insert($this->dbConfig['table']."_test", array('isactive'=>0, 'name'=>'Test Record 4'));
+
+        // Delete record
+        $this->db->delete($this->dbConfig['table']."_test", 'id', $insert_id);
+
+        // Try to get the deleted record
+        $result = $this->db->select($this->dbConfig['table']."_test", '*', 'id', $insert_id);
+
+        // Check that no records were returned upon select
+        $this->assertEquals(0, sizeof($result));
+    }
+
 }
 
