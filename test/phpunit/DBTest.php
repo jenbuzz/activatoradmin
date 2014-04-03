@@ -82,5 +82,15 @@ class DBTest extends \PHPUnit_Framework_TestCase
         $this->assertGreaterThan(0, sizeof($result));
     }
 
+    /**
+     * Test insert function.
+     * Insert a test record and check the insert_id that is returned by the insert function.
+     */
+    public function testInsert()
+    {
+        $insert_id = $this->db->insert($this->dbConfig['table']."_test", array('isactive'=>0, 'name'=>'Test Record 2'));
+        $this->assertGreaterThan(0, $insert_id);
+    }
+
 }
 
