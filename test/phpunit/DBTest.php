@@ -92,5 +92,24 @@ class DBTest extends \PHPUnit_Framework_TestCase
         $this->assertGreaterThan(0, $insert_id);
     }
 
+    /**
+     * Test update function.
+     * Insert a test record, update that record, and select it to check to updated name value.
+     */
+    public function testUpdate()
+    {
+        // Insert test record
+        $insert_id = $this->db->insert($this->dbConfig['table']."_test", array('isactive'=>0, 'name'=>'Test Record 3'));
+        
+        // Update test record
+        $this->db->update($this->dbConfig['table']."_test", array('name'=>'New Test Record 3'), 'id', $insert_id);
+
+        // Get the updated record
+        $result = $this->db->select($this->dbConfig['table']."_test", '*', 'id', $insert_id);
+
+        // Check that test record has new name
+        $this->assertEquals($result['name'], 'New Test Record 3');
+    }
+
 }
 
