@@ -118,7 +118,7 @@ class DB
         $fields = array();
 
         foreach ($data AS $column_name => $value) {
-            $fields[] = $column_name.'='.$this->mysqli->real_escape_string($value);
+            $fields[] = $column_name.'="'.$this->mysqli->real_escape_string($value).'"';
         }
 
         $sql = 'UPDATE '.$table.' SET '.implode(',', $fields);
