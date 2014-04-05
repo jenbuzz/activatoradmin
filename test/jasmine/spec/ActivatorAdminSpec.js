@@ -40,6 +40,9 @@
     it("should exist", function() {
       return expect(ActivatorAppView).toBeDefined();
     });
+    it("should have element set to #container", function() {
+      return expect(ActivatorAppView.prototype.el.selector).toEqual("#container");
+    });
   });
 
 }).call(this);
