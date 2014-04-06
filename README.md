@@ -10,4 +10,4 @@ ActivatorAdmin
 - Jasmine 2.0.0
 - RequireJS 2.1.11
 - RequireJS text 2.0.10 (https://github.com/requirejs/text)
-- phpDocumentor 2.2.0
+- phpDocumentor 2.3.1
