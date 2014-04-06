@@ -11,14 +11,22 @@ use \ActivatorAdmin\Lib\ConfigHelper;
 
 class ConfigHelperTest extends \PHPUnit_Framework_TestCase
 {
+    protected $objConfigHelper;
+
+    /**
+     * Initializing object ConfigHelper for use in test functions.
+     */
+    protected function setUp()
+    {
+        $this->objConfigHelper = new ConfigHelper();
+    }
 
     /**
      * Test getting an entire section from the config.ini as an array.
      */
     public function testGetSection()
     {
-        $objConfigHelper = new ConfigHelper();
-        $dbConfig = $objConfigHelper->get('db');
+        $dbConfig = $this->objConfigHelper->get('db');
 
         $this->assertGreaterThan(0, sizeof($dbConfig));
         $this->assertArrayHasKey('host', $dbConfig);
@@ -29,8 +37,7 @@ class ConfigHelperTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetSectionKey()
     {
-        $objConfigHelper = new ConfigHelper();
-        $dbConfigHost = $objConfigHelper->get('db', 'host');
+        $dbConfigHost = $this->objConfigHelper->get('db', 'host');
 
         $this->assertGreaterThan(0, strlen($dbConfigHost));
     }
