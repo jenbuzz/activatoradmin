@@ -34,6 +34,9 @@
     it("should exist", function() {
       return expect(ActivatorPaginationView).toBeDefined();
     });
+    it("should have 5 click events", function() {
+      return expect(Object.keys(ActivatorPaginationView.prototype.events).length).toEqual(5);
+    });
   });
 
   describe("ActivatorAdmin AppView", function() {
