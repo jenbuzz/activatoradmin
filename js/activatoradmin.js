@@ -154,10 +154,10 @@ require([
       ActivatorItems.on('reset', this.render, this);
     },
     render: function() {
-	  if (ActivatorItems.currentPage==ActivatorItems.firstPage && ActivatorItems.origModels.length <= ActivatorItems.perPage) {} else {
-	    this.$el.html(this.template(ActivatorItems.info()));
+      if (ActivatorItems.currentPage==ActivatorItems.firstPage && ActivatorItems.origModels.length <= ActivatorItems.perPage) {} else {
+        this.$el.html(this.template(ActivatorItems.info()));
         $('#pagination-container').append(this.$el);
-	  }
+      }
     },
     gotoFirst: function(e) {
       e.preventDefault();
