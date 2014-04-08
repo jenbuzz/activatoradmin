@@ -66,13 +66,17 @@ class DB
      * @param string $columns are the names of the columns to return. Not required. Default * (all columns).
      * @param string $whereColoumn is the column name for the where clause for filtering the records. Not required.
      * @param string $whereValue is the value for the where clause for filtering the records. Not required.
+     * @param string $orderBy is the column name and direction for sorting records.
      * @param int $limit is the number of records to return. Not required.
      */
-    public function select($table, $columns='*', $whereColumn=false, $whereValue=false, $limit=false)
+    public function select($table, $columns='*', $whereColumn=false, $whereValue=false, $orderBy=false, $limit=false)
     {
         $sql = 'SELECT '.$columns.' FROM '.$table;
         if ($whereColumn && $whereValue) {
             $sql.= ' WHERE '.$whereColumn.'='.$this->mysqli->real_escape_string($whereValue);
+        }
+        if ($orderBy) {
+            $sql.= ' ORDER BY '.$orderBy;
         }
         if ($limit) {
             $sql.= ' LIMIT '.$limit;
