@@ -50,6 +50,16 @@ class DB
     }
 
     /**
+     * Execute a direct query.
+     *
+     * @param string $sql is the sql query string.
+     */
+    public function query($sql)
+    {
+        return $this->mysqli->query($sql);
+    }
+
+    /**
      * Execute a select query defined using the parameters.
      *
      * @param string $table is the name of table to run the select query on.
