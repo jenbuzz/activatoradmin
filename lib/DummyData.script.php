@@ -10,12 +10,11 @@ $objConfigHelper = new ConfigHelper();
 $dbConfig = $objConfigHelper->get('db');
 
 $objDB = DB::getInstance($dbConfig);
-$mysqli = $objDB->getConnection();
 
 $handle = @fopen(__DIR__.'/../docs/db-dummy-data-2.sql', 'r');
 if ($handle) {
     while (($line = fgets($handle, 4096)) !== false) {
-        $mysqli->query($line);
+        $objDB->query($line);
     }
     if (!feof($handle)) {
         echo "Error: unexpected fgets() fail\n";
