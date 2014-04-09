@@ -123,6 +123,7 @@ require([
     toggleActivate: function() {
       var activeState = this.$el.find('#toggle-activate').get(0).checked ? 1 : 0;
       this.model.save({'isactive': activeState});
+      this.render();
     },
     toggleImage: function() {
       var image = this.model.get('image');
