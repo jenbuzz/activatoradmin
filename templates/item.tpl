@@ -64,7 +64,7 @@
         <h4 class="modal-title"><%=name%></h4>
       </div>
       <div class="modal-body">
-        <p>Are you sure you want to delete "<%=name%>"?</p>
+        <p>Are you sure you want to delete <strong><%=name%></strong>?</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
