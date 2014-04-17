@@ -130,13 +130,15 @@ require([
       var imgTop = this.$el.find('img').get(0).offsetTop;
       var imgLeft = this.$el.find('img').get(0).offsetLeft;
 
+      $('body').append('<div id="background"></div>');
+
       $('#background').show('fast', 'linear', function() {
         $('#container').append('<img class="img-thumbnail img-full" src="'+image+'" style="position: absolute; top: '+imgTop+'px; left: '+imgLeft+'px" />');
       });
 
       $('#background').on('click', function() {
-        $(this).hide();
         $('#container').find('.img-full').remove();
+        $(this).remove();
       });
     }
   });

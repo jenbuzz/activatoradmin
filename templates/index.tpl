@@ -23,8 +23,6 @@
       <div id="pagination-container"></div>
     </div>
 
-    <div id="background"></div>
-
     <script src="js/lib/require.js"></script>
     <script src="config/config.js"></script>
     <script src="js/activatoradmin.min.js"></script>
