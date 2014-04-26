@@ -1,0 +1,11 @@
+{
+  "name": "activatoradmin",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dan-lyn/activatoradmin"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.4",
+    "grunt-contrib-uglify": "~0.4.0"
+  }
+}
