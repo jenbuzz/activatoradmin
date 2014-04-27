@@ -11,3 +11,6 @@ ActivatorAdmin
 - RequireJS 2.1.11
 - RequireJS text 2.0.12 (https://github.com/requirejs/text)
 - phpDocumentor 2.3.1
+
+- grunt 0.4.4
+- grunt-contrib-uglify 0.4.0
