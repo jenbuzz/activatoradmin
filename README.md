@@ -15,3 +15,5 @@ ActivatorAdmin
 - grunt 0.4.4
 - grunt-contrib-uglify 0.4.0
 - grunt-contrib-cssmin 0.9.0
+- grunt-contrib-jasmine 0.5.3
+- grunt-template-jasmine-requirejs 0.1.10
