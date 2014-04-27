@@ -53,13 +53,19 @@ module.exports = function(grunt) {
           }
         }
       }
+    },
+    phpunit: {
+      classes: {
+        dir: 'test/phpunit/'
+      }
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-jasmine');
+  grunt.loadNpmTasks('grunt-phpunit');
 
   grunt.registerTask('default', ['uglify', 'cssmin']);
-  grunt.registerTask('test', ['jasmine']);
+  grunt.registerTask('test', ['jasmine', 'phpunit']);
 };

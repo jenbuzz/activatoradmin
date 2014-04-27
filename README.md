@@ -17,3 +17,4 @@ ActivatorAdmin
 - grunt-contrib-cssmin 0.9.0
 - grunt-contrib-jasmine 0.5.3
 - grunt-template-jasmine-requirejs 0.1.10
+- grunt-phpunit 0.3.3
