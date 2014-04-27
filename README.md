@@ -14,3 +14,4 @@ ActivatorAdmin
 
 - grunt 0.4.4
 - grunt-contrib-uglify 0.4.0
+- grunt-contrib-cssmin 0.9.0
