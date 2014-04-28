@@ -1,3 +1,9 @@
+var ActivatorItem = false;
+var ActivatorList = false;
+var ActivatorItemView = false;
+var ActivatorPaginationView = false;
+var ActivatorAppView = false;
+
 require([
   'text!templates/item.tpl',
   'text!templates/pagination.tpl',
@@ -16,7 +22,7 @@ require([
   }
 
   // Model
-  window.ActivatorItem = Backbone.Model.extend({
+  ActivatorItem = Backbone.Model.extend({
     urlRoot: baseUrl+'index.php/item',
     idAttribute: 'id',
     initialize: function() {
@@ -35,7 +41,7 @@ require([
   });
 
   // Collection
-  window.ActivatorList = Backbone.Paginator.clientPager.extend({
+  ActivatorList = Backbone.Paginator.clientPager.extend({
     model: ActivatorItem,
     paginator_core: {
       type: 'GET',
@@ -57,7 +63,7 @@ require([
   var ActivatorItems = new ActivatorList();
 
   // View
-  window.ActivatorItemView = Backbone.View.extend({
+  ActivatorItemView = Backbone.View.extend({
     tagName: 'li',
     className: 'well',
     template: _.template(tplItem),
@@ -144,7 +150,7 @@ require([
   });
 
   // PaginationView
-  window.ActivatorPaginationView = Backbone.View.extend({
+  ActivatorPaginationView = Backbone.View.extend({
     events: {
       'click a.first': 'gotoFirst',
       'click a.prev': 'gotoPrev',
@@ -186,7 +192,7 @@ require([
   });
 
   // AppView
-  window.ActivatorAppView = Backbone.View.extend({
+  ActivatorAppView = Backbone.View.extend({
     el: $('#container'),
     initialize: function() {
       ActivatorItems.on('reset', this.addItems, this);
