@@ -66,6 +66,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jasmine');
   grunt.loadNpmTasks('grunt-phpunit');
 
-  grunt.registerTask('default', ['uglify', 'cssmin']);
+  grunt.registerTask('default', ['uglify', 'cssmin', 'test']);
   grunt.registerTask('test', ['jasmine', 'phpunit']);
 };
