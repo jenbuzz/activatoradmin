@@ -2,6 +2,15 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    watch: {
+      scripts: {
+        files: ['js/<%= pkg.name %>.js', 'css/<%= pkg.name %>.css'],
+        tasks: ['minify'],
+        options: {
+          spawn: false
+        }
+      }
+    },
     uglify: {
       build: {
         src: 'js/<%= pkg.name %>.js',
@@ -61,11 +70,13 @@ module.exports = function(grunt) {
     }
   });
 
+  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-jasmine');
   grunt.loadNpmTasks('grunt-phpunit');
 
-  grunt.registerTask('default', ['uglify', 'cssmin', 'test']);
+  grunt.registerTask('default', ['minify', 'test']);
+  grunt.registerTask('minify', ['uglify', 'cssmin']);
   grunt.registerTask('test', ['jasmine', 'phpunit']);
 };
