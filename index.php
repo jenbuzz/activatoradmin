@@ -41,6 +41,7 @@ $app->get('/items', function() use($app, $dbConfig) {
  * GET a single item
  */
 $app->get('/item/:id', function($id) use($app, $dbConfig) {
+    $id = filter_var($id, FILTER_SANITIZE_NUMBER_INT);
     if ($id>0 && is_numeric($id)) {
         $objDB = DB::getInstance($dbConfig);
         
@@ -56,6 +57,7 @@ $app->get('/item/:id', function($id) use($app, $dbConfig) {
  * PUT (update) a single item
  */
 $app->put('/item/:id', function($id) use($app, $dbConfig) {
+    $id = filter_var($id, FILTER_SANITIZE_NUMBER_INT);
     if ($id>0 && is_numeric($id)) {
         $objDB = DB::getInstance($dbConfig);
 
@@ -75,6 +77,7 @@ $app->put('/item/:id', function($id) use($app, $dbConfig) {
  * DELETE a single item
  */
 $app->delete('/item/:id', function($id) use($app, $dbConfig) {
+    $id = filter_var($id, FILTER_SANITIZE_NUMBER_INT);
     if ($id>0 && is_numeric($id)) {
         $objDB = DB::getInstance($dbConfig);
 
