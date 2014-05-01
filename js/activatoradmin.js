@@ -27,13 +27,13 @@ require([
     idAttribute: 'id',
     initialize: function() {
       if( typeof appConfig != 'undefined' && appConfig.hasOwnProperty('db_mapping') ) {
-        if( appConfig.db_mapping.hasOwnProperty('name') && appConfig.db_mapping.name!='' ) {
+        if( appConfig.db_mapping.hasOwnProperty('name') && appConfig.db_mapping.name!=='' ) {
           this.set('name', this.get(appConfig.db_mapping.name));
         }
-        if( appConfig.db_mapping.hasOwnProperty('isactive') && appConfig.db_mapping.isactive!='' ) {
+        if( appConfig.db_mapping.hasOwnProperty('isactive') && appConfig.db_mapping.isactive!=='' ) {
           this.set('isactive', this.get(appConfig.db_mapping.isactive));
         }
-        if( appConfig.db_mapping.hasOwnProperty('image') && appConfig.db_mapping.image!='' ) {
+        if( appConfig.db_mapping.hasOwnProperty('image') && appConfig.db_mapping.image!=='' ) {
           this.set('image', this.get(appConfig.db_mapping.image));
         }
       }
@@ -74,18 +74,19 @@ require([
     initialize: function() {},
     render: function() {
       var model = this.model;
+      var image = '';
 
-      if( model.get('image')!='' &&
+      if( model.get('image')!=='' &&
           model.get('image')!==null &&
           typeof appConfig != 'undefined' &&
           appConfig.hasOwnProperty('imagePath') &&
-          appConfig.imagePath!='' &&
+          appConfig.imagePath!=='' &&
           model.get('image').indexOf(baseUrl+appConfig.imagePath)!==0 ) {
 
-        var image = baseUrl + appConfig.imagePath + model.get('image');
+        image = baseUrl + appConfig.imagePath + model.get('image');
         model.set('image', image);
-      } else if( model.get('image')=='' || model.get('image')===null ) {
-        var image = baseUrl + 'images/default.jpg';
+      } else if( model.get('image')==='' || model.get('image')===null ) {
+        image = baseUrl + 'images/default.jpg';
         model.set('image', image);
       }
 
