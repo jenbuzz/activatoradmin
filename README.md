@@ -18,3 +18,4 @@ ActivatorAdmin
 - grunt-template-jasmine-requirejs 0.1.10 (https://github.com/cloudchen/grunt-template-jasmine-requirejs)
 - grunt-phpunit 0.3.3 (https://github.com/SaschaGalley/grunt-phpunit)
 - grunt-contrib-watch 0.6.1 (https://github.com/gruntjs/grunt-contrib-watch)
+- grunt-contrib-jshint 0.10.0 (https://github.com/gruntjs/grunt-contrib-jshint)

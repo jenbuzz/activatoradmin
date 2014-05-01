@@ -67,6 +67,9 @@ module.exports = function(grunt) {
       classes: {
         dir: 'test/phpunit/'
       }
+    },
+    jshint: {
+      all: ['js/<%= pkg.name %>.js']
     }
   });
 
@@ -75,8 +78,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-jasmine');
   grunt.loadNpmTasks('grunt-phpunit');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
 
   grunt.registerTask('default', ['minify', 'test']);
   grunt.registerTask('minify', ['uglify', 'cssmin']);
-  grunt.registerTask('test', ['jasmine', 'phpunit']);
+  grunt.registerTask('test', ['jasmine', 'phpunit', 'jshint']);
 };
