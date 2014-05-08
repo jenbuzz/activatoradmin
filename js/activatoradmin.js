@@ -1,8 +1,8 @@
-var ActivatorItem = false;
-var ActivatorList = false;
-var ActivatorItemView = false;
-var ActivatorPaginationView = false;
-var ActivatorAppView = false;
+var ActivatorItem = false,
+    ActivatorList = false,
+    ActivatorItemView = false,
+    ActivatorPaginationView = false,
+    ActivatorAppView = false;
 
 require([
   'text!templates/item.tpl',
