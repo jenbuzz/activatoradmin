@@ -1,5 +1,12 @@
 module.exports = function(grunt) {
 
+  // Load config.js
+  var conf = grunt.file.read('config/config.js');
+  conf = conf.replace("var appConfig = ", "");
+  conf = conf.substring(0, conf.indexOf(";"));
+  conf = eval("("+conf+")");
+
+  // Init grunt
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     watch: {
@@ -31,7 +38,7 @@ module.exports = function(grunt) {
         src: 'js/activatoradmin.js',
         options: {
           specs: 'test/jasmine/spec/*Spec.js',
-          host: 'http://localhost/activatoradmin/',
+          host: 'http://localhost'+conf.baseUrl,
           template: require('grunt-template-jasmine-requirejs'),
           templateOptions: {
             requireConfig: {
