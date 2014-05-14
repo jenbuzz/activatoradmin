@@ -3,7 +3,7 @@ ActivatorAdmin
 
 - Slim Framework 2.4.2
 - Backbone.js 1.1.2
-- Backbone.Paginator 1.0.0-dev (https://github.com/backbone-paginator/backbone.paginator)
+- backbone.paginator 2.0.0 (https://github.com/backbone-paginator/backbone.paginator)
 - jQuery 2.1.1
 - Bootstrap 3.1.1
 - PHPUnit 4.0.17

@@ -41,26 +41,18 @@ require([
   });
 
   // Collection
-  ActivatorList = Backbone.Paginator.clientPager.extend({
+  ActivatorList = Backbone.PageableCollection.extend({
     model: ActivatorItem,
-    paginator_core: {
-      type: 'GET',
-      dataType: 'json',
-      url: baseUrl+'index.php/items'
-    },
-    paginator_ui: {
+    url: baseUrl+'index.php/items',
+    state: {
       firstPage: 1,
       currentPage: 1,
-      perPage: 10,
-      totalPages: 10
-    },
-    parse: function(response) {
-      return response;
+      pageSize: 5
     }
   });
 
   // Global Collection
-  var ActivatorItems = new ActivatorList();
+  var ActivatorItems = new ActivatorList([], { mode: "client" });
 
   // View
   ActivatorItemView = Backbone.View.extend({
@@ -119,7 +111,7 @@ require([
 
         this.$el.find('#itemDelete-'+model.get('id')).find('#itemDeleteConfirm').on('click', function() {
           model.destroy({success: function(model, response) {
-            ActivatorItems.pager();
+            ActivatorItems.getFirstPage({ fetch: true });
             $('.modal-backdrop').remove();
           }});
         });
@@ -164,31 +156,52 @@ require([
       ActivatorItems.on('reset', this.render, this);
     },
     render: function() {
-      if (ActivatorItems.currentPage==ActivatorItems.firstPage && ActivatorItems.origModels.length <= ActivatorItems.perPage) {} else {
-        this.$el.html(this.template(ActivatorItems.info()));
+      if (ActivatorItems.state.currentPage==ActivatorItems.state.firstPage && ActivatorItems.fullCollection.models.length <= ActivatorItems.state.pageSize) {} else {
+        ActivatorItems.state.pageSet = [];
+        var showPages = 5;
+        var iLimitStarter = ActivatorItems.state.currentPage;
+        var iStart = 1;
+        if(ActivatorItems.state.currentPage>showPages) {
+          iStart = ActivatorItems.state.currentPage-showPages;
+        } else {
+          showPages = 10;
+          iLimitStarter = iStart;
+        }
+        var iLimit = ((ActivatorItems.state.currentPage+showPages)<=ActivatorItems.state.totalPages) ?
+                       (iLimitStarter+showPages) : 
+                       ActivatorItems.state.totalPages+1;
+        for(var i=iStart; i<iLimit; i++) {
+          ActivatorItems.state.pageSet.push(i);
+        }
+        
+        this.$el.html(this.template(ActivatorItems.state));
         $('#pagination-container').append(this.$el);
       }
     },
     gotoFirst: function(e) {
       e.preventDefault();
-      ActivatorItems.goTo(1);
+      ActivatorItems.getPage(1);
     },
     gotoPrev: function(e) {
       e.preventDefault();
-      ActivatorItems.previousPage();
+      if(ActivatorItems.state.currentPage>ActivatorItems.state.firstPage) {
+        ActivatorItems.getPreviousPage();
+      }
     },
     gotoNext: function(e) {
       e.preventDefault();
-      ActivatorItems.nextPage();
+      if(ActivatorItems.state.currentPage<ActivatorItems.state.lastPage) {
+        ActivatorItems.getNextPage();
+      }
     },
     gotoLast: function(e) {
-      e.preventDefault();
-      ActivatorItems.goTo(ActivatorItems.information.lastPage);
+      e.preventDefault();console
+      ActivatorItems.getPage(ActivatorItems.state.lastPage);
     },
     gotoPage: function(e) {
       e.preventDefault();
-      var page = $(e.target).text();
-      ActivatorItems.goTo(page);
+      var page = parseInt($(e.target).text());
+      ActivatorItems.getPage(page);
     }
   });
 
@@ -201,8 +214,6 @@ require([
       ActivatorItems.fetch({
         reset: true,
         success: function(model, response) {
-          ActivatorItems.pager();
-
           var PaginationView = new ActivatorPaginationView();
           PaginationView.render();
         }
