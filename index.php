@@ -19,11 +19,28 @@ $app = new \Slim\Slim(
     )
 );
 
+$app->add(new \Slim\Middleware\SessionCookie(array('secret' => 'Aa-Secret')));
+
 /**
  * Render startup template (index)
  */
 $app->get('/', function() use($app) {
-    $app->render('index.tpl');
+    if (!isset($_SESSION['activatoradmin_user'])) {
+        $app->redirect('index.php/login');
+    } else {
+        $app->render('index.tpl');
+    }
+});
+
+/**
+ * Login
+ */
+$app->get('/login', function() use($app) {
+    $app->render('login.tpl');
+});
+$app->post('/login', function() use($app) {
+    $_SESSION['activatoradmin_user'] = md5('activatoradmin');
+    $app->redirect('/activatoradmin/');
 });
 
 /**
