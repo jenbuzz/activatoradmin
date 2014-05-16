@@ -26,7 +26,10 @@ $app->add(new \Slim\Middleware\SessionCookie(array('secret' => 'Aa-Secret')));
  */
 $app->get('/', function() use($app) {
     if (!isset($_SESSION['activatoradmin_user'])) {
-        $app->redirect('index.php/login');
+        $objConfigHelper = $app->config('custom');
+        $baseurl = $objConfigHelper->get('url', 'baseurl');
+
+        $app->redirect($baseurl.'index.php/login');
     } else {
         $app->render('index.tpl');
     }
@@ -39,8 +42,11 @@ $app->get('/login', function() use($app) {
     $app->render('login.tpl');
 });
 $app->post('/login', function() use($app) {
+    $objConfigHelper = $app->config('custom');
+    $baseurl = $objConfigHelper->get('url', 'baseurl');
+
     $_SESSION['activatoradmin_user'] = md5('activatoradmin');
-    $app->redirect('/activatoradmin/');
+    $app->redirect($baseurl);
 });
 
 /**
