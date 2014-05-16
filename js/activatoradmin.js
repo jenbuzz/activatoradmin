@@ -195,7 +195,7 @@ require([
       }
     },
     gotoLast: function(e) {
-      e.preventDefault();console
+      e.preventDefault();
       ActivatorItems.getPage(ActivatorItems.state.lastPage);
     },
     gotoPage: function(e) {
