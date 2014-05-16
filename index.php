@@ -44,9 +44,17 @@ $app->get('/login', function() use($app) {
 $app->post('/login', function() use($app) {
     $objConfigHelper = $app->config('custom');
     $baseurl = $objConfigHelper->get('url', 'baseurl');
+    $login = $objConfigHelper->get('login');
 
-    $_SESSION['activatoradmin_user'] = md5('activatoradmin');
-    $app->redirect($baseurl);
+    if ($app->request()->post('username')==$login['username'] && 
+        hash('sha256', $app->request()->post('password'))==$login['password']) {
+
+        $_SESSION['activatoradmin_user'] = hash('sha256', 'activatoradmin_'.$login['username']);
+
+        $app->redirect($baseurl);
+    } else {
+        $app->render('login.tpl');
+    }
 });
 
 /**
