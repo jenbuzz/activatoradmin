@@ -12,6 +12,10 @@ body {
 .well {
   padding: 10px;
 }
+.login {
+  float: none;
+  margin: 0 auto;
+}
 .list-unstyled li label {
   min-width: 230px;
 }
