@@ -12,6 +12,9 @@ var appConfig = {
     image: 'image'
   },
 
+  // Number of items on each page
+  pageSize: 10,
+
   // Show info button for each item
   show_info: true,
 

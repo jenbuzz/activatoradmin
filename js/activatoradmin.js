@@ -21,6 +21,12 @@ require([
     baseUrl = appConfig.baseUrl;
   }
 
+  // Setup pageSize; default=5
+  var pageSize = 5;
+  if ( typeof appConfig != 'undefined' && appConfig.hasOwnProperty('pageSize') ) {
+    pageSize = appConfig.pageSize;
+  }
+
   // Model
   ActivatorItem = Backbone.Model.extend({
     urlRoot: baseUrl+'index.php/item',
@@ -47,7 +53,7 @@ require([
     state: {
       firstPage: 1,
       currentPage: 1,
-      pageSize: 5
+      pageSize: pageSize
     }
   });
 
