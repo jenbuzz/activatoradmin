@@ -56,6 +56,10 @@ $app->post('/login', function() use($app) {
         $app->render('login.tpl');
     }
 });
+$app->get('/logout', function() use($app) {
+    unset($_SESSION['activatoradmin_user']);
+    $app->render('login.tpl');
+});
 
 /**
  * GET all items

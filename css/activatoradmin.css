@@ -16,6 +16,17 @@ body {
   float: none;
   margin: 0 auto;
 }
+.logout {
+  position: absolute;
+  top: 10px;
+  margin-left: 60px;
+}
+.logout button {
+  opacity: 0.6;
+}
+.logout button:hover {
+  opacity: 0.8;
+}
 .list-unstyled li label {
   min-width: 230px;
 }
@@ -72,5 +83,8 @@ body {
   }
   .list-unstyled li input {
     margin-right: 100%;
+  }
+  .logout {
+    margin-left: 30px;
   }
 }
