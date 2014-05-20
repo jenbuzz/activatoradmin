@@ -43,4 +43,3 @@ class ConfigHelperTest extends \PHPUnit_Framework_TestCase
     }
 
 }
-

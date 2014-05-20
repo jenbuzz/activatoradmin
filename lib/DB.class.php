@@ -81,7 +81,7 @@ class DB
         if ($limit) {
             $sql.= ' LIMIT '.$limit;
         }
-		
+
         $result = $this->mysqli->query($sql);
         $arrData = array();
         if ($result && $result->num_rows>0) {
@@ -89,7 +89,7 @@ class DB
                 $arrData[] = $row;
             }
         }
-		
+
         if (count($arrData)===1) {
             $arrData = $arrData[0];
         }

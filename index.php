@@ -154,4 +154,3 @@ $app->delete('/item/:id', function($id) use($app, $dbConfig) {
 
 
 $app->run();
-
