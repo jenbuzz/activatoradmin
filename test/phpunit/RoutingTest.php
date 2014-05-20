@@ -6,6 +6,9 @@
 namespace ActivatorAdmin\Test\PHPunit;
 
 require_once(__DIR__ . '/../../lib/Slim/Slim.php');
+require_once(__DIR__ . '/../../lib/ConfigHelper.class.php');
+
+use \ActivatorAdmin\Lib\ConfigHelper;
 
 \Slim\Slim::registerAutoloader();
 
@@ -20,10 +23,13 @@ class RoutingTest extends \PHPUnit_Framework_TestCase
     {
         ob_start();
 
+        $objConfigHelper = new ConfigHelper();
+        $host = $objConfigHelper->get('url', 'host');
+
         \Slim\Environment::mock(array(
             'REQUEST_METHOD' => $method,
             'PATH_INFO' => $path,
-            'SERVER_NAME' => 'localhost'
+            'SERVER_NAME' => $host
         ));
 
         require(__DIR__ . '/../../index.php');
