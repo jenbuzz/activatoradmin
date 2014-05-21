@@ -12,6 +12,7 @@
     "grunt-template-jasmine-requirejs": "~0.1.10",
     "grunt-phpunit": "~0.3.3",
     "grunt-contrib-watch": "~0.6.1",
-    "grunt-contrib-jshint": "~0.10.0"
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-uncss": "~0.3.3"
   }
 }

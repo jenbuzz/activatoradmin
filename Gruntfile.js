@@ -77,6 +77,13 @@ module.exports = function(grunt) {
     },
     jshint: {
       all: ['js/<%= pkg.name %>.js']
+    },
+    uncss: {
+      dist: {
+        files: {
+          'css/activatoradmin.css': ['templates/index.tpl', 'templates/item.tpl', 'templates/login.tpl', 'templates/pagination.tpl']
+        }
+      }
     }
   });
 
@@ -86,8 +93,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jasmine');
   grunt.loadNpmTasks('grunt-phpunit');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-uncss');
 
   grunt.registerTask('default', ['minify', 'test']);
   grunt.registerTask('minify', ['uglify', 'cssmin']);
   grunt.registerTask('test', ['jasmine', 'phpunit', 'jshint']);
+  grunt.registerTask('uncss', ['uncss']);
 };
