@@ -22,6 +22,17 @@ class Item
         $this->table = $dbConfig['table'];
     }
 
+    public function load($id)
+    {
+        $result = $this->objDB->select($this->table, '*', 'id', $id);
+        if ($result) {
+            $this->setId($result['id']);
+            $this->setName($result['name']);
+            $this->setIsActive($result['isactive']);
+            $this->setImage($result['image']);
+        }
+    }
+
     public function save()
     {
         if ($this->id) {
