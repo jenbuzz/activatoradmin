@@ -4,11 +4,12 @@ namespace ActivatorAdmin\Lib;
 
 require_once(__DIR__ . '/DB.class.php');
 require_once(__DIR__ . '/ConfigHelper.class.php');
+require_once(__DIR__ . '/Model.Interface.php');
 
 use \ActivatorAdmin\Lib\DB;
 use \ActivatorAdmin\Lib\ConfigHelper;
 
-class Item
+class Item implements iModel
 {
     private $objDB, $table;
     protected $id, $name, $isActive, $image;
