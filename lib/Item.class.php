@@ -1,9 +1,9 @@
 <?php
 
+namespace ActivatorAdmin\Lib;
+
 require_once(__DIR__ . '/DB.class.php');
 require_once(__DIR__ . '/ConfigHelper.class.php');
-
-namespace ActivatorAdmin\Lib;
 
 use \ActivatorAdmin\Lib\DB;
 use \ActivatorAdmin\Lib\ConfigHelper;
@@ -49,6 +49,11 @@ class Item
     public function delete()
     {
         $this->objDB->delete($this->table, 'id', $this->getId());
+    }
+
+    private function setId($id)
+    {
+        $this->id = $id;
     }
 
     public function getId()
