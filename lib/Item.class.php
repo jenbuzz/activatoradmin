@@ -6,9 +6,6 @@ require_once(__DIR__ . '/DB.class.php');
 require_once(__DIR__ . '/ConfigHelper.class.php');
 require_once(__DIR__ . '/Model.Interface.php');
 
-use \ActivatorAdmin\Lib\DB;
-use \ActivatorAdmin\Lib\ConfigHelper;
-
 class Item implements iModel
 {
     private $objDB, $table;
@@ -93,5 +90,3 @@ class Item implements iModel
     }
 
 }
-
-?>
