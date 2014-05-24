@@ -35,8 +35,8 @@ class Item
 
     public function save()
     {
-        if ($this->id) {
-            $this->objDB->update($this->table, array('isactive'=>$this->getIsActive()), 'id', $this->getId());
+        if ($this->getId()) {
+            $this->objDB->update($this->table, array('name'=>$this->getName(), 'isactive'=>$this->getIsActive(), 'image'=>$this->getImage()), 'id', $this->getId());
         } else {
             $this->objDB->insert($this->table, array(
                 'name'=>$this->getName(),
@@ -84,6 +84,11 @@ class Item
     public function setImage($image)
     {
         $this->image = $image;
+    }
+
+    public function getImage()
+    {
+        return $this->image;
     }
 
 }
