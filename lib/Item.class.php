@@ -9,6 +9,7 @@ require_once(__DIR__ . '/Model.Interface.php');
 class Item implements iModel
 {
     private $objDB, $table;
+    protected $tblName, $tblIsActive, $tblImage;
     protected $id, $name, $isActive, $image;
 
     public function __construct()
@@ -18,6 +19,11 @@ class Item implements iModel
 
         $this->objDB = DB::getInstance($dbConfig);
         $this->table = $dbConfig['table'];
+
+        $dbMapping = $objConfigHelper->get('db_mapping');
+        $this->tblName = $dbMapping['name'];
+        $this->tblIsActive = $dbMapping['isactive'];
+        $this->tblImage = $dbMapping['image'];
     }
 
     public function load($id)
@@ -25,21 +31,21 @@ class Item implements iModel
         $result = $this->objDB->select($this->table, '*', 'id', $id);
         if ($result) {
             $this->setId($result['id']);
-            $this->setName($result['name']);
-            $this->setIsActive($result['isactive']);
-            $this->setImage($result['image']);
+            $this->setName($result[$this->tblName]);
+            $this->setIsActive($result[$this->tblIsActive]);
+            $this->setImage($result[$this->tblImage]);
         }
     }
 
     public function save()
     {
         if ($this->getId()) {
-            $this->objDB->update($this->table, array('name'=>$this->getName(), 'isactive'=>$this->getIsActive(), 'image'=>$this->getImage()), 'id', $this->getId());
+            $this->objDB->update($this->table, array($this->tblName=>$this->getName(), $this->tblIsActive=>$this->getIsActive(), $this->tblImage=>$this->getImage()), 'id', $this->getId());
         } else {
             $this->objDB->insert($this->table, array(
-                'name'=>$this->getName(),
-                'isactive'=>$this->getIsActive(),
-                'image'=>$this->getImage()
+                $this->tblName=>$this->getName(),
+                $this->tblIsActive=>$this->getIsActive(),
+                $this->tblImage=>$this->getImage()
             ));
         }
     }
