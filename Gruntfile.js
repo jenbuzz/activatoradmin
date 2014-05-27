@@ -38,7 +38,7 @@ module.exports = function(grunt) {
         src: 'js/activatoradmin.js',
         options: {
           specs: 'test/jasmine/spec/*Spec.js',
-          host: 'http://localhost'+conf.baseUrl,
+          host: 'http://'+conf.host+conf.baseUrl,
           template: require('grunt-template-jasmine-requirejs'),
           templateOptions: {
             requireConfig: {

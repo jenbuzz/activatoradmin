@@ -1,4 +1,7 @@
 var appConfig = {
+  // Host...
+  host: 'localhost',
+
   // Path to this application (should be '/' if in root)
   baseUrl: '/activatoradmin/',
 
