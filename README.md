@@ -8,7 +8,7 @@ ActivatorAdmin
 - Bootstrap 3.1.1
 - PHPUnit 4.0.17
 - Jasmine 2.0.0
-- RequireJS 2.1.11
+- RequireJS 2.1.13
 - RequireJS text 2.0.12 (https://github.com/requirejs/text)
 - phpDocumentor 2.3.1
 - grunt 0.4.5
