@@ -41,31 +41,7 @@ module.exports = function(grunt) {
           host: 'http://'+conf.host+conf.baseUrl,
           template: require('grunt-template-jasmine-requirejs'),
           templateOptions: {
-            requireConfig: {
-              paths: {
-                text: 'js/lib/text',
-                jquery: 'js/lib/jquery.min',
-                bootstrap: 'js/lib/bootstrap.min',
-                underscore: 'js/lib/underscore-min',
-                backbone: 'js/lib/backbone-min',
-                backbonePaginator: 'js/lib/backbone.paginator.min'
-              },
-              shim: {
-                bootstrap: {
-                  deps: ['jquery']
-                },
-                underscore: {
-                  exports: '_'
-                },
-                backbone: {
-                  deps: ['underscore', 'jquery'],
-                  exports: 'Backbone'
-                },
-                backbonePaginator: {
-                  deps: ['backbone']
-                }
-              }
-            }
+            requireConfigFile: 'config/requirejs.config.js'
           }
         }
       }
