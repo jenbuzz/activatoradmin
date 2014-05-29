@@ -2,9 +2,9 @@
 
 namespace ActivatorAdmin\Lib;
 
-require_once(__DIR__ . '/DB.class.php');
-require_once(__DIR__ . '/ConfigHelper.class.php');
-require_once(__DIR__ . '/Model.interface.php');
+require_once __DIR__ . '/DB.class.php';
+require_once __DIR__ . '/ConfigHelper.class.php';
+require_once __DIR__ . '/Model.interface.php';
 
 class Item implements iModel
 {
@@ -40,12 +40,21 @@ class Item implements iModel
     public function save()
     {
         if ($this->getId()) {
-            $this->objDB->update($this->table, array($this->tblName=>$this->getName(), $this->tblIsActive=>$this->getIsActive(), $this->tblImage=>$this->getImage()), 'id', $this->getId());
+            $this->objDB->update(
+                $this->table,
+                array(
+                    $this->tblName => $this->getName(),
+                    $this->tblIsActive => $this->getIsActive(),
+                    $this->tblImage => $this->getImage(),
+                ),
+                'id',
+                $this->getId()
+            );
         } else {
             $this->objDB->insert($this->table, array(
                 $this->tblName=>$this->getName(),
                 $this->tblIsActive=>$this->getIsActive(),
-                $this->tblImage=>$this->getImage()
+                $this->tblImage=>$this->getImage(),
             ));
         }
     }
