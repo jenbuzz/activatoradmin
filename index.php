@@ -3,9 +3,11 @@
 require_once('lib/ConfigHelper.class.php');
 require_once('lib/Slim/Slim.php');
 require_once('lib/DB.class.php');
+require_once('lib/Item.class.php');
 
 use \ActivatorAdmin\Lib\DB;
 use \ActivatorAdmin\Lib\ConfigHelper;
+use \ActivatorAdmin\Lib\Item;
 
 $objConfigHelper = new ConfigHelper();
 $dbConfig = $objConfigHelper->get('db');
@@ -82,7 +84,7 @@ $app->get('/items', function() use($app, $dbConfig) {
 /**
  * GET a single item
  */
-$app->get('/item/:id', function($id) use($app, $dbConfig) {
+$app->get('/item/:id', function($id) use($app) {
     if (!isset($_SESSION['activatoradmin_user'])) {
         $objConfigHelper = $app->config('custom');
         $baseurl = $objConfigHelper->get('url', 'baseurl');
@@ -91,11 +93,10 @@ $app->get('/item/:id', function($id) use($app, $dbConfig) {
     } else {
         $id = filter_var($id, FILTER_SANITIZE_NUMBER_INT);
         if ($id>0 && is_numeric($id)) {
-            $objDB = DB::getInstance($dbConfig);
+            $objItem = new Item();
+            $objItem->load($id);
         
-            $arrItem = $objDB->select($dbConfig['table'], '*', 'id', $id);
-        
-            echo json_encode($arrItem);
+            echo json_encode($objItem->toArray());
         } else {
             echo json_encode(array('success'=>false));
         }
@@ -105,7 +106,7 @@ $app->get('/item/:id', function($id) use($app, $dbConfig) {
 /**
  * PUT (update) a single item
  */
-$app->put('/item/:id', function($id) use($app, $dbConfig) {
+$app->put('/item/:id', function($id) use($app) {
     if (!isset($_SESSION['activatoradmin_user'])) {
         $objConfigHelper = $app->config('custom');
         $baseurl = $objConfigHelper->get('url', 'baseurl');
@@ -114,12 +115,13 @@ $app->put('/item/:id', function($id) use($app, $dbConfig) {
     } else {
         $id = filter_var($id, FILTER_SANITIZE_NUMBER_INT);
         if ($id>0 && is_numeric($id)) {
-            $objDB = DB::getInstance($dbConfig);
-
             $request = json_decode($app->request->getBody());
  
-            if (is_object($request) && isset($request->isactive)) { 
-                $objDB->update($dbConfig['table'], array('isactive'=>$request->isactive), 'id', $id);
+            if (is_object($request) && isset($request->isactive)) {
+                $objItem = new Item();
+                $objItem->load($id);
+                $objItem->setIsActive($request->isactive);
+                $objItem->save();
             } else {
                 echo json_encode(array('success'=>false));
             }
@@ -132,7 +134,7 @@ $app->put('/item/:id', function($id) use($app, $dbConfig) {
 /**
  * DELETE a single item
  */
-$app->delete('/item/:id', function($id) use($app, $dbConfig) {
+$app->delete('/item/:id', function($id) use($app) {
     if (!isset($_SESSION['activatoradmin_user'])) {
         $objConfigHelper = $app->config('custom');
         $baseurl = $objConfigHelper->get('url', 'baseurl');
@@ -141,9 +143,9 @@ $app->delete('/item/:id', function($id) use($app, $dbConfig) {
     } else {
         $id = filter_var($id, FILTER_SANITIZE_NUMBER_INT);
         if ($id>0 && is_numeric($id)) {
-            $objDB = DB::getInstance($dbConfig);
-
-            $objDB->delete($dbConfig['table'], 'id', $id);
+            $objItem = new Item();
+            $objItem->load($id);
+            $objItem->delete();
 
             echo json_encode(array('success'=>true));
         } else {
