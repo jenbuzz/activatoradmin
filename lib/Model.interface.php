@@ -7,4 +7,5 @@ interface iModel
     public function load($id);
     public function save();
     public function delete();
+    public function toArray();
 }

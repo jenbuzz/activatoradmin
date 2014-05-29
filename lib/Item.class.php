@@ -4,7 +4,7 @@ namespace ActivatorAdmin\Lib;
 
 require_once(__DIR__ . '/DB.class.php');
 require_once(__DIR__ . '/ConfigHelper.class.php');
-require_once(__DIR__ . '/Model.Interface.php');
+require_once(__DIR__ . '/Model.interface.php');
 
 class Item implements iModel
 {
@@ -53,6 +53,18 @@ class Item implements iModel
     public function delete()
     {
         $this->objDB->delete($this->table, 'id', $this->getId());
+    }
+
+    public function toArray()
+    {
+        $arr = array(
+            'id' => $this->getId(),
+            'name' => $this->getName(),
+            'isactive' => $this->getIsActive(),
+            'image' => $this->getImage(),
+        );
+
+        return $arr;
     }
 
     private function setId($id)
