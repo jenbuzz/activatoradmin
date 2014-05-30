@@ -1,0 +1,8 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  RewriteRule ^login index.php/login [QSA]
+  RewriteRule ^logout index.php/logout [QSA]
+  RewriteRule ^items index.php/items [QSA]
+  RewriteRule ^item/(.*) index.php/item/$1 [QSA]
+</IfModule>

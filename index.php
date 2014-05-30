@@ -31,7 +31,7 @@ $app->get('/', function() use($app) {
         $objConfigHelper = $app->config('custom');
         $baseurl = $objConfigHelper->get('url', 'baseurl');
 
-        $app->redirect($baseurl.'index.php/login');
+        $app->redirect($baseurl.'login');
     } else {
         $app->render('index.tpl');
     }
@@ -71,7 +71,7 @@ $app->get('/items', function() use($app, $dbConfig) {
         $objConfigHelper = $app->config('custom');
         $baseurl = $objConfigHelper->get('url', 'baseurl');
 
-        $app->redirect($baseurl.'index.php/login');
+        $app->redirect($baseurl.'login');
     } else {
         $objDB = DB::getInstance($dbConfig);
     
@@ -89,7 +89,7 @@ $app->get('/item/:id', function($id) use($app) {
         $objConfigHelper = $app->config('custom');
         $baseurl = $objConfigHelper->get('url', 'baseurl');
 
-        $app->redirect($baseurl.'index.php/login');
+        $app->redirect($baseurl.'login');
     } else {
         $id = filter_var($id, FILTER_SANITIZE_NUMBER_INT);
         if ($id>0 && is_numeric($id)) {
@@ -111,7 +111,7 @@ $app->put('/item/:id', function($id) use($app) {
         $objConfigHelper = $app->config('custom');
         $baseurl = $objConfigHelper->get('url', 'baseurl');
 
-        $app->redirect($baseurl.'index.php/login');
+        $app->redirect($baseurl.'login');
     } else {
         $id = filter_var($id, FILTER_SANITIZE_NUMBER_INT);
         if ($id>0 && is_numeric($id)) {
@@ -139,7 +139,7 @@ $app->delete('/item/:id', function($id) use($app) {
         $objConfigHelper = $app->config('custom');
         $baseurl = $objConfigHelper->get('url', 'baseurl');
 
-        $app->redirect($baseurl.'index.php/login');
+        $app->redirect($baseurl.'login');
     } else {
         $id = filter_var($id, FILTER_SANITIZE_NUMBER_INT);
         if ($id>0 && is_numeric($id)) {

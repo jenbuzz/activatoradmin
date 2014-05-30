@@ -29,7 +29,7 @@ require([
 
   // Model
   ActivatorItem = Backbone.Model.extend({
-    urlRoot: baseUrl+'index.php/item',
+    urlRoot: baseUrl+'item',
     idAttribute: 'id',
     initialize: function() {
       if( typeof appConfig != 'undefined' && appConfig.hasOwnProperty('db_mapping') ) {
@@ -49,7 +49,7 @@ require([
   // Collection
   ActivatorList = Backbone.PageableCollection.extend({
     model: ActivatorItem,
-    url: baseUrl+'index.php/items',
+    url: baseUrl+'items',
     state: {
       firstPage: 1,
       currentPage: 1,

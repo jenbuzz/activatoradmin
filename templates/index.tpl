@@ -14,7 +14,7 @@
 
   <body>
     <div id="container" class="container">
-      <div class="logout"><form action="index.php/logout" method="get"><button>sign out</button></form></div>
+      <div class="logout"><form action="/activatoradmin/logout" method="get"><button>sign out</button></form></div>
 
       <header class="jumbotron">
         <h1>ActivatorAdmin</h1>
