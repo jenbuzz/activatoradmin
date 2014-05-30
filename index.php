@@ -27,13 +27,13 @@ $app->add(new \Slim\Middleware\SessionCookie(array('secret' => 'Aa-Secret')));
  * Render startup template (index)
  */
 $app->get('/', function() use($app) {
-    if (!isset($_SESSION['activatoradmin_user'])) {
-        $objConfigHelper = $app->config('custom');
-        $baseurl = $objConfigHelper->get('url', 'baseurl');
+    $objConfigHelper = $app->config('custom');
+    $baseurl = $objConfigHelper->get('url', 'baseurl');
 
+    if (!isset($_SESSION['activatoradmin_user'])) {
         $app->redirect($baseurl.'login');
     } else {
-        $app->render('index.tpl');
+        $app->render('index.tpl', array('baseurl'=>$baseurl));
     }
 });
 
@@ -41,7 +41,10 @@ $app->get('/', function() use($app) {
  * Login
  */
 $app->get('/login', function() use($app) {
-    $app->render('login.tpl');
+    $objConfigHelper = $app->config('custom');
+    $baseurl = $objConfigHelper->get('url', 'baseurl');
+
+    $app->render('login.tpl', array('baseurl'=>$baseurl));
 });
 $app->post('/login', function() use($app) {
     $objConfigHelper = $app->config('custom');
@@ -55,12 +58,16 @@ $app->post('/login', function() use($app) {
 
         $app->redirect($baseurl);
     } else {
-        $app->render('login.tpl');
+        $app->render('login.tpl', array('baseurl'=>$baseurl));
     }
 });
 $app->get('/logout', function() use($app) {
     unset($_SESSION['activatoradmin_user']);
-    $app->render('login.tpl');
+
+    $objConfigHelper = $app->config('custom');
+    $baseurl = $objConfigHelper->get('url', 'baseurl');
+
+    $app->render('login.tpl', array('baseurl'=>$baseurl));
 });
 
 /**
