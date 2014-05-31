@@ -3,14 +3,13 @@
 require_once('lib/ConfigHelper.class.php');
 require_once('lib/Slim/Slim.php');
 require_once('lib/DB.class.php');
-require_once('lib/Item.class.php');
+require_once('lib/ModelFacade.class.php');
 
 use \ActivatorAdmin\Lib\DB;
 use \ActivatorAdmin\Lib\ConfigHelper;
-use \ActivatorAdmin\Lib\Item;
+use \ActivatorAdmin\Lib\ModelFacade;
 
 $objConfigHelper = new ConfigHelper();
-$dbConfig = $objConfigHelper->get('db');
 
 \Slim\Slim::registerAutoloader();
 
@@ -73,16 +72,20 @@ $app->get('/logout', function() use($app) {
 /**
  * GET all items
  */
-$app->get('/items', function() use($app, $dbConfig) {
+$app->get('/items', function() use($app) {
     if (!isset($_SESSION['activatoradmin_user'])) {
         $objConfigHelper = $app->config('custom');
         $baseurl = $objConfigHelper->get('url', 'baseurl');
 
         $app->redirect($baseurl.'login');
     } else {
-        $objDB = DB::getInstance($dbConfig);
-    
-        $arrItems = $objDB->select($dbConfig['table']);
+        $arrItems = array();
+
+        $objModelFacade = new ModelFacade('Item');
+        $arrItemObjects = $objModelFacade->loadAll();
+        foreach ($arrItemObjects as $objItem) {
+            $arrItems[] = $objItem->toArray();
+        }
 
         echo json_encode($arrItems);
     }
@@ -100,8 +103,8 @@ $app->get('/item/:id', function($id) use($app) {
     } else {
         $id = filter_var($id, FILTER_SANITIZE_NUMBER_INT);
         if ($id>0 && is_numeric($id)) {
-            $objItem = new Item();
-            $objItem->load($id);
+            $objModelFacade = new ModelFacade('Item');
+            $objItem = $objModelFacade->load($id);
         
             echo json_encode($objItem->toArray());
         } else {
@@ -125,8 +128,8 @@ $app->put('/item/:id', function($id) use($app) {
             $request = json_decode($app->request->getBody());
  
             if (is_object($request) && isset($request->isactive)) {
-                $objItem = new Item();
-                $objItem->load($id);
+                $objModelFacade = new ModelFacade('Item');
+                $objItem = $objModelFacade->load($id);
                 $objItem->setIsActive($request->isactive);
                 $objItem->save();
             } else {
@@ -150,9 +153,9 @@ $app->delete('/item/:id', function($id) use($app) {
     } else {
         $id = filter_var($id, FILTER_SANITIZE_NUMBER_INT);
         if ($id>0 && is_numeric($id)) {
-            $objItem = new Item();
-            $objItem->load($id);
-            $objItem->delete();
+            $objModelFacade = new ModelFacade('Item');
+            $objModelFacade->load($id);
+            $objModelFacade->delete();
 
             echo json_encode(array('success'=>true));
         } else {
