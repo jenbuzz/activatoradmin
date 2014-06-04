@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * This interface is to be implemented by all models.
+ *
+ */
 namespace ActivatorAdmin\Lib;
 
 interface iModel

@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * The ModelFacade works as a facade for communication with all models.
+ *
+ */
 namespace ActivatorAdmin\Lib;
 
 require_once 'ConfigHelper.class.php';
@@ -10,6 +13,11 @@ class ModelFacade
 {
     private $model = false;
 
+    /**
+     * Pass the name of the model as string in the constructor.
+     *
+     * @param string $modelname
+     */
     public function __construct($modelname)
     {
         switch ($modelname) {
@@ -18,6 +26,11 @@ class ModelFacade
         }
     }
 
+    /**
+     * Load all records of a certain model type and return them as model objects.
+     *
+     * @return array arrItemObjects
+     */
     public function loadAll()
     {
         if ($this->model) {
@@ -40,6 +53,13 @@ class ModelFacade
         }
     }
 
+    /**
+     * Load a single model by id.
+     *
+     * @param int $id is the id of the record to load as a model.
+     *
+     * @return object model
+     */
     public function load($id)
     {
         if ($this->model) {
@@ -50,6 +70,11 @@ class ModelFacade
         }
     }
 
+    /**
+     * Save a manipulated model to the database.
+     *
+     * @return boolean
+     */
     public function save()
     {
         if ($this->model) {
@@ -61,6 +86,11 @@ class ModelFacade
         }
     }
 
+    /**
+     * Delete a model from the database.
+     *
+     * @return boolean
+     */
     public function delete()
     {
         if ($this->model) {
@@ -71,4 +101,5 @@ class ModelFacade
             return false;
         }
     }
+
 }
