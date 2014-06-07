@@ -7,7 +7,6 @@ namespace ActivatorAdmin\Lib;
 
 require_once 'ConfigHelper.class.php';
 require_once 'DB.class.php';
-require_once 'Item.class.php';
 
 class ModelFacade
 {
@@ -16,14 +15,11 @@ class ModelFacade
     /**
      * Pass the name of the model as string in the constructor.
      *
-     * @param string $modelname
+     * @param object $model
      */
-    public function __construct($modelname)
+    public function __construct(iModel $model)
     {
-        switch ($modelname) {
-            case 'Item':
-                $this->model = new Item();
-        }
+        $this->model = $model;
     }
 
     /**

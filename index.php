@@ -4,10 +4,12 @@ require_once('lib/ConfigHelper.class.php');
 require_once('lib/Slim/Slim.php');
 require_once('lib/DB.class.php');
 require_once('lib/ModelFacade.class.php');
+require_once('lib/Item.class.php');
 
 use \ActivatorAdmin\Lib\DB;
 use \ActivatorAdmin\Lib\ConfigHelper;
 use \ActivatorAdmin\Lib\ModelFacade;
+use \ActivatorAdmin\Lib\Item;
 
 $objConfigHelper = new ConfigHelper();
 
@@ -81,7 +83,7 @@ $app->get('/items', function() use($app) {
     } else {
         $arrItems = array();
 
-        $objModelFacade = new ModelFacade('Item');
+        $objModelFacade = new ModelFacade(new Item());
         $arrItemObjects = $objModelFacade->loadAll();
         foreach ($arrItemObjects as $objItem) {
             $arrItems[] = $objItem->toArray();
@@ -103,7 +105,7 @@ $app->get('/item/:id', function($id) use($app) {
     } else {
         $id = filter_var($id, FILTER_SANITIZE_NUMBER_INT);
         if ($id>0 && is_numeric($id)) {
-            $objModelFacade = new ModelFacade('Item');
+            $objModelFacade = new ModelFacade(new Item());
             $objItem = $objModelFacade->load($id);
         
             echo json_encode($objItem->toArray());
@@ -128,7 +130,7 @@ $app->put('/item/:id', function($id) use($app) {
             $request = json_decode($app->request->getBody());
  
             if (is_object($request) && isset($request->isactive)) {
-                $objModelFacade = new ModelFacade('Item');
+                $objModelFacade = new ModelFacade(new Item());
                 $objItem = $objModelFacade->load($id);
                 $objItem->setIsActive($request->isactive);
                 $objItem->save();
@@ -153,7 +155,7 @@ $app->delete('/item/:id', function($id) use($app) {
     } else {
         $id = filter_var($id, FILTER_SANITIZE_NUMBER_INT);
         if ($id>0 && is_numeric($id)) {
-            $objModelFacade = new ModelFacade('Item');
+            $objModelFacade = new ModelFacade(new Item());
             $objModelFacade->load($id);
             $objModelFacade->delete();
 
