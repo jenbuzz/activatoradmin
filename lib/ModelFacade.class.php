@@ -5,8 +5,8 @@
  */
 namespace ActivatorAdmin\Lib;
 
-require_once 'ConfigHelper.class.php';
-require_once 'DB.class.php';
+require_once __DIR__ . '/ConfigHelper.class.php';
+require_once __DIR__ . '/DB.class.php';
 
 class ModelFacade
 {

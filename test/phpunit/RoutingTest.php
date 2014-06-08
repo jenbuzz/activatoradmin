@@ -5,8 +5,8 @@
  */
 namespace ActivatorAdmin\Test\PHPunit;
 
-require_once(__DIR__ . '/../../lib/Slim/Slim.php');
-require_once(__DIR__ . '/../../lib/ConfigHelper.class.php');
+require_once __DIR__ . '/../../lib/Slim/Slim.php';
+require_once __DIR__ . '/../../lib/ConfigHelper.class.php';
 
 use \ActivatorAdmin\Lib\ConfigHelper;
 
@@ -29,10 +29,10 @@ class RoutingTest extends \PHPUnit_Framework_TestCase
         \Slim\Environment::mock(array(
             'REQUEST_METHOD' => $method,
             'PATH_INFO' => $path,
-            'SERVER_NAME' => $host
+            'SERVER_NAME' => $host,
         ));
 
-        require(__DIR__ . '/../../index.php');
+        require __DIR__ . '/../../index.php';
 
         $this->response = $app->response();
 

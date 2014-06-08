@@ -1,7 +1,7 @@
 <?php
 
-require_once(__DIR__.'/ConfigHelper.class.php');
-require_once(__DIR__.'/DB.class.php');
+require_once __DIR__ . '/ConfigHelper.class.php';
+require_once __DIR__ . '/DB.class.php';
 
 use \ActivatorAdmin\Lib\ConfigHelper;
 use \ActivatorAdmin\Lib\DB;

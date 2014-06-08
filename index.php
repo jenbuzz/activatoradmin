@@ -1,10 +1,10 @@
 <?php
 
-require_once 'lib/ConfigHelper.class.php';
-require_once 'lib/Slim/Slim.php';
-require_once 'lib/DB.class.php';
-require_once 'lib/ModelFacade.class.php';
-require_once 'lib/Item.class.php';
+require_once __DIR__ . '/lib/ConfigHelper.class.php';
+require_once __DIR__ . '/lib/Slim/Slim.php';
+require_once __DIR__ . '/lib/DB.class.php';
+require_once __DIR__ . '/lib/ModelFacade.class.php';
+require_once __DIR__ . '/lib/Item.class.php';
 
 use \ActivatorAdmin\Lib\DB;
 use \ActivatorAdmin\Lib\ConfigHelper;
@@ -18,7 +18,7 @@ $objConfigHelper = new ConfigHelper();
 $app = new \Slim\Slim(
     array(
         'custom' => $objConfigHelper,
-        'templates.path' => __DIR__ . '/templates'
+        'templates.path' => __DIR__ . '/templates',
     )
 );
 
