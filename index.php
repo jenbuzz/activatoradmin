@@ -68,7 +68,7 @@ $app->get('/logout', function() use($app) {
     $objConfigHelper = $app->config('custom');
     $baseurl = $objConfigHelper->get('url', 'baseurl');
 
-    $app->render('login.tpl', array('baseurl'=>$baseurl));
+    $app->redirect($baseurl.'login');
 });
 
 /**
