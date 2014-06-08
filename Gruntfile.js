@@ -74,5 +74,5 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['minify', 'test']);
   grunt.registerTask('minify', ['uglify', 'cssmin']);
   grunt.registerTask('test', ['jasmine', 'phpunit', 'jshint']);
-  grunt.registerTask('uncss', ['uncss']);
+  grunt.registerTask('removecss', ['uncss']);
 };
