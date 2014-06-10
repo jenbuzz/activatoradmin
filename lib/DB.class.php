@@ -85,7 +85,7 @@ class DB
         $result = $this->mysqli->query($sql);
         $arrData = array();
         if ($result && $result->num_rows>0) {
-            while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
+            while ($row = $result->fetch_assoc()) {
                 $arrData[] = $row;
             }
         }
