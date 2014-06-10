@@ -89,6 +89,7 @@ class DB
                 $arrData[] = $row;
             }
         }
+        $result->free();
 
         if (count($arrData)===1) {
             $arrData = $arrData[0];
