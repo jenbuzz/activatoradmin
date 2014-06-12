@@ -6,10 +6,6 @@
  */
 namespace ActivatorAdmin\Lib;
 
-require_once __DIR__ . '/DB.class.php';
-require_once __DIR__ . '/ConfigHelper.class.php';
-require_once __DIR__ . '/Model.interface.php';
-
 class Item implements iModel
 {
     private $objDB, $table;

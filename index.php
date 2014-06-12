@@ -1,10 +1,7 @@
 <?php
 
-require_once __DIR__ . '/lib/ConfigHelper.class.php';
+require_once __DIR__ . '/lib/autoload.php';
 require_once __DIR__ . '/lib/Slim/Slim.php';
-require_once __DIR__ . '/lib/DB.class.php';
-require_once __DIR__ . '/lib/ModelFacade.class.php';
-require_once __DIR__ . '/lib/Item.class.php';
 
 use \ActivatorAdmin\Lib\DB;
 use \ActivatorAdmin\Lib\ConfigHelper;

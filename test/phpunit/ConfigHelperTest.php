@@ -5,7 +5,7 @@
  */
 namespace ActivatorAdmin\Test\PHPunit;
 
-require_once __DIR__ . '/../../lib/ConfigHelper.class.php';
+require_once __DIR__ . '/../../lib/autoload.php';
 
 use \ActivatorAdmin\Lib\ConfigHelper;
 

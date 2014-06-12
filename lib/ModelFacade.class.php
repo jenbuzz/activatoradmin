@@ -5,9 +5,6 @@
  */
 namespace ActivatorAdmin\Lib;
 
-require_once __DIR__ . '/ConfigHelper.class.php';
-require_once __DIR__ . '/DB.class.php';
-
 class ModelFacade
 {
     private $model = false;
