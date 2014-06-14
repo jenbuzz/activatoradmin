@@ -12,7 +12,7 @@ ActivatorAdmin
 - RequireJS text 2.0.12 (https://github.com/requirejs/text)
 - phpDocumentor 2.3.1
 - grunt 0.4.5
-- grunt-contrib-uglify 0.4.0 (https://github.com/gruntjs/grunt-contrib-uglify)
+- grunt-contrib-uglify 0.5.0 (https://github.com/gruntjs/grunt-contrib-uglify)
 - grunt-contrib-cssmin 0.9.0 (https://github.com/gruntjs/grunt-contrib-cssmin)
 - grunt-contrib-jasmine 0.5.3 (https://github.com/gruntjs/grunt-contrib-jasmine)
 - grunt-template-jasmine-requirejs 0.1.10 (https://github.com/cloudchen/grunt-template-jasmine-requirejs)
