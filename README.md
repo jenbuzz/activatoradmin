@@ -13,7 +13,7 @@ ActivatorAdmin
 - phpDocumentor 2.3.1
 - grunt 0.4.5
 - grunt-contrib-uglify 0.5.0 (https://github.com/gruntjs/grunt-contrib-uglify)
-- grunt-contrib-cssmin 0.9.0 (https://github.com/gruntjs/grunt-contrib-cssmin)
+- grunt-contrib-cssmin 0.10.0 (https://github.com/gruntjs/grunt-contrib-cssmin)
 - grunt-contrib-jasmine 0.5.3 (https://github.com/gruntjs/grunt-contrib-jasmine)
 - grunt-template-jasmine-requirejs 0.1.10 (https://github.com/cloudchen/grunt-template-jasmine-requirejs)
 - grunt-phpunit 0.3.3 (https://github.com/SaschaGalley/grunt-phpunit)
