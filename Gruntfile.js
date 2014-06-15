@@ -57,7 +57,7 @@ module.exports = function(grunt) {
     uncss: {
       dist: {
         files: {
-          'css/activatoradmin.css': ['templates/index.tpl', 'templates/item.tpl', 'templates/login.tpl', 'templates/pagination.tpl']
+          'css/uncss.css': ['templates/index.tpl', 'templates/item.tpl', 'templates/login.tpl', 'templates/pagination.tpl']
         }
       }
     }
