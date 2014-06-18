@@ -24,4 +24,4 @@ ActivatorAdmin
 Usage
 ==============
 
-Login using the fixed these credentials: Username=admin & Password=admin.
+Login using these fixed credentials: Username = admin & Password = admin.
