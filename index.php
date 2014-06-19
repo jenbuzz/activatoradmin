@@ -1,7 +1,6 @@
 <?php
 
 require_once __DIR__ . '/lib/autoload.php';
-require_once __DIR__ . '/lib/Slim/Slim.php';
 
 use \ActivatorAdmin\Lib\DB;
 use \ActivatorAdmin\Lib\ConfigHelper;
@@ -9,8 +8,6 @@ use \ActivatorAdmin\Lib\ModelFacade;
 use \ActivatorAdmin\Lib\Item;
 
 $objConfigHelper = new ConfigHelper();
-
-\Slim\Slim::registerAutoloader();
 
 $app = new \Slim\Slim(
     array(

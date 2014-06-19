@@ -5,12 +5,9 @@
  */
 namespace ActivatorAdmin\Test\PHPunit;
 
-require_once __DIR__ . '/../../lib/Slim/Slim.php';
 require_once __DIR__ . '/../../lib/autoload.php';
 
 use \ActivatorAdmin\Lib\ConfigHelper;
-
-\Slim\Slim::registerAutoloader();
 
 class RoutingTest extends \PHPUnit_Framework_TestCase
 {
