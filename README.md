@@ -6,6 +6,7 @@ ActivatorAdmin
 - backbone.paginator 2.0.0 (https://github.com/backbone-paginator/backbone.paginator)
 - jQuery 2.1.1
 - Bootstrap 3.1.1
+- Font Awesome 4.1.0
 - PHPUnit 4.0.17
 - Jasmine 2.0.0
 - RequireJS 2.1.14
