@@ -11,7 +11,7 @@ ActivatorAdmin
 - Jasmine 2.0.0
 - RequireJS 2.1.14
 - RequireJS text 2.0.12 (https://github.com/requirejs/text)
-- phpDocumentor 2.3.1
+- phpDocumentor 2.5.0
 - grunt 0.4.5
 - grunt-contrib-uglify 0.5.0 (https://github.com/gruntjs/grunt-contrib-uglify)
 - grunt-contrib-cssmin 0.10.0 (https://github.com/gruntjs/grunt-contrib-cssmin)
