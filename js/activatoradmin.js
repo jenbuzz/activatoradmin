@@ -107,8 +107,8 @@ require([
       }
       this.$el.html(this.template(json));
 
-      this.$el.find('input').tooltip({
-        placement : 'top'
+      this.$el.find('label').tooltip({
+        placement : 'left'
       });
 
       if( typeof appConfig != 'undefined' &&
