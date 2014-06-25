@@ -46,6 +46,9 @@ body {
   display: table-cell;
   vertical-align: middle;
 }
+.itemContainer > div:first-of-type {
+  width: 30%;
+}
 .modal-open {
   overflow: visible;
 }
@@ -79,6 +82,10 @@ body {
 }
 
 /* toggle checkbox */
+.itemContainer label {
+  height: 22px;
+  overflow: hidden;
+}
 .itemContainer input.toggle-activate:empty {
   display: none;
 }

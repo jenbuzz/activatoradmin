@@ -2,6 +2,9 @@
   <div>
     <input id="toggle-activate-<%=id%>" class="toggle-activate" type="checkbox" <%= isactive==1 ? "checked" : "" %> />
     <label for="toggle-activate-<%=id%>" title="<% if(isactive==1) { %>de<% } %>activate"><%=name%></label>
+  </div>
+
+  <div>
     <img class="img-thumbnail" src="<% if(image) { %><%=image%><% } else { %>images/default.jpg<% } %>" />
   </div>
 
