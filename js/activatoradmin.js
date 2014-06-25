@@ -66,7 +66,7 @@ require([
     className: 'well',
     template: _.template(tplItem),
     events: {
-      'click #toggle-activate': 'toggleActivate',
+      'click .toggle-activate': 'toggleActivate',
       'click img': 'toggleImage'
     },
     initialize: function() {},
@@ -126,7 +126,7 @@ require([
       return this.$el;
     },
     toggleActivate: function() {
-      var activeState = this.$el.find('#toggle-activate').get(0).checked ? 1 : 0;
+      var activeState = this.$el.find('.toggle-activate').get(0).checked ? 1 : 0;
       this.model.save({'isactive': activeState});
       this.render();
     },

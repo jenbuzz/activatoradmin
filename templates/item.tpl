@@ -1,9 +1,7 @@
 <div class="itemContainer">
   <div>
-   <label>
-      <input id="toggle-activate" type="checkbox" <%= isactive==1 ? "checked" : "" %> title="<% if(isactive==1) { %>de<% } %>activate" />
-      <%=name%>
-    </label>
+    <input id="toggle-activate-<%=id%>" class="toggle-activate" type="checkbox" <%= isactive==1 ? "checked" : "" %> title="<% if(isactive==1) { %>de<% } %>activate" />
+    <label for="toggle-activate-<%=id%>"><%=name%></label>
     <img class="img-thumbnail" src="<% if(image) { %><%=image%><% } else { %>images/default.jpg<% } %>" />
   </div>
 
