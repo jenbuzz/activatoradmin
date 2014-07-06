@@ -27,6 +27,9 @@ body {
 .logout button:hover {
   opacity: 0.8;
 }
+.logout button span {
+  margin-right: 4px;
+}
 .list-unstyled li label {
   min-width: 230px;
 }
