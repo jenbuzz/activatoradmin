@@ -26,3 +26,8 @@ Usage
 ==============
 
 Login using these fixed credentials: Username = admin & Password = admin.
+
+License
+==============
+
+ActivatorAdmin is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
