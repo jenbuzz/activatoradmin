@@ -58,6 +58,9 @@ body {
 .modal {
   overflow: auto;
 }
+.modal-body table tr > td:first-of-type {
+  padding-right: 10px;
+}
 .btn {
   font-size: 15px;
   line-height: 0.7;
