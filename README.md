@@ -20,7 +20,7 @@ ActivatorAdmin
 - grunt-phpunit 0.3.3 (https://github.com/SaschaGalley/grunt-phpunit)
 - grunt-contrib-watch 0.6.1 (https://github.com/gruntjs/grunt-contrib-watch)
 - grunt-contrib-jshint 0.10.0 (https://github.com/gruntjs/grunt-contrib-jshint)
-- grunt-uncss 0.3.4 (https://github.com/addyosmani/grunt-uncss)
+- grunt-uncss 0.3.5 (https://github.com/addyosmani/grunt-uncss)
 
 Usage
 ==============
