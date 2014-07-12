@@ -9,15 +9,41 @@ require_once __DIR__ . '/../../lib/autoload.php';
 
 use \ActivatorAdmin\Lib\ModelFacade;
 use \ActivatorAdmin\Lib\Item;
+use \ActivatorAdmin\Lib\ConfigHelper;
+use \ActivatorAdmin\Lib\DB;
 
 class ModelFacadeTest extends \PHPUnit_Framework_TestCase
 {
-    private $objModelFacade;
+    private $objModelFacade = false;
+    private $dbConfig = false;
+    private $mysqli = false;
 
     public function setUp()
     {
-       $this->objModelFacade = new ModelFacade(new Item());
+        $objConfigHelper = new ConfigHelper();
+        $this->dbConfig = $objConfigHelper->get('db');
+        $this->dbConfig['table'] = $this->dbConfig['table']."_test";
+        $objDB = DB::getInstance($this->dbConfig);
+        $this->mysqli = $objDB->getConnection();
+
+        // Create pseudo table for testing
+        $sql = "CREATE TABLE IF NOT EXISTS ".$this->dbConfig['table']." ";
+        $sql.= "(id INT(11) NOT NULL AUTO_INCREMENT, isactive TINYINT(4), name VARCHAR(255), image VARCHAR(255) DEFAULT NULL, PRIMARY KEY(id))";
+        $this->mysqli->query($sql);
+
+        $this->objModelFacade = new ModelFacade(new Item($this->dbConfig));
     }
+
+    /**
+     * Drop test table after running testcases.
+     */
+    protected function tearDown()
+    {
+        // Create pseudo table for testing
+        $sql = "DROP TABLE ".$this->dbConfig['table'];
+        $this->mysqli->query($sql);
+    }
+
 
     /**
      * Test loading all models.
@@ -38,7 +64,11 @@ class ModelFacadeTest extends \PHPUnit_Framework_TestCase
      */
     public function testLoad()
     {
-        $arrItem = $this->objModelFacade->load(2);
+        // Insert test row in test table
+        $sqlInsert = "INSERT INTO ".$this->dbConfig['table']." (isactive, name, image) VALUES (0, 'Test Item 1', 'image.jpg')";
+        $id = $this->mysqli->query($sqlInsert);
+
+        $arrItem = $this->objModelFacade->load($id);
 
         $this->assertTrue(is_object($arrItem));
     }
@@ -48,7 +78,13 @@ class ModelFacadeTest extends \PHPUnit_Framework_TestCase
      */
     public function testSave()
     {
-        // TODO: test save and assert check
+        // Insert test row in test table
+        $sqlInsert = "INSERT INTO ".$this->dbConfig['table']." (isactive, name, image) VALUES (0, 'Test Item 1', 'image.jpg')";
+        $id = $this->mysqli->query($sqlInsert);
+
+        $this->objModelFacade->load($id);
+
+        $this->assertTrue($this->objModelFacade->save());
     }
 
     /**
@@ -56,7 +92,13 @@ class ModelFacadeTest extends \PHPUnit_Framework_TestCase
      */
     public function testDelete()
     {
-        // TODO: test delete and assert check
+        // Insert test row in test table
+        $sqlInsert = "INSERT INTO ".$this->dbConfig['table']." (isactive, name, image) VALUES (0, 'Test Item 1', 'image.jpg')";
+        $id = $this->mysqli->query($sqlInsert);
+
+        $this->objModelFacade->load($id);
+
+        $this->assertTrue($this->objModelFacade->delete());
     }
 
 }
