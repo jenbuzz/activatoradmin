@@ -6,8 +6,8 @@ php:
   - 5.5
 
 before_script:
-  - mysql -e 'CREATE DATABASE activatoradmin;'
-  - mysql -e 'CREATE TABLE items (id INT(11) NOT NULL AUTO_INCREMENT, isactive TINYINT(4), name VARCHAR(255), image VARCHAR(255) DEFAULT NULL, PRIMARY KEY(id));'
-  - mysql -e 'CREATE TABLE items_test (id INT(11) NOT NULL AUTO_INCREMENT, isactive TINYINT(4), name VARCHAR(255), image VARCHAR(255) DEFAULT NULL, PRIMARY KEY(id));'
+  - sh -c "mysql -e 'CREATE DATABASE activatoradmin;'"
+  - sh -c "mysql -e 'CREATE TABLE IF NOT EXISTS items (id INT(11) NOT NULL AUTO_INCREMENT, isactive TINYINT(4), name VARCHAR(255), image VARCHAR(255) DEFAULT NULL, PRIMARY KEY(id));'"
+  - sh -c "mysql -e 'CREATE TABLE IF NOT EXISTS items_test (id INT(11) NOT NULL AUTO_INCREMENT, isactive TINYINT(4), name VARCHAR(255), image VARCHAR(255) DEFAULT NULL, PRIMARY KEY(id));'"
 
 script: phpunit test/phpunit/
