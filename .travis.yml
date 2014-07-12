@@ -5,4 +5,7 @@ php:
   - 5.4
   - 5.5
 
+before_script:
+  - mysql -e 'create database activatoradmin; create table items (id INT(11) NOT NULL AUTO_INCREMENT, isactive TINYINT(4), name VARCHAR(255), image VARCHAR(255) DEFAULT NULL, PRIMARY KEY(id)); create table items_test (id INT(11) NOT NULL AUTO_INCREMENT, isactive TINYINT(4), name VARCHAR(255), image VARCHAR(255) DEFAULT NULL, PRIMARY KEY(id));'
+
 script: phpunit test/phpunit/
