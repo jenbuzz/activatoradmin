@@ -18,6 +18,13 @@ module.exports = function(grunt) {
         }
       }
     },
+    compass: {
+      dist: {
+        options: {
+          config: 'config.rb'
+        }
+      }
+    },
     uglify: {
       build: {
         src: 'js/<%= pkg.name %>.js',
@@ -64,6 +71,7 @@ module.exports = function(grunt) {
   });
 
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-jasmine');
@@ -72,6 +80,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-uncss');
 
   grunt.registerTask('default', ['minify', 'test']);
+  grunt.registerTask('compile', ['compass']);
   grunt.registerTask('minify', ['uglify', 'cssmin']);
   grunt.registerTask('test', ['jasmine', 'phpunit', 'jshint']);
   grunt.registerTask('removecss', ['uncss']);

@@ -20,6 +20,7 @@ ActivatorAdmin
 - grunt-contrib-watch 0.6.1 (https://github.com/gruntjs/grunt-contrib-watch)
 - grunt-contrib-jshint 0.10.0 (https://github.com/gruntjs/grunt-contrib-jshint)
 - grunt-uncss 0.3.5 (https://github.com/addyosmani/grunt-uncss)
+- grunt-contrib-compass 0.9.0 (https://github.com/gruntjs/grunt-contrib-compass)
 
 Usage
 ==============
