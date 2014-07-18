@@ -7,7 +7,6 @@ body {
   padding-bottom: 25px;
   padding-top: 25px;
 }
-
 .jumbotron h1 {
   font-size: 50px;
 }
@@ -26,28 +25,25 @@ body {
   top: 10px;
   margin-left: 60px;
 }
-
 .logout button {
   opacity: 0.6;
 }
-
+.logout button span {
+  margin-right: 4px;
+}
 .logout button:hover {
   opacity: 0.8;
 }
 
-.logout button span {
-  margin-right: 4px;
-}
-
 .list-unstyled li label {
   min-width: 230px;
-}
-
-.list-unstyled li input, .list-unstyled li label {
   margin-right: 15px;
   cursor: pointer;
 }
-
+.list-unstyled li input {
+  margin-right: 15px;
+  cursor: pointer;
+}
 .list-unstyled li img {
   cursor: pointer;
   max-height: 90px;
@@ -57,7 +53,6 @@ body {
   display: table;
   width: 100%;
 }
-
 .itemContainer div {
   display: table-cell;
   vertical-align: middle;
@@ -113,11 +108,9 @@ body {
   height: 22px;
   overflow: hidden;
 }
-
 .itemContainer input.toggle-activate:empty {
   display: none;
 }
-
 .itemContainer input.toggle-activate:empty ~ label {
   position: relative;
   float: left;
@@ -130,7 +123,6 @@ body {
   -ms-user-select: none;
   user-select: none;
 }
-
 .itemContainer input.toggle-activate:empty ~ label:before,
 .itemContainer input.toggle-activate:empty ~ label:after {
   position: absolute;
@@ -146,7 +138,6 @@ body {
   -webkit-transition: all 100ms ease-in;
   transition: all 100ms ease-in;
 }
-
 .itemContainer input.toggle-activate:empty ~ label:after {
   width: 1.4em;
   top: 0.1em;
@@ -156,11 +147,9 @@ body {
   border-radius: 0.15em;
   box-shadow: inset 0 -0.2em 0 rgba(0, 0, 0, 0.2);
 }
-
 .itemContainer input.toggle-activate:checked ~ label:before {
   background-color: #393;
 }
-
 .itemContainer input.toggle-activate:checked ~ label:after {
   margin-left: 2em;
 }
