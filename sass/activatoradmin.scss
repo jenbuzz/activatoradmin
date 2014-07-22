@@ -1,7 +1,11 @@
+$primaary-bg-color: #F9F9F9;
 $primary-text-color: #444444;
 
+$large-width: 991px;
+$medium-width: 768px;
+
 body {
-  background: #F9F9F9;
+  background: $primaary-bg-color;
   color: $primary-text-color;
 }
 
@@ -169,7 +173,13 @@ body {
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: $large-width) {
+  .container {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: $medium-width) {
   .jumbotron h1 {
     font-size: 35px;
   }

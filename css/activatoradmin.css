@@ -1,5 +1,5 @@
 body {
-  background: #F9F9F9;
+  background: #f9f9f9;
   color: #444444;
 }
 
@@ -154,6 +154,11 @@ body {
   margin-left: 2em;
 }
 
+@media screen and (max-width: 991px) {
+  .container {
+    width: 100%;
+  }
+}
 @media screen and (max-width: 768px) {
   .jumbotron h1 {
     font-size: 35px;
