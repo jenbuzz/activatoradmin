@@ -3,6 +3,7 @@ $primary-text-color: #444444;
 
 $large-width: 991px;
 $medium-width: 768px;
+$small-width: 450px;
 
 body {
   background: $primaary-bg-color;
@@ -188,5 +189,15 @@ body {
   }
   .logout {
     margin-left: 30px;
+  }
+}
+
+@media screen and (max-width: $small-width) {
+  .list-unstyled {
+    li {
+      label {
+        min-width: 100%;
+      }
+    }
   }
 }

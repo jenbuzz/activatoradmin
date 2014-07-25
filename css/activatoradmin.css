@@ -172,3 +172,8 @@ body {
     margin-left: 30px;
   }
 }
+@media screen and (max-width: 450px) {
+  .list-unstyled li label {
+    min-width: 100%;
+  }
+}
