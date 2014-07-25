@@ -23,7 +23,7 @@ body {
 .logout {
   position: absolute;
   top: 10px;
-  margin-left: 60px;
+  margin-left: 15px;
 }
 .logout button {
   opacity: 0.6;
