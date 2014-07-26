@@ -42,7 +42,7 @@ module.exports = function(grunt) {
     },
     concat: {
       css: {
-        src: ['css/activatoradmin.min.css', 'css/bootstrap.min.css', 'css/bootstrap-theme.min.css', 'css/font-awesome.min.css'],
+        src: ['css/bootstrap.min.css', 'css/bootstrap-theme.min.css', 'css/font-awesome.min.css', 'css/activatoradmin.min.css'],
         dest: 'css/dist.css',
       }
     },
