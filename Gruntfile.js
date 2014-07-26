@@ -12,7 +12,7 @@ module.exports = function(grunt) {
     watch: {
       scripts: {
         files: ['sass/<%= pkg.name %>.scss', 'js/<%= pkg.name %>.js', 'css/<%= pkg.name %>.css'],
-        tasks: ['compass', 'minify'],
+        tasks: ['compass', 'minify', 'concat:css'],
         options: {
           spawn: false
         }
@@ -38,6 +38,12 @@ module.exports = function(grunt) {
         src: ['<%= pkg.name %>.css'],
         dest: 'css/',
         ext: '.min.css'
+      }
+    },
+    concat: {
+      css: {
+        src: ['css/activatoradmin.min.css', 'css/bootstrap.min.css', 'css/bootstrap-theme.min.css', 'css/font-awesome.min.css'],
+        dest: 'css/dist.css',
       }
     },
     jasmine: {
@@ -74,6 +80,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-jasmine');
   grunt.loadNpmTasks('grunt-phpunit');
   grunt.loadNpmTasks('grunt-contrib-jshint');
