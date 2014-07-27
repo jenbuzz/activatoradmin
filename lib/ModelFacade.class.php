@@ -95,4 +95,34 @@ class ModelFacade
         }
     }
 
+    /**
+     * Search for records/models where name matches the searchterm.
+     *
+     * @param string $term is the search term to match against.
+     *
+     * @return array arrItemObjects
+     */
+    public function search($term)
+    {
+        if ($this->model) {
+            $objConfigHelper = new ConfigHelper();
+            $dbConfig = $objConfigHelper->get('db');
+            $dbMapping = $objConfigHelper->get('db_mapping');
+
+            $objDB = DB::getInstance($dbConfig);
+
+            $arrItemObjects = array();
+            $arrItems = $objDB->search($dbConfig['table'], $dbMapping['name'], $term);
+            foreach ($arrItems as $item) {
+                $objItem = new Item();
+                $objItem->load($item['id']);
+                $arrItemObjects[] = $objItem;
+            }
+
+            return $arrItemObjects;
+        } else {
+            return false;
+        }
+    }
+
 }
