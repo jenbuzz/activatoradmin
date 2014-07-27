@@ -5,4 +5,5 @@
   RewriteRule ^logout index.php/logout [QSA]
   RewriteRule ^items index.php/items [QSA]
   RewriteRule ^item/(.*) index.php/item/$1 [QSA]
+  RewriteRule ^search/(.*) index.php/search/$1 [QSA]
 </IfModule>

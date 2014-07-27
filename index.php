@@ -160,5 +160,29 @@ $app->delete('/item/:id', function($id) use($app) {
     }
 });
 
+/**
+ * GET search items
+ */
+$app->get('/search/:term', function($term) use($app) {
+    if (!isset($_SESSION['activatoradmin_user'])) {
+        $objConfigHelper = $app->config('custom');
+        $baseurl = $objConfigHelper->get('url', 'baseurl');
+
+        $app->redirect($baseurl.'login');
+    } else {
+        $term = filter_var($term, FILTER_SANITIZE_STRING);
+        
+        $arrItems = array();
+
+        $objModelFacade = new ModelFacade(new Item());
+        $arrItemObjects = $objModelFacade->search($term);
+        foreach ($arrItemObjects as $objItem) {
+            $arrItems[] = $objItem->toArray();
+        }
+
+        echo json_encode($arrItems);
+    }
+});
+
 
 $app->run();
