@@ -54,6 +54,16 @@ require([
       firstPage: 1,
       currentPage: 1,
       pageSize: pageSize
+    },
+    search: function(searchterm){
+      if( searchterm === '' ) {
+        return this;
+      }
+
+      var searchpattern = new RegExp(searchterm, 'gi');
+      return _(this.fullCollection.filter(function(data) {
+        return searchpattern.test(data.get('name'));
+      }));
     }
   });
 
@@ -155,7 +165,7 @@ require([
       'click a.prev': 'gotoPrev',
       'click a.next': 'gotoNext',
       'click a.last': 'gotoLast',
-      'click a.page': 'gotoPage'
+      'click a.page': 'gotoPage',
     },
     template: _.template(tplPagination),
     initialize: function() {
@@ -214,6 +224,10 @@ require([
   // AppView
   ActivatorAppView = Backbone.View.extend({
     el: $('#container'),
+    events: {
+      'click #search': 'search',
+      'click #clearsearch': 'clearsearch'
+    },
     initialize: function() {
       ActivatorItems.on('reset', this.addItems, this);
 
@@ -234,6 +248,26 @@ require([
         });
         $('#itemlist').append(view.render());
       });
+    },
+    search: function() {
+      $('#itemlist').empty();
+
+      var searchresults = ActivatorItems.search($('#searchterm').val());console.log(searchresults);
+      searchresults.each(function(item) {
+        var view = new ActivatorItemView({
+          model: item
+        });
+        $('#itemlist').append(view.render());
+      });
+
+      $('#pagination-container').hide();
+    },
+    clearsearch: function() {
+      $('#itemlist').empty();
+
+      $('#pagination-container').show();
+      
+      ActivatorItems.fetch();
     }
   });
 

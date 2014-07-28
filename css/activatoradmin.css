@@ -35,6 +35,18 @@ body {
   opacity: 0.8;
 }
 
+.search {
+  position: absolute;
+  top: 10px;
+  margin-left: 120px;
+}
+.search button {
+  opacity: 0.6;
+}
+.search button span {
+  margin-right: 4px;
+}
+
 .list-unstyled li label {
   min-width: 230px;
   margin-right: 15px;

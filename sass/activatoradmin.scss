@@ -44,6 +44,20 @@ body {
   }
 }
 
+.search {
+  position: absolute;
+  top: 10px;
+  margin-left: 120px;
+
+  button {
+    opacity: 0.6;
+
+    span {
+      margin-right: 4px;
+    }
+  }
+}
+
 .list-unstyled {
   li {
     label {
