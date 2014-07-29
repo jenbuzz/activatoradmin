@@ -253,7 +253,7 @@ require([
     search: function() {
       $('#itemlist').empty();
 
-      var searchresults = ActivatorItems.search($('#searchterm').val());console.log(searchresults);
+      var searchresults = ActivatorItems.search($('#searchterm').val());
       searchresults.each(function(item) {
         var view = new ActivatorItemView({
           model: item
