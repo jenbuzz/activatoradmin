@@ -20,6 +20,9 @@ body {
   overflow: hidden;
   background-color: #E5E5E5;
 }
+.navbar .search input[type=text] {
+  opacity: 0.6;
+}
 
 .well {
   padding: 10px;
