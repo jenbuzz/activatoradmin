@@ -158,5 +158,28 @@ class DB
         $this->mysqli->query($sql);
     }
 
+    /**
+     * Search in a table for a searchterm in specified column.
+     *
+     * @param string $table is the name of the of table to run search query on.
+     * @param string $searchColumn is the name of the column in which the searchterm should appear.
+     * @param string $searchTerm is the term to search for in searchColumn.
+     */
+    public function search($table, $searchColumn, $searchTerm)
+    {
+        $sql = 'SELECT * FROM '.$table.' WHERE '.$searchColumn.' LIKE "%'.$searchTerm.'%"';
+
+        $result = $this->mysqli->query($sql);
+        $arrData = array();
+        if ($result && $result->num_rows>0) {
+            while ($row = $result->fetch_assoc()) {
+                $arrData[] = $row;
+            }
+        }
+        $result->free();
+
+        return $arrData;
+    }
+
 }
 
