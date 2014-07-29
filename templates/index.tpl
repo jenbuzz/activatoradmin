@@ -8,6 +8,8 @@
       <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="logout"><form action="<?php echo $baseurl; ?>logout" method="get"><button><span class="fa fa-sign-out"></span>sign out</button></form></div>
 
+        <div class="divider"></div>
+
         <div class="search">
           <input id="searchterm" type="text" />
           <button id="search"><span class="fa fa-search"></span>search</button>

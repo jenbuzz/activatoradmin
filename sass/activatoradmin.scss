@@ -19,6 +19,18 @@ body {
   }
 }
 
+.navbar {
+  .divider {
+    position: absolute;
+    top: 4px;
+    width: 2px;
+    height: 41px;
+    margin-left: 108px;
+    overflow: hidden;
+    background-color: #E5E5E5;
+  }
+}
+
 .well {
   padding: 10px;
 }
