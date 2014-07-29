@@ -226,6 +226,7 @@ require([
     el: $('#container'),
     events: {
       'click #search': 'search',
+      'keyup #searchterm': 'entersearch',
       'click #clearsearch': 'clearsearch'
     },
     initialize: function() {
@@ -261,6 +262,11 @@ require([
       });
 
       $('#pagination-container').hide();
+    },
+    entersearch: function(event) {
+      if( event.keyCode == 13 ) {
+        this.search();
+      }
     },
     clearsearch: function() {
       $('#itemlist').empty();
