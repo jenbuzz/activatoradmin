@@ -33,6 +33,9 @@ body {
   .search {
     input[type=text] {
       opacity: 0.6;
+      height: 25px;
+      font-size: 13px;
+      padding: 2px;
     }
   }
 }
