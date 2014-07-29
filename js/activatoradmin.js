@@ -270,6 +270,7 @@ require([
     },
     clearsearch: function() {
       $('#itemlist').empty();
+      $('#searchterm').val('');
 
       $('#pagination-container').show();
       
