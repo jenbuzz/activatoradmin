@@ -195,13 +195,13 @@ body {
   .list-unstyled li input {
     margin-right: 100%;
   }
-
-  .logout {
-    margin-left: 30px;
-  }
 }
 @media screen and (max-width: 450px) {
   .list-unstyled li label {
     min-width: 100%;
+  }
+
+  .navbar {
+    min-height: 75px;
   }
 }
