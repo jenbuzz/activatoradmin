@@ -271,10 +271,13 @@ require([
     clearsearch: function() {
       $('#itemlist').empty();
       $('#searchterm').val('');
-
-      $('#pagination-container').show();
       
-      ActivatorItems.fetch();
+      ActivatorItems.fetch({
+        reset: true,
+        success: function(model, response) {
+          $('#pagination-container').show();
+        }
+      });
     }
   });
 
