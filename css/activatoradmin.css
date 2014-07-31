@@ -189,7 +189,8 @@ body {
 }
 @media screen and (max-width: 768px) {
   .jumbotron h1 {
-    font-size: 35px;
+    font-size: 32px;
+    margin-top: 40px;
   }
 
   .list-unstyled li input {
