@@ -60,9 +60,18 @@ require([
         return this;
       }
 
+      var searchlimit = pageSize;
+      var searchcount = 0;
       var searchpattern = new RegExp(searchterm, 'gi');
       return _(this.fullCollection.filter(function(data) {
-        return searchpattern.test(data.get('name'));
+        
+        var dataOk = searchpattern.test(data.get('name'));
+        if( dataOk && searchcount<searchlimit ) {
+          searchcount++;
+          return true;
+        }
+
+        return false;
       }));
     }
   });
