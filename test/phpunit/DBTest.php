@@ -129,4 +129,15 @@ class DBTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(0, sizeof($result));
     }
 
+    /**
+     * Test search function.
+     * Search for records in std table with name='Item'.
+     */
+    public function testSearch()
+    {
+        $results = $this->db->search($this->dbConfig['table'], 'name', 'Item');
+
+        $this->assertTrue(is_array($results));
+    }
+
 }
