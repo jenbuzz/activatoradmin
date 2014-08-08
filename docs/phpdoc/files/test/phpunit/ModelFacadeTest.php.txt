@@ -101,5 +101,15 @@ class ModelFacadeTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($this->objModelFacade->delete());
     }
 
+    /**
+     * Test searching for models with specified name.
+     */
+    public function testSearch()
+    {
+        $arrResults = $this->objModelFacade->search('Test');
+
+        $this->assertTrue(is_array($arrResults));
+    }
+
 }
 
