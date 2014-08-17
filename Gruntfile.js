@@ -67,6 +67,14 @@ module.exports = function(grunt) {
     jshint: {
       all: ['js/<%= pkg.name %>.js']
     },
+    casperjs: {
+      options: {
+        async: {
+          parallel: false
+        }
+      },
+      files: ['test/casperjs/*.js']
+    },
     uncss: {
       dist: {
         files: {
@@ -84,11 +92,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jasmine');
   grunt.loadNpmTasks('grunt-phpunit');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-casperjs');
   grunt.loadNpmTasks('grunt-uncss');
 
   grunt.registerTask('default', ['minify', 'test']);
   grunt.registerTask('compile', ['compass']);
   grunt.registerTask('minify', ['uglify', 'cssmin']);
-  grunt.registerTask('test', ['jasmine', 'phpunit', 'jshint']);
+  grunt.registerTask('test', ['jasmine', 'phpunit', 'jshint', 'casperjs']);
   grunt.registerTask('removecss', ['uncss']);
 };
