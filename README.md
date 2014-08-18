@@ -22,7 +22,7 @@ ActivatorAdmin
 - grunt-uncss 0.3.6 (https://github.com/addyosmani/grunt-uncss)
 - grunt-contrib-compass 0.9.1 (https://github.com/gruntjs/grunt-contrib-compass)
 - grunt-contrib-concat 0.5.0 (https://github.com/gruntjs/grunt-contrib-concat)
-- grunt-casperjs 1.5.0 (https://github.com/ronaldlokers/grunt-casperjs)
+- grunt-casperjs 2.0.0 (https://github.com/ronaldlokers/grunt-casperjs)
 
 Usage
 ==============
