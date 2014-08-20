@@ -24,11 +24,9 @@ casper.test.begin('Login is working', 2, function suite(test) {
       'username': 'admin',
       'password': 'admin',
     }, true);
-
-    this.wait(200);
   });
 
-  casper.then(function() {
+  casper.waitForSelector('#itemlist', function() {
     test.assertEquals(this.getCurrentUrl(), url);
   });
 
