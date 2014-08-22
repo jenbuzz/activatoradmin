@@ -35,3 +35,20 @@ casper.test.begin('Login is working', 2, function suite(test) {
   });
 
 });
+
+casper.test.begin('Search is working', 1, function suite(test) {
+
+  casper.waitForSelector('#searchterm', function() {
+    this.sendKeys('#searchterm', 'a long title that will always return 0 results');
+    this.click('#search');
+
+    this.wait(200);
+
+    test.assertElementCount('#itemList li', 0);
+  });
+
+  casper.run(function() {
+    test.done();
+  });
+
+});
