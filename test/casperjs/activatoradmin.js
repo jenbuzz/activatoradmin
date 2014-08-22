@@ -52,3 +52,24 @@ casper.test.begin('Search is working', 1, function suite(test) {
   });
 
 });
+
+casper.test.begin('Logout is working', 2, function suite(test) {
+
+  var url = 'http://'+appConfig.host+appConfig.baseUrl;
+  var urlLogin = url+'login';
+
+  casper.start(url, function() {
+    test.assertEquals(this.getCurrentUrl(), url);
+
+    this.click('.logout form button');
+  });
+
+  casper.waitForSelector('#username', function() {
+    test.assertEquals(this.getCurrentUrl(), urlLogin);
+  });
+
+  casper.run(function() {
+    test.done();
+  });
+
+});
