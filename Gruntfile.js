@@ -69,7 +69,7 @@ module.exports = function(grunt) {
       }
     },
     jshint: {
-      all: ['js/<%= pkg.name %>.js']
+      all: ['js/app/*.js', 'js/app/models/*.js', 'js/app/collections/*.js', 'js/app/views/*.js']
     },
     casperjs: {
       options: {
