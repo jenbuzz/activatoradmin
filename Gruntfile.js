@@ -46,6 +46,16 @@ module.exports = function(grunt) {
         dest: 'css/dist.css',
       }
     },
+    requirejs: {
+      compile: {
+        options: {
+          baseUrl: "js/app",
+          mainConfigFile: "js/app/main.js",
+          name: 'main',
+          out: "js/dist/<%= pkg.name %>.js"
+        }
+      }
+    },
     jasmine: {
       activatoradmin: {
         src: 'js/activatoradmin.js',
@@ -94,6 +104,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-casperjs');
   grunt.loadNpmTasks('grunt-uncss');
+  grunt.loadNpmTasks('grunt-contrib-requirejs');
 
   grunt.registerTask('default', ['minify', 'test']);
   grunt.registerTask('compile', ['compass']);

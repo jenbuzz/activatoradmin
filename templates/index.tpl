@@ -27,7 +27,7 @@
     </div>
 
     <script src="config/config.js"></script>
-    <script data-main="js/app/main" src="js/lib/require.js"></script>
+    <script data-main="js/dist/activatoradmin" src="js/lib/require.js"></script>
   </body>
 
 </html>

@@ -23,6 +23,7 @@ ActivatorAdmin
 - grunt-contrib-compass 0.9.1 (https://github.com/gruntjs/grunt-contrib-compass)
 - grunt-contrib-concat 0.5.0 (https://github.com/gruntjs/grunt-contrib-concat)
 - grunt-casperjs 2.0.0 (https://github.com/ronaldlokers/grunt-casperjs)
+- grunt-contrib-requirejs 0.4.4 (https://github.com/gruntjs/grunt-contrib-requirejs)
 
 Usage
 ==============
