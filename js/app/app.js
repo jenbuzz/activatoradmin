@@ -13,7 +13,7 @@ define([
     
     var ActivatorItems = new ItemsList([], { mode: "client" });
     
-    var ActivatorAppView = Backbone.View.extend({
+    var AppView = Backbone.View.extend({
       el: $('#container'),
       events: {
         'click #search': 'search',
@@ -73,7 +73,7 @@ define([
     });
 
     // Start app
-    var ActivatorApp = new ActivatorAppView();
+    var ActivatorApp = new AppView();
   }
 
   return {

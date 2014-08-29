@@ -3,6 +3,7 @@ define([
   'underscore',
   'backbone'
 ], function($, _, Backbone) {
+  'use strict';
 
   // Setup baseUrl (if ActivatorAdmin is in root the baseUrl should be /)
   var baseUrl = '';
@@ -11,7 +12,6 @@ define([
   }
 
   var ItemsModel = Backbone.Model.extend({
-
     urlRoot: baseUrl+'item',
     idAttribute: 'id',
     initialize: function() {
@@ -27,8 +27,8 @@ define([
         }
       }
     }
-
   });
 
   return ItemsModel;
+
 });

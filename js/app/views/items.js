@@ -5,6 +5,7 @@ define([
   'text!../../../templates/item.tpl',
   'text!../../../templates/pagination.tpl'
 ], function($, _, Backbone, tplItem, tplPagination) {
+  'use strict';
 
   // Setup baseUrl (if ActivatorAdmin is in root the baseUrl should be /)
   var baseUrl = '';
@@ -13,7 +14,6 @@ define([
   }
 
   var ItemsView = Backbone.View.extend({
-
     tagName: 'li',
     className: 'well',
     template: _.template(tplItem),
@@ -98,8 +98,8 @@ define([
         $(this).remove();
       });
     }
-
   });
   
   return ItemsView;
+
 });

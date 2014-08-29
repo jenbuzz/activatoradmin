@@ -2,8 +2,9 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'text!../../../templates/pagination.tpl',
+  'text!../../../templates/pagination.tpl'
 ], function($, _, Backbone, tplPagination) {
+  'use strict';
 
   var ItemsPaginationView = Backbone.View.extend({
     events: {

@@ -5,6 +5,7 @@ define([
   'backbonePaginator',
   'models/items'
 ], function($, _, Backbone, BackbonePaginator, ItemsModel) {
+  'use strict';
 
   // Setup baseUrl (if ActivatorAdmin is in root the baseUrl should be /)
   var baseUrl = '';
