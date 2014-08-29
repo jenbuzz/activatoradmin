@@ -74,7 +74,7 @@ define([
 
     // Start app
     var ActivatorApp = new AppView();
-  }
+  };
 
   return {
     initialize: initialize
