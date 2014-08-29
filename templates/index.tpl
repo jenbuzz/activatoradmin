@@ -26,10 +26,8 @@
       <div id="pagination-container"></div>
     </div>
 
-    <script src="js/lib/require.js"></script>
     <script src="config/config.js"></script>
-    <script src="config/requirejs.config.js"></script>
-    <script src="js/activatoradmin.min.js"></script>
+    <script data-main="js/app/main" src="js/lib/require.js"></script>
   </body>
 
 </html>
