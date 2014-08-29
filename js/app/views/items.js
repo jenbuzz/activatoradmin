@@ -3,15 +3,10 @@ define([
   'underscore',
   'backbone',
   'text!../../../templates/item.tpl',
-  'text!../../../templates/pagination.tpl'
+  'text!../../../templates/pagination.tpl',
+  'settings'
 ], function($, _, Backbone, tplItem, tplPagination) {
   'use strict';
-
-  // Setup baseUrl (if ActivatorAdmin is in root the baseUrl should be /)
-  var baseUrl = '';
-  if( typeof appConfig != 'undefined' && appConfig.hasOwnProperty('baseUrl') ) {
-    baseUrl = appConfig.baseUrl;
-  }
 
   var ItemsView = Backbone.View.extend({
     tagName: 'li',

@@ -3,21 +3,10 @@ define([
   'underscore',
   'backbone',
   'backbonePaginator',
-  'models/items'
+  'models/items',
+  'settings'
 ], function($, _, Backbone, BackbonePaginator, ItemsModel) {
   'use strict';
-
-  // Setup baseUrl (if ActivatorAdmin is in root the baseUrl should be /)
-  var baseUrl = '';
-  if( typeof appConfig != 'undefined' && appConfig.hasOwnProperty('baseUrl') ) {
-    baseUrl = appConfig.baseUrl;
-  }
-
-  // Setup pageSize; default=5
-  var pageSize = 5;
-  if ( typeof appConfig != 'undefined' && appConfig.hasOwnProperty('pageSize') ) {
-    pageSize = appConfig.pageSize;
-  }
 
   var ItemsList = Backbone.PageableCollection.extend({
     model: ItemsModel,

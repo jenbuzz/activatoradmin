@@ -1,15 +1,10 @@
 define([
   'jquery',
   'underscore',
-  'backbone'
+  'backbone',
+  'settings'
 ], function($, _, Backbone) {
   'use strict';
-
-  // Setup baseUrl (if ActivatorAdmin is in root the baseUrl should be /)
-  var baseUrl = '';
-  if( typeof appConfig != 'undefined' && appConfig.hasOwnProperty('baseUrl') ) {
-    baseUrl = appConfig.baseUrl;
-  }
 
   var ItemsModel = Backbone.Model.extend({
     urlRoot: baseUrl+'item',
