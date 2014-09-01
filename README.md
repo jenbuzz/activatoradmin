@@ -8,7 +8,7 @@ ActivatorAdmin
 - backbone.paginator 2.0.2 (https://github.com/backbone-paginator/backbone.paginator)
 - jQuery 2.1.1
 - Bootstrap 3.2.0
-- Font Awesome 4.1.0
+- Font Awesome 4.2.0
 - RequireJS 2.1.14
 - RequireJS text 2.0.12 (https://github.com/requirejs/text)
 - grunt 0.4.5
