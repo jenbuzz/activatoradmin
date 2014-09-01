@@ -11,7 +11,7 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     watch: {
       scripts: {
-        files: ['sass/<%= pkg.name %>.scss', 'js/app/*.js', 'js/app/models/*.js', 'js/app/collections/*.js', 'js/app/views/*.js'],
+        files: ['sass/<%= pkg.name %>.scss', 'js/app/*.js', 'js/app/models/*.js', 'js/app/collections/*.js', 'js/app/views/*.js', 'config/config.js'],
         tasks: ['compass', 'minify', 'concat:css', 'requirejs'],
         options: {
           spawn: false
@@ -48,6 +48,12 @@ module.exports = function(grunt) {
           name: 'main',
           out: "js/dist/<%= pkg.name %>.js"
         }
+      }
+    },
+    uglify: {
+      build: {
+        src: 'config/config.js',
+        dest: 'config/config.min.js'
       }
     },
     jasmine: {
@@ -92,6 +98,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jasmine');
   grunt.loadNpmTasks('grunt-phpunit');
   grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -101,7 +108,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default', ['minify', 'test']);
   grunt.registerTask('compile', ['compass', 'requirejs']);
-  grunt.registerTask('minify', ['cssmin']);
+  grunt.registerTask('minify', ['cssmin', 'uglify']);
   grunt.registerTask('test', ['jasmine', 'phpunit', 'jshint', 'casperjs']);
   grunt.registerTask('removecss', ['uncss']);
 };

@@ -26,7 +26,7 @@
       <div id="pagination-container"></div>
     </div>
 
-    <script src="config/config.js"></script>
+    <script src="config/config.min.js"></script>
     <script data-main="js/dist/activatoradmin" src="js/lib/require.js"></script>
   </body>
 
