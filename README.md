@@ -3,6 +3,9 @@ ActivatorAdmin
 
 [![Build Status](https://secure.travis-ci.org/dan-lyn/activatoradmin.png?branch=master)](http://travis-ci.org/dan-lyn/activatoradmin)
 
+Third-Party Libraries
+==============
+
 - Slim Framework 2.4.2
 - Backbone.js 1.1.2
 - backbone.paginator 2.0.2 (https://github.com/backbone-paginator/backbone.paginator)
