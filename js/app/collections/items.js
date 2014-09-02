@@ -3,7 +3,7 @@ define([
   'underscore',
   'backbone',
   'backbonePaginator',
-  'models/items',
+  'models/item',
   'settings'
 ], function($, _, Backbone, BackbonePaginator, ItemsModel) {
   'use strict';
