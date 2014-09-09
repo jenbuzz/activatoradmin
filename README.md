@@ -19,7 +19,7 @@ Third-Party Libraries
 - grunt-contrib-cssmin 0.10.0 (https://github.com/gruntjs/grunt-contrib-cssmin)
 - grunt-contrib-jasmine 0.5.3 (https://github.com/gruntjs/grunt-contrib-jasmine)
 - grunt-template-jasmine-requirejs 0.1.10 (https://github.com/cloudchen/grunt-template-jasmine-requirejs)
-- grunt-phpunit 0.3.4 (https://github.com/SaschaGalley/grunt-phpunit)
+- grunt-phpunit 0.3.5 (https://github.com/SaschaGalley/grunt-phpunit)
 - grunt-contrib-watch 0.6.1 (https://github.com/gruntjs/grunt-contrib-watch)
 - grunt-contrib-jshint 0.10.0 (https://github.com/gruntjs/grunt-contrib-jshint)
 - grunt-uncss 0.3.6 (https://github.com/addyosmani/grunt-uncss)
