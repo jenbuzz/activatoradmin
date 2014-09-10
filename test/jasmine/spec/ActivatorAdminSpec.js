@@ -1,52 +1,53 @@
-(function() {
-
+define(['models/item', 'collections/items', 'views/items', 'views/pagination', 'app'], function(ItemsModel, ItemsList, ItemsView, ItemsPaginationView, App) {
+  
   describe("ActivatorAdmin Model", function() {
     it("should exist", function() {
-      return expect(ActivatorItem).toBeDefined();
+      return expect(ItemsModel).toBeDefined();
     });
     it("should not have an empty string urlRoot", function() {
-      var item = new ActivatorItem();
+      var item = new ItemsModel();
       return expect(item.get("urlRoot")).not.toBe("");
     });
     it("should not have an empty string idAttribute", function() {
-      var item = new ActivatorItem();
+      var item = new ItemsModel();
       return expect(item.get("idAttribute")).not.toBe("");
     });
   });
 
   describe("ActivatorAdmin Collection", function() {
     it("should exist", function() {
-      return expect(ActivatorList).toBeDefined();
+      return expect(ItemsList).toBeDefined();
     });
-    it("should have the model equal ActivatorItem", function() {
-      var collection = new ActivatorList();
-      return expect(collection.model).toEqual(ActivatorItem);
+    it("should have the url set to 'items'", function() {
+      var list = new ItemsList();
+      return expect(list.url).toEqual('items');
     });
   });
 
   describe("ActivatorAdmin ItemView", function() {
     it("should exist", function() {
-      return expect(ActivatorItemView).toBeDefined();
+      return expect(ItemsView).toBeDefined();
     });
   });
 
   describe("ActivatorAdmin PaginationView", function() {
     it("should exist", function() {
-      return expect(ActivatorPaginationView).toBeDefined();
+      return expect(ItemsPaginationView).toBeDefined();
     });
     it("should have 5 click events", function() {
-      return expect(Object.keys(ActivatorPaginationView.prototype.events).length).toEqual(5);
+      var view = new ItemsPaginationView(new ItemsList([]));
+      return expect(Object.keys(view.events).length).toEqual(5);
     });
   });
 
   describe("ActivatorAdmin AppView", function() {
     it("should exist", function() {
-      return expect(ActivatorAppView).toBeDefined();
+      return expect(App).toBeDefined();
     });
-    it("should have element set to #container", function() {
-      return expect(ActivatorAppView.prototype.el.selector).toEqual("#container");
+    it("should have initialize function", function() {
+      return expect(App.initialize).toBeDefined();
     });
   });
 
-}).call(this);
+});
 
