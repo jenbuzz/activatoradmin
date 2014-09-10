@@ -12,7 +12,7 @@ Third-Party Libraries
 - jQuery 2.1.1
 - Bootstrap 3.2.0
 - Font Awesome 4.2.0
-- RequireJS 2.1.14
+- RequireJS 2.1.15
 - RequireJS text 2.0.12 (https://github.com/requirejs/text)
 - grunt 0.4.5
 - grunt-contrib-uglify 0.5.1 (https://github.com/gruntjs/grunt-contrib-uglify)
