@@ -32,7 +32,7 @@
         <h4 class="modal-title" id="itemInfoLabel-<%=id%>"><%=name%></h4>
       </div>
       <div class="modal-body">
-        <table>
+        <table class="table table-hover">
           <tr>
             <td><strong>ID</strong>:</td>
             <td><%=id%></td>
