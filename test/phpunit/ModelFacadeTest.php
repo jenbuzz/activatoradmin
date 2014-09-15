@@ -18,6 +18,10 @@ class ModelFacadeTest extends \PHPUnit_Framework_TestCase
     private $dbConfig = false;
     private $mysqli = false;
 
+    /**
+     * Setup test table for items.
+     * Creates new instance of the class ModelFacade.
+     */
     public function setUp()
     {
         $objConfigHelper = new ConfigHelper();
@@ -43,7 +47,6 @@ class ModelFacadeTest extends \PHPUnit_Framework_TestCase
         $sql = "DROP TABLE ".$this->dbConfig['table'];
         $this->mysqli->query($sql);
     }
-
 
     /**
      * Test loading all models.
