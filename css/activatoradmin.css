@@ -124,7 +124,7 @@ body {
   width: 25px;
 }
 
-#background {
+.backgroundOverlay {
   display: none;
   position: fixed;
   top: 0;
