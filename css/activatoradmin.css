@@ -85,6 +85,12 @@ body {
   display: table-cell;
   vertical-align: middle;
 }
+.itemContainer div:last-of-type button {
+  clear: both;
+}
+.itemContainer div:last-of-type button:first-of-type {
+  margin-bottom: 10px;
+}
 
 .itemContainer > div:first-of-type {
   width: 30%;

@@ -13,9 +13,6 @@
     <% if(show_info) { %>
     <button type="button" class="btn btn-info pull-right" data-toggle="modal" data-target="#itemInfo-<%=id%>"><span class="fa fa-info"></span></button>
     <% } %>
-    <% if(show_info && show_delete) { %>
-    <br /><br />
-    <% } %>
     <% if(show_delete) { %>
     <button type="button" class="btn btn-danger pull-right" data-toggle="modal" data-target="#itemDelete-<%=id%>"><span class="fa fa-times"></span></button>
     <% } %>

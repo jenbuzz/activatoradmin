@@ -106,6 +106,16 @@ body {
   div {
     display: table-cell;
     vertical-align: middle;
+
+    &:last-of-type {
+      button {
+        clear: both;
+
+        &:first-of-type {
+          margin-bottom: 10px;
+        }
+      }
+    }
   }
 }
 .itemContainer > div:first-of-type {
