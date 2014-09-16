@@ -44,6 +44,7 @@ body {
   padding: 10px;
 }
 
+/* login */
 .login {
   float: none;
   margin: 0 auto;
@@ -59,12 +60,14 @@ body {
     span {
       margin-right: 4px;
     }
-  }
-  button:hover {
-    opacity: 0.8;
+
+    &:hover {
+      opacity: 0.8;
+    }
   }
 }
 
+/* search */
 .search {
   position: absolute;
   top: 10px;
@@ -75,6 +78,10 @@ body {
 
     span {
       margin-right: 4px;
+    }
+
+    &:hover {
+      opacity: 0.8;
     }
   }
 }
