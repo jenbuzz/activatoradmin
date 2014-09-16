@@ -16,7 +16,6 @@
     "grunt-contrib-uglify": "~0.5.1",
     "grunt-contrib-watch": "~0.6.1",
     "grunt-phpunit": "~0.3.5",
-    "grunt-template-jasmine-requirejs": "~0.1.10",
-    "grunt-uncss": "~0.3.6"
+    "grunt-template-jasmine-requirejs": "~0.1.10"
   }
 }

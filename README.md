@@ -20,7 +20,6 @@
 - grunt-phpunit 0.3.5 (https://github.com/SaschaGalley/grunt-phpunit)
 - grunt-contrib-watch 0.6.1 (https://github.com/gruntjs/grunt-contrib-watch)
 - grunt-contrib-jshint 0.10.0 (https://github.com/gruntjs/grunt-contrib-jshint)
-- grunt-uncss 0.3.6 (https://github.com/addyosmani/grunt-uncss)
 - grunt-contrib-compass 1.0.1 (https://github.com/gruntjs/grunt-contrib-compass)
 - grunt-contrib-concat 0.5.0 (https://github.com/gruntjs/grunt-contrib-concat)
 - grunt-casperjs 2.0.0 (https://github.com/ronaldlokers/grunt-casperjs)

@@ -84,13 +84,6 @@ module.exports = function(grunt) {
         }
       },
       files: ['test/casperjs/*.js']
-    },
-    uncss: {
-      dist: {
-        files: {
-          'css/uncss.css': ['templates/index.tpl', 'templates/item.tpl', 'templates/login.tpl', 'templates/pagination.tpl']
-        }
-      }
     }
   });
 
@@ -103,12 +96,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-phpunit');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-casperjs');
-  grunt.loadNpmTasks('grunt-uncss');
   grunt.loadNpmTasks('grunt-contrib-requirejs');
 
   grunt.registerTask('default', ['minify', 'test']);
   grunt.registerTask('compile', ['compass', 'requirejs']);
   grunt.registerTask('minify', ['cssmin', 'uglify']);
   grunt.registerTask('test', ['jasmine', 'phpunit', 'jshint', 'casperjs']);
-  grunt.registerTask('removecss', ['uncss']);
 };
