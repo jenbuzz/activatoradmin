@@ -11,7 +11,7 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     watch: {
       scripts: {
-        files: ['sass/<%= pkg.name %>.scss', 'js/app/*.js', 'js/app/models/*.js', 'js/app/collections/*.js', 'js/app/views/*.js', 'config/config.js'],
+        files: ['sass/<%= pkg.name %>.scss', 'js/app/*.js', 'js/app/models/*.js', 'js/app/collections/*.js', 'js/app/views/*.js', 'config/config.js', 'templates/*.tpl'],
         tasks: ['compass', 'minify', 'concat:css', 'requirejs'],
         options: {
           spawn: false
