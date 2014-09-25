@@ -12,7 +12,7 @@ module.exports = function(grunt) {
     watch: {
       scripts: {
         files: ['sass/<%= pkg.name %>.scss', 'js/app/*.js', 'js/app/models/*.js', 'js/app/collections/*.js', 'js/app/views/*.js', 'config/config.js', 'templates/*.tpl'],
-        tasks: ['compass', 'minify', 'concat:css', 'requirejs'],
+        tasks: ['compile'],
         options: {
           spawn: false
         }
@@ -99,7 +99,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-requirejs');
 
   grunt.registerTask('default', ['minify', 'test']);
-  grunt.registerTask('compile', ['compass', 'requirejs']);
+  grunt.registerTask('compile', ['compass', 'minify', 'concat:css', 'requirejs']);
   grunt.registerTask('minify', ['cssmin', 'uglify']);
   grunt.registerTask('test', ['jasmine', 'phpunit', 'jshint', 'casperjs']);
 };
