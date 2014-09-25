@@ -98,7 +98,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-casperjs');
   grunt.loadNpmTasks('grunt-contrib-requirejs');
 
-  grunt.registerTask('default', ['minify', 'test']);
+  grunt.registerTask('default', ['compile', 'test']);
   grunt.registerTask('compile', ['compass', 'minify', 'concat:css', 'requirejs']);
   grunt.registerTask('minify', ['cssmin', 'uglify']);
   grunt.registerTask('test', ['jasmine', 'phpunit', 'jshint', 'casperjs']);
