@@ -96,7 +96,7 @@ $app->get('/item/:id', $authenticate($app), function($id) use($app) {
     if ($id>0 && is_numeric($id)) {
         $objModelFacade = new ModelFacade(new Item());
         $objItem = $objModelFacade->load($id);
-        
+
         echo json_encode($objItem->toArray());
     } else {
         echo json_encode(array('success'=>false));
@@ -110,7 +110,7 @@ $app->put('/item/:id', $authenticate($app), function($id) use($app) {
     $id = filter_var($id, FILTER_SANITIZE_NUMBER_INT);
     if ($id>0 && is_numeric($id)) {
         $request = json_decode($app->request->getBody());
- 
+
         if (is_object($request) && isset($request->isactive)) {
             $objModelFacade = new ModelFacade(new Item());
             $objItem = $objModelFacade->load($id);
@@ -145,7 +145,7 @@ $app->delete('/item/:id', $authenticate($app), function($id) use($app) {
  */
 $app->get('/search/:term', $authenticate($app), function($term) use($app) {
     $term = filter_var($term, FILTER_SANITIZE_STRING);
-        
+
     $arrItems = array();
 
     $objModelFacade = new ModelFacade(new Item());
