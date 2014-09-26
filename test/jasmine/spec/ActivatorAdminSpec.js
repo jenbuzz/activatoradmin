@@ -28,6 +28,18 @@ define(['models/item', 'collections/items', 'views/items', 'views/pagination', '
     it("should exist", function() {
       return expect(ItemsView).toBeDefined();
     });
+    it("should have 2 click events", function() {
+      var view = new ItemsView();
+      return expect(Object.keys(view.events).length).toEqual(2);
+    });
+    it("should have a toggleActivate function", function() {
+      var view = new ItemsView();
+      return expect(view.toggleActivate).toBeDefined();
+    });
+    it("should have a toggleImage function", function() {
+      var view = new ItemsView();
+      return expect(view.toggleImage).toBeDefined();
+    });
   });
 
   describe("ActivatorAdmin PaginationView", function() {
