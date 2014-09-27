@@ -64,7 +64,10 @@ module.exports = function(grunt) {
           host: 'http://'+conf.host+conf.baseUrl,
           template: require('grunt-template-jasmine-requirejs'),
           templateOptions: {
-            requireConfigFile: 'config/requirejs.config.js'
+            requireConfigFile: 'test/jasmine/SpecRunner.js',
+            requireConfig: {
+              baseUrl: 'js/app/'
+            }
           }
         }
       }
