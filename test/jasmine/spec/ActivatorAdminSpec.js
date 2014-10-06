@@ -50,6 +50,26 @@ define(['models/item', 'collections/items', 'views/items', 'views/pagination', '
       var view = new ItemsPaginationView(new ItemsList([]));
       return expect(Object.keys(view.events).length).toEqual(5);
     });
+    it("should have a gotoFirst function", function() {
+      var view = new ItemsPaginationView(new ItemsList([]));
+      return expect(view.gotoFirst).toBeDefined();
+    });
+    it("should have a gotoPrev function", function() {
+      var view = new ItemsPaginationView(new ItemsList([]));
+      return expect(view.gotoPrev).toBeDefined();
+    });
+    it("should have a gotoNext function", function() {
+      var view = new ItemsPaginationView(new ItemsList([]));
+      return expect(view.gotoNext).toBeDefined();
+    });
+    it("should have a gotoLast function", function() {
+      var view = new ItemsPaginationView(new ItemsList([]));
+      return expect(view.gotoLast).toBeDefined();
+    });
+    it("should have a gotoPage function", function() {
+      var view = new ItemsPaginationView(new ItemsList([]));
+      return expect(view.gotoPage).toBeDefined();
+    });
   });
 
   describe("ActivatorAdmin AppView", function() {
