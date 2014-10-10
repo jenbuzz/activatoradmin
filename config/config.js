@@ -9,7 +9,7 @@ var appConfig = {
   imagePath: 'images/',
 
   // Map default db column structure to other naming conventions
-  db_mapping: {
+  dbMapping: {
     name: 'name',
     isactive: 'isactive',
     image: 'image'
@@ -19,8 +19,8 @@ var appConfig = {
   pageSize: 10,
 
   // Show info button for each item
-  show_info: true,
+  showInfo: true,
 
   // Show delete button for deleting a single item
-  show_delete: true
+  showDelete: true
 };

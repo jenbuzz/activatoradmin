@@ -37,18 +37,18 @@ define([
 
       var json = model.toJSON();
       if( typeof appConfig != 'undefined' &&
-          appConfig.hasOwnProperty('show_delete') &&
-          appConfig.show_delete ) {
+          appConfig.hasOwnProperty('showDelete') &&
+          appConfig.showDelete ) {
 
-        json.show_delete = appConfig.show_delete;
+        json.show_delete = appConfig.showDelete;
       } else {
         json.show_delete = false;
       }
       if( typeof appConfig != 'undefined' &&
-          appConfig.hasOwnProperty('show_info') &&
-          appConfig.show_info ) {
+          appConfig.hasOwnProperty('showInfo') &&
+          appConfig.showInfo ) {
 
-        json.show_info = appConfig.show_info;
+        json.show_info = appConfig.showInfo;
       } else {
         json.show_info = false;
       }
@@ -59,8 +59,8 @@ define([
       });
 
       if( typeof appConfig != 'undefined' &&
-          appConfig.hasOwnProperty('show_delete') &&
-          appConfig.show_delete ) {
+          appConfig.hasOwnProperty('showDelete') &&
+          appConfig.showDelete ) {
 
         this.$el.find('#itemDelete-'+model.get('id')).find('#itemDeleteConfirm').on('click', function() {
           model.destroy({success: function(model, response) {
