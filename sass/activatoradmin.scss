@@ -8,6 +8,20 @@ $small-width: 450px;
 body {
   background: $primaary-bg-color;
   color: $primary-text-color;
+
+  /* background overlay for full image view */
+  .backgroundOverlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    opacity: 0.5;
+    z-index: 3;
+  }
+
 }
 
 .jumbotron {
@@ -134,33 +148,24 @@ body {
 }
 .modal {
   overflow: auto;
-}
-.modal-body table tr > td:first-of-type {
-  padding-right: 10px;
+
+  .modal-body table tr > td:first-of-type {
+    padding-right: 10px;
+  }
 }
 
+/* info and delete buttons */
 .btn {
   font-size: 15px;
   line-height: 0.7;
-}
-.btn-info, .btn-danger {
-  opacity: 0.5;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  width: 25px;
-}
 
-.backgroundOverlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #000000;
-  opacity: 0.5;
-  z-index: 3;
+  &.btn-info, &.btn-danger {
+    opacity: 0.5;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    width: 25px;
+  }
 }
 
 .img-full {
