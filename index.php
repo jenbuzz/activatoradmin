@@ -6,6 +6,7 @@ use \ActivatorAdmin\Lib\DB;
 use \ActivatorAdmin\Lib\ConfigHelper;
 use \ActivatorAdmin\Lib\ModelFacade;
 use \ActivatorAdmin\Lib\Item;
+use \ActivatorAdmin\Lib\AuthMiddleware;
 
 $objConfigHelper = new ConfigHelper();
 
@@ -18,22 +19,13 @@ $app = new \Slim\Slim(
 
 $app->add(new \Slim\Middleware\SessionCookie(array('secret' => 'Aa-Secret')));
 
-// Authentication check: redirect to login page if user is not logged in.
-$authenticate = function($app) {
-    return function() use ($app) {
-        $objConfigHelper = $app->config('custom');
-        $baseurl = $objConfigHelper->get('url', 'baseurl');
-
-        if (!isset($_SESSION['activatoradmin_user'])) {
-            $app->redirect($baseurl.'login');
-        }
-    };
-};
+// Authentication check using a custom middleware class.
+$app->add(new AuthMiddleware());
 
 /**
  * Render startup template (index)
  */
-$app->get('/', $authenticate($app), function() use($app) {
+$app->get('/', function() use($app) {
     $objConfigHelper = $app->config('custom');
     $baseurl = $objConfigHelper->get('url', 'baseurl');
 
@@ -76,7 +68,7 @@ $app->get('/logout', function() use($app) {
 /**
  * GET all items
  */
-$app->get('/items', $authenticate($app), function() use($app) {
+$app->get('/items', function() use($app) {
     $arrItems = array();
 
     $objModelFacade = new ModelFacade(new Item());
@@ -91,7 +83,7 @@ $app->get('/items', $authenticate($app), function() use($app) {
 /**
  * GET a single item
  */
-$app->get('/item/:id', $authenticate($app), function($id) use($app) {
+$app->get('/item/:id', function($id) use($app) {
     $id = filter_var($id, FILTER_SANITIZE_NUMBER_INT);
     if ($id>0 && is_numeric($id)) {
         $objModelFacade = new ModelFacade(new Item());
@@ -106,7 +98,7 @@ $app->get('/item/:id', $authenticate($app), function($id) use($app) {
 /**
  * PUT (update) a single item
  */
-$app->put('/item/:id', $authenticate($app), function($id) use($app) {
+$app->put('/item/:id', function($id) use($app) {
     $id = filter_var($id, FILTER_SANITIZE_NUMBER_INT);
     if ($id>0 && is_numeric($id)) {
         $request = json_decode($app->request->getBody());
@@ -127,7 +119,7 @@ $app->put('/item/:id', $authenticate($app), function($id) use($app) {
 /**
  * DELETE a single item
  */
-$app->delete('/item/:id', $authenticate($app), function($id) use($app) {
+$app->delete('/item/:id', function($id) use($app) {
     $id = filter_var($id, FILTER_SANITIZE_NUMBER_INT);
     if ($id>0 && is_numeric($id)) {
         $objModelFacade = new ModelFacade(new Item());
@@ -143,7 +135,7 @@ $app->delete('/item/:id', $authenticate($app), function($id) use($app) {
 /**
  * GET search items
  */
-$app->get('/search/:term', $authenticate($app), function($term) use($app) {
+$app->get('/search/:term', function($term) use($app) {
     $term = filter_var($term, FILTER_SANITIZE_STRING);
 
     $arrItems = array();
