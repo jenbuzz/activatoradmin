@@ -27,7 +27,9 @@
 
 ##Usage
 
-Login using these fixed credentials: Username = admin & Password = admin.
+Login using these fixed credentials: Username = admin & Password = admin. The credentials are set in config/config.ini.
+
+A default database structure can be found in docs/db.sql. Use database mapping as explained under Configuration if the default database structure is different.
 
 ##Configuration
 
