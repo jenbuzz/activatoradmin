@@ -64,38 +64,6 @@ class ModelFacade
     }
 
     /**
-     * Save a manipulated model to the database.
-     *
-     * @return boolean
-     */
-    public function save()
-    {
-        if ($this->model) {
-            $this->model->save();
-
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    /**
-     * Delete a model from the database.
-     *
-     * @return boolean
-     */
-    public function delete()
-    {
-        if ($this->model) {
-            $this->model->delete();
-
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    /**
      * Search for records/models where name matches the searchterm.
      *
      * @param string $term is the search term to match against.

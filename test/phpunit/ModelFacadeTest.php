@@ -77,34 +77,6 @@ class ModelFacadeTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test saving a single model.
-     */
-    public function testSave()
-    {
-        // Insert test row in test table
-        $sqlInsert = "INSERT INTO ".$this->dbConfig['table']." (isactive, name, image) VALUES (0, 'Test Item 1', 'image.jpg')";
-        $id = $this->mysqli->query($sqlInsert);
-
-        $this->objModelFacade->load($id);
-
-        $this->assertTrue($this->objModelFacade->save());
-    }
-
-    /**
-     * Test deleting a single model.
-     */
-    public function testDelete()
-    {
-        // Insert test row in test table
-        $sqlInsert = "INSERT INTO ".$this->dbConfig['table']." (isactive, name, image) VALUES (0, 'Test Item 1', 'image.jpg')";
-        $id = $this->mysqli->query($sqlInsert);
-
-        $this->objModelFacade->load($id);
-
-        $this->assertTrue($this->objModelFacade->delete());
-    }
-
-    /**
      * Test searching for models with specified name.
      */
     public function testSearch()

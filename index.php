@@ -123,8 +123,8 @@ $app->delete('/item/:id', function($id) use($app) {
     $id = filter_var($id, FILTER_SANITIZE_NUMBER_INT);
     if ($id>0 && is_numeric($id)) {
         $objModelFacade = new ModelFacade(new Item());
-        $objModelFacade->load($id);
-        $objModelFacade->delete();
+        $objItem = $objModelFacade->load($id);
+        $objItem->delete();
 
         echo json_encode(array('success'=>true));
     } else {
