@@ -16,7 +16,7 @@ class DB
      *
      * @param array $config is the db entry in the configuration array that is setup in class ConfigHelper.
      */
-    private function __construct($config)
+    private function __construct(array $config)
     {
         $this->mysqli = new \mysqli($config['host'], $config['user'], $config['pass'], $config['name']);
 
@@ -30,7 +30,7 @@ class DB
      *
      * @return object DB
      */
-    public static function getInstance($config)
+    public static function getInstance(array $config)
     {
         if (static::$instance === null) {
             static::$instance = new static($config);
