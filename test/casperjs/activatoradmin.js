@@ -1,5 +1,17 @@
 phantom.injectJs("config/config.js");
 
+casper.test.begin('URL is reachable', 1, function suite(test) {
+
+  casper.start('http://'+appConfig.host+appConfig.baseUrl, function() {
+    test.assertHttpStatus(200);
+  });
+
+  casper.run(function() {
+    test.done();
+  });
+
+});
+
 casper.test.begin('Title is ActivatorAdmin', 1, function suite(test) {
 
   casper.start('http://'+appConfig.host+appConfig.baseUrl, function() {
