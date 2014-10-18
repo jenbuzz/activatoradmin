@@ -12,6 +12,7 @@
 - Font Awesome 4.2.0
 - RequireJS 2.1.15
 - RequireJS text 2.0.12 (https://github.com/requirejs/text)
+- Monolog 1.11.0 (https://github.com/Seldaek/monolog)
 - grunt 0.4.5
 - grunt-contrib-uglify 0.6.0 (https://github.com/gruntjs/grunt-contrib-uglify)
 - grunt-contrib-cssmin 0.10.0 (https://github.com/gruntjs/grunt-contrib-cssmin)
