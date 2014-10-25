@@ -105,5 +105,4 @@ module.exports = function(grunt) {
   grunt.registerTask('compile', ['compass', 'minify', 'concat:css', 'requirejs']);
   grunt.registerTask('minify', ['cssmin', 'uglify']);
   grunt.registerTask('test', ['jasmine', 'phpunit', 'jshint', 'casperjs']);
-  grunt.registerTask('travis', ['phpunit', 'jshint', 'casperjs']);
 };
