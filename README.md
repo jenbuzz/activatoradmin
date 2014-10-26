@@ -17,7 +17,7 @@
 - grunt 0.4.5
 - grunt-contrib-uglify 0.6.0 (https://github.com/gruntjs/grunt-contrib-uglify)
 - grunt-contrib-cssmin 0.10.0 (https://github.com/gruntjs/grunt-contrib-cssmin)
-- grunt-contrib-jasmine 0.8.0 (https://github.com/gruntjs/grunt-contrib-jasmine)
+- grunt-contrib-jasmine 0.8.1 (https://github.com/gruntjs/grunt-contrib-jasmine)
 - grunt-template-jasmine-requirejs 0.2.0 (https://github.com/cloudchen/grunt-template-jasmine-requirejs)
 - grunt-phpunit 0.3.5 (https://github.com/SaschaGalley/grunt-phpunit)
 - grunt-contrib-watch 0.6.1 (https://github.com/gruntjs/grunt-contrib-watch)
