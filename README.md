@@ -8,7 +8,7 @@
 - Backbone.js 1.1.2
 - backbone.paginator 2.0.2 (https://github.com/backbone-paginator/backbone.paginator)
 - jQuery 2.1.1
-- Bootstrap 3.2.0
+- Bootstrap 3.3.0
 - Font Awesome 4.2.0
 - RequireJS 2.1.15
 - RequireJS text 2.0.12 (https://github.com/requirejs/text)
