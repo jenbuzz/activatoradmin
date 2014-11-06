@@ -7,6 +7,7 @@ php:
   - 5.6
 
 before_script:
+  - pear install --alldeps phpunit/PHPUnit_Story
   - sh -c "mysql -e 'CREATE DATABASE activatoradmin;'"
   - sh -c "mysql -u root -e 'USE activatoradmin; CREATE TABLE IF NOT EXISTS items (id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, isactive TINYINT(4), name VARCHAR(255), image VARCHAR(255) DEFAULT NULL) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=latin1;'"
   - sh -c "mysql -u root -e 'USE activatoradmin; CREATE TABLE IF NOT EXISTS items_test (id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, isactive TINYINT(4), name VARCHAR(255), image VARCHAR(255) DEFAULT NULL) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=latin1;'"
