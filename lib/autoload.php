@@ -5,7 +5,7 @@
  */
 spl_autoload_register(function($class) {
     if (substr($class, 0, 7)=='Monolog') {
-        require __DIR__ . '/Monolog/' . str_replace("Monolog\\", '', $class) . '.php';
+        require __DIR__ . '/' . str_replace("\\", '/', $class) . '.php';
     } elseif (substr($class, 0, 3)=='Psr') {
         require __DIR__ . '/Psr/Log/' . str_replace("Psr\\Log\\", '', $class) . '.php';
     } elseif (substr($class, 0, 4)!=='Slim') {
