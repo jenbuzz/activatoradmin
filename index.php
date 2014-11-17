@@ -7,12 +7,19 @@ use \ActivatorAdmin\Lib\ConfigHelper;
 use \ActivatorAdmin\Lib\ModelFacade;
 use \ActivatorAdmin\Lib\Item;
 use \ActivatorAdmin\Lib\AuthMiddleware;
+use \Monolog\Logger;
+use \Monolog\Handler\StreamHandler;
 
 $objConfigHelper = new ConfigHelper();
+
+// Instantiate monolog-Logger.
+$objLogger = new Logger('name');
+$objLogger->pushHandler(new StreamHandler('docs/activatoradmin.log', Logger::WARNING));
 
 $app = new \Slim\Slim(
     array(
         'custom' => $objConfigHelper,
+        'logger' => $objLogger,
         'templates.path' => __DIR__ . '/templates',
     )
 );
