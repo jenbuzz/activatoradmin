@@ -2,7 +2,6 @@
 
 require_once __DIR__ . '/lib/autoload.php';
 
-use ActivatorAdmin\Lib\DB;
 use ActivatorAdmin\Lib\ConfigHelper;
 use ActivatorAdmin\Lib\ModelFacade;
 use ActivatorAdmin\Lib\Item;
