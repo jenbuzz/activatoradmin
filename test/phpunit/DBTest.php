@@ -8,8 +8,8 @@ namespace ActivatorAdmin\Test\PHPunit;
 
 require_once __DIR__ . '/../../lib/autoload.php';
 
-use \ActivatorAdmin\Lib\ConfigHelper;
-use \ActivatorAdmin\Lib\DB;
+use ActivatorAdmin\Lib\ConfigHelper;
+use ActivatorAdmin\Lib\DB;
 
 class DBTest extends \PHPUnit_Framework_TestCase
 {

@@ -7,9 +7,9 @@ namespace ActivatorAdmin\Test\PHPunit;
 
 require_once __DIR__ . '/../../lib/autoload.php';
 
-use \ActivatorAdmin\Lib\ConfigHelper;
-use \ActivatorAdmin\Lib\DB;
-use \ActivatorAdmin\Lib\Item;
+use ActivatorAdmin\Lib\ConfigHelper;
+use ActivatorAdmin\Lib\DB;
+use ActivatorAdmin\Lib\Item;
 
 class ItemTest extends \PHPUnit_Framework_TestCase
 {

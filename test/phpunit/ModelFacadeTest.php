@@ -7,10 +7,10 @@ namespace ActivatorAdmin\Test\PHPunit;
 
 require_once __DIR__ . '/../../lib/autoload.php';
 
-use \ActivatorAdmin\Lib\ModelFacade;
-use \ActivatorAdmin\Lib\Item;
-use \ActivatorAdmin\Lib\ConfigHelper;
-use \ActivatorAdmin\Lib\DB;
+use ActivatorAdmin\Lib\ModelFacade;
+use ActivatorAdmin\Lib\Item;
+use ActivatorAdmin\Lib\ConfigHelper;
+use ActivatorAdmin\Lib\DB;
 
 class ModelFacadeTest extends \PHPUnit_Framework_TestCase
 {
