@@ -12,7 +12,7 @@ use Monolog\Handler\StreamHandler;
 $objConfigHelper = new ConfigHelper();
 
 // Instantiate monolog-Logger.
-$objLogger = new Logger('name');
+$objLogger = new Logger('activatoradmin');
 $objLogger->pushHandler(new StreamHandler('docs/activatoradmin.log', Logger::WARNING));
 
 $app = new \Slim\Slim(
