@@ -23,11 +23,12 @@ class DBTest extends \PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
+        // Get database connection.
         $objConfigHelper = new ConfigHelper();
         $this->dbConfig = $objConfigHelper->get('db');
         $this->db = DB::getInstance($this->dbConfig);
 
-        // Create pseudo table for testing
+        // Create pseudo table for testing.
         $mysqli = $this->db->getConnection();
         $sql = "CREATE TABLE IF NOT EXISTS ".$this->dbConfig['table']."_test ";
         $sql.= "(id INT(11) NOT NULL AUTO_INCREMENT, isactive TINYINT(4), name VARCHAR(255), image VARCHAR(255) DEFAULT NULL, PRIMARY KEY(id))";
@@ -41,7 +42,7 @@ class DBTest extends \PHPUnit_Framework_TestCase
     {
         $this->db = DB::getInstance($this->dbConfig);
 
-        // Create pseudo table for testing
+        // Create pseudo table for testing.
         $mysqli = $this->db->getConnection();
         $sql = "DROP TABLE ".$this->dbConfig['table']."_test";
         $mysqli->query($sql);
@@ -97,16 +98,16 @@ class DBTest extends \PHPUnit_Framework_TestCase
      */
     public function testUpdate()
     {
-        // Insert test record
+        // Insert test record.
         $insert_id = $this->db->insert($this->dbConfig['table']."_test", array('isactive'=>0, 'name'=>'Test Record 3'));
 
-        // Update test record
+        // Update test record.
         $this->db->update($this->dbConfig['table']."_test", array('name'=>'New Test Record 3'), 'id', $insert_id);
 
-        // Get the updated record
+        // Get the updated record.
         $result = $this->db->select($this->dbConfig['table']."_test", '*', 'id', $insert_id);
 
-        // Check that test record has new name
+        // Check that test record has new name.
         $this->assertEquals($result['name'], 'New Test Record 3');
     }
 
@@ -116,16 +117,16 @@ class DBTest extends \PHPUnit_Framework_TestCase
      */
     public function testDelete()
     {
-        // Insert test record
+        // Insert test record.
         $insert_id = $this->db->insert($this->dbConfig['table']."_test", array('isactive'=>0, 'name'=>'Test Record 4'));
 
-        // Delete record
+        // Delete record.
         $this->db->delete($this->dbConfig['table']."_test", 'id', $insert_id);
 
-        // Try to get the deleted record
+        // Try to get the deleted record.
         $result = $this->db->select($this->dbConfig['table']."_test", '*', 'id', $insert_id);
 
-        // Check that no records were returned upon select
+        // Check that no records were returned upon select.
         $this->assertEquals(0, sizeof($result));
     }
 

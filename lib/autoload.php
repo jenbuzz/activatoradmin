@@ -1,7 +1,7 @@
 <?php
 
 /**
- * ActivatorAdmin
+ * ActivatorAdmin, Monolog & Psr/Log.
  */
 spl_autoload_register(function($class) {
     if (substr($class, 0, 7)=='Monolog') {
@@ -20,7 +20,7 @@ spl_autoload_register(function($class) {
 });
 
 /**
- * Slim Framework
+ * Slim Framework.
  */
 require_once __DIR__ . '/Slim/Slim.php';
 

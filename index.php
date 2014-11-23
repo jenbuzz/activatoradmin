@@ -9,12 +9,14 @@ use ActivatorAdmin\Lib\AuthMiddleware;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 
+// Instantiate config helper.
 $objConfigHelper = new ConfigHelper();
 
 // Instantiate monolog-Logger.
 $objLogger = new Logger('activatoradmin');
 $objLogger->pushHandler(new StreamHandler('docs/activatoradmin.log', Logger::WARNING));
 
+// Instantiate slim application.
 $app = new \Slim\Slim(
     array(
         'custom' => $objConfigHelper,
@@ -29,7 +31,7 @@ $app->add(new \Slim\Middleware\SessionCookie(array('secret' => 'Aa-Secret')));
 $app->add(new AuthMiddleware());
 
 /**
- * Render startup template (index)
+ * Render startup template (index).
  */
 $app->get('/', function() use($app) {
     $objConfigHelper = $app->config('custom');
@@ -39,7 +41,7 @@ $app->get('/', function() use($app) {
 });
 
 /**
- * Login
+ * Login.
  */
 $app->get('/login', function() use($app) {
     $objConfigHelper = $app->config('custom');
@@ -72,7 +74,7 @@ $app->get('/logout', function() use($app) {
 });
 
 /**
- * GET all items
+ * GET all items.
  */
 $app->get('/items', function() use($app) {
     $arrItems = array();
@@ -87,7 +89,7 @@ $app->get('/items', function() use($app) {
 });
 
 /**
- * GET a single item
+ * GET a single item.
  */
 $app->get('/item/:id', function($id) use($app) {
     $id = filter_var($id, FILTER_SANITIZE_NUMBER_INT);
@@ -102,7 +104,7 @@ $app->get('/item/:id', function($id) use($app) {
 });
 
 /**
- * PUT (update) a single item
+ * PUT (update) a single item.
  */
 $app->put('/item/:id', function($id) use($app) {
     $id = filter_var($id, FILTER_SANITIZE_NUMBER_INT);
@@ -123,7 +125,7 @@ $app->put('/item/:id', function($id) use($app) {
 });
 
 /**
- * DELETE a single item
+ * DELETE a single item.
  */
 $app->delete('/item/:id', function($id) use($app) {
     $id = filter_var($id, FILTER_SANITIZE_NUMBER_INT);
@@ -139,7 +141,7 @@ $app->delete('/item/:id', function($id) use($app) {
 });
 
 /**
- * GET search items
+ * GET search items.
  */
 $app->get('/search/:term', function($term) use($app) {
     $term = filter_var($term, FILTER_SANITIZE_STRING);
@@ -156,4 +158,5 @@ $app->get('/search/:term', function($term) use($app) {
 });
 
 
+// Start slim application.
 $app->run();
