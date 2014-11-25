@@ -4,17 +4,17 @@
 
 ##Third-Party Libraries
 
-- Slim Framework 2.4.2
-- Backbone.js 1.1.2
+- Slim Framework 2.4.2 (https://github.com/codeguy/Slim)
+- Backbone.js 1.1.2 (http://backbonejs.org/)
 - backbone.paginator 2.0.2 (https://github.com/backbone-paginator/backbone.paginator)
-- jQuery 2.1.1
-- Bootstrap 3.3.1
-- Font Awesome 4.2.0
-- RequireJS 2.1.15
+- jQuery 2.1.1 (http://jquery.com/)
+- Bootstrap 3.3.1 (http://getbootstrap.com/)
+- Font Awesome 4.2.0 (http://fortawesome.github.io/Font-Awesome/)
+- RequireJS 2.1.15 (http://requirejs.org/docs/download.html)
 - RequireJS text 2.0.12 (https://github.com/requirejs/text)
 - Monolog 1.11.0 (https://github.com/Seldaek/monolog)
 - PSR Log 1.0.0 (https://github.com/php-fig/log)
-- grunt 0.4.5
+- grunt 0.4.5 (http://gruntjs.com/)
 - grunt-contrib-uglify 0.6.0 (https://github.com/gruntjs/grunt-contrib-uglify)
 - grunt-contrib-cssmin 0.10.0 (https://github.com/gruntjs/grunt-contrib-cssmin)
 - grunt-contrib-jasmine 0.8.1 (https://github.com/gruntjs/grunt-contrib-jasmine)
