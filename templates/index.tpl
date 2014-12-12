@@ -15,6 +15,10 @@
           <button id="search"><span class="fa fa-search"></span>search</button>
           <button id="clearsearch"><span class="fa fa-eraser"></span>clear</button>
         </div>
+
+        <div class="github">
+          <a href="https://github.com/dan-lyn/activatoradmin" target="_blank"><span class="fa fa-github"></span></a>
+        </div>
       </nav>
 
       <header class="jumbotron">

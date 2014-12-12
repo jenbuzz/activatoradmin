@@ -52,6 +52,21 @@ body {
       padding: 2px;
     }
   }
+
+  .github {
+    float:right; 
+    font-size: 30px;
+    margin: 3px 10px 0px 0px;
+
+    a {
+      color: #444444;
+      opacity: 0.6;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
 }
 
 .well {

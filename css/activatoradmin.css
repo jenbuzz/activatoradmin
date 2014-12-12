@@ -38,6 +38,18 @@ body .backgroundOverlay {
   font-size: 13px;
   padding: 2px;
 }
+.navbar .github {
+  float: right;
+  font-size: 30px;
+  margin: 3px 10px 0px 0px;
+}
+.navbar .github a {
+  color: #444444;
+  opacity: 0.6;
+}
+.navbar .github a:hover {
+  opacity: 0.8;
+}
 
 .well {
   padding: 10px;
