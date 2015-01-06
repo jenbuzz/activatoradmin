@@ -61,6 +61,7 @@ $app->post('/login', function() use($app) {
 
         $app->redirect($baseurl);
     } else {
+        // Log unsuccessful login attempts.
         if ($objConfigHelper->get('logging', 'log')) {
             $objLogger = $app->config('logger');
             $objLogger->addWarning('Login Attempt Failed. Username: '.$app->request()->post('username'));
