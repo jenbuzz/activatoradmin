@@ -61,8 +61,10 @@ $app->post('/login', function() use($app) {
 
         $app->redirect($baseurl);
     } else {
-        $objLogger = $app->config('logger');
-        $objLogger->addWarning('Login Attempt Failed. Username: '.$app->request()->post('username'));
+        if ($objConfigHelper->get('logging', 'log')) {
+            $objLogger = $app->config('logger');
+            $objLogger->addWarning('Login Attempt Failed. Username: '.$app->request()->post('username'));
+        }
 
         $app->render('login.tpl', array('baseurl'=>$baseurl));
     }
