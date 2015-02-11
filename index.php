@@ -55,9 +55,9 @@ $app->post('/login', function() use($app) {
     $login = $objConfigHelper->get('login');
 
     if ($app->request()->post('username')==$login['username'] && 
-        hash('sha256', $app->request()->post('password'))==$login['password']) {
+        password_verify($app->request()->post('password'), $login['password'])) {
 
-        $_SESSION['activatoradmin_user'] = hash('sha256', 'activatoradmin_'.$login['username']);
+        $_SESSION['activatoradmin_user'] = password_hash('activatoradmin_'.$login['username'], PASSWORD_DEFAULT);
 
         $app->redirect($baseurl);
     } else {
