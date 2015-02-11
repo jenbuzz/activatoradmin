@@ -8,6 +8,7 @@ $small-width: 450px;
 body {
   background: $primaary-bg-color;
   color: $primary-text-color;
+  padding: 0px !important;
 
   /* background overlay for full image view */
   .backgroundOverlay {
