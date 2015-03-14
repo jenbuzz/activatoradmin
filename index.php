@@ -12,15 +12,10 @@ use Monolog\Handler\StreamHandler;
 // Instantiate config helper.
 $objConfigHelper = new ConfigHelper();
 
-// Instantiate monolog-Logger.
-$objLogger = new Logger('activatoradmin');
-$objLogger->pushHandler(new StreamHandler('docs/activatoradmin.log', Logger::WARNING));
-
 // Instantiate slim application.
 $app = new \Slim\Slim(
     array(
         'custom' => $objConfigHelper,
-        'logger' => $objLogger,
         'templates.path' => __DIR__ . '/templates',
     )
 );
@@ -29,6 +24,14 @@ $app->add(new \Slim\Middleware\SessionCookie(array('secret' => 'Aa-Secret')));
 
 // Authentication check using a custom middleware class.
 $app->add(new AuthMiddleware());
+
+// Instantiate monolog-Logger.
+$app->container->singleton('logger', function () {
+    $objLogger = new Logger('activatoradmin');
+    $objLogger->pushHandler(new StreamHandler('docs/activatoradmin.log', Logger::WARNING));
+
+    return $objLogger;
+});
 
 /**
  * Render startup template (index).
@@ -63,7 +66,7 @@ $app->post('/login', function() use($app) {
     } else {
         // Log unsuccessful login attempts.
         if ($objConfigHelper->get('logging', 'log')) {
-            $objLogger = $app->config('logger');
+            $objLogger = $app->container->get('logger');
             $objLogger->addWarning('Login Attempt Failed. Username: '.$app->request()->post('username'));
         }
 
