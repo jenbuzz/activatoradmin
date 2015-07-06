@@ -230,4 +230,7 @@ body .backgroundOverlay {
   .navbar {
     min-height: 75px;
   }
+  .navbar .divider {
+    height: 65px;
+  }
 }

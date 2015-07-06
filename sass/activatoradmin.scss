@@ -275,5 +275,9 @@ body {
   }
   .navbar {
     min-height: 75px;
+
+    .divider {
+      height: 65px;
+    }
   }
 }
