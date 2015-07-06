@@ -222,7 +222,7 @@ body .backgroundOverlay {
     margin-right: 100%;
   }
 }
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 485px) {
   .list-unstyled li label {
     min-width: 100%;
   }
@@ -232,5 +232,9 @@ body .backgroundOverlay {
   }
   .navbar .divider {
     height: 65px;
+  }
+  .navbar .github {
+    float: left;
+    margin: 30px 0 0 15px;
   }
 }
