@@ -16,7 +16,7 @@
             <form method="POST" action="<?php echo $baseurl; ?>login" accept-charset="UTF-8">
               <input type="text" id="username" class="form-control" name="username" placeholder="Username" />
               <input type="password" id="password" class="form-control" name="password" placeholder="Password" />
-              <button type="submit" name="submit" class="btn btn-primary btn-lg btn-block" style="margin-top: 15px;">Sign in</button>
+              <button type="submit" name="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
             </form>
           </div>
         </div>

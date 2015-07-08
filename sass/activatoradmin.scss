@@ -78,6 +78,10 @@ body {
 .login {
   float: none;
   margin: 0 auto;
+
+  button {
+    margin-top: 15px;
+  }
 }
 .logout {
   position: absolute;
