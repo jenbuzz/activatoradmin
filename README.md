@@ -26,9 +26,9 @@
 - grunt-contrib-concat 0.5.1 (https://github.com/gruntjs/grunt-contrib-concat)
 - grunt-casperjs 2.1.0 (https://github.com/ronaldlokers/grunt-casperjs)
 - grunt-contrib-requirejs 0.4.4 (https://github.com/gruntjs/grunt-contrib-requirejs)
-- gulp 3.8.11 (https://github.com/gulpjs/gulp/)
-- gulp-concat 2.5.2 (https://github.com/wearefractal/gulp-concat)
-- gulp-uglify 1.1.0 (https://github.com/terinjokes/gulp-uglify/)
+- gulp 3.9.0 (https://github.com/gulpjs/gulp/)
+- gulp-concat 2.6.0 (https://github.com/wearefractal/gulp-concat)
+- gulp-uglify 1.2.0 (https://github.com/terinjokes/gulp-uglify/)
 
 ##Usage
 
