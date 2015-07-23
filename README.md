@@ -7,7 +7,7 @@
 - Slim Framework 2.6.1 (https://github.com/codeguy/Slim)
 - Backbone.js 1.2.1 (http://backbonejs.org/)
 - backbone.paginator 2.0.2 (https://github.com/backbone-paginator/backbone.paginator)
-- jQuery 2.1.3 (http://jquery.com/)
+- jQuery 2.1.4 (http://jquery.com/)
 - Bootstrap 3.3.5 (http://getbootstrap.com/)
 - Font Awesome 4.3.0 (http://fortawesome.github.io/Font-Awesome/)
 - RequireJS 2.1.19 (http://requirejs.org/docs/download.html)
