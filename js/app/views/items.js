@@ -21,32 +21,32 @@ define([
       var model = this.model;
       var image = '';
 
-      if( model.get('image')!=='' &&
+      if (model.get('image')!=='' &&
           model.get('image')!==null &&
           typeof appConfig != 'undefined' &&
           appConfig.hasOwnProperty('imagePath') &&
           appConfig.imagePath!=='' &&
-          model.get('image').indexOf(baseUrl+appConfig.imagePath)!==0 ) {
+          model.get('image').indexOf(baseUrl+appConfig.imagePath)!==0) {
 
         image = baseUrl + appConfig.imagePath + model.get('image');
         model.set('image', image);
-      } else if( model.get('image')==='' || model.get('image')===null ) {
+      } else if (model.get('image')==='' || model.get('image')===null) {
         image = baseUrl + 'images/default.jpg';
         model.set('image', image);
       }
 
       var json = model.toJSON();
-      if( typeof appConfig != 'undefined' &&
+      if (typeof appConfig != 'undefined' &&
           appConfig.hasOwnProperty('showDelete') &&
-          appConfig.showDelete ) {
+          appConfig.showDelete) {
 
         json.show_delete = appConfig.showDelete;
       } else {
         json.show_delete = false;
       }
-      if( typeof appConfig != 'undefined' &&
+      if (typeof appConfig != 'undefined' &&
           appConfig.hasOwnProperty('showInfo') &&
-          appConfig.showInfo ) {
+          appConfig.showInfo) {
 
         json.show_info = appConfig.showInfo;
       } else {
@@ -58,9 +58,9 @@ define([
         placement : 'left'
       });
 
-      if( typeof appConfig != 'undefined' &&
+      if (typeof appConfig != 'undefined' &&
           appConfig.hasOwnProperty('showDelete') &&
-          appConfig.showDelete ) {
+          appConfig.showDelete) {
 
         this.$el.find('#itemDelete-'+model.get('id')).find('#itemDeleteConfirm').on('click', function() {
           model.destroy({success: function(model, response) {
@@ -96,5 +96,4 @@ define([
   });
   
   return ItemsView;
-
 });

@@ -11,7 +11,7 @@ define([
 
   var initialize = function() {
     
-    var ActivatorItems = new ItemsList([], { mode: "client" });
+    var ActivatorItems = new ItemsList([], { mode: 'client' });
     
     var AppView = Backbone.View.extend({
       el: $('#container'),
@@ -55,7 +55,7 @@ define([
         $('#pagination-container').hide();
       },
       entersearch: function(event) {
-        if( event.keyCode == 13 ) {
+        if (event.keyCode===13) {
           this.search();
         }
       },

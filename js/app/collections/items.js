@@ -17,7 +17,7 @@ define([
       pageSize: pageSize
     },
     search: function(searchterm){
-      if( searchterm === '' ) {
+      if (searchterm==='') {
         return this;
       }
 
@@ -27,7 +27,7 @@ define([
       return _(this.fullCollection.filter(function(data) {
 
         var dataOk = searchpattern.test(data.get('name'));
-        if( dataOk && searchcount<searchlimit ) {
+        if (dataOk && searchcount<searchlimit) {
           searchcount++;
           return true;
         }
@@ -38,5 +38,4 @@ define([
   });
 
   return ItemsList;
-
 });
