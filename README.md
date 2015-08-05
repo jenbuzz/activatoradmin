@@ -10,7 +10,7 @@
 - jQuery 2.1.4 (http://jquery.com/)
 - Bootstrap 3.3.5 (http://getbootstrap.com/)
 - Font Awesome 4.4.0 (http://fortawesome.github.io/Font-Awesome/)
-- RequireJS 2.1.19 (http://requirejs.org/docs/download.html)
+- RequireJS 2.1.20 (http://requirejs.org/docs/download.html)
 - RequireJS text 2.0.14 (https://github.com/requirejs/text)
 - Monolog 1.15.0 (https://github.com/Seldaek/monolog)
 - PSR Log 1.0.0 (https://github.com/php-fig/log)
