@@ -4,7 +4,7 @@
     <label for="toggle-activate-<%=id%>" title="<% if(isactive==1) { %>de<% } %>activate"><%=name%></label>
   </div>
 
-  <div>
+  <div class="imageContainer">
     <img class="img-thumbnail" src="<% if(image) { %><%=image%><% } else { %>images/default.jpg<% } %>" />
   </div>
 
