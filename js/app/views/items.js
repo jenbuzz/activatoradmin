@@ -79,8 +79,16 @@ define([
     },
     toggleImage: function() {
       var image = this.model.get('image');
+
+      var imageDummy = new Image();
+      imageDummy.src = image;
+
       var imgTop = this.$el.find('img').get(0).offsetTop;
       var imgLeft = this.$el.find('img').get(0).offsetLeft;
+
+      if ((imageDummy.width+imgLeft) > $(document).width()) {
+        var imgLeft = 0;
+      }
 
       $('body').append('<div id="background" class="backgroundOverlay"></div>');
 
