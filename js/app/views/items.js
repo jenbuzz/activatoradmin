@@ -92,12 +92,15 @@ define([
 
       $('body').append('<div id="background" class="backgroundOverlay"></div>');
 
-      $('#background').show('fast', 'linear', function() {
-        $('#container').append('<img class="img-thumbnail img-full" src="'+image+'" style="position: absolute; top: '+imgTop+'px; left: '+imgLeft+'px" />');
+      var background = $('#background');
+      var container = $('#container');
+
+      background.show('fast', 'linear', function() {
+        container.append('<img class="img-thumbnail img-full" src="'+image+'" style="position: absolute; top: '+imgTop+'px; left: '+imgLeft+'px" />');
       });
 
-      $('#background').on('click', function() {
-        $('#container').find('.img-full').remove();
+      background.on('click', function() {
+        container.find('.img-full').remove();
         $(this).remove();
       });
     }
