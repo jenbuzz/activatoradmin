@@ -87,7 +87,7 @@ define([
       var imgLeft = this.$el.find('img').get(0).offsetLeft;
 
       if ((imageDummy.width+imgLeft) > $(document).width()) {
-        var imgLeft = 0;
+        imgLeft = 0;
       }
 
       $('body').append('<div id="background" class="backgroundOverlay"></div>');
