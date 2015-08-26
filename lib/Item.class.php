@@ -8,7 +8,12 @@ namespace ActivatorAdmin\Lib;
 
 class Item implements iModel
 {
-    private $objDB, $table;
+    /**
+     * @var $objDB DB 
+     */
+    private $objDB;
+
+    private $table;
     protected $tblName, $tblIsActive, $tblImage;
     protected $id, $name, $isActive, $image;
 
@@ -69,9 +74,9 @@ class Item implements iModel
             );
         } else {
             $this->objDB->insert($this->table, array(
-                $this->tblName=>$this->getName(),
-                $this->tblIsActive=>$this->getIsActive(),
-                $this->tblImage=>$this->getImage(),
+                $this->tblName => $this->getName(),
+                $this->tblIsActive => $this->getIsActive(),
+                $this->tblImage => $this->getImage(),
             ));
         }
     }

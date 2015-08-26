@@ -7,6 +7,9 @@ namespace ActivatorAdmin\Lib;
 
 class ModelFacade
 {
+    /**
+     * @var $model iModel
+     */
     private $model = false;
 
     /**

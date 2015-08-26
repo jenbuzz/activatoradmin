@@ -19,7 +19,7 @@ class AuthMiddleware extends \Slim\Middleware
           return function() use ($app) {
               $route = $app->router->getCurrentRoute()->getPattern();
             
-              if ($route!='/login') {
+              if ($route!=='/login') {
                   $objConfigHelper = $app->config('custom');
                   $baseurl = $objConfigHelper->get('url', 'baseurl');
 
