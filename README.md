@@ -28,7 +28,7 @@
 - grunt-contrib-requirejs 0.4.4 (https://github.com/gruntjs/grunt-contrib-requirejs)
 - gulp 3.9.0 (https://github.com/gulpjs/gulp/)
 - gulp-concat 2.6.0 (https://github.com/wearefractal/gulp-concat)
-- gulp-uglify 1.2.0 (https://github.com/terinjokes/gulp-uglify/)
+- gulp-uglify 1.3.0 (https://github.com/terinjokes/gulp-uglify/)
 
 ##Usage
 
