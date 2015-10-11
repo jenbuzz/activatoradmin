@@ -1,4 +1,4 @@
-$primaary-bg-color: #F9F9F9;
+$primary-bg-color: #F9F9F9;
 $primary-text-color: #444444;
 
 $large-width: 991px;
@@ -6,7 +6,7 @@ $medium-width: 768px;
 $small-width: 485px;
 
 body {
-  background: $primaary-bg-color;
+  background: $primary-bg-color;
   color: $primary-text-color;
   padding: 0px !important;
 
@@ -22,7 +22,6 @@ body {
     opacity: 0.5;
     z-index: 3;
   }
-
 }
 
 .jumbotron {
