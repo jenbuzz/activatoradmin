@@ -1,11 +1,12 @@
 <?php
+
+namespace ActivatorAdmin\Lib;
+
 /**
  * AuthMiddleware is a custom Slim Middleware class used for authentication.
  * It is used in index.php during setting up the Slim app.
  *
  */
-namespace ActivatorAdmin\Lib;
-
 class AuthMiddleware extends \Slim\Middleware
 {
   /**

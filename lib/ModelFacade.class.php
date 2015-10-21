@@ -1,10 +1,11 @@
 <?php
+
+namespace ActivatorAdmin\Lib;
+
 /**
  * The ModelFacade works as a facade for communication with all models.
  *
  */
-namespace ActivatorAdmin\Lib;
-
 class ModelFacade
 {
     /**

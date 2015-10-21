@@ -1,11 +1,12 @@
 <?php
+
+namespace ActivatorAdmin\Lib;
+
 /**
  * DB is used for setting up a connection to a MySQL database.
  * DB is a singleton.
  *
  */
-namespace ActivatorAdmin\Lib;
-
 class DB
 {
     private static $instance;

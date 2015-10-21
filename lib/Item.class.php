@@ -1,11 +1,12 @@
 <?php
+
+namespace ActivatorAdmin\Lib;
+
 /**
  * Item is the model class for an item.
  * It implements the iModel interface.
  *
  */
-namespace ActivatorAdmin\Lib;
-
 class Item implements iModel
 {
     /**
