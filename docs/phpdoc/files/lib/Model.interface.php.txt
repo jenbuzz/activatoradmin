@@ -1,10 +1,11 @@
 <?php
+
+namespace ActivatorAdmin\Lib;
+
 /**
  * This interface is to be implemented by all models.
  *
  */
-namespace ActivatorAdmin\Lib;
-
 interface iModel
 {
     public function load($id);

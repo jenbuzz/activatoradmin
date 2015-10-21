@@ -1,10 +1,11 @@
 <?php
+
+namespace ActivatorAdmin\Lib;
+
 /**
  * ConfigHelper loads the config.ini file and makes the settings accessible through a get function.
  *
  */
-namespace ActivatorAdmin\Lib;
-
 class ConfigHelper
 {
     private $config;

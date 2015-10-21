@@ -1,15 +1,37 @@
 <?php
+
+namespace ActivatorAdmin\Lib;
+
 /**
  * Item is the model class for an item.
  * It implements the iModel interface.
  *
  */
-namespace ActivatorAdmin\Lib;
-
 class Item implements iModel
 {
-    private $objDB, $table;
+    /**
+     * @var $objDB DB 
+     */
+    private $objDB;
+
+    /**
+     * @var $table Database table
+     */
+    private $table;
+
+    /**
+     * @var $tblName Database table field for name
+     * @var $tblIsActive Database table field for isActive
+     * @var string $tblImage Database table name for image
+     */
     protected $tblName, $tblIsActive, $tblImage;
+
+    /**
+     * @var $id Item ID
+     * @var $name Item name
+     * @var $isActive Item active status
+     * @var $image Item image
+     */
     protected $id, $name, $isActive, $image;
 
     /**
@@ -69,9 +91,9 @@ class Item implements iModel
             );
         } else {
             $this->objDB->insert($this->table, array(
-                $this->tblName=>$this->getName(),
-                $this->tblIsActive=>$this->getIsActive(),
-                $this->tblImage=>$this->getImage(),
+                $this->tblName => $this->getName(),
+                $this->tblIsActive => $this->getIsActive(),
+                $this->tblImage => $this->getImage(),
             ));
         }
     }
