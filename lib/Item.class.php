@@ -14,8 +14,24 @@ class Item implements iModel
      */
     private $objDB;
 
+    /**
+     * @var $table Database table
+     */
     private $table;
+
+    /**
+     * @var $tblName Database table field for name
+     * @var $tblIsActive Database table field for isActive
+     * @var string $tblImage Database table name for image
+     */
     protected $tblName, $tblIsActive, $tblImage;
+
+    /**
+     * @var $id Item ID
+     * @var $name Item name
+     * @var $isActive Item active status
+     * @var $image Item image
+     */
     protected $id, $name, $isActive, $image;
 
     /**
