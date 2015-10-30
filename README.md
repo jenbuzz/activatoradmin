@@ -12,7 +12,7 @@
 - Font Awesome 4.4.0 (http://fortawesome.github.io/Font-Awesome/)
 - RequireJS 2.1.20 (http://requirejs.org/docs/download.html)
 - RequireJS text 2.0.14 (https://github.com/requirejs/text)
-- Monolog 1.17.1 (https://github.com/Seldaek/monolog)
+- Monolog 1.17.2 (https://github.com/Seldaek/monolog)
 - PSR Log 1.0.0 (https://github.com/php-fig/log)
 - grunt 0.4.5 (http://gruntjs.com/)
 - grunt-contrib-uglify 0.9.2 (https://github.com/gruntjs/grunt-contrib-uglify)
