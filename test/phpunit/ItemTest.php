@@ -1,8 +1,5 @@
 <?php
-/**
- * Test the Item class.
- *
- */
+
 namespace ActivatorAdmin\Test\PHPunit;
 
 require_once __DIR__ . '/../../lib/autoload.php';
@@ -11,6 +8,10 @@ use ActivatorAdmin\Lib\ConfigHelper;
 use ActivatorAdmin\Lib\DB;
 use ActivatorAdmin\Lib\Item;
 
+/**
+ * Test the Item class.
+ *
+ */
 class ItemTest extends \PHPUnit_Framework_TestCase
 {
     private $dbConfig = false;

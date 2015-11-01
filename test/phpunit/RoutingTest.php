@@ -1,14 +1,15 @@
 <?php
-/**
- * PHPunit test for testing the routing in the Slim app.
- *
- */
+
 namespace ActivatorAdmin\Test\PHPunit;
 
 require_once __DIR__ . '/../../lib/autoload.php';
 
 use ActivatorAdmin\Lib\ConfigHelper;
 
+/**
+ * PHPunit test for testing the routing in the Slim app.
+ *
+ */
 class RoutingTest extends \PHPUnit_Framework_TestCase
 {
     private $response;

@@ -1,8 +1,5 @@
 <?php
-/**
- * Test the ModelFacade class.
- *
- */
+
 namespace ActivatorAdmin\Test\PHPunit;
 
 require_once __DIR__ . '/../../lib/autoload.php';
@@ -12,6 +9,10 @@ use ActivatorAdmin\Lib\Item;
 use ActivatorAdmin\Lib\ConfigHelper;
 use ActivatorAdmin\Lib\DB;
 
+/**
+ * Test the ModelFacade class.
+ *
+ */
 class ModelFacadeTest extends \PHPUnit_Framework_TestCase
 {
     private $objModelFacade = false;
