@@ -15,7 +15,7 @@
 - Monolog 1.17.2 (https://github.com/Seldaek/monolog)
 - PSR Log 1.0.0 (https://github.com/php-fig/log)
 - grunt 0.4.5 (http://gruntjs.com/)
-- grunt-contrib-uglify 0.9.2 (https://github.com/gruntjs/grunt-contrib-uglify)
+- grunt-contrib-uglify 0.10.0 (https://github.com/gruntjs/grunt-contrib-uglify)
 - grunt-contrib-cssmin 0.14.0 (https://github.com/gruntjs/grunt-contrib-cssmin)
 - grunt-contrib-jasmine 0.9.2 (https://github.com/gruntjs/grunt-contrib-jasmine)
 - grunt-template-jasmine-requirejs 0.2.3 (https://github.com/cloudchen/grunt-template-jasmine-requirejs)
