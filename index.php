@@ -166,6 +166,12 @@ $app->get('/search/:term', function($term) use($app) {
     echo json_encode($arrItems);
 });
 
+$app->get('/stats', function() use($app) {
+    $objConfigHelper = $app->config('custom');
+    $baseurl = $objConfigHelper->get('url', 'baseurl');
+
+    $app->render('stats.tpl', array('baseurl'=>$baseurl));
+});
 
 // Start slim application.
 $app->run();
