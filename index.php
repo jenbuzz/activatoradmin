@@ -166,6 +166,9 @@ $app->get('/search/:term', function($term) use($app) {
     echo json_encode($arrItems);
 });
 
+/**
+ * GET statistics page.
+ */
 $app->get('/stats', function() use($app) {
     $objConfigHelper = $app->config('custom');
     $baseurl = $objConfigHelper->get('url', 'baseurl');
