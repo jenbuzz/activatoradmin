@@ -176,5 +176,9 @@ $app->get('/stats', function() use($app) {
     $app->render('stats.tpl', array('baseurl'=>$baseurl));
 });
 
+$app->get('/get-stats', function() use($app) {
+    echo json_encode(array('active'=>10, 'deactive'=>5));
+});
+
 // Start slim application.
 $app->run();
