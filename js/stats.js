@@ -15,7 +15,7 @@ var xAxis = d3.svg.axis()
 var yAxis = d3.svg.axis()
     .scale(y)
     .orient("left")
-    .ticks(10);
+    .ticks(5);
 
 var svg = d3.select(".graph").append("svg")
     .attr("width", width + margin.left + margin.right)
@@ -26,7 +26,7 @@ var svg = d3.select(".graph").append("svg")
 d3.json("get-stats", function(error, data) {
   if (error) throw error;
 
-  x.domain(['activated', 'deactivated']);
+  x.domain(data.map(function(d) { return d.name; }));
   y.domain([0, d3.max(data, function(d) {return d.value; })]);
 
   svg.append("g")
@@ -44,7 +44,7 @@ d3.json("get-stats", function(error, data) {
       .style("text-anchor", "end")
       .text("Number of items");
 
-  svg.selectAll(".bar")
+   svg.selectAll(".bar")
       .data(data)
     .enter().append("rect")
       .attr("class", "bar")

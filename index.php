@@ -184,7 +184,7 @@ $app->get('/get-stats', function() use($app) {
         ), 
         array (
             'name' => 'deactive',
-            'value' => 5
+            'value' => 8
         )
     ));
 });
