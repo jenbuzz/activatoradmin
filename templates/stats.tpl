@@ -26,11 +26,39 @@
       </header>
 
       Statistics...
+
+      <style>
+      .bar {
+        fill: steelblue;
+      }
+
+      .bar:hover {
+        fill: brown;
+      }
+
+      .axis {
+        font: 10px sans-serif;
+      }
+
+      .axis path,
+      .axis line {
+        fill: none;
+        stroke: #000;
+        shape-rendering: crispEdges;
+      }
+
+      .x.axis path {
+        display: none;
+      }
+      </style>
+      <div class="graph"></div>
+
     </div>
 
     <script src="js/lib/jquery.min.js"></script>
     <script src="js/lib/d3/d3.min.js"></script>
     <script src="js/stats.js"></script>
+
   </body>
 
 </html>

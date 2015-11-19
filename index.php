@@ -177,7 +177,16 @@ $app->get('/stats', function() use($app) {
 });
 
 $app->get('/get-stats', function() use($app) {
-    echo json_encode(array('active'=>10, 'deactive'=>5));
+    echo json_encode(array(
+        array(
+            'name' => 'active',
+            'value' => 10
+        ), 
+        array (
+            'name' => 'deactive',
+            'value' => 5
+        )
+    ));
 });
 
 // Start slim application.
