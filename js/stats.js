@@ -1,33 +1,32 @@
-var margin = {top: 20, right: 20, bottom: 30, left: 40},
-    width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+var margin = {
+  top: 20, 
+  right: 20, 
+  bottom: 30, 
+  left: 40
+};
 
-var x = d3.scale.ordinal()
-    .rangeRoundBands([0, width], .1);
+var width = 960 - margin.left - margin.right,
+var height = 500 - margin.top - margin.bottom;
 
-var y = d3.scale.linear()
-    .range([height, 0]);
+var x = d3.scale.ordinal().rangeRoundBands([0, width], .1);
+var y = d3.scale.linear().range([height, 0]);
 
-var xAxis = d3.svg.axis()
-    .scale(x)
-    .orient("bottom");
-
-var yAxis = d3.svg.axis()
-    .scale(y)
-    .orient("left")
-    .ticks(5);
+var xAxis = d3.svg.axis().scale(x).orient("bottom");
+var yAxis = d3.svg.axis().scale(y).orient("left").ticks(5);
 
 var svg = d3.select(".graph").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
-  .append("g")
+    .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 d3.json("get-stats", function(error, data) {
-  if (error) throw error;
+  if (error) {
+    throw error;
+  }
 
   x.domain(data.map(function(d) { return d.name; }));
-  y.domain([0, d3.max(data, function(d) {return d.value; })]);
+  y.domain([0, d3.max(data, function(d) { return d.value; })]);
 
   svg.append("g")
       .attr("class", "x axis")
@@ -37,7 +36,7 @@ d3.json("get-stats", function(error, data) {
   svg.append("g")
       .attr("class", "y axis")
       .call(yAxis)
-    .append("text")
+      .append("text")
       .attr("transform", "rotate(-90)")
       .attr("y", 6)
       .attr("dy", ".71em")
@@ -46,7 +45,7 @@ d3.json("get-stats", function(error, data) {
 
    svg.selectAll(".bar")
       .data(data)
-    .enter().append("rect")
+      .enter().append("rect")
       .attr("class", "bar")
       .attr("x", function(d) { return x(d.name); })
       .attr("width", x.rangeBand())
