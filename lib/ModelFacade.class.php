@@ -116,8 +116,8 @@ class ModelFacade
             $objDB = DB::getInstance($dbConfig);
 
             $arrCount = $objDB->select($dbConfig['table'], 'COUNT(*) as countActiveStatus', $dbMapping['isactive'], $isActive);
-            if ($arrCount && isset($arrItems['countActiveStatus'])) {
-                return $arrItems['countActiveStatus'];
+            if ($arrCount && isset($arrCount['countActiveStatus'])) {
+                return $arrCount['countActiveStatus'];
             }
 
             return 0;
