@@ -210,6 +210,27 @@ body .backgroundOverlay {
   margin-left: 2em;
 }
 
+/* stats */
+.bar {
+  fill: steelblue;
+}
+.bar:hover {
+  fill: brown;
+}
+
+.axis {
+  font: 10px sans-serif;
+}
+.axis path, .axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
 @media screen and (max-width: 991px) {
   .container {
     width: 100%;
