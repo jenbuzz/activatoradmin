@@ -97,4 +97,33 @@ class ModelFacade
         }
     }
 
+    /**
+     * Return a count of records with the specified active status.
+     *
+     * @param int $isActive to count to activated or deactivated items.
+     *
+     * @return array arrItemObjects
+     */
+    public function countActiveStatus($isActive = true)
+    {
+        if ($this->model) {
+            $isActive = (int) $isActive;
+
+            $objConfigHelper = new ConfigHelper();
+            $dbConfig = $objConfigHelper->get('db');
+            $dbMapping = $objConfigHelper->get('db_mapping');
+
+            $objDB = DB::getInstance($dbConfig);
+
+            $arrCount = $objDB->select($dbConfig['table'], 'COUNT(*) as countActiveStatus', $dbMapping['isactive'], $isActive);
+            if ($arrCount && isset($arrItems['countActiveStatus'])) {
+                return $arrItems['countActiveStatus'];
+            }
+
+            return 0;
+        } else {
+            return false;
+        }
+    }
+
 }
