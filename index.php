@@ -177,14 +177,19 @@ $app->get('/stats', function() use($app) {
 });
 
 $app->get('/get-stats', function() use($app) {
+    $objModelFacade = new ModelFacade(new Item());
+
+    $countActivated = $objModelFacade->countActiveStatus(true);
+    $countDeactivated = $objModelFacade->countActiveStatus(false);
+
     echo json_encode(array(
         array(
             'name' => 'active',
-            'value' => 10
+            'value' => $countActivated
         ), 
         array (
             'name' => 'deactive',
-            'value' => 8
+            'value' => $countDeactivated
         )
     ));
 });
