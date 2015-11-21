@@ -17,10 +17,7 @@
         <h1>ActivatorAdmin</h1>
       </header>
 
-      Statistics...
-
-      <div class="graph"></div>
-
+      <div class="statsActivated"></div>
     </div>
 
     <script src="js/lib/jquery.min.js"></script>
