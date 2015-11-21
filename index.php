@@ -176,6 +176,9 @@ $app->get('/stats', function() use($app) {
     $app->render('stats.tpl', array('baseurl'=>$baseurl));
 });
 
+/**
+ * GET statistics (active/deactive count).
+ */
 $app->get('/get-stats', function() use($app) {
     $objModelFacade = new ModelFacade(new Item());
 
