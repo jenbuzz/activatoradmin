@@ -39,7 +39,7 @@ body {
     top: 4px;
     width: 2px;
     height: 41px;
-    margin-left: 108px;
+    margin-left: 140px;
     overflow: hidden;
     background-color: #E5E5E5;
   }
@@ -85,7 +85,7 @@ body {
 .logout {
   position: absolute;
   top: 10px;
-  margin-left: 15px;
+  margin-left: 50px;
 
   button {
     opacity: 0.6;
@@ -100,11 +100,18 @@ body {
   }
 }
 
+/* home */
+.home {
+  position: absolute;
+  top: 10px;
+  margin-left: 15px;
+}
+
 /* search */
 .search {
   position: absolute;
   top: 10px;
-  margin-left: 120px;
+  margin-left: 148px;
 
   button {
     opacity: 0.6;
