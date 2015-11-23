@@ -6,6 +6,8 @@
   <body>
     <div id="container" class="container">
       <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="home"><a href="<?php echo $baseurl; ?>"><button><span class="fa fa-home"></span></button></a></div>
+
         <div class="logout"><form action="<?php echo $baseurl; ?>logout" method="get"><button><span class="fa fa-sign-out"></span>sign out</button></form></div>
 
         <div class="github">
