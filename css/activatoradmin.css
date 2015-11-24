@@ -268,7 +268,11 @@ body .backgroundOverlay {
     margin-right: 100%;
   }
 }
-@media screen and (max-width: 485px) {
+@media screen and (max-width: 550px) {
+  .jumbotron h1 {
+    margin-top: 190px;
+  }
+
   .list-unstyled li label {
     min-width: 100%;
   }
@@ -276,12 +280,20 @@ body .backgroundOverlay {
   .navbar {
     min-height: 75px;
   }
+  .navbar button, .navbar input[type="text"] {
+    width: 100%;
+  }
+  .navbar .home, .navbar .logout, .navbar .search, .navbar .stats {
+    position: relative;
+    top: 0;
+    margin: 5px 10px 0 10px;
+  }
   .navbar .divider {
-    height: 65px;
+    display: none;
   }
   .navbar .github {
-    float: left;
-    margin: 30px 0 0 15px;
+    float: none;
+    margin: 0 0 0 10px;
   }
 
   .itemContainer .imageContainer {

@@ -3,7 +3,7 @@ $primary-text-color: #444444;
 
 $large-width: 991px;
 $medium-width: 768px;
-$small-width: 485px;
+$small-width: 550px;
 
 body {
   background: $primary-bg-color;
@@ -314,6 +314,9 @@ body {
 }
 
 @media screen and (max-width: $small-width) {
+  .jumbotron h1 {
+    margin-top: 190px;
+  }
   .list-unstyled {
     li {
       label {
@@ -324,13 +327,23 @@ body {
   .navbar {
     min-height: 75px;
 
+    button, input[type="text"] {
+      width: 100%;
+    } 
+
+    .home, .logout, .search, .stats {
+      position: relative;
+      top: 0;
+      margin: 5px 10px 0 10px;
+    }
+
     .divider {
-      height: 65px;
+      display: none;
     }
 
     .github {
-      float: left;
-      margin: 30px 0 0 15px;
+      float: none;
+      margin: 0 0 0 10px;
     }
   }
   .itemContainer {
