@@ -29,7 +29,7 @@ body .backgroundOverlay {
   top: 4px;
   width: 2px;
   height: 41px;
-  margin-left: 140px;
+  margin-left: 178px;
   overflow: hidden;
   background-color: #E5E5E5;
 }
@@ -68,7 +68,7 @@ body .backgroundOverlay {
 .logout {
   position: absolute;
   top: 10px;
-  margin-left: 50px;
+  margin-left: 88px;
 }
 .logout button {
   opacity: 0.6;
@@ -87,11 +87,18 @@ body .backgroundOverlay {
   margin-left: 15px;
 }
 
+/* stats */
+.stats {
+  position: absolute;
+  top: 10px;
+  margin-left: 50px;
+}
+
 /* search */
 .search {
   position: absolute;
   top: 10px;
-  margin-left: 148px;
+  margin-left: 185px;
 }
 .search button {
   opacity: 0.6;
