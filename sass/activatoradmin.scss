@@ -112,6 +112,15 @@ body {
   position: absolute;
   top: 10px;
   margin-left: 50px;
+
+  button {
+    color: #444444;
+    opacity: 0.6;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
 }
 
 /* search */
