@@ -53,6 +53,8 @@
        .attr("x", function(d) { return x(d.name); })
        .attr("width", x.rangeBand())
        .attr("y", function(d) { return y(d.value); })
-       .attr("height", function(d) { return height - y(d.value); });
+       .attr("height", function(d) { return height - y(d.value); })
+       .append("title")
+       .text(function(d) { return d.value;});
   });
 }(jQuery));
