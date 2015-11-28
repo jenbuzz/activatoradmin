@@ -338,7 +338,12 @@ body {
     }
 
     .divider {
-      display: none;
+       background-color: #e5e5e5;
+       height: 2px;
+       margin: 10px 0px 10px 0px;
+       position: relative;
+       top: 0;
+       width: 100%;
     }
 
     .github {
