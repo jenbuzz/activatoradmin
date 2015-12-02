@@ -308,9 +308,7 @@ body {
 
 @media screen and (max-width: $medium-width) {
   .jumbotron h1 {
-    font-size: 32px;
-    margin-top: 40px;
-    padding-left: 20px;
+    padding-left: 60px;
   }
   .list-unstyled li input {
     margin-right: 100%;
@@ -319,7 +317,9 @@ body {
 
 @media screen and (max-width: $small-width) {
   .jumbotron h1 {
-    margin-top: 190px;
+    font-size: 32px;
+    padding-left: 20px;
+    margin-top: 5px;
   }
   .list-unstyled {
     li {

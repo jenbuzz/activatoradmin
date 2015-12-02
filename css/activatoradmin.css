@@ -262,9 +262,7 @@ body .backgroundOverlay {
 }
 @media screen and (max-width: 768px) {
   .jumbotron h1 {
-    font-size: 32px;
-    margin-top: 40px;
-    padding-left: 20px;
+    padding-left: 60px;
   }
 
   .list-unstyled li input {
@@ -273,7 +271,9 @@ body .backgroundOverlay {
 }
 @media screen and (max-width: 550px) {
   .jumbotron h1 {
-    margin-top: 190px;
+    font-size: 32px;
+    padding-left: 20px;
+    margin-top: 5px;
   }
 
   .list-unstyled li label {
