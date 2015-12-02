@@ -298,7 +298,7 @@ body .backgroundOverlay {
   }
   .navbar .github {
     float: none;
-    margin: 0 0 0 10px;
+    text-align: center;
   }
 
   .itemContainer .imageContainer {
