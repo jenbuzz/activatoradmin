@@ -34,6 +34,10 @@ body {
 }
 
 .navbar {
+  .menu {
+    display: none;
+  }
+
   .divider {
     position: absolute;
     top: 4px;
@@ -325,11 +329,19 @@ body {
     }
   }
   .navbar {
-    min-height: 75px;
+    min-height: 28px;
+
+    div {
+      display: none;
+
+      &.menu {
+        display: block;
+      }
+    }
 
     button, input[type="text"] {
       width: 100%;
-    } 
+    }
 
     .home, .logout, .search, .stats {
       position: relative;

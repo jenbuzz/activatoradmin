@@ -6,6 +6,8 @@
   <body>
     <div id="container" class="container">
       <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="menu"><button><span class="fa fa-bars"></span></button></div>
+
         <div class="home"><a href="<?php echo $baseurl; ?>"><button><span class="fa fa-home"></span></button></a></div>
 
         <div class="stats"><a href="<?php echo $baseurl; ?>stats"><button><span class="fa fa-bar-chart"></span></button></a></div>

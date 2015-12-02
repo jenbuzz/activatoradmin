@@ -24,6 +24,9 @@ body .backgroundOverlay {
   font-size: 50px;
 }
 
+.navbar .menu {
+  display: none;
+}
 .navbar .divider {
   position: absolute;
   top: 4px;
@@ -278,7 +281,13 @@ body .backgroundOverlay {
   }
 
   .navbar {
-    min-height: 75px;
+    min-height: 28px;
+  }
+  .navbar div {
+    display: none;
+  }
+  .navbar div.menu {
+    display: block;
   }
   .navbar button, .navbar input[type="text"] {
     width: 100%;
