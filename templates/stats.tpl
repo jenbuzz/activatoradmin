@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <?php require_once 'header.tpl'; ?>
+  <?php require_once 'meta.tpl'; ?>
 
   <body>
     <div id="container" class="container">
