@@ -25,11 +25,16 @@ body .backgroundOverlay {
 }
 
 .navbar .show-menu {
-  text-align: center;
   display: none;
+  text-align: center;
   font-size: 1.5em;
   padding: 5px 0;
   margin-bottom: 0;
+  cursor: pointer;
+  opacity: 0.6;
+}
+.navbar .show-menu:hover {
+  opacity: 0.8;
 }
 .navbar input[type=checkbox]:checked ~ .navbutton {
   display: block;
