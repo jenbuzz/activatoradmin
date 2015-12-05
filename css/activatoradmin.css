@@ -251,6 +251,10 @@ body .backgroundOverlay {
 }
 
 /* stats */
+.statsActivated {
+  overflow: hidden;
+}
+
 .bar {
   fill: steelblue;
 }
