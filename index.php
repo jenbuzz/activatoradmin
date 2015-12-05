@@ -173,7 +173,7 @@ $app->get('/stats', function() use($app) {
     $objConfigHelper = $app->config('custom');
     $baseurl = $objConfigHelper->get('url', 'baseurl');
 
-    $app->render('stats.tpl', array('baseurl'=>$baseurl));
+    $app->render('stats.tpl', array('baseurl'=>$baseurl, 'isStats'=>true));
 });
 
 /**

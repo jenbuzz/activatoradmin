@@ -8,6 +8,7 @@
 
   <div class="logout navbutton"><form action="<?php echo $baseurl; ?>logout" method="get"><button><span class="fa fa-sign-out"></span>sign out</button></form></div>
 
+  <?php if (!isset($isStats) || !$isStats) { ?>
   <div class="divider navbutton"></div>
 
   <div class="search navbutton">
@@ -15,6 +16,7 @@
     <button id="search"><span class="fa fa-search"></span>search</button>
     <button id="clearsearch"><span class="fa fa-eraser"></span>clear</button>
   </div>
+  <?php } ?>
 
   <div class="github navbutton">
     <a href="https://github.com/dan-lyn/activatoradmin" target="_blank"><span class="fa fa-github"></span></a>
