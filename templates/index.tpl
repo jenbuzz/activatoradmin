@@ -6,23 +6,24 @@
   <body>
     <div id="container" class="container">
       <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="menu"><button><span class="fa fa-bars"></span></button></div>
+        <label for="show-menu" class="show-menu fa fa-bars"></label>
+        <input type="checkbox" id="show-menu" role="button">
 
-        <div class="home"><a href="<?php echo $baseurl; ?>"><button><span class="fa fa-home"></span></button></a></div>
+        <div class="home navbutton"><a href="<?php echo $baseurl; ?>"><button><span class="fa fa-home"></span></button></a></div>
 
-        <div class="stats"><a href="<?php echo $baseurl; ?>stats"><button><span class="fa fa-bar-chart"></span></button></a></div>
+        <div class="stats navbutton"><a href="<?php echo $baseurl; ?>stats"><button><span class="fa fa-bar-chart"></span></button></a></div>
 
-        <div class="logout"><form action="<?php echo $baseurl; ?>logout" method="get"><button><span class="fa fa-sign-out"></span>sign out</button></form></div>
+        <div class="logout navbutton"><form action="<?php echo $baseurl; ?>logout" method="get"><button><span class="fa fa-sign-out"></span>sign out</button></form></div>
 
-        <div class="divider"></div>
+        <div class="divider navbutton"></div>
 
-        <div class="search">
+        <div class="search navbutton">
           <input id="searchterm" type="text" />
           <button id="search"><span class="fa fa-search"></span>search</button>
           <button id="clearsearch"><span class="fa fa-eraser"></span>clear</button>
         </div>
 
-        <div class="github">
+        <div class="github navbutton">
           <a href="https://github.com/dan-lyn/activatoradmin" target="_blank"><span class="fa fa-github"></span></a>
         </div>
       </nav>

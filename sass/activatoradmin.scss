@@ -34,7 +34,19 @@ body {
 }
 
 .navbar {
-  .menu {
+  .show-menu {
+    text-align: center;
+    display: none;
+    font-size: 1.5em;
+    padding: 5px 0;
+    margin-bottom: 0;
+  }
+
+  input[type=checkbox]:checked ~ .navbutton {
+    display: block;
+  }
+
+  input[type=checkbox] {
     display: none;
   }
 
@@ -332,19 +344,16 @@ body {
   .navbar {
     min-height: 28px;
 
-    div {
-      display: none;
-
-      &.menu {
-        display: block;
-      }
+    .show-menu {
+      display: block;
     }
 
     button, input[type="text"] {
       width: 100%;
     }
 
-    .home, .logout, .search, .stats {
+    .navbutton {
+      display: none;
       position: relative;
       top: 0;
       margin: 5px 10px 0 10px;
