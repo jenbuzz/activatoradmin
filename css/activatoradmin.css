@@ -250,28 +250,25 @@ body .backgroundOverlay {
   margin-left: 2em;
 }
 
-/* stats */
+/* stats page */
 .statsActivated {
   overflow: hidden;
 }
-
-.bar {
+.statsActivated .bar {
   fill: steelblue;
 }
-.bar:hover {
+.statsActivated .bar:hover {
   fill: brown;
 }
-
-.axis {
+.statsActivated .axis {
   font: 10px sans-serif;
 }
-.axis path, .axis line {
+.statsActivated .axis path, .statsActivated .axis line {
   fill: none;
   stroke: #000;
   shape-rendering: crispEdges;
 }
-
-.x.axis path {
+.statsActivated .x.axis path {
   display: none;
 }
 

@@ -298,28 +298,29 @@ body {
   }
 }
 
-/* stats */
+/* stats page */
 .statsActivated {
   overflow: hidden;
-}
-.bar {
-  fill: steelblue;
 
-  &:hover {
-    fill: brown;
-  }
-}
-.axis {
-  font: 10px sans-serif;
+  .bar {
+    fill: steelblue;
 
-  path, line {
-    fill: none;
-    stroke: #000;
-    shape-rendering: crispEdges;
+    &:hover {
+      fill: brown;
+    }
   }
-}
-.x.axis path {
-  display: none;
+  .axis {
+    font: 10px sans-serif;
+
+    path, line {
+      fill: none;
+      stroke: #000;
+      shape-rendering: crispEdges;
+    }
+  }
+  .x.axis path {
+    display: none;
+  }
 }
 
 @media screen and (max-width: $large-width) {
