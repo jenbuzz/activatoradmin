@@ -78,7 +78,7 @@ module.exports = function(grunt) {
       }
     },
     jshint: {
-      all: ['js/app/*.js', 'js/app/models/*.js', 'js/app/collections/*.js', 'js/app/views/*.js']
+      all: ['js/app/*.js', 'js/app/models/*.js', 'js/app/collections/*.js', 'js/app/views/*.js', 'js/stats.js']
     },
     casperjs: {
       options: {
