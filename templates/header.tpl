@@ -1,3 +1,4 @@
+<?php if (!isset($isLogin) || !$isLogin) { ?>
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
   <label for="show-menu" class="show-menu fa fa-bars"></label>
   <input type="checkbox" id="show-menu" role="button">
@@ -22,6 +23,7 @@
     <a href="https://github.com/dan-lyn/activatoradmin" target="_blank"><span class="fa fa-github"></span></a>
   </div>
 </nav>
+<?php } ?>
 
 <header class="jumbotron">
   <h1>ActivatorAdmin</h1>

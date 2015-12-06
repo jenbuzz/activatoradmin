@@ -5,9 +5,7 @@
 
   <body>
     <div id="container" class="container">
-      <header class="jumbotron">
-        <h1>ActivatorAdmin</h1>
-      </header>
+      <?php require_once 'header.tpl'; ?>
 
       <div class="container">
         <div class="row">

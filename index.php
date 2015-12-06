@@ -50,7 +50,7 @@ $app->get('/login', function() use($app) {
     $objConfigHelper = $app->config('custom');
     $baseurl = $objConfigHelper->get('url', 'baseurl');
 
-    $app->render('login.tpl', array('baseurl'=>$baseurl));
+    $app->render('login.tpl', array('baseurl'=>$baseurl, 'isLogin'=>true));
 });
 $app->post('/login', function() use($app) {
     $objConfigHelper = $app->config('custom');
