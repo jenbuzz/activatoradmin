@@ -182,17 +182,17 @@ $app->get('/stats', function() use($app) {
 $app->get('/get-stats', function() use($app) {
     $objModelFacade = new ModelFacade(new Item());
 
-    $countActivated = $objModelFacade->countActiveStatus(true);
-    $countDeactivated = $objModelFacade->countActiveStatus(false);
+    $countActivate = $objModelFacade->countActiveStatus(true);
+    $countInactivate = $objModelFacade->countActiveStatus(false);
 
     echo json_encode(array(
         array(
             'name' => 'active',
-            'value' => $countActivated
+            'value' => $countActivate
         ), 
         array (
-            'name' => 'deactive',
-            'value' => $countDeactivated
+            'name' => 'inactive',
+            'value' => $countInactivate
         )
     ));
 });
