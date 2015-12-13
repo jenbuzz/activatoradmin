@@ -13,12 +13,10 @@ use Monolog\Handler\StreamHandler;
 $objConfigHelper = new ConfigHelper();
 
 // Instantiate slim application.
-$app = new \Slim\Slim(
-    array(
-        'custom' => $objConfigHelper,
-        'templates.path' => __DIR__ . '/templates',
-    )
-);
+$app = new \Slim\Slim(array(
+    'custom' => $objConfigHelper,
+    'templates.path' => __DIR__ . '/templates',
+));
 
 $app->add(new \Slim\Middleware\SessionCookie(array('secret' => 'Aa-Secret')));
 
@@ -26,7 +24,7 @@ $app->add(new \Slim\Middleware\SessionCookie(array('secret' => 'Aa-Secret')));
 $app->add(new AuthMiddleware());
 
 // Instantiate monolog-Logger.
-$app->container->singleton('logger', function () {
+$app->container->singleton('logger', function() {
     $objLogger = new Logger('activatoradmin');
     $objLogger->pushHandler(new StreamHandler('docs/activatoradmin.log', Logger::WARNING));
 
@@ -50,14 +48,17 @@ $app->get('/login', function() use($app) {
     $objConfigHelper = $app->config('custom');
     $baseurl = $objConfigHelper->get('url', 'baseurl');
 
-    $app->render('login.tpl', array('baseurl'=>$baseurl, 'isLogin'=>true));
+    $app->render('login.tpl', array(
+        'baseurl' => $baseurl, 
+        'isLogin' => true,
+    ));
 });
 $app->post('/login', function() use($app) {
     $objConfigHelper = $app->config('custom');
     $baseurl = $objConfigHelper->get('url', 'baseurl');
     $login = $objConfigHelper->get('login');
 
-    if ($app->request()->post('username')==$login['username'] && 
+    if ($app->request()->post('username')===$login['username'] && 
         password_verify($app->request()->post('password'), $login['password'])) {
 
         $_SESSION['activatoradmin_user'] = password_hash('activatoradmin_'.$login['username'], PASSWORD_DEFAULT);
@@ -173,7 +174,10 @@ $app->get('/stats', function() use($app) {
     $objConfigHelper = $app->config('custom');
     $baseurl = $objConfigHelper->get('url', 'baseurl');
 
-    $app->render('stats.tpl', array('baseurl'=>$baseurl, 'isStats'=>true));
+    $app->render('stats.tpl', array(
+        'baseurl' => $baseurl, 
+        'isStats' => true,
+    ));
 });
 
 /**
@@ -188,12 +192,12 @@ $app->get('/get-stats', function() use($app) {
     echo json_encode(array(
         array(
             'name' => 'active',
-            'value' => $countActivate
+            'value' => $countActivate,
         ), 
         array (
             'name' => 'inactive',
-            'value' => $countInactivate
-        )
+            'value' => $countInactivate,
+        ),
     ));
 });
 
