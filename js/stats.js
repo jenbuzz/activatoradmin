@@ -1,4 +1,4 @@
-(function ($) {
+(function () {
   'use strict';
 
   var margin = {
@@ -59,4 +59,4 @@
        .append('title')
        .text(function(d) { return d.value; });
   });
-}(jQuery));
+}());
