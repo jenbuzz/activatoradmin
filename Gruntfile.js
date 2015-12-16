@@ -52,8 +52,9 @@ module.exports = function(grunt) {
     },
     uglify: {
       build: {
-        src: 'config/config.js',
-        dest: 'config/config.min.js'
+        files: {
+          'config/config.min.js': ['config/config.js']
+        }
       }
     },
     jasmine: {
