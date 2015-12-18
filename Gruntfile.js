@@ -53,7 +53,8 @@ module.exports = function(grunt) {
     uglify: {
       build: {
         files: {
-          'config/config.min.js': ['config/config.js']
+          'config/config.min.js': ['config/config.js'],
+          'js/stats.min.js': ['js/stats.js']
         }
       }
     },
