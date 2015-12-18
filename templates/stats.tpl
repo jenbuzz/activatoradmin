@@ -11,7 +11,7 @@
     </div>
 
     <script src="js/lib/d3/d3.min.js"></script>
-    <script src="js/stats.js"></script>
+    <script src="js/stats.min.js"></script>
   </body>
 
 </html>
