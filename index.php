@@ -71,7 +71,10 @@ $app->post('/login', function() use($app) {
             $objLogger->addWarning('Login Attempt Failed. Username: '.$app->request()->post('username'));
         }
 
-        $app->render('login.tpl', array('baseurl'=>$baseurl));
+        $app->render('login.tpl', array(
+            'baseurl' => $baseurl, 
+            'isLogin' => true,
+        ));
     }
 });
 $app->get('/logout', function() use($app) {
