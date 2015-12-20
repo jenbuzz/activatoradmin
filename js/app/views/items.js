@@ -58,6 +58,10 @@ define([
         placement : 'left'
       });
 
+      this.$el.find('button').tooltip({
+        placement : 'left'
+      });
+
       if (typeof appConfig != 'undefined' &&
           appConfig.hasOwnProperty('showDelete') &&
           appConfig.showDelete) {
