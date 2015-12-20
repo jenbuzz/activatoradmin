@@ -42,17 +42,20 @@ define([
         });
       },
       search: function() {
-        $('#itemlist').empty();
+        var searchterm = $('#searchterm').val();
+        if (searchterm!=='') {
+          $('#itemlist').empty();
 
-        var searchresults = ActivatorItems.search($('#searchterm').val());
-        searchresults.each(function(item) {
-          var view = new ItemsView({
-            model: item
+          var searchresults = ActivatorItems.search(searchterm);
+          searchresults.each(function(item) {
+            var view = new ItemsView({
+              model: item
+            });
+            $('#itemlist').append(view.render(ActivatorItems));
           });
-          $('#itemlist').append(view.render(ActivatorItems));
-        });
 
-        $('#pagination-container').hide();
+          $('#pagination-container').hide();
+        }
       },
       entersearch: function(event) {
         if (event.keyCode===13) {
