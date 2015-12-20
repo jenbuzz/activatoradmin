@@ -10,7 +10,7 @@
 - jQuery 2.1.4 (http://jquery.com/)
 - Bootstrap 3.3.6 (http://getbootstrap.com/)
 - Font Awesome 4.5.0 (http://fortawesome.github.io/Font-Awesome/)
-- RequireJS 2.1.20 (http://requirejs.org/docs/download.html)
+- RequireJS 2.1.22 (http://requirejs.org/docs/download.html)
 - RequireJS text 2.0.14 (https://github.com/requirejs/text)
 - D3.js 3.5.6 (https://github.com/mbostock/d3)
 - Monolog 1.17.2 (https://github.com/Seldaek/monolog)
