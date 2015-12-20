@@ -13,7 +13,7 @@
   <div class="divider navbutton"></div>
 
   <div class="search navbutton">
-    <input id="searchterm" type="text" />
+    <input id="searchterm" type="text" placeholder="enter search term ..." />
     <button id="search"><span class="fa fa-search"></span>search</button>
     <button id="clearsearch"><span class="fa fa-eraser"></span>clear</button>
   </div>
