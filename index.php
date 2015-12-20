@@ -74,6 +74,7 @@ $app->post('/login', function() use($app) {
         $app->render('login.tpl', array(
             'baseurl' => $baseurl, 
             'isLogin' => true,
+            'isError' => true,
         ));
     }
 });

@@ -11,6 +11,9 @@
         <div class="row">
           <div class="col-md-4 well login">
             <legend>Login</legend>
+            <?php if (isset($isError) && $isError) { ?>
+                <p class="text-danger">Wrong username or password!</p>
+            <?php } ?>
             <form method="POST" action="<?php echo $baseurl; ?>login" accept-charset="UTF-8">
               <input type="text" id="username" class="form-control" name="username" placeholder="Username" />
               <input type="password" id="password" class="form-control" name="password" placeholder="Password" />
