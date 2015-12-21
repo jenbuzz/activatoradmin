@@ -87,4 +87,22 @@ class RoutingTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(302, $this->response->status());
     }
 
+    /**
+     * Test the 'stats' route
+     */
+    public function testStats()
+    {
+        $this->request('GET', '/stats');
+        $this->assertEquals(302, $this->response->status());
+    }
+
+    /**
+     * Test the 'get-stats' route
+     */
+    public function testGetStats()
+    {
+        $this->request('GET', '/get-stats');
+        $this->assertEquals(302, $this->response->status());
+    }
+
 }
