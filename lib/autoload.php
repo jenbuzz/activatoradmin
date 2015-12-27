@@ -20,7 +20,7 @@ spl_autoload_register(function($class) {
         require __DIR__ . '/FastRoute/' . str_replace("\\", "/", str_replace("FastRoute\\", '', $class)) . '.php';
     } elseif (substr($class, 0, 4)==='Twig') {
         require __DIR__ . '/Twig/' . str_replace("_", "/", str_replace("Twig_", '', $class)) . '.php';
-    } else {
+    } elseif (substr($class, 0, 18)==='ActivatorAdmin\\Lib') {
         $class = str_replace('ActivatorAdmin\\Lib\\', '', $class);
 
         if (substr($class, 0, 1)==='i') {
