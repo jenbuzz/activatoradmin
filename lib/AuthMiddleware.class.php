@@ -2,37 +2,37 @@
 
 namespace ActivatorAdmin\Lib;
 
+use ActivatorAdmin\Lib\ConfigHelper;
+use Psr\Http\Message\RequestInterface as Request;
+use Psr\Http\Message\ResponseInterface as Response;
+
 /**
  * AuthMiddleware is a custom Slim Middleware class used for authentication.
  * It is used in index.php during setting up the Slim app.
  *
  */
-class AuthMiddleware extends \Slim\Middleware
+class AuthMiddleware
 {
   /**
    * Function from the abstract class  \Slim\Middleware.
    * Using the hook "slim.before.dispatch" it is being verified if the use is logged in.
    * The session variable 'activatoradmin_user' is being checked.
    */
-  public function call()
+  function __invoke(Request $req,  Response $res, callable $next)
   {
-      $authenticate = function($app) {
-          return function() use ($app) {
-              $route = $app->router->getCurrentRoute()->getPattern();
-            
-              if ($route!=='/login') {
-                  $objConfigHelper = $app->config('custom');
-                  $baseurl = $objConfigHelper->get('url', 'baseurl');
+      $route = $req->getUri()->getPath();
 
-                  if (!isset($_SESSION['activatoradmin_user'])) {
-                      return $app->redirect($baseurl.'login');
-                  }
-              }
-          };
-      };
+      if ($route!=='login') {
+          $objConfigHelper = new ConfigHelper();
+          $baseurl = $objConfigHelper->get('url', 'baseurl');
 
-      $this->app->hook('slim.before.dispatch', $authenticate($this->app));
+          if (!isset($_SESSION['activatoradmin_user'])) {
+              return $res->withStatus(302)->withHeader('Location', $baseurl.'login');
+          }
+      }
 
-      $this->next->call();
+      $newResponse = $next($req, $res);
+
+      return $newResponse;
   }
 }
