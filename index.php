@@ -1,7 +1,9 @@
 <?php
 
 // Starting PHP session here Slim-Http-Cookies lib is ready.
-session_start();
+if (!headers_sent()) {
+    session_start();
+}
 
 require_once __DIR__ . '/lib/autoload.php';
 
