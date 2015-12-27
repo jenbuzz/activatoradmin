@@ -13,7 +13,7 @@
             <legend>Login</legend>
             {% if isError %}
                 <p class="text-danger">Wrong username or password!</p>
-            <% endif %>
+            {% endif %}
             <form method="POST" action="{{ baseurl }}login" accept-charset="UTF-8">
               <input type="text" id="username" class="form-control" name="username" placeholder="Username" />
               <input type="password" id="password" class="form-control" name="password" placeholder="Password" />
