@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <?php require_once 'meta.tpl'; ?>
+  {% include 'meta.tpl' %}
 
   <body>
     <div id="container" class="container">
-      <?php require_once 'header.tpl'; ?>
+      {% include 'header.tpl' %}
 
       <div class="statsActivated"></div>
     </div>
