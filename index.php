@@ -1,5 +1,6 @@
 <?php
 
+// Starting PHP session here Slim-Http-Cookies lib is ready.
 session_start();
 
 require_once __DIR__ . '/lib/autoload.php';
@@ -14,7 +15,7 @@ use Monolog\Handler\StreamHandler;
 // Create container
 $container = new Slim\Container;
 
-// Register view on container
+// Register view in container
 $container['view'] = function ($c) {
     $view = new Slim\Views\Twig(__DIR__ . '/templates', [
         'cache' => false
@@ -27,19 +28,18 @@ $container['view'] = function ($c) {
     return $view;
 };
 
-// Register view on container
+// Register custom confighelper in container
 $container['custom'] = function ($c) {
     return new ConfigHelper();
 };
 
+// Register logger in container TODO test against slim3
 $container['logger'] = function ($c) {
     $objLogger = new Logger('activatoradmin');
     $objLogger->pushHandler(new StreamHandler('docs/activatoradmin.log', Logger::WARNING));
 
     return $objLogger;
 };
-
-$container['settings']['determineRouteBeforeAppMiddleware'] = true;
 
 // Instantiate slim application.
 $app = new Slim\App($container);
