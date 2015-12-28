@@ -1,14 +1,14 @@
 <?php
 
 /**
- * ActivatorAdmin, Monolog & Psr/Log.
+ * ActivatorAdmin, Monolog, Psr/Log, Psr/Http-Message, Slim, Pimple, Interop/Container, FastRoute, Twig.
  */
 spl_autoload_register(function($class) {
-    if (substr($class, 0, 7)=='Monolog') {
+    if (substr($class, 0, 7)==='Monolog') {
         require __DIR__ . '/' . str_replace("\\", '/', $class) . '.php';
-    } elseif (substr($class, 0, 7)=='Psr\\Log') {
+    } elseif (substr($class, 0, 7)==='Psr\\Log') {
         require __DIR__ . '/Psr/Log/' . str_replace("\\", "/", str_replace("Psr\\Log\\", '', $class)) . '.php';
-    } elseif (substr($class, 0, 8)=='Psr\\Http') {
+    } elseif (substr($class, 0, 8)==='Psr\\Http') {
         require __DIR__ . '/Psr/Http-Message/' . str_replace("\\", "/", str_replace("Psr\\Http\\Message\\", '', $class)) . '.php';
     } elseif (substr($class, 0, 4)==='Slim') {
         require __DIR__ . '/Slim/' . str_replace("\\", "/", str_replace("Slim\\", '', $class)) . '.php';
