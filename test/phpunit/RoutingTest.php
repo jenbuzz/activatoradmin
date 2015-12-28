@@ -24,7 +24,7 @@ class RoutingTest extends \PHPUnit_Framework_TestCase
         $objConfigHelper = new ConfigHelper();
         $host = $objConfigHelper->get('url', 'host');
 
-        \Slim\Environment::mock(array(
+        \Slim\Http\Environment::mock(array(
             'REQUEST_METHOD' => $method,
             'PATH_INFO' => $path,
             'SERVER_NAME' => $host,
@@ -32,7 +32,8 @@ class RoutingTest extends \PHPUnit_Framework_TestCase
 
         require __DIR__ . '/../../index.php';
 
-        $this->response = $app->response();
+        $container = $app->getContainer();
+        $this->response = $container['response'];
 
         return ob_get_clean();
     }
@@ -44,7 +45,7 @@ class RoutingTest extends \PHPUnit_Framework_TestCase
     public function testIndex()
     {
         $this->request('GET', '/');
-        $this->assertEquals(302, $this->response->status());
+        $this->assertEquals(200, $this->response->getStatusCode());
     }
 
     /**
@@ -54,7 +55,7 @@ class RoutingTest extends \PHPUnit_Framework_TestCase
     public function testItems()
     {
         $this->request('GET', '/items');
-        $this->assertEquals(302, $this->response->status());
+        $this->assertEquals(200, $this->response->getStatusCode());
     }
 
     /**
@@ -64,7 +65,7 @@ class RoutingTest extends \PHPUnit_Framework_TestCase
     public function testGetItem()
     {
         $this->request('GET', '/item/1');
-        $this->assertEquals(302, $this->response->status());
+        $this->assertEquals(200, $this->response->getStatusCode());
     }
 
     /**
@@ -74,7 +75,7 @@ class RoutingTest extends \PHPUnit_Framework_TestCase
     public function testPutItem()
     {
         $this->request('PUT', '/item/1');
-        $this->assertEquals(302, $this->response->status());
+        $this->assertEquals(200, $this->response->getStatusCode());
     }
 
     /**
@@ -83,8 +84,8 @@ class RoutingTest extends \PHPUnit_Framework_TestCase
      */
     public function testDeleteItem()
     {
-        $this->request('DELETE', '/item/id');
-        $this->assertEquals(302, $this->response->status());
+        $this->request('DELETE', '/item/1');
+        $this->assertEquals(200, $this->response->getStatusCode());
     }
 
     /**
@@ -93,7 +94,7 @@ class RoutingTest extends \PHPUnit_Framework_TestCase
     public function testStats()
     {
         $this->request('GET', '/stats');
-        $this->assertEquals(302, $this->response->status());
+        $this->assertEquals(200, $this->response->getStatusCode());
     }
 
     /**
@@ -102,7 +103,7 @@ class RoutingTest extends \PHPUnit_Framework_TestCase
     public function testGetStats()
     {
         $this->request('GET', '/get-stats');
-        $this->assertEquals(302, $this->response->status());
+        $this->assertEquals(200, $this->response->getStatusCode());
     }
 
 }
