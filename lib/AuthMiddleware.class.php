@@ -13,25 +13,27 @@ use Psr\Http\Message\ResponseInterface as Response;
  */
 class AuthMiddleware
 {
-  /**
-   * Run login check before further app code is started.
-   * The session variable 'activatoradmin_user' is being checked.
-   */
-  function __invoke(Request $req,  Response $res, callable $next)
-  {
-      $route = $req->getUri()->getPath();
+    /**
+     * Run login check before further app code is started.
+     * The session variable 'activatoradmin_user' is being checked.
+     *
+     * @param Psr\Http\Message\RequestInterface $request
+     * @param Psr\Http\Message\ResponseInterface $response
+     * @param callable $next
+     */
+    function __invoke(Request $request, Response $response, callable $next)
+    {
+        $route = $request->getUri()->getPath();
 
-      if ($route!=='login') {
-          $objConfigHelper = new ConfigHelper();
-          $baseurl = $objConfigHelper->get('url', 'baseurl');
+        if ($route!=='login') {
+            $objConfigHelper = new ConfigHelper();
+            $baseurl = $objConfigHelper->get('url', 'baseurl');
 
-          if (!isset($_SESSION['activatoradmin_user'])) {
-              return $res->withStatus(302)->withHeader('Location', $baseurl.'login');
-          }
-      }
+            if (!isset($_SESSION['activatoradmin_user'])) {
+                return $response->withStatus(302)->withHeader('Location', $baseurl.'login');
+            }
+        }
 
-      $newResponse = $next($req, $res);
-
-      return $newResponse;
-  }
+        return $next($request, $response);
+    }
 }
