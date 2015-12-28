@@ -31,7 +31,7 @@ $container['view'] = function ($c) {
 };
 
 // Register custom confighelper in container
-$container['custom'] = function ($c) {
+$container['config'] = function ($c) {
     return new ConfigHelper();
 };
 
@@ -53,7 +53,7 @@ $app->add(new AuthMiddleware());
  * Render startup template (index).
  */
 $app->get('/', function ($request, $response, $args) {
-    $objConfigHelper = $this->custom;
+    $objConfigHelper = $this->config;
     $baseurl = $objConfigHelper->get('url', 'baseurl');
 
     return $this->view->render($response, 'index.tpl', array(
@@ -66,7 +66,7 @@ $app->get('/', function ($request, $response, $args) {
  * Login.
  */
 $app->get('/login', function ($request, $response, $args) {
-    $objConfigHelper = $this->custom;
+    $objConfigHelper = $this->config;
     $baseurl = $objConfigHelper->get('url', 'baseurl');
 
     return $this->view->render($response, 'login.tpl', array(
@@ -75,7 +75,7 @@ $app->get('/login', function ($request, $response, $args) {
     ));
 });
 $app->post('/login', function ($request, $response, $args) {
-    $objConfigHelper = $this->custom;
+    $objConfigHelper = $this->config;
     $baseurl = $objConfigHelper->get('url', 'baseurl');
     $login = $objConfigHelper->get('login');
 
@@ -102,7 +102,7 @@ $app->post('/login', function ($request, $response, $args) {
 $app->get('/logout', function ($request, $response, $args) {
     unset($_SESSION['activatoradmin_user']);
 
-    $objConfigHelper = $this->custom;
+    $objConfigHelper = $this->config;
     $baseurl = $objConfigHelper->get('url', 'baseurl');
 
     return $response->withStatus(200)->withHeader('Location', $baseurl.'login');
@@ -198,7 +198,7 @@ $app->get('/search/{term}', function ($request, $response, $args) {
  * GET statistics page.
  */
 $app->get('/stats', function ($request, $response, $args) {
-    $objConfigHelper = $this->custom;
+    $objConfigHelper = $this->config;
     $baseurl = $objConfigHelper->get('url', 'baseurl');
 
     return $this->view->render($response, 'stats.tpl', array(
