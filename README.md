@@ -4,7 +4,7 @@
 
 ##Third-Party Libraries
 
-- Slim Framework 2.6.1 (https://github.com/codeguy/Slim)
+- Slim Framework 3.0.0-RC2 (https://github.com/slimphp/Slim)
 - Backbone.js 1.2.3 (http://backbonejs.org/)
 - backbone.paginator 2.0.2 (https://github.com/backbone-paginator/backbone.paginator)
 - jQuery 2.1.4 (http://jquery.com/)
