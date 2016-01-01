@@ -1,6 +1,6 @@
 <?php
 
-// Starting PHP session here Slim-Http-Cookies lib is ready.
+// Starting PHP session here until Slim-Http-Cookies lib is ready.
 if (!headers_sent()) {
     session_start();
 }
@@ -14,10 +14,10 @@ use ActivatorAdmin\Lib\AuthMiddleware;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 
-// Create container
+// Create container.
 $container = new Slim\Container;
 
-// Register view in container
+// Register view in container.
 $container['view'] = function ($c) {
     $view = new Slim\Views\Twig(__DIR__ . '/templates', [
         'cache' => false
@@ -30,12 +30,12 @@ $container['view'] = function ($c) {
     return $view;
 };
 
-// Register custom confighelper in container
+// Register confighelper in container.
 $container['config'] = function ($c) {
     return new ConfigHelper();
 };
 
-// Register logger in container TODO test against slim3
+// Register logger in container.
 $container['logger'] = function ($c) {
     $objLogger = new Logger('activatoradmin');
     $objLogger->pushHandler(new StreamHandler('docs/activatoradmin.log', Logger::WARNING));
