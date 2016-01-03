@@ -4,6 +4,7 @@
 
 ##Third-Party Libraries
 
+**PHP**
 - Slim Framework 3.0.0-RC2 (https://github.com/slimphp/Slim)
 - Pimple 3.0.2 (https://github.com/silexphp/Pimple)
 - PSR Http Message 1.0.0 (https://github.com/php-fig/http-message)
@@ -11,16 +12,22 @@
 - Container Interoperability 1.1.0 (https://github.com/container-interop/container-interop)
 - Twig 1.23.1 (https://github.com/twigphp/Twig)
 - Slim Twig View 2.0.0 (https://github.com/slimphp/Twig-View)
+- Monolog 1.17.2 (https://github.com/Seldaek/monolog)
+- PSR Log 1.0.0 (https://github.com/php-fig/log)
+
+**JS**
 - Backbone.js 1.2.3 (http://backbonejs.org/)
 - backbone.paginator 2.0.2 (https://github.com/backbone-paginator/backbone.paginator)
 - jQuery 2.1.4 (http://jquery.com/)
-- Bootstrap 3.3.6 (http://getbootstrap.com/)
-- Font Awesome 4.5.0 (http://fortawesome.github.io/Font-Awesome/)
 - RequireJS 2.1.22 (http://requirejs.org/docs/download.html)
 - RequireJS text 2.0.14 (https://github.com/requirejs/text)
 - D3.js 3.5.6 (https://github.com/mbostock/d3)
-- Monolog 1.17.2 (https://github.com/Seldaek/monolog)
-- PSR Log 1.0.0 (https://github.com/php-fig/log)
+
+**CSS**
+- Bootstrap 3.3.6 (http://getbootstrap.com/)
+- Font Awesome 4.5.0 (http://fortawesome.github.io/Font-Awesome/)
+
+**Grunt**
 - grunt 0.4.5 (http://gruntjs.com/)
 - grunt-contrib-uglify 0.11.0 (https://github.com/gruntjs/grunt-contrib-uglify)
 - grunt-contrib-cssmin 0.14.0 (https://github.com/gruntjs/grunt-contrib-cssmin)
@@ -33,6 +40,8 @@
 - grunt-contrib-concat 0.5.1 (https://github.com/gruntjs/grunt-contrib-concat)
 - grunt-casperjs 2.1.0 (https://github.com/ronaldlokers/grunt-casperjs)
 - grunt-contrib-requirejs 0.4.4 (https://github.com/gruntjs/grunt-contrib-requirejs)
+
+**Gulp**
 - gulp 3.9.0 (https://github.com/gulpjs/gulp/)
 - gulp-concat 2.6.0 (https://github.com/wearefractal/gulp-concat)
 - gulp-uglify 1.5.1 (https://github.com/terinjokes/gulp-uglify/)
