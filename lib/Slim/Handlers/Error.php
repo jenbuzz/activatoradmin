@@ -3,7 +3,7 @@
  * Slim Framework (http://slimframework.com)
  *
  * @link      https://github.com/slimphp/Slim
- * @copyright Copyright (c) 2011-2015 Josh Lockhart
+ * @copyright Copyright (c) 2011-2016 Josh Lockhart
  * @license   https://github.com/slimphp/Slim/blob/3.x/LICENSE.md (MIT License)
  */
 namespace Slim\Handlers;
@@ -87,7 +87,7 @@ class Error
      * @param  Exception $exception
      * @return string
      */
-    private function renderHtmlErrorMessage(Exception $exception)
+    protected function renderHtmlErrorMessage(Exception $exception)
     {
         $title = 'Slim Application Error';
 
@@ -124,7 +124,7 @@ class Error
      *
      * @return string
      */
-    private function renderHtmlException(Exception $exception)
+    protected function renderHtmlException(Exception $exception)
     {
         $html = sprintf('<div><strong>Type:</strong> %s</div>', get_class($exception));
 
@@ -158,7 +158,7 @@ class Error
      * @param  Exception $exception
      * @return string
      */
-    private function renderJsonErrorMessage(Exception $exception)
+    protected function renderJsonErrorMessage(Exception $exception)
     {
         $error = [
             'message' => 'Slim Application Error',
@@ -188,7 +188,7 @@ class Error
      * @param  Exception $exception
      * @return string
      */
-    private function renderXmlErrorMessage(Exception $exception)
+    protected function renderXmlErrorMessage(Exception $exception)
     {
         $xml = "<error>\n  <message>Slim Application Error</message>\n";
         if ($this->displayErrorDetails) {

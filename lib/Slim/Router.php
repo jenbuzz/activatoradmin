@@ -3,7 +3,7 @@
  * Slim Framework (http://slimframework.com)
  *
  * @link      https://github.com/slimphp/Slim
- * @copyright Copyright (c) 2011-2015 Josh Lockhart
+ * @copyright Copyright (c) 2011-2016 Josh Lockhart
  * @license   https://github.com/slimphp/Slim/blob/3.x/LICENSE.md (MIT License)
  */
 namespace Slim;
@@ -16,6 +16,7 @@ use FastRoute\RouteCollector;
 use FastRoute\RouteParser;
 use FastRoute\RouteParser\Std as StdParser;
 use FastRoute\DataGenerator;
+use Slim\Interfaces\RouteGroupInterface;
 use Slim\Interfaces\RouterInterface;
 use Slim\Interfaces\RouteInterface;
 
@@ -70,8 +71,6 @@ class Router implements RouterInterface
      */
     protected $routeGroups = [];
 
-    private $finalized = false;
-
     /**
      * @var \FastRoute\Dispatcher
      */
@@ -122,18 +121,13 @@ class Router implements RouterInterface
             throw new InvalidArgumentException('Route pattern must be a string');
         }
 
-        // pattern must start with a / if not empty
-        if ($pattern) {
-            $pattern = '/' . ltrim($pattern, '/');
-        }
-
         // Prepend parent group pattern(s)
         if ($this->routeGroups) {
             $pattern = $this->processGroups() . $pattern;
         }
 
-        // Complete pattern must start with a /
-        $pattern = '/' . ltrim($pattern, '/');
+        // According to RFC methods are defined in uppercase (See RFC 7231)
+        $methods = array_map("strtoupper", $methods);
 
         // Add route
         $route = new Route($methods, $pattern, $handler, $this->routeGroups, $this->routeCounter);
@@ -141,21 +135,6 @@ class Router implements RouterInterface
         $this->routeCounter++;
 
         return $route;
-    }
-
-    /**
-     * Finalize registered routes in preparation for dispatching
-     *
-     * NOTE: The routes can only be finalized once.
-     */
-    public function finalize()
-    {
-        if (!$this->finalized) {
-            foreach ($this->getRoutes() as $route) {
-                $route->finalize();
-            }
-            $this->finalized = true;
-        }
     }
 
     /**
@@ -169,7 +148,6 @@ class Router implements RouterInterface
      */
     public function dispatch(ServerRequestInterface $request)
     {
-        $this->finalize();
         $uri = '/' . ltrim($request->getUri()->getPath(), '/');
         
         return $this->createDispatcher()->dispatch(
@@ -239,8 +217,7 @@ class Router implements RouterInterface
     {
         $pattern = "";
         foreach ($this->routeGroups as $group) {
-            // The route group's pattern doesn't end with a /
-            $pattern .= rtrim($group->getPattern(), '/');
+            $pattern .= $group->getPattern();
         }
         return $pattern;
     }
@@ -251,7 +228,7 @@ class Router implements RouterInterface
      * @param string   $pattern
      * @param callable $callable
      *
-     * @return RouteGroup
+     * @return RouteGroupInterface
      */
     public function pushGroup($pattern, $callable)
     {
