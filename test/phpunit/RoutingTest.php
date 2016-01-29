@@ -49,6 +49,24 @@ class RoutingTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test the 'login' route.
+     */
+    public function testLogin()
+    {
+        $this->request('GET', '/login');
+        $this->assertEquals(200, $this->response->getStatusCode());
+    }
+
+    /**
+     * Test the 'logout' route.
+     */
+    public function testLogout()
+    {
+        $this->request('GET', '/logout');
+        $this->assertEquals(200, $this->response->getStatusCode());
+    }
+
+    /**
      * Test the 'items' route.
      * GET request on path '/items'.
      */
@@ -89,7 +107,7 @@ class RoutingTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test the 'search' route
+     * Test the 'search' route.
      */
     public function testSearch()
     {
@@ -98,7 +116,7 @@ class RoutingTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test the 'stats' route
+     * Test the 'stats' route.
      */
     public function testStats()
     {
@@ -107,7 +125,7 @@ class RoutingTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test the 'get-stats' route
+     * Test the 'get-stats' route.
      */
     public function testGetStats()
     {
