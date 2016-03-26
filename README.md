@@ -29,17 +29,17 @@
 
 **Grunt**
 - grunt 0.4.5 (http://gruntjs.com/)
-- grunt-contrib-uglify 0.11.0 (https://github.com/gruntjs/grunt-contrib-uglify)
-- grunt-contrib-cssmin 0.14.0 (https://github.com/gruntjs/grunt-contrib-cssmin)
-- grunt-contrib-jasmine 0.9.2 (https://github.com/gruntjs/grunt-contrib-jasmine)
+- grunt-contrib-uglify 1.0.1 (https://github.com/gruntjs/grunt-contrib-uglify)
+- grunt-contrib-cssmin 1.0.1 (https://github.com/gruntjs/grunt-contrib-cssmin)
+- grunt-contrib-jasmine 1.0.0 (https://github.com/gruntjs/grunt-contrib-jasmine)
 - grunt-template-jasmine-requirejs 0.2.3 (https://github.com/cloudchen/grunt-template-jasmine-requirejs)
 - grunt-phpunit 0.3.6 (https://github.com/SaschaGalley/grunt-phpunit)
-- grunt-contrib-watch 0.6.1 (https://github.com/gruntjs/grunt-contrib-watch)
-- grunt-contrib-jshint 0.12.0 (https://github.com/gruntjs/grunt-contrib-jshint)
-- grunt-contrib-compass 1.0.4 (https://github.com/gruntjs/grunt-contrib-compass)
-- grunt-contrib-concat 0.5.1 (https://github.com/gruntjs/grunt-contrib-concat)
+- grunt-contrib-watch 1.0.0 (https://github.com/gruntjs/grunt-contrib-watch)
+- grunt-contrib-jshint 1.0.0 (https://github.com/gruntjs/grunt-contrib-jshint)
+- grunt-contrib-compass 1.1.1 (https://github.com/gruntjs/grunt-contrib-compass)
+- grunt-contrib-concat 1.0.0 (https://github.com/gruntjs/grunt-contrib-concat)
 - grunt-casperjs 2.1.0 (https://github.com/ronaldlokers/grunt-casperjs)
-- grunt-contrib-requirejs 0.4.4 (https://github.com/gruntjs/grunt-contrib-requirejs)
+- grunt-contrib-requirejs 1.0.0 (https://github.com/gruntjs/grunt-contrib-requirejs)
 
 **Gulp**
 - gulp 3.9.0 (https://github.com/gulpjs/gulp/)
