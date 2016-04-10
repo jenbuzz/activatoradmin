@@ -233,6 +233,10 @@ body {
   }
 }
 
+/* image */
+.imageContainer img {
+  cursor: zoom-in !important;
+}
 .img-full {
   z-index: 100;
   max-width: 100%;
