@@ -45,27 +45,35 @@ define([
     gotoFirst: function(e) {
       e.preventDefault();
       this.ActivatorItems.getPage(1);
+      this.scrollToTop();
     },
     gotoPrev: function(e) {
       e.preventDefault();
       if (this.ActivatorItems.state.currentPage>this.ActivatorItems.state.firstPage) {
         this.ActivatorItems.getPreviousPage();
+        this.scrollToTop();
       }
     },
     gotoNext: function(e) {
       e.preventDefault();
       if (this.ActivatorItems.state.currentPage<this.ActivatorItems.state.lastPage) {
         this.ActivatorItems.getNextPage();
+        this.scrollToTop();
       }
     },
     gotoLast: function(e) {
       e.preventDefault();
       this.ActivatorItems.getPage(this.ActivatorItems.state.lastPage);
+      this.scrollToTop();
     },
     gotoPage: function(e) {
       e.preventDefault();
       var page = parseInt($(e.target).text());
       this.ActivatorItems.getPage(page);
+      this.scrollToTop();
+    },
+    scrollToTop: function() {
+      $('html, body').animate({scrollTop: 0}, 800);
     }
   });
 
