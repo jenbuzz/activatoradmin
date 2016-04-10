@@ -8,6 +8,8 @@ define([
 ], function($, _, Backbone, tplItem, tplPagination) {
   'use strict';
 
+  var ActivatorItems;
+
   var ItemsView = Backbone.View.extend({
     tagName: 'li',
     className: 'well',
@@ -17,7 +19,10 @@ define([
       'click img': 'toggleImage'
     },
     initialize: function() {},
-    render: function(ActivatorItems) {
+    setActivatorItems: function(activatorItems) {
+      ActivatorItems = activatorItems;
+    },
+    render: function() {
       var model = this.model;
       var image = '';
 

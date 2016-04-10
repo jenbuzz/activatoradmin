@@ -38,6 +38,7 @@ define([
           var view = new ItemsView({
             model: item
           });
+          view.setActivatorItems(ActivatorItems);
           $('#itemlist').append(view.render(ActivatorItems));
         });
       },
