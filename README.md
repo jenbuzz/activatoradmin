@@ -16,7 +16,7 @@
 - PSR Log 1.0.0 (https://github.com/php-fig/log)
 
 **JS**
-- Backbone.js 1.2.3 (http://backbonejs.org/)
+- Backbone.js 1.3.3 (http://backbonejs.org/)
 - backbone.paginator 2.0.2 (https://github.com/backbone-paginator/backbone.paginator)
 - jQuery 2.2.2 (http://jquery.com/)
 - RequireJS 2.1.22 (http://requirejs.org/docs/download.html)
