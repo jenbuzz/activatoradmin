@@ -19,7 +19,7 @@
 - Backbone.js 1.3.3 (http://backbonejs.org/)
 - backbone.paginator 2.0.2 (https://github.com/backbone-paginator/backbone.paginator)
 - jQuery 2.2.3 (http://jquery.com/)
-- RequireJS 2.1.22 (http://requirejs.org/docs/download.html)
+- RequireJS 2.2.0 (http://requirejs.org/docs/download.html)
 - RequireJS text 2.0.14 (https://github.com/requirejs/text)
 - D3.js 3.5.12 (https://github.com/mbostock/d3)
 
