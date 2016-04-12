@@ -25,7 +25,7 @@
 
 **CSS**
 - Bootstrap 3.3.6 (http://getbootstrap.com/)
-- Font Awesome 4.5.0 (http://fortawesome.github.io/Font-Awesome/)
+- Font Awesome 4.6.1 (http://fortawesome.github.io/Font-Awesome/)
 
 **Grunt**
 - grunt 0.4.5 (http://gruntjs.com/)
