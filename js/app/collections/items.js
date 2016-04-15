@@ -16,7 +16,7 @@ define([
       currentPage: 1,
       pageSize: pageSize
     },
-    search: function(searchterm){
+    search: function(searchterm) {
       if (searchterm==='') {
         return this;
       }
@@ -25,7 +25,6 @@ define([
       var searchcount = 0;
       var searchpattern = new RegExp(searchterm, 'gi');
       return _(this.fullCollection.filter(function(data) {
-
         var dataOk = searchpattern.test(data.get('name'));
         if (dataOk && searchcount<searchlimit) {
           searchcount++;

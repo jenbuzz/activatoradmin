@@ -20,7 +20,9 @@ define([
       this.ActivatorItems.on('reset', this.render, this);
     },
     render: function() {
-      if (this.ActivatorItems.state.currentPage===this.ActivatorItems.state.firstPage && this.ActivatorItems.fullCollection.models.length <= this.ActivatorItems.state.pageSize ) {} else {
+      if (this.ActivatorItems.state.currentPage===this.ActivatorItems.state.firstPage && 
+          this.ActivatorItems.fullCollection.models.length <= this.ActivatorItems.state.pageSize ) {} else {
+
         this.ActivatorItems.state.pageSet = [];
         var showPages = 5;
         var iLimitStarter = this.ActivatorItems.state.currentPage;
