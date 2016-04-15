@@ -276,6 +276,9 @@ body .backgroundOverlay {
 .statsActivated .x.axis path {
   display: none;
 }
+.statsActivated text {
+  font-size: 12px;
+}
 
 @media screen and (max-width: 991px) {
   .container {

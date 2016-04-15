@@ -313,6 +313,7 @@ body {
       fill: brown;
     }
   }
+
   .axis {
     font: 10px sans-serif;
 
@@ -322,8 +323,13 @@ body {
       shape-rendering: crispEdges;
     }
   }
+
   .x.axis path {
     display: none;
+  }
+
+  text {
+    font-size: 12px;
   }
 }
 
