@@ -5,7 +5,7 @@
 ##Third-Party Libraries
 
 **PHP**
-- Slim Framework 3.1.0 (https://github.com/slimphp/Slim)
+- Slim Framework 3.3.0 (https://github.com/slimphp/Slim)
 - Pimple 3.0.2 (https://github.com/silexphp/Pimple)
 - PSR Http Message 1.0.0 (https://github.com/php-fig/http-message)
 - FastRoute 0.7.0 (https://github.com/nikic/FastRoute)
