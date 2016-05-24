@@ -48,4 +48,11 @@ class Mongo
 
         return static::$instance;
     }
+
+    public function insert($document)
+    {
+        if (is_array($document) && !empty($document)) {
+            $this->mongoCollection->insert($document);
+        }
+    }
 }
