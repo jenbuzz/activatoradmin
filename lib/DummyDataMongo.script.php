@@ -10,20 +10,24 @@ $dbConfig = $objConfigHelper->get('mongo');
 $username = $dbConfig['user'];
 $password = $dbConfig['pass'];
 
-$authentication = '';
+$strAuthentication = 'mongodb://';
 if ($username !== '' && $password !== '') {
-    $authentication = $username . ':' . $password . '@';
+    $strAuthentication.= $username . ':' . $password . '@';
 }
+$strAuthentication.= $dbConfig['host'];
 
-$m = new \MongoClient("mongodb://" . $authentication . $dbConfig['host']);
-$db = $m->{$dbConfig['name']};
+$client = new \MongoClient($strAuthentication);
+$db = $client->{$dbConfig['name']};
 $collection = $db->{$dbConfig['collection']};
 
 $handle = @fopen(__DIR__.'/../docs/db-dummy-data-mongo.txt', 'r');
 if ($handle) {
     while (($line = fgets($handle, 4096)) !== false) {
         $arrData = explode(',', str_replace("\n", '', $line));
-        $document = array( "isactive" => $arrData[0], "name" => $arrData[1] );
+        $document = array(
+            'isactive' => $arrData[0], 
+            'name' => $arrData[1]
+        );
         $collection->insert($document);
     }
     if (!feof($handle)) {
