@@ -3,22 +3,12 @@
 require_once __DIR__ . '/autoload.php';
 
 use \ActivatorAdmin\Lib\ConfigHelper;
+use \ActivatorAdmin\Lib\Mongo;
 
 $objConfigHelper = new ConfigHelper();
 $dbConfig = $objConfigHelper->get('mongo');
 
-$username = $dbConfig['user'];
-$password = $dbConfig['pass'];
-
-$strAuthentication = 'mongodb://';
-if ($username !== '' && $password !== '') {
-    $strAuthentication.= $username . ':' . $password . '@';
-}
-$strAuthentication.= $dbConfig['host'];
-
-$client = new \MongoClient($strAuthentication);
-$db = $client->{$dbConfig['name']};
-$collection = $db->{$dbConfig['collection']};
+$objMongo = Mongo::getInstance($dbConfig);
 
 $handle = @fopen(__DIR__.'/../docs/db-dummy-data-mongo.txt', 'r');
 if ($handle) {
@@ -28,7 +18,8 @@ if ($handle) {
             'isactive' => $arrData[0], 
             'name' => $arrData[1]
         );
-        $collection->insert($document);
+
+        $objMongo->insert($document);
     }
     if (!feof($handle)) {
         echo "Error: unexpected fgets() fail\n";
