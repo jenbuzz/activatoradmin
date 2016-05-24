@@ -5,11 +5,19 @@ require_once __DIR__ . '/autoload.php';
 use \ActivatorAdmin\Lib\ConfigHelper;
 
 $objConfigHelper = new ConfigHelper();
-$dbConfig = $objConfigHelper->get('db');
+$dbConfig = $objConfigHelper->get('mongo');
 
-$m = new \MongoClient();
-$db = $m->activatoradmin;
-$collection = $db->activatoradmin;
+$username = $dbConfig['user'];
+$password = $dbConfig['pass'];
+
+$authentication = '';
+if ($username !== '' && $password !== '') {
+    $authentication = $username . ':' . $password . '@';
+}
+
+$m = new \MongoClient("mongodb://" . $authentication . $dbConfig['host']);
+$db = $m->{$dbConfig['name']};
+$collection = $db->{$dbConfig['collection']};
 
 $handle = @fopen(__DIR__.'/../docs/db-dummy-data-mongo.txt', 'r');
 if ($handle) {
