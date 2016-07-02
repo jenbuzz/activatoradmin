@@ -44,7 +44,7 @@
 **Gulp**
 - gulp 3.9.1 (https://github.com/gulpjs/gulp/)
 - gulp-concat 2.6.0 (https://github.com/wearefractal/gulp-concat)
-- gulp-uglify 1.5.3 (https://github.com/terinjokes/gulp-uglify/)
+- gulp-uglify 1.5.4 (https://github.com/terinjokes/gulp-uglify/)
 
 ##Usage
 
