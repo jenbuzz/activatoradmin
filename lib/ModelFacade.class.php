@@ -32,7 +32,7 @@ class ModelFacade
     {
         if ($this->model) {
             $objConfigHelper = new ConfigHelper();
-            $dbConfig = $objConfigHelper->get('db');
+            $dbConfig = $objConfigHelper->get('mysql');
 
             $objDB = DB::getInstance($dbConfig);
 
@@ -78,7 +78,7 @@ class ModelFacade
     {
         if ($this->model) {
             $objConfigHelper = new ConfigHelper();
-            $dbConfig = $objConfigHelper->get('db');
+            $dbConfig = $objConfigHelper->get('mysql');
             $dbMapping = $objConfigHelper->get('db_mapping');
 
             $objDB = DB::getInstance($dbConfig);
@@ -110,7 +110,7 @@ class ModelFacade
             $isActive = (int) $isActive;
 
             $objConfigHelper = new ConfigHelper();
-            $dbConfig = $objConfigHelper->get('db');
+            $dbConfig = $objConfigHelper->get('mysql');
             $dbMapping = $objConfigHelper->get('db_mapping');
 
             $objDB = DB::getInstance($dbConfig);

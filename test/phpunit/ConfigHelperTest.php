@@ -27,7 +27,7 @@ class ConfigHelperTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetSection()
     {
-        $dbConfig = $this->objConfigHelper->get('db');
+        $dbConfig = $this->objConfigHelper->get('mysql');
 
         $this->assertGreaterThan(0, sizeof($dbConfig));
         $this->assertArrayHasKey('host', $dbConfig);
@@ -38,7 +38,7 @@ class ConfigHelperTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetSectionKey()
     {
-        $dbConfigHost = $this->objConfigHelper->get('db', 'host');
+        $dbConfigHost = $this->objConfigHelper->get('mysql', 'host');
 
         $this->assertGreaterThan(0, strlen($dbConfigHost));
     }

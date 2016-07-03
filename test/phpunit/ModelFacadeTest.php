@@ -27,7 +27,7 @@ class ModelFacadeTest extends \PHPUnit_Framework_TestCase
     {
         // Get database connection.
         $objConfigHelper = new ConfigHelper();
-        $this->dbConfig = $objConfigHelper->get('db');
+        $this->dbConfig = $objConfigHelper->get('mysql');
         $this->dbConfig['table'] = $this->dbConfig['table']."_test";
         $objDB = DB::getInstance($this->dbConfig);
         $this->mysqli = $objDB->getConnection();

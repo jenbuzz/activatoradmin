@@ -44,7 +44,7 @@ class Item implements iModel
         $objConfigHelper = new ConfigHelper();
 
         if (!$dbConfig || !is_array($dbConfig)) {
-            $dbConfig = $objConfigHelper->get('db');
+            $dbConfig = $objConfigHelper->get('mysql');
         }
 
         $this->objDB = DB::getInstance($dbConfig);

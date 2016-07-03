@@ -26,7 +26,7 @@ class DBTest extends \PHPUnit_Framework_TestCase
     {
         // Get database connection.
         $objConfigHelper = new ConfigHelper();
-        $this->dbConfig = $objConfigHelper->get('db');
+        $this->dbConfig = $objConfigHelper->get('mysql');
         $this->db = DB::getInstance($this->dbConfig);
 
         // Create pseudo table for testing.
