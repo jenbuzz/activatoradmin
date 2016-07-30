@@ -8,17 +8,16 @@ use ActivatorAdmin\Lib\ConfigHelper;
 use ActivatorAdmin\Lib\DB;
 
 /**
- * Test the database class.
- * Database: MySQL.
+ * Test the MySQL class.
  *
  */
-class DBTest extends \PHPUnit_Framework_TestCase
+class MySQLTest extends \PHPUnit_Framework_TestCase
 {
     protected $db;
     protected $dbConfig;
 
     /**
-     * Connects to a MySQL database and gets an instance of DB.
+     * Connects to a MySQL database and gets an instance of MySQL.
      * MySQL connection credentials are pulled using class ConfigHelper.
      * Setup a test table before running test cases.
      */
@@ -27,7 +26,7 @@ class DBTest extends \PHPUnit_Framework_TestCase
         // Get database connection.
         $objConfigHelper = new ConfigHelper();
         $this->dbConfig = $objConfigHelper->get('mysql');
-        $this->db = DB::getInstance($this->dbConfig);
+        $this->db = MySQL::getInstance($this->dbConfig);
 
         // Create pseudo table for testing.
         $mysqli = $this->db->getConnection();
@@ -41,7 +40,7 @@ class DBTest extends \PHPUnit_Framework_TestCase
      */
     protected function tearDown()
     {
-        $this->db = DB::getInstance($this->dbConfig);
+        $this->db = MySQL::getInstance($this->dbConfig);
 
         // Create pseudo table for testing.
         $mysqli = $this->db->getConnection();
@@ -50,11 +49,11 @@ class DBTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test the if the singleton function getInstance() returns DB.
+     * Test the if the singleton function getInstance() returns MySQL.
      */
     public function testGetInstance()
     {
-        $this->assertInstanceOf('\ActivatorAdmin\Lib\DB', $this->db);
+        $this->assertInstanceOf('\ActivatorAdmin\Lib\MySQL', $this->db);
     }
 
     /**
@@ -79,7 +78,7 @@ class DBTest extends \PHPUnit_Framework_TestCase
         $mysqli->query($sqlInsert);
 
         // Test select function
-        $result = $this->db->select($this->dbConfig['table']."_test");
+        $result = $this->db->select();
         $this->assertGreaterThan(0, sizeof($result));
     }
 
@@ -89,7 +88,7 @@ class DBTest extends \PHPUnit_Framework_TestCase
      */
     public function testInsert()
     {
-        $insert_id = $this->db->insert($this->dbConfig['table']."_test", array('isactive'=>0, 'name'=>'Test Record 2'));
+        $insert_id = $this->db->insert(array('isactive'=>0, 'name'=>'Test Record 2'));
         $this->assertGreaterThan(0, $insert_id);
     }
 
@@ -100,13 +99,13 @@ class DBTest extends \PHPUnit_Framework_TestCase
     public function testUpdate()
     {
         // Insert test record.
-        $insert_id = $this->db->insert($this->dbConfig['table']."_test", array('isactive'=>0, 'name'=>'Test Record 3'));
+        $insert_id = $this->db->insert(array('isactive'=>0, 'name'=>'Test Record 3'));
 
         // Update test record.
-        $this->db->update($this->dbConfig['table']."_test", array('name'=>'New Test Record 3'), 'id', $insert_id);
+        $this->db->update(array('name'=>'New Test Record 3'), 'id', $insert_id);
 
         // Get the updated record.
-        $result = $this->db->select($this->dbConfig['table']."_test", '*', 'id', $insert_id);
+        $result = $this->db->select('*', 'id', $insert_id);
 
         // Check that test record has new name.
         $this->assertEquals($result['name'], 'New Test Record 3');
@@ -119,13 +118,13 @@ class DBTest extends \PHPUnit_Framework_TestCase
     public function testDelete()
     {
         // Insert test record.
-        $insert_id = $this->db->insert($this->dbConfig['table']."_test", array('isactive'=>0, 'name'=>'Test Record 4'));
+        $insert_id = $this->db->insert(array('isactive'=>0, 'name'=>'Test Record 4'));
 
         // Delete record.
-        $this->db->delete($this->dbConfig['table']."_test", 'id', $insert_id);
+        $this->db->delete('id', $insert_id);
 
         // Try to get the deleted record.
-        $result = $this->db->select($this->dbConfig['table']."_test", '*', 'id', $insert_id);
+        $result = $this->db->select('*', 'id', $insert_id);
 
         // Check that no records were returned upon select.
         $this->assertEquals(0, sizeof($result));
@@ -137,7 +136,7 @@ class DBTest extends \PHPUnit_Framework_TestCase
      */
     public function testSearch()
     {
-        $results = $this->db->search($this->dbConfig['table'], 'name', 'Item');
+        $results = $this->db->search('name', 'Item');
 
         $this->assertTrue(is_array($results));
     }
