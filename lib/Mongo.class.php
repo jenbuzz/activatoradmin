@@ -49,6 +49,19 @@ class Mongo
         return static::$instance;
     }
 
+    public function select()
+    {
+        $results = array();
+
+        $cursor = $this->mongoCollection->find();
+
+        foreach ($cursor AS $document) {
+            $results[] = $document;
+        }
+
+        return $results;
+    }
+
     public function insert($document)
     {
         if (is_array($document) && !empty($document)) {
