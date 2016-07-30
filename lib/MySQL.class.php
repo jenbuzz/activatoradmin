@@ -7,7 +7,7 @@ namespace ActivatorAdmin\Lib;
  * DB is a singleton.
  *
  */
-class DB
+class MySQL
 {
     private static $instance;
     private $mysqli;
