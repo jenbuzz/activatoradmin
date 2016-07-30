@@ -25,6 +25,10 @@ class MySQL
         $this->mysqli->query("SET NAMES 'utf8'");
 
         $this->table = $config['table'];
+
+        if (isset($config['isTest']) && $config['isTest']) {
+            $this->table.= '_test';
+        }
     }
 
     /**

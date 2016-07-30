@@ -5,7 +5,7 @@ namespace ActivatorAdmin\Test\PHPunit;
 require_once __DIR__ . '/../../lib/autoload.php';
 
 use ActivatorAdmin\Lib\ConfigHelper;
-use ActivatorAdmin\Lib\DB;
+use ActivatorAdmin\Lib\MySQL;
 
 /**
  * Test the MySQL class.
@@ -26,6 +26,7 @@ class MySQLTest extends \PHPUnit_Framework_TestCase
         // Get database connection.
         $objConfigHelper = new ConfigHelper();
         $this->dbConfig = $objConfigHelper->get('mysql');
+        $this->dbConfig['isTest'] = true;
         $this->db = MySQL::getInstance($this->dbConfig);
 
         // Create pseudo table for testing.
