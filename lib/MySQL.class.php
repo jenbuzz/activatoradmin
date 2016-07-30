@@ -3,8 +3,8 @@
 namespace ActivatorAdmin\Lib;
 
 /**
- * DB is used for setting up a connection to a MySQL database.
- * DB is a singleton.
+ * MySQL is used for setting up a connection to a MySQL database.
+ * MySQL is a singleton.
  *
  */
 class MySQL
@@ -25,11 +25,11 @@ class MySQL
     }
 
     /**
-     * getInstance returns an instance of DB (Singleton Pattern).
+     * getInstance returns an instance of MySQL (Singleton Pattern).
      *
      * @param array $config is the db entry in the configuration array that is setup in class ConfigHelper.
      *
-     * @return object DB
+     * @return object MySQL
      */
     public static function getInstance(array $config)
     {
