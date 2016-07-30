@@ -11,6 +11,7 @@ class MySQL
 {
     private static $instance;
     private $mysqli;
+    private $table;
 
     /**
      * Connect to a MySQL database with the credentials from the $config['db'] array.
@@ -22,6 +23,8 @@ class MySQL
         $this->mysqli = new \mysqli($config['host'], $config['user'], $config['pass'], $config['name']);
 
         $this->mysqli->query("SET NAMES 'utf8'");
+
+        $this->table = $config['table'];
     }
 
     /**
@@ -63,16 +66,15 @@ class MySQL
     /**
      * Execute a select query defined using the parameters.
      *
-     * @param string $table is the name of table to run the select query on.
      * @param string $columns are the names of the columns to return. Not required. Default * (all columns).
      * @param string $whereColoumn is the column name for the where clause for filtering the records. Not required.
      * @param string $whereValue is the value for the where clause for filtering the records. Not required.
      * @param string $orderBy is the column name and direction for sorting records.
      * @param int $limit is the number of records to return. Not required.
      */
-    public function select($table, $columns='*', $whereColumn=false, $whereValue=false, $orderBy=false, $limit=false)
+    public function select($columns='*', $whereColumn=false, $whereValue=false, $orderBy=false, $limit=false)
     {
-        $sql = 'SELECT '.$columns.' FROM '.$table;
+        $sql = 'SELECT '.$columns.' FROM '.$this->table;
         if ($whereColumn && $whereValue) {
             $sql.= ' WHERE '.$whereColumn.'='.$this->mysqli->real_escape_string($whereValue);
         }
@@ -102,10 +104,9 @@ class MySQL
     /**
      * Execute an insert query defined using the parameters.
      *
-     * @param string $table is the name of table to run the insert query on.
      * @param array $data is array of data to insert. Array key is column name.
      */
-    public function insert($table, $data)
+    public function insert($data)
     {
         $fields = array();
         $values = array();
@@ -115,7 +116,7 @@ class MySQL
             $values[] = '"'.$this->mysqli->real_escape_string($value).'"';
         }
 
-        $sql = 'INSERT INTO '.$table.' ('.implode(',', $fields).') VALUES ('.implode(',', $values).')';
+        $sql = 'INSERT INTO '.$this->table.' ('.implode(',', $fields).') VALUES ('.implode(',', $values).')';
         $this->mysqli->query($sql);
 
         return $this->mysqli->insert_id;
@@ -124,12 +125,11 @@ class MySQL
     /**
      * Execute an update query defined using the parameters.
      *
-     * @param string $table is the name of table to run the select query on.
      * @param array $data is an array of fields to update - array key = column_name.
      * @param string $whereColumn is the column name for the where clause for specifying what to records to update.
      * @param string $whereValue is the value for the where clause for specifying what to records to update.
      */
-    public function update($table, $data, $whereColumn=false, $whereValue=false)
+    public function update($data, $whereColumn=false, $whereValue=false)
     {
         $fields = array();
 
@@ -137,7 +137,7 @@ class MySQL
             $fields[] = $column_name.'="'.$this->mysqli->real_escape_string($value).'"';
         }
 
-        $sql = 'UPDATE '.$table.' SET '.implode(',', $fields);
+        $sql = 'UPDATE '.$this->table.' SET '.implode(',', $fields);
         if ($whereColumn && $whereValue) {
             $sql.= ' WHERE '.$whereColumn.'='.$this->mysqli->real_escape_string($whereValue);
         }
@@ -148,13 +148,12 @@ class MySQL
     /**
      * Execute a delete query defined using the parameters.
      *
-     * @param string $table is the name of table to run the delete query on.
      * @param string $whereColumn is the column name for the where clause for specifying what to records to delete.
      * @param string $whereValue is the value for the where clause for specifying what to records to delete.
      */
-    public function delete($table, $whereColumn, $whereValue)
+    public function delete($whereColumn, $whereValue)
     {
-        $sql = 'DELETE FROM '.$table.' WHERE '.$whereColumn.'='.$this->mysqli->real_escape_string($whereValue);
+        $sql = 'DELETE FROM '.$this->table.' WHERE '.$whereColumn.'='.$this->mysqli->real_escape_string($whereValue);
 
         $this->mysqli->query($sql);
     }
@@ -162,13 +161,12 @@ class MySQL
     /**
      * Search in a table for a searchterm in specified column.
      *
-     * @param string $table is the name of the of table to run search query on.
      * @param string $searchColumn is the name of the column in which the searchterm should appear.
      * @param string $searchTerm is the term to search for in searchColumn.
      */
-    public function search($table, $searchColumn, $searchTerm)
+    public function search($searchColumn, $searchTerm)
     {
-        $sql = 'SELECT * FROM '.$table.' WHERE '.$searchColumn.' LIKE "%'.$searchTerm.'%"';
+        $sql = 'SELECT * FROM '.$this->table.' WHERE '.$searchColumn.' LIKE "%'.$searchTerm.'%"';
 
         $result = $this->mysqli->query($sql);
         $arrData = array();

@@ -15,11 +15,6 @@ class Item implements iModel
     private $objDB;
 
     /**
-     * @var $table Database table
-     */
-    private $table;
-
-    /**
      * @var $tblName Database table field for name
      * @var $tblIsActive Database table field for isActive
      * @var string $tblImage Database table name for image
@@ -48,7 +43,6 @@ class Item implements iModel
         }
 
         $this->objDB = DB::getInstance($dbConfig);
-        $this->table = $dbConfig['table'];
 
         $dbMapping = $objConfigHelper->get('db_mapping');
         $this->tblName = $dbMapping['name'];
@@ -63,7 +57,7 @@ class Item implements iModel
      */
     public function load($id)
     {
-        $result = $this->objDB->select($this->table, '*', 'id', $id);
+        $result = $this->objDB->select('*', 'id', $id);
         if ($result) {
             $this->setId($result['id']);
             $this->setName($result[$this->tblName]);
@@ -80,7 +74,6 @@ class Item implements iModel
     {
         if ($this->getId()) {
             $this->objDB->update(
-                $this->table,
                 array(
                     $this->tblName => $this->getName(),
                     $this->tblIsActive => $this->getIsActive(),
@@ -90,7 +83,7 @@ class Item implements iModel
                 $this->getId()
             );
         } else {
-            $this->objDB->insert($this->table, array(
+            $this->objDB->insert(array(
                 $this->tblName => $this->getName(),
                 $this->tblIsActive => $this->getIsActive(),
                 $this->tblImage => $this->getImage(),
@@ -103,7 +96,7 @@ class Item implements iModel
      */
     public function delete()
     {
-        $this->objDB->delete($this->table, 'id', $this->getId());
+        $this->objDB->delete('id', $this->getId());
     }
 
     /**

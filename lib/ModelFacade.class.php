@@ -31,13 +31,10 @@ class ModelFacade
     public function loadAll()
     {
         if ($this->model) {
-            $objConfigHelper = new ConfigHelper();
-            $dbConfig = $objConfigHelper->get('mysql');
-
-            $objDB = DB::getInstance($dbConfig);
+            $objDB = DB::getInstance();
 
             $arrItemObjects = array();
-            $arrItems = $objDB->select($dbConfig['table']);
+            $arrItems = $objDB->select();
             foreach ($arrItems as $item) {
                 $objItem = new Item();
                 $objItem->load($item['id']);
@@ -78,13 +75,12 @@ class ModelFacade
     {
         if ($this->model) {
             $objConfigHelper = new ConfigHelper();
-            $dbConfig = $objConfigHelper->get('mysql');
             $dbMapping = $objConfigHelper->get('db_mapping');
 
-            $objDB = DB::getInstance($dbConfig);
+            $objDB = DB::getInstance();
 
             $arrItemObjects = array();
-            $arrItems = $objDB->search($dbConfig['table'], $dbMapping['name'], $term);
+            $arrItems = $objDB->search($dbMapping['name'], $term);
             foreach ($arrItems as $item) {
                 $objItem = new Item();
                 $objItem->load($item['id']);
