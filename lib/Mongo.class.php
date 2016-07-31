@@ -71,6 +71,11 @@ class Mongo
 
     public function delete($whereColumn, $whereValue)
     {
+        if ($whereColumn === 'id') {
+            $whereColumn = '_id';
+            $whereValue = new \MongoId($whereValue);
+        }
+
         $this->mongoCollection->remove(array(
             $whereColumn => $whereValue,
         ));
