@@ -31,18 +31,12 @@ class Item implements iModel
 
     /**
      * Setup the database connection and the table mapping.
-     *
-     * @param array $dbConfig to use custom  DB config settings.
      */
-    public function __construct($dbConfig = false)
+    public function __construct()
     {
         $objConfigHelper = new ConfigHelper();
 
-        if (!$dbConfig || !is_array($dbConfig)) {
-            $dbConfig = $objConfigHelper->get('mysql');
-        }
-
-        $this->objDB = DB::getInstance($dbConfig);
+        $this->objDB = DB::getInstance();
 
         $dbMapping = $objConfigHelper->get('db_mapping');
         $this->tblName = $dbMapping['name'];
