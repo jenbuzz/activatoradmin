@@ -106,12 +106,11 @@ class ModelFacade
             $isActive = (int) $isActive;
 
             $objConfigHelper = new ConfigHelper();
-            $dbConfig = $objConfigHelper->get('mysql');
             $dbMapping = $objConfigHelper->get('db_mapping');
 
-            $objDB = DB::getInstance($dbConfig);
+            $objDB = DB::getInstance();
 
-            $arrCount = $objDB->select($dbConfig['table'], 'COUNT(*) as countActiveStatus', $dbMapping['isactive'], $isActive);
+            $arrCount = $objDB->select('COUNT(*) as countActiveStatus', $dbMapping['isactive'], $isActive);
             if ($arrCount && isset($arrCount['countActiveStatus'])) {
                 return $arrCount['countActiveStatus'];
             }
