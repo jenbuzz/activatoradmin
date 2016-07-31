@@ -68,4 +68,11 @@ class Mongo
             $this->mongoCollection->insert($document);
         }
     }
+
+    public function delete($whereColumn, $whereValue)
+    {
+        $this->mongoCollection->remove(array(
+            $whereColumn => $whereValue,
+        ));
+    }
 }
