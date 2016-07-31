@@ -18,6 +18,8 @@ class DB
 
             switch ($dbConfig['activedb']) {
                 case 'mongodb':
+                    $config = $objConfigHelper->get('mongo');
+                    static::$instance = Mongo::getInstance($config);
                     break;
                 case 'mysql':
                 default:
