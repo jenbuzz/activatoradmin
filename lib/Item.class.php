@@ -108,6 +108,11 @@ class Item implements iModel
         return $arr;
     }
 
+    /**
+     * Overwrite the table used for database queries.
+     *
+     * @param string $table
+     */
     public function setTable($table)
     {
         $this->objDB->setTable($table);

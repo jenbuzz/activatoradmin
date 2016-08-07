@@ -53,11 +53,19 @@ class MySQL
         return $this->mysqli;
     }
 
+    /**
+     * Set the current table used for queries.
+     *
+     * @param string $table
+     */
     public function setTable($table)
     {
         $this->table = $table;
     }
 
+    /**
+     * Get the current table used for queries.
+     */
     public function getTable()
     {
         return $this->table;
