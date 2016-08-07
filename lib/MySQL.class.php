@@ -24,11 +24,7 @@ class MySQL
 
         $this->mysqli->query("SET NAMES 'utf8'");
 
-        $this->table = $config['table'];
-
-        if (isset($config['isTest']) && $config['isTest']) {
-            $this->table.= '_test';
-        }
+        $this->setTable($config['table']);
     }
 
     /**
@@ -57,6 +53,16 @@ class MySQL
         return $this->mysqli;
     }
 
+    public function setTable($table)
+    {
+        $this->table = $table;
+    }
+
+    public function getTable()
+    {
+        return $this->table;
+    }
+
     /**
      * Execute a direct query.
      *
@@ -78,7 +84,7 @@ class MySQL
      */
     public function select($columns='*', $whereColumn=false, $whereValue=false, $orderBy=false, $limit=false)
     {
-        $sql = 'SELECT '.$columns.' FROM '.$this->table;
+        $sql = 'SELECT '.$columns.' FROM '.$this->getTable();
         if ($whereColumn && $whereValue) {
             $sql.= ' WHERE '.$whereColumn.'='.$this->mysqli->real_escape_string($whereValue);
         }
@@ -120,7 +126,7 @@ class MySQL
             $values[] = '"'.$this->mysqli->real_escape_string($value).'"';
         }
 
-        $sql = 'INSERT INTO '.$this->table.' ('.implode(',', $fields).') VALUES ('.implode(',', $values).')';
+        $sql = 'INSERT INTO '.$this->getTable().' ('.implode(',', $fields).') VALUES ('.implode(',', $values).')';
         $this->mysqli->query($sql);
 
         return $this->mysqli->insert_id;
@@ -141,7 +147,7 @@ class MySQL
             $fields[] = $column_name.'="'.$this->mysqli->real_escape_string($value).'"';
         }
 
-        $sql = 'UPDATE '.$this->table.' SET '.implode(',', $fields);
+        $sql = 'UPDATE '.$this->getTable().' SET '.implode(',', $fields);
         if ($whereColumn && $whereValue) {
             $sql.= ' WHERE '.$whereColumn.'='.$this->mysqli->real_escape_string($whereValue);
         }
@@ -157,7 +163,7 @@ class MySQL
      */
     public function delete($whereColumn, $whereValue)
     {
-        $sql = 'DELETE FROM '.$this->table.' WHERE '.$whereColumn.'='.$this->mysqli->real_escape_string($whereValue);
+        $sql = 'DELETE FROM '.$this->getTable().' WHERE '.$whereColumn.'='.$this->mysqli->real_escape_string($whereValue);
 
         $this->mysqli->query($sql);
     }
@@ -170,7 +176,7 @@ class MySQL
      */
     public function search($searchColumn, $searchTerm)
     {
-        $sql = 'SELECT * FROM '.$this->table.' WHERE '.$searchColumn.' LIKE "%'.$searchTerm.'%"';
+        $sql = 'SELECT * FROM '.$this->getTable().' WHERE '.$searchColumn.' LIKE "%'.$searchTerm.'%"';
 
         $result = $this->mysqli->query($sql);
         $arrData = array();
