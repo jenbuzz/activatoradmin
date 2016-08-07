@@ -49,14 +49,29 @@ class Mongo
         return static::$instance;
     }
 
-    public function select()
+    public function select($columns='*', $whereColumn=false, $whereValue=false, $orderBy=false, $limit=false)
     {
         $results = array();
 
-        $cursor = $this->mongoCollection->find();
+        $query = array();
+        if ($whereColumn && $whereValue) {
+            if ($whereColumn === 'id') {
+                $whereColumn = '_id';
+                $whereValue = new \MongoId($whereValue);
+            }
+
+            $query[$whereColumn] = $whereValue;
+        }
+
+        $cursor = $this->mongoCollection->find($query);
 
         foreach ($cursor AS $document) {
+            $document['id'] = (string) $document['_id'];
             $results[] = $document;
+        }
+
+        if (count($results)===1) {
+            $results = $results[0];
         }
 
         return $results;
