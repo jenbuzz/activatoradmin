@@ -24,6 +24,8 @@
       </div>
 
     </div>
+
+    <script>document.forms[0].elements[0].focus();</script>
   </body>
 
 </html>
