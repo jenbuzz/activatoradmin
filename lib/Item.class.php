@@ -108,6 +108,11 @@ class Item implements iModel
         return $arr;
     }
 
+    public function setTable($table)
+    {
+        $this->objDB->setTable($table);
+    }
+
     /**
      * Set the id of the item. Private function!
      *
