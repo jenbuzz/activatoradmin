@@ -56,7 +56,8 @@ class ItemTest extends \PHPUnit_Framework_TestCase
         $sqlInsert = "INSERT INTO ".$this->dbConfig['table']." (isactive, name, image) VALUES (0, 'Test Item 1', 'image.jpg')";
         $id = $this->mysqli->query($sqlInsert);
 
-        $objItem = new Item($this->dbConfig);
+        $objItem = new Item();
+        $objItem->setTable($this->dbConfig['table']);
         $objItem->load($id);
 
         $this->assertEquals($objItem->getName(), 'Test Item 1');
@@ -71,7 +72,8 @@ class ItemTest extends \PHPUnit_Framework_TestCase
         $sqlInsert = "INSERT INTO ".$this->dbConfig['table']." (isactive, name, image) VALUES (0, 'Test Item 1', 'image.jpg')";
         $id = $this->mysqli->query($sqlInsert);
 
-        $objItem = new Item($this->dbConfig);
+        $objItem = new Item();
+        $objItem->setTable($this->dbConfig['table']);
         $objItem->load($id);
         $objItem->setName('Test Item 2');
         $objItem->save();
@@ -89,11 +91,13 @@ class ItemTest extends \PHPUnit_Framework_TestCase
         $sqlInsert = "INSERT INTO ".$this->dbConfig['table']." (isactive, name, image) VALUES (0, 'Test Item 1', 'image.jpg')";
         $id = $this->mysqli->query($sqlInsert);
 
-        $objItem = new Item($this->dbConfig);
+        $objItem = new Item();
+        $objItem->setTable($this->dbConfig['table']);
         $objItem->load($id);
         $objItem->delete();
 
-        $objItem = new Item($this->dbConfig);
+        $objItem = new Item();
+        $objItem->setTable($this->dbConfig['table']);
         $objItem->load($id);
 
         $this->assertEquals($objItem->getName(), '');
@@ -108,7 +112,8 @@ class ItemTest extends \PHPUnit_Framework_TestCase
         $sqlInsert = "INSERT INTO ".$this->dbConfig['table']." (isactive, name, image) VALUES (0, 'Test Item 1', 'image.jpg')";
         $id = $this->mysqli->query($sqlInsert);
 
-        $objItem = new Item($this->dbConfig);
+        $objItem = new Item();
+        $objItem->setTable($this->dbConfig['table']);
         $objItem->load($id);
         $arrItem = $objItem->toArray();
 
@@ -124,7 +129,8 @@ class ItemTest extends \PHPUnit_Framework_TestCase
         $sqlInsert = "INSERT INTO ".$this->dbConfig['table']." (isactive, name, image) VALUES (0, 'Test Item 1', 'image.jpg')";
         $id = $this->mysqli->query($sqlInsert);
 
-        $objItem = new Item($this->dbConfig);
+        $objItem = new Item();
+        $objItem->setTable($this->dbConfig['table']);
         $objItem->load($id);
 
         $this->assertEquals($objItem->getId(), $id);
@@ -135,7 +141,7 @@ class ItemTest extends \PHPUnit_Framework_TestCase
      */
     public function testSetName()
     {
-        $objItem = new Item($this->dbConfig);
+        $objItem = new Item();
         $objItem->setName('Test Name 1');
 
         $this->assertEquals($objItem->getName(), 'Test Name 1');
@@ -150,7 +156,8 @@ class ItemTest extends \PHPUnit_Framework_TestCase
         $sqlInsert = "INSERT INTO ".$this->dbConfig['table']." (isactive, name, image) VALUES (0, 'Test Item 1', 'image.jpg')";
         $id = $this->mysqli->query($sqlInsert);
 
-        $objItem = new Item($this->dbConfig);
+        $objItem = new Item();
+        $objItem->setTable($this->dbConfig['table']);
         $objItem->load($id);
 
         $this->assertEquals($objItem->getName(), 'Test Item 1');
@@ -161,7 +168,7 @@ class ItemTest extends \PHPUnit_Framework_TestCase
      */
     public function testSetIsActive()
     {
-        $objItem = new Item($this->dbConfig);
+        $objItem = new Item();
         $objItem->setIsActive(1);
 
         $this->assertEquals($objItem->getIsActive(), 1);
@@ -176,7 +183,8 @@ class ItemTest extends \PHPUnit_Framework_TestCase
         $sqlInsert = "INSERT INTO ".$this->dbConfig['table']." (isactive, name, image) VALUES (0, 'Test Item 1', 'image.jpg')";
         $id = $this->mysqli->query($sqlInsert);
 
-        $objItem = new Item($this->dbConfig);
+        $objItem = new Item();
+        $objItem->setTable($this->dbConfig['table']);
         $objItem->load($id);
 
         $this->assertEquals($objItem->getIsActive(), 0);
@@ -187,7 +195,7 @@ class ItemTest extends \PHPUnit_Framework_TestCase
      */
     public function testSetImage()
     {
-        $objItem = new Item($this->dbConfig);
+        $objItem = new Item();
         $objItem->setImage('image1.jpg');
 
         $this->assertEquals($objItem->getImage(), 'image1.jpg');
@@ -202,7 +210,8 @@ class ItemTest extends \PHPUnit_Framework_TestCase
         $sqlInsert = "INSERT INTO ".$this->dbConfig['table']." (isactive, name, image) VALUES (0, 'Test Item 1', 'image.jpg')";
         $id = $this->mysqli->query($sqlInsert);
 
-        $objItem = new Item($this->dbConfig);
+        $objItem = new Item();
+        $objItem->setTable($this->dbConfig['table']);
         $objItem->load($id);
 
         $this->assertEquals($objItem->getImage(), 'image.jpg');
