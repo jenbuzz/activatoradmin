@@ -65,6 +65,10 @@ class Mongo
 
         $cursor = $this->mongoCollection->find($query);
 
+        if ($limit) {
+            $cursor->limit($limit);
+        }
+
         foreach ($cursor AS $document) {
             $document['id'] = (string) $document['_id'];
             $results[] = $document;
