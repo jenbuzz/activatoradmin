@@ -165,8 +165,8 @@ $app->put('/item/{id}', function ($request, $response, $args) {
  * DELETE a single item.
  */
 $app->delete('/item/{id}', function ($request, $response, $args) {
-    $id = filter_var($args['id'], FILTER_SANITIZE_NUMBER_INT);
-    if ($id>0 && is_numeric($id)) {
+    $id = filter_var($args['id'], FILTER_SANITIZE_STRING);
+    if ($id) {
         $objModelFacade = new ModelFacade(new Item());
         $objItem = $objModelFacade->load($id);
         $objItem->delete();
