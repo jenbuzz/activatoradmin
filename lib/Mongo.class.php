@@ -49,6 +49,15 @@ class Mongo
         return static::$instance;
     }
 
+    /**
+     * Execute a select/find query defined using the parameters.
+     *
+     * @param string $columns are the names of the columns to return. Not required. Default * (all columns).
+     * @param string $whereColoumn is the field name for the query for filtering the records. Not required.
+     * @param string $whereValue is the field value for the query for filtering the records. Not required.
+     * @param string $orderBy is the column name and direction for sorting records. Not required.
+     * @param int $limit is the number of records to return. Not required.
+     */
     public function select($columns='*', $whereColumn=false, $whereValue=false, $orderBy=false, $limit=false)
     {
         $results = array();
@@ -92,6 +101,11 @@ class Mongo
         return $results;
     }
 
+    /**
+     * Execute an insert query defined using the parameter - which is the actual document to be inserted.
+     *
+     * @param array $document is array of data to insert. Array key is field name.
+     */
     public function insert($document)
     {
         if (is_array($document) && !empty($document)) {
@@ -99,6 +113,12 @@ class Mongo
         }
     }
 
+    /**
+     * Execute a delete/remove query defined using the parameters.
+     *
+     * @param string $whereColumn is the field name for the query for specifying what to records to delete.
+     * @param string $whereValue is the field value for the query for specifying what to records to delete.
+     */
     public function delete($whereColumn, $whereValue)
     {
         if ($whereColumn === 'id') {
