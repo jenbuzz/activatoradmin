@@ -54,10 +54,14 @@ class Mongo
         $results = array();
 
         $query = array();
-        if ($whereColumn && $whereValue) {
+        if ($whereColumn !== false && $whereValue !== false) {
             if ($whereColumn === 'id') {
                 $whereColumn = '_id';
                 $whereValue = new \MongoId($whereValue);
+            }
+
+            if (strpos($columns, 'COUNT(*)') !== false) {
+                $whereValue = (string) $whereValue;
             }
 
             $query[$whereColumn] = $whereValue;
@@ -76,6 +80,13 @@ class Mongo
 
         if (count($results)===1) {
             $results = $results[0];
+        }
+
+        if (strpos($columns, 'COUNT(*)') !== false) {
+            $arrColumnsSplit = explode(' ', $columns);
+            if (isset($arrColumnsSplit[2]) && $arrColumnsSplit[2] !== '') {
+                return array($arrColumnsSplit[2] => count($results));
+            }
         }
 
         return $results;
