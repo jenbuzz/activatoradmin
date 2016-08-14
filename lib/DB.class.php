@@ -10,13 +10,17 @@ class DB
     {
     }
 
-    public static function getInstance()
+    public static function getInstance($activeDb = false)
     {
         if (static::$instance === null) {
             $objConfigHelper = new ConfigHelper();
-            $dbConfig = $objConfigHelper->get('db');
 
-            switch ($dbConfig['activedb']) {
+            if (!$activeDb) {
+                $dbConfig = $objConfigHelper->get('db');
+                $activeDb = $dbConfig['activedb'];
+            }
+
+            switch ($activeDb) {
                 case 'mongodb':
                     $config = $objConfigHelper->get('mongodb');
                     static::$instance = Mongo::getInstance($config);
@@ -30,5 +34,9 @@ class DB
         }
 
         return static::$instance;
+    }
+
+    public static function destroy() {
+        self::$instance = null;
     }
 }
