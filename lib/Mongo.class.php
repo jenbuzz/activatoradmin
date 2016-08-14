@@ -7,7 +7,7 @@ namespace ActivatorAdmin\Lib;
  * Mongo is a singleton.
  *
  */
-class Mongo
+class Mongo implements iDatabase
 {
     private static $instance;
     private $mongoCollection;
