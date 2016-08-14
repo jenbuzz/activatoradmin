@@ -7,7 +7,7 @@ namespace ActivatorAdmin\Lib;
  * MySQL is a singleton.
  *
  */
-class MySQL
+class MySQL implements iDatabase
 {
     private static $instance;
     private $mysqli;
