@@ -2,6 +2,11 @@
 
 namespace ActivatorAdmin\Lib;
 
+/**
+ * DB class is used for returning an instance of the active database (mongodb/mysql).
+ * DB is a singleton.
+ *
+ */
 class DB
 {
     private static $instance;
@@ -10,6 +15,12 @@ class DB
     {
     }
 
+    /**
+     * Returns a singleton instance of MySQL or Mongo.
+     * The active database set in config.ini will be used as default.
+     *
+     * @param string $activeDb is to force the active database setting.
+     */
     public static function getInstance($activeDb = false)
     {
         if (static::$instance === null) {
@@ -36,6 +47,9 @@ class DB
         return static::$instance;
     }
 
+    /**
+     * Detroy the current singleton instance (if the active database needs to be changed dynamically).
+     */
     public static function destroy() {
         self::$instance = null;
     }
