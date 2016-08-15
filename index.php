@@ -144,8 +144,8 @@ $app->get('/items/{id}', function ($request, $response, $args) {
  * PUT (update) a single item.
  */
 $app->put('/item/{id}', function ($request, $response, $args) {
-    $id = filter_var($args['id'], FILTER_SANITIZE_NUMBER_INT);
-    if ($id>0 && is_numeric($id)) {
+    $id = filter_var($args['id'], FILTER_SANITIZE_STRING);
+    if ($id) {
         $request = json_decode($request->getBody());
 
         if (is_object($request) && isset($request->isactive)) {
