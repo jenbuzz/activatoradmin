@@ -114,6 +114,33 @@ class Mongo implements iDatabase
     }
 
     /**
+     * Execute an update query defined using the parameters.
+     *
+     * @param array $data is an array of fields to update - array key = column_name.
+     * @param string $whereColumn is the column name for the where clause for specifying what to records to update.
+     * @param string $whereValue is the value for the where clause for specifying what to records to update.
+     */
+    public function update($data, $whereColumn=false, $whereValue=false)
+    {
+        if ($whereColumn === 'id') {
+            $whereColumn = '_id';
+            $whereValue = new \MongoId($whereValue);
+        }
+
+        $criteria = array(
+            $whereColumn => $whereValue
+        );
+
+        $fields = array();
+        foreach ($data AS $field_name => $value) {
+            $fields[$field_name] = $value;
+        }
+        $set = array('$set' => $fields);
+
+        $this->mongoCollection->update($criteria, $set);
+    }
+
+    /**
      * Execute a delete/remove query defined using the parameters.
      *
      * @param string $whereColumn is the field name for the query for specifying what to records to delete.
