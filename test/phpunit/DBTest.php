@@ -27,5 +27,7 @@ class DBTest extends \PHPUnit_Framework_TestCase
         $dbMongo = DB::getInstance('mongodb');
 
         $this->assertInstanceOf('\ActivatorAdmin\Lib\Mongo', $dbMongo);
+
+        DB::destroy();
     }
 }

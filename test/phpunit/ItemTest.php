@@ -28,7 +28,8 @@ class ItemTest extends \PHPUnit_Framework_TestCase
         $objConfigHelper = new ConfigHelper();
         $this->dbConfig = $objConfigHelper->get('mysql');
         $this->dbConfig['table'] = $this->dbConfig['table']."_test";
-        $objDB = DB::getInstance($this->dbConfig);
+        $objDB = DB::getInstance('mysql');
+        $objDB->setTable = $this->dbConfig['table'];
         $this->mysqli = $objDB->getConnection();
 
         // Create pseudo table for testing.
