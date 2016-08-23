@@ -5,9 +5,11 @@ php:
   - 5.6
   - 7.0
 
-before_script:
+before_install:
   - echo 'extension = "mongo.so"' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
   - echo 'extension = "mongodb.so"' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
+
+before_script:
   - sh -c "mysql -e 'CREATE DATABASE activatoradmin;'"
   - sh -c "mysql -u root -e 'USE activatoradmin; CREATE TABLE IF NOT EXISTS items (id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, isactive TINYINT(4), name VARCHAR(255), image VARCHAR(255) DEFAULT NULL) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=latin1;'"
   - sh -c "mysql -u root -e 'USE activatoradmin; CREATE TABLE IF NOT EXISTS items_test (id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, isactive TINYINT(4), name VARCHAR(255), image VARCHAR(255) DEFAULT NULL) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=latin1;'"
