@@ -65,8 +65,8 @@ class Mongo implements iDatabase
         $query = array();
         if ($whereColumn !== false && $whereValue !== false) {
             if ($whereColumn === 'id') {
-                $whereColumn = '_id';
-                $whereValue = new \MongoId($whereValue);
+                $whereColumn = $this->fixWhereColumnForId();
+                $whereValue = $this->fixWhereValueForId($whereValue);
             }
 
             if (strpos($columns, 'COUNT(*)') !== false) {
@@ -123,8 +123,8 @@ class Mongo implements iDatabase
     public function update($data, $whereColumn=false, $whereValue=false)
     {
         if ($whereColumn === 'id') {
-            $whereColumn = '_id';
-            $whereValue = new \MongoId($whereValue);
+            $whereColumn = $this->fixWhereColumnForId();
+            $whereValue = $this->fixWhereValueForId($whereValue);
         }
 
         $criteria = array(
@@ -149,12 +149,28 @@ class Mongo implements iDatabase
     public function delete($whereColumn, $whereValue)
     {
         if ($whereColumn === 'id') {
-            $whereColumn = '_id';
-            $whereValue = new \MongoId($whereValue);
+            $whereColumn = $this->fixWhereColumnForId();
+            $whereValue = $this->fixWhereValueForId($whereValue);
         }
 
         $this->mongoCollection->remove(array(
             $whereColumn => $whereValue,
         ));
+    }
+
+    /**
+     * Helper function that returns the name of the id field.
+     */
+    private function fixWhereColumnForId()
+    {
+        return '_id';
+    }
+
+    /**
+     * Helper function that retuns the value as MongoId.
+     */
+    private function fixWhereValueForId($value)
+    {
+        return new \MongoId($value);
     }
 }
