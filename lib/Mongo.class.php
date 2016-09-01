@@ -34,7 +34,6 @@ class Mongo implements iDatabase
             $client = new \MongoClient($strAuthentication);
         }
 
-        $client = new \MongoClient($strAuthentication);
         $db = $client->{$config['name']};
         $this->mongoCollection = $db->{$config['collection']};
     }
