@@ -28,12 +28,7 @@ class Mongo implements iDatabase
         }
         $strAuthentication.= $config['host'];
 
-        if (substr(phpversion(), 0, 1) === '7') {
-            $client = new \MongoDB\Client($strAuthentication);
-        } else {
-            $client = new \MongoClient($strAuthentication);
-        }
-
+        $client = new \MongoClient($strAuthentication);
         $db = $client->{$config['name']};
         $this->mongoCollection = $db->{$config['collection']};
     }

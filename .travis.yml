@@ -7,7 +7,6 @@ php:
 
 before_install:
   - if [[ "$TRAVIS_PHP_VERSION" = 5.* ]]; then echo 'extension = "mongo.so"' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini; fi;
-  - if [[ "$TRAVIS_PHP_VERSION" = 7.* ]]; then echo 'extension = "mongodb.so"' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini; fi;
 
 before_script:
   - sh -c "mysql -e 'CREATE DATABASE activatoradmin;'"
