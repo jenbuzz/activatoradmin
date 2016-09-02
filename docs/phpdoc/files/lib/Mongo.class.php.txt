@@ -176,3 +176,4 @@ class Mongo implements iDatabase
         return new \MongoId($value);
     }
 }
+

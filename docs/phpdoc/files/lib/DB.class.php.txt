@@ -11,6 +11,9 @@ class DB
 {
     private static $instance;
 
+    /**
+     * Private contructor for singleton purpose.
+     */
     private function __construct()
     {
     }
