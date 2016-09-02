@@ -14,9 +14,9 @@ class MySQL implements iDatabase
     private $table;
 
     /**
-     * Connect to a MySQL database with the credentials from the $config['db'] array.
+     * Connect to a MySQL database with the credentials from the $config['mysql'] array.
      *
-     * @param array $config is the db entry in the configuration array that is setup in class ConfigHelper.
+     * @param array $config is the mysql entry in the configuration array that is setup in class ConfigHelper.
      */
     private function __construct(array $config)
     {
