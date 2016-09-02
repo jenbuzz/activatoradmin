@@ -78,6 +78,10 @@ class Mongo implements iDatabase
 
         $cursor = $this->mongoCollection->find($query);
 
+        if ($orderBy) {
+            $cursor->sort(array($orderBy => 1));
+        }
+
         if ($limit) {
             $cursor->limit($limit);
         }
