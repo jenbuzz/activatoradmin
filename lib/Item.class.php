@@ -56,7 +56,10 @@ class Item implements iModel
             $this->setId($result['id']);
             $this->setName($result[$this->tblName]);
             $this->setIsActive($result[$this->tblIsActive]);
-            $this->setImage($result[$this->tblImage]);
+
+            if (isset($result[$this->tblImage])) {
+                $this->setImage($result[$this->tblImage]);
+            }
         }
     }
 
