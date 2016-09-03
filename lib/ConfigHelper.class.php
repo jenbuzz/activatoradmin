@@ -4,7 +4,6 @@ namespace ActivatorAdmin\Lib;
 
 /**
  * ConfigHelper loads the config.ini file and makes the settings accessible through a get function.
- *
  */
 class ConfigHelper
 {
@@ -24,12 +23,12 @@ class ConfigHelper
     /**
      * Get config settings from config.ini. Get a whole section or a specific key.
      *
-     * @param string $section is the name of the section in the config.ini file. Returns all settings as array.
-     * @param string $key is the name of a single key/entry in the config.ini file.
+     * @param string $section is the name of the section in the config.ini file. Returns all settings as array
+     * @param string $key     is the name of a single key/entry in the config.ini file
      *
      * @return array/string
      */
-    public function get($section, $key=false)
+    public function get($section, $key = false)
     {
         if (isset($this->config[$section])) {
             if ($key && isset($this->config[$section][$key])) {
@@ -41,6 +40,4 @@ class ConfigHelper
             throw new \ErrorException('Error: '.$section.' - '.$key.' is not set in config.ini');
         }
     }
-
 }
-

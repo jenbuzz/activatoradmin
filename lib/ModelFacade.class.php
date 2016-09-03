@@ -4,12 +4,11 @@ namespace ActivatorAdmin\Lib;
 
 /**
  * The ModelFacade works as a facade for communication with all models.
- *
  */
 class ModelFacade
 {
     /**
-     * @var $model iModel
+     * @var iModel
      */
     private $model = false;
 
@@ -50,7 +49,7 @@ class ModelFacade
     /**
      * Load a single model by id.
      *
-     * @param int $id is the id of the record to load as a model.
+     * @param int $id is the id of the record to load as a model
      *
      * @return object model
      */
@@ -58,6 +57,7 @@ class ModelFacade
     {
         if ($this->model) {
             $this->model->load($id);
+
             return $this->model;
         } else {
             return false;
@@ -67,7 +67,7 @@ class ModelFacade
     /**
      * Search for records/models where name matches the searchterm.
      *
-     * @param string $term is the search term to match against.
+     * @param string $term is the search term to match against
      *
      * @return array arrItemObjects
      */
@@ -96,7 +96,7 @@ class ModelFacade
     /**
      * Return a count of records with the specified active status.
      *
-     * @param int $isActive to count to activated or deactivated items.
+     * @param int $isActive to count to activated or deactivated items
      *
      * @return array arrItemObjects
      */
@@ -120,5 +120,4 @@ class ModelFacade
             return false;
         }
     }
-
 }

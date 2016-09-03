@@ -5,27 +5,26 @@ namespace ActivatorAdmin\Lib;
 /**
  * Item is the model class for an item.
  * It implements the iModel interface.
- *
  */
 class Item implements iModel
 {
     /**
-     * @var $objDB DB 
+     * @var DB
      */
     private $objDB;
 
     /**
-     * @var $tblName Database table field for name
+     * @var Database     table field for name
      * @var $tblIsActive Database table field for isActive
-     * @var string $tblImage Database table name for image
+     * @var string       $tblImage Database table name for image
      */
     protected $tblName, $tblIsActive, $tblImage;
 
     /**
-     * @var $id Item ID
-     * @var $name Item name
+     * @var Item      ID
+     * @var $name     Item name
      * @var $isActive Item active status
-     * @var $image Item image
+     * @var $image    Item image
      */
     protected $id, $name, $isActive, $image;
 
@@ -47,7 +46,7 @@ class Item implements iModel
     /**
      * Load a single item.
      *
-     * @param int $id is the id of the item to load.
+     * @param int $id is the id of the item to load
      */
     public function load($id)
     {
@@ -200,5 +199,4 @@ class Item implements iModel
     {
         return $this->image;
     }
-
 }

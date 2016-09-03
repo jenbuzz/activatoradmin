@@ -4,7 +4,6 @@ namespace ActivatorAdmin\Lib;
 
 /**
  * This interface is to be implemented by all models.
- *
  */
 interface iModel
 {

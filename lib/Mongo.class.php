@@ -5,7 +5,6 @@ namespace ActivatorAdmin\Lib;
 /**
  * Mongo is used for setting up a connection to a MongoDB.
  * Mongo is a singleton.
- *
  */
 class Mongo implements iDatabase
 {
@@ -15,7 +14,7 @@ class Mongo implements iDatabase
     /**
      * Connect to a MongoDB with the credentials from the $config['mongo'] array.
      *
-     * @param array $config is the mongo entry in the configuration array that is setup in class ConfigHelper.
+     * @param array $config is the mongo entry in the configuration array that is setup in class ConfigHelper
      */
     private function __construct(array $config)
     {
@@ -24,9 +23,9 @@ class Mongo implements iDatabase
 
         $strAuthentication = 'mongodb://';
         if ($username !== '' && $password !== '') {
-            $strAuthentication.= $username . ':' . $password . '@';
+            $strAuthentication .= $username.':'.$password.'@';
         }
-        $strAuthentication.= $config['host'];
+        $strAuthentication .= $config['host'];
 
         $client = new \MongoClient($strAuthentication);
         $db = $client->{$config['name']};
@@ -36,7 +35,7 @@ class Mongo implements iDatabase
     /**
      * getInstance returns an instance of Mongo (Singleton Pattern).
      *
-     * @param array $config is the mongo entry in the configuration array that is setup in class ConfigHelper.
+     * @param array $config is the mongo entry in the configuration array that is setup in class ConfigHelper
      *
      * @return object Mongo
      */
@@ -52,13 +51,13 @@ class Mongo implements iDatabase
     /**
      * Execute a select/find query defined using the parameters.
      *
-     * @param string $columns are the names of the columns to return. Not required. Default * (all columns).
-     * @param string $whereColumn is the field name for the query for filtering the records. Not required.
-     * @param string $whereValue is the field value for the query for filtering the records. Not required.
-     * @param string $orderBy is the column name and direction for sorting records. Not required.
-     * @param int $limit is the number of records to return. Not required.
+     * @param string $columns     are the names of the columns to return. Not required. Default * (all columns)
+     * @param string $whereColumn is the field name for the query for filtering the records. Not required
+     * @param string $whereValue  is the field value for the query for filtering the records. Not required
+     * @param string $orderBy     is the column name and direction for sorting records. Not required
+     * @param int    $limit       is the number of records to return. Not required
      */
-    public function select($columns='*', $whereColumn=false, $whereValue=false, $orderBy=false, $limit=false)
+    public function select($columns = '*', $whereColumn = false, $whereValue = false, $orderBy = false, $limit = false)
     {
         $results = array();
 
@@ -86,12 +85,12 @@ class Mongo implements iDatabase
             $cursor->limit($limit);
         }
 
-        foreach ($cursor AS $document) {
+        foreach ($cursor as $document) {
             $document['id'] = (string) $document['_id'];
             $results[] = $document;
         }
 
-        if (count($results)===1) {
+        if (count($results) === 1) {
             $results = $results[0];
         }
 
@@ -108,7 +107,7 @@ class Mongo implements iDatabase
     /**
      * Execute an insert query defined using the parameter - which is the actual document to be inserted.
      *
-     * @param array $document is array of data to insert. Array key is field name.
+     * @param array $document is array of data to insert. Array key is field name
      */
     public function insert($document)
     {
@@ -120,11 +119,11 @@ class Mongo implements iDatabase
     /**
      * Execute an update query defined using the parameters.
      *
-     * @param array $data is an array of fields to update - array key = column_name.
-     * @param string $whereColumn is the column name for the where clause for specifying what to records to update.
-     * @param string $whereValue is the value for the where clause for specifying what to records to update.
+     * @param array  $data        is an array of fields to update - array key = column_name
+     * @param string $whereColumn is the column name for the where clause for specifying what to records to update
+     * @param string $whereValue  is the value for the where clause for specifying what to records to update
      */
-    public function update($data, $whereColumn=false, $whereValue=false)
+    public function update($data, $whereColumn = false, $whereValue = false)
     {
         if ($whereColumn === 'id') {
             $whereColumn = $this->fixWhereColumnForId();
@@ -132,11 +131,11 @@ class Mongo implements iDatabase
         }
 
         $criteria = array(
-            $whereColumn => $whereValue
+            $whereColumn => $whereValue,
         );
 
         $fields = array();
-        foreach ($data AS $field_name => $value) {
+        foreach ($data as $field_name => $value) {
             $fields[$field_name] = $value;
         }
         $set = array('$set' => $fields);
@@ -147,8 +146,8 @@ class Mongo implements iDatabase
     /**
      * Execute a delete/remove query defined using the parameters.
      *
-     * @param string $whereColumn is the field name for the query for specifying what to records to delete.
-     * @param string $whereValue is the field value for the query for specifying what to records to delete.
+     * @param string $whereColumn is the field name for the query for specifying what to records to delete
+     * @param string $whereValue  is the field value for the query for specifying what to records to delete
      */
     public function delete($whereColumn, $whereValue)
     {
@@ -173,7 +172,7 @@ class Mongo implements iDatabase
     /**
      * Helper function that retuns the value as MongoId.
      *
-     * @param string $value is the id value that is to be converted to MongoId.
+     * @param string $value is the id value that is to be converted to MongoId
      */
     private function fixWhereValueForId($value)
     {
