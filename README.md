@@ -56,6 +56,12 @@ A default database structure can be found in docs/db.sql. Use database mapping a
 
 Setup the configuration in config/config.ini and config/config.js. Changes to config/config.js should be followed by "grunt minify" or "gulp minifyConfig" for minifying the javascript.
 
+It is possible to use MongoDB or MySQL as the database. This is how you set the currently active database (mongodb or mysql):
+```
+[db]
+activedb = "mysql"
+```
+
 Mapping of column names in tables allows changing the names for "name", "isactive", and "image" to whatever matches the table in use. It must be set up in both configuration files!
 ```
 name = "name"
