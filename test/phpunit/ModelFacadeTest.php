@@ -2,7 +2,7 @@
 
 namespace ActivatorAdmin\Test\PHPunit;
 
-require_once __DIR__ . '/../../lib/autoload.php';
+require_once __DIR__.'/../../lib/autoload.php';
 
 use ActivatorAdmin\Lib\ModelFacade;
 use ActivatorAdmin\Lib\Item;
@@ -11,7 +11,6 @@ use ActivatorAdmin\Lib\DB;
 
 /**
  * Test the ModelFacade class.
- *
  */
 class ModelFacadeTest extends \PHPUnit_Framework_TestCase
 {
@@ -28,13 +27,13 @@ class ModelFacadeTest extends \PHPUnit_Framework_TestCase
         // Get database connection.
         $objConfigHelper = new ConfigHelper();
         $this->dbConfig = $objConfigHelper->get('mysql');
-        $this->dbConfig['table'] = $this->dbConfig['table']."_test";
+        $this->dbConfig['table'] = $this->dbConfig['table'].'_test';
         $objDB = DB::getInstance($this->dbConfig);
         $this->mysqli = $objDB->getConnection();
 
         // Create pseudo table for testing.
-        $sql = "CREATE TABLE IF NOT EXISTS ".$this->dbConfig['table']." ";
-        $sql.= "(id INT(11) NOT NULL AUTO_INCREMENT, isactive TINYINT(4), name VARCHAR(255), image VARCHAR(255) DEFAULT NULL, PRIMARY KEY(id))";
+        $sql = 'CREATE TABLE IF NOT EXISTS '.$this->dbConfig['table'].' ';
+        $sql .= '(id INT(11) NOT NULL AUTO_INCREMENT, isactive TINYINT(4), name VARCHAR(255), image VARCHAR(255) DEFAULT NULL, PRIMARY KEY(id))';
         $this->mysqli->query($sql);
 
         $this->objModelFacade = new ModelFacade(new Item($this->dbConfig));
@@ -46,7 +45,7 @@ class ModelFacadeTest extends \PHPUnit_Framework_TestCase
     protected function tearDown()
     {
         // Create pseudo table for testing.
-        $sql = "DROP TABLE ".$this->dbConfig['table'];
+        $sql = 'DROP TABLE '.$this->dbConfig['table'];
         $this->mysqli->query($sql);
     }
 
@@ -70,7 +69,7 @@ class ModelFacadeTest extends \PHPUnit_Framework_TestCase
     public function testLoad()
     {
         // Insert test row in test table.
-        $sqlInsert = "INSERT INTO ".$this->dbConfig['table']." (isactive, name, image) VALUES (0, 'Test Item 1', 'image.jpg')";
+        $sqlInsert = 'INSERT INTO '.$this->dbConfig['table']." (isactive, name, image) VALUES (0, 'Test Item 1', 'image.jpg')";
         $id = $this->mysqli->query($sqlInsert);
 
         $arrItem = $this->objModelFacade->load($id);
@@ -87,5 +86,4 @@ class ModelFacadeTest extends \PHPUnit_Framework_TestCase
 
         $this->assertTrue(is_array($arrResults));
     }
-
 }

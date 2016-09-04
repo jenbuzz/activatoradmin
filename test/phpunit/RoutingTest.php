@@ -2,13 +2,12 @@
 
 namespace ActivatorAdmin\Test\PHPunit;
 
-require_once __DIR__ . '/../../lib/autoload.php';
+require_once __DIR__.'/../../lib/autoload.php';
 
 use ActivatorAdmin\Lib\ConfigHelper;
 
 /**
  * PHPunit test for testing the routing in the Slim app.
- *
  */
 class RoutingTest extends \PHPUnit_Framework_TestCase
 {
@@ -30,7 +29,7 @@ class RoutingTest extends \PHPUnit_Framework_TestCase
             'SERVER_NAME' => $host,
         ));
 
-        require __DIR__ . '/../../index.php';
+        require __DIR__.'/../../index.php';
 
         $container = $app->getContainer();
         $this->response = $container['response'];
@@ -132,5 +131,4 @@ class RoutingTest extends \PHPUnit_Framework_TestCase
         $this->request('GET', '/get-stats');
         $this->assertEquals(200, $this->response->getStatusCode());
     }
-
 }

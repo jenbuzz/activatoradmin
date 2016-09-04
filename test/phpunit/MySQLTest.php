@@ -2,14 +2,13 @@
 
 namespace ActivatorAdmin\Test\PHPunit;
 
-require_once __DIR__ . '/../../lib/autoload.php';
+require_once __DIR__.'/../../lib/autoload.php';
 
 use ActivatorAdmin\Lib\ConfigHelper;
 use ActivatorAdmin\Lib\MySQL;
 
 /**
  * Test the MySQL class.
- *
  */
 class MySQLTest extends \PHPUnit_Framework_TestCase
 {
@@ -31,8 +30,8 @@ class MySQLTest extends \PHPUnit_Framework_TestCase
 
         // Create pseudo table for testing.
         $mysqli = $this->db->getConnection();
-        $sql = "CREATE TABLE IF NOT EXISTS ".$this->dbConfig['table']."_test ";
-        $sql.= "(id INT(11) NOT NULL AUTO_INCREMENT, isactive TINYINT(4), name VARCHAR(255), image VARCHAR(255) DEFAULT NULL, PRIMARY KEY(id))";
+        $sql = 'CREATE TABLE IF NOT EXISTS '.$this->dbConfig['table'].'_test ';
+        $sql .= '(id INT(11) NOT NULL AUTO_INCREMENT, isactive TINYINT(4), name VARCHAR(255), image VARCHAR(255) DEFAULT NULL, PRIMARY KEY(id))';
         $mysqli->query($sql);
     }
 
@@ -45,7 +44,7 @@ class MySQLTest extends \PHPUnit_Framework_TestCase
 
         // Create pseudo table for testing.
         $mysqli = $this->db->getConnection();
-        $sql = "DROP TABLE ".$this->dbConfig['table']."_test";
+        $sql = 'DROP TABLE '.$this->dbConfig['table'].'_test';
         $mysqli->query($sql);
     }
 
@@ -75,7 +74,7 @@ class MySQLTest extends \PHPUnit_Framework_TestCase
         $mysqli = $this->db->getConnection();
 
         // Insert test record
-        $sqlInsert = "INSERT INTO ".$this->dbConfig['table']."_test (isactive, name) VALUES (1, 'Test Record 1')";
+        $sqlInsert = 'INSERT INTO '.$this->dbConfig['table']."_test (isactive, name) VALUES (1, 'Test Record 1')";
         $mysqli->query($sqlInsert);
 
         // Test select function
@@ -89,7 +88,7 @@ class MySQLTest extends \PHPUnit_Framework_TestCase
      */
     public function testInsert()
     {
-        $insert_id = $this->db->insert(array('isactive'=>0, 'name'=>'Test Record 2'));
+        $insert_id = $this->db->insert(array('isactive' => 0, 'name' => 'Test Record 2'));
         $this->assertGreaterThan(0, $insert_id);
     }
 
@@ -100,10 +99,10 @@ class MySQLTest extends \PHPUnit_Framework_TestCase
     public function testUpdate()
     {
         // Insert test record.
-        $insert_id = $this->db->insert(array('isactive'=>0, 'name'=>'Test Record 3'));
+        $insert_id = $this->db->insert(array('isactive' => 0, 'name' => 'Test Record 3'));
 
         // Update test record.
-        $this->db->update(array('name'=>'New Test Record 3'), 'id', $insert_id);
+        $this->db->update(array('name' => 'New Test Record 3'), 'id', $insert_id);
 
         // Get the updated record.
         $result = $this->db->select('*', 'id', $insert_id);
@@ -119,7 +118,7 @@ class MySQLTest extends \PHPUnit_Framework_TestCase
     public function testDelete()
     {
         // Insert test record.
-        $insert_id = $this->db->insert(array('isactive'=>0, 'name'=>'Test Record 4'));
+        $insert_id = $this->db->insert(array('isactive' => 0, 'name' => 'Test Record 4'));
 
         // Delete record.
         $this->db->delete('id', $insert_id);
@@ -141,5 +140,4 @@ class MySQLTest extends \PHPUnit_Framework_TestCase
 
         $this->assertTrue(is_array($results));
     }
-
 }
