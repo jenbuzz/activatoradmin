@@ -5,7 +5,7 @@ if (!headers_sent()) {
     session_start();
 }
 
-require_once __DIR__ . '/lib/autoload.php';
+require_once __DIR__.'/lib/autoload.php';
 
 use ActivatorAdmin\Lib\ConfigHelper;
 use ActivatorAdmin\Lib\ModelFacade;
@@ -15,12 +15,12 @@ use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 
 // Create container.
-$container = new Slim\Container;
+$container = new Slim\Container();
 
 // Register view in container.
 $container['view'] = function ($c) {
-    $view = new Slim\Views\Twig(__DIR__ . '/templates', [
-        'cache' => false
+    $view = new Slim\Views\Twig(__DIR__.'/templates', [
+        'cache' => false,
     ]);
     $view->addExtension(new Slim\Views\TwigExtension(
         $c['router'],
@@ -49,7 +49,7 @@ $app = new Slim\App($container);
 // Authentication check using a custom middleware class.
 $app->add(new AuthMiddleware());
 
-/**
+/*
  * Render startup template (index).
  */
 $app->get('/', function ($request, $response, $args) {
@@ -61,8 +61,7 @@ $app->get('/', function ($request, $response, $args) {
     ));
 });
 
-
-/**
+/*
  * Login.
  */
 $app->get('/login', function ($request, $response, $args) {
@@ -79,9 +78,8 @@ $app->post('/login', function ($request, $response, $args) {
     $baseurl = $objConfigHelper->get('url', 'baseurl');
     $login = $objConfigHelper->get('login');
 
-    if ($request->getParam('username')===$login['username'] && 
+    if ($request->getParam('username') === $login['username'] &&
         password_verify($request->getParam('password'), $login['password'])) {
-
         $_SESSION['activatoradmin_user'] = password_hash('activatoradmin_'.$login['username'], PASSWORD_DEFAULT);
 
         return $response->withStatus(200)->withHeader('Location', $baseurl);
@@ -108,8 +106,7 @@ $app->get('/logout', function ($request, $response, $args) {
     return $response->withStatus(200)->withHeader('Location', $baseurl.'login');
 });
 
-
-/**
+/*
  * GET all items.
  */
 $app->get('/items', function ($request, $response, $args) {
@@ -124,23 +121,22 @@ $app->get('/items', function ($request, $response, $args) {
     echo json_encode($arrItems);
 });
 
-/**
+/*
  * GET a single item.
  */
 $app->get('/items/{id}', function ($request, $response, $args) {
-
     $id = filter_var($args['id'], FILTER_SANITIZE_NUMBER_INT);
-    if ($id>0 && is_numeric($id)) {
+    if ($id > 0 && is_numeric($id)) {
         $objModelFacade = new ModelFacade(new Item());
         $objItem = $objModelFacade->load($id);
 
         echo json_encode($objItem->toArray());
     } else {
-        echo json_encode(array('success'=>false));
+        echo json_encode(array('success' => false));
     }
 });
 
-/**
+/*
  * PUT (update) a single item.
  */
 $app->put('/item/{id}', function ($request, $response, $args) {
@@ -154,14 +150,14 @@ $app->put('/item/{id}', function ($request, $response, $args) {
             $objItem->setIsActive($request->isactive);
             $objItem->save();
         } else {
-            echo json_encode(array('success'=>false));
+            echo json_encode(array('success' => false));
         }
     } else {
-        echo json_encode(array('success'=>false));
+        echo json_encode(array('success' => false));
     }
 });
 
-/**
+/*
  * DELETE a single item.
  */
 $app->delete('/item/{id}', function ($request, $response, $args) {
@@ -171,13 +167,13 @@ $app->delete('/item/{id}', function ($request, $response, $args) {
         $objItem = $objModelFacade->load($id);
         $objItem->delete();
 
-        echo json_encode(array('success'=>true));
+        echo json_encode(array('success' => true));
     } else {
-        echo json_encode(array('success'=>false));
+        echo json_encode(array('success' => false));
     }
 });
 
-/**
+/*
  * GET search items.
  */
 $app->get('/search/{term}', function ($request, $response, $args) {
@@ -194,7 +190,7 @@ $app->get('/search/{term}', function ($request, $response, $args) {
     echo json_encode($arrItems);
 });
 
-/**
+/*
  * GET statistics page.
  */
 $app->get('/stats', function ($request, $response, $args) {
@@ -207,7 +203,7 @@ $app->get('/stats', function ($request, $response, $args) {
     ));
 });
 
-/**
+/*
  * GET statistics (active/deactive count).
  */
 $app->get('/get-stats', function ($request, $response, $args) {
@@ -220,8 +216,8 @@ $app->get('/get-stats', function ($request, $response, $args) {
         array(
             'name' => 'active',
             'value' => $countActivate,
-        ), 
-        array (
+        ),
+        array(
             'name' => 'inactive',
             'value' => $countInactivate,
         ),
