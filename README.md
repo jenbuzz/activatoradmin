@@ -54,7 +54,7 @@ A default database structure can be found in docs/db.sql. Use database mapping a
 
 ##Configuration
 
-Setup the configuration in config/config.ini and config/config.js. Changes to config/config.js should be followed by "grunt uglify" for minifying the javascript.
+Setup the configuration in config/config.ini and config/config.js. Changes to config/config.js should be followed by "grunt minify" or "gulp minifyConfig" for minifying the javascript.
 
 Mapping of column names in tables allows changing the names for "name", "isactive", and "image" to whatever matches the table in use. It must be set up in both configuration files!
 ```
