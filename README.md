@@ -24,7 +24,7 @@
 - D3.js 3.5.16 (https://github.com/mbostock/d3)
 
 **CSS**
-- Bootstrap 3.3.6 (http://getbootstrap.com/)
+- Bootstrap 3.3.7 (http://getbootstrap.com/)
 - Font Awesome 4.6.1 (http://fortawesome.github.io/Font-Awesome/)
 
 **Grunt**
