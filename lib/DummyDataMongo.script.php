@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/autoload.php';
+require_once __DIR__.'/autoload.php';
 
 use \ActivatorAdmin\Lib\ConfigHelper;
 use \ActivatorAdmin\Lib\Mongo;
@@ -15,8 +15,8 @@ if ($handle) {
     while (($line = fgets($handle, 4096)) !== false) {
         $arrData = explode(',', str_replace("\n", '', $line));
         $document = array(
-            'isactive' => $arrData[0], 
-            'name' => $arrData[1]
+            'isactive' => $arrData[0],
+            'name' => $arrData[1],
         );
 
         $objMongo->insert($document);
