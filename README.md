@@ -7,7 +7,7 @@
 **PHP**
 - Slim Framework 3.3.0 (https://github.com/slimphp/Slim)
 - Pimple 3.0.2 (https://github.com/silexphp/Pimple)
-- PSR Http Message 1.0.0 (https://github.com/php-fig/http-message)
+- PSR Http Message 1.0.1 (https://github.com/php-fig/http-message)
 - FastRoute 1.0.1 (https://github.com/nikic/FastRoute)
 - Container Interoperability 1.1.0 (https://github.com/container-interop/container-interop)
 - Twig 1.24.1 (https://github.com/twigphp/Twig)
