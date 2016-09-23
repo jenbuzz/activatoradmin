@@ -23,7 +23,7 @@ class AuthMiddleware
     {
         $route = $request->getUri()->getPath();
 
-        if ($route !== 'login') {
+        if ($route !== '/login' && $route !== 'login') {
             $objConfigHelper = new ConfigHelper();
             $baseurl = $objConfigHelper->get('url', 'baseurl');
 
