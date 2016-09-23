@@ -57,11 +57,11 @@ body {
   }
 
   .divider {
+    display: inline-block;
     position: absolute;
-    top: 4px;
+    top: 0px;
     width: 2px;
-    height: 41px;
-    margin-left: 178px;
+    height: 52px;
     overflow: hidden;
     background-color: #E5E5E5;
   }
@@ -69,7 +69,7 @@ body {
   .search {
     input[type=text] {
       opacity: 0.6;
-      height: 25px;
+      height: 30px;
       font-size: 13px;
       padding: 2px;
     }
@@ -105,9 +105,8 @@ body {
   }
 }
 .logout {
-  position: absolute;
-  top: 10px;
-  margin-left: 88px;
+  display: inline-block;
+  margin: 10px 0;
 
   button {
     opacity: 0.6;
@@ -124,16 +123,14 @@ body {
 
 /* home */
 .home {
-  position: absolute;
-  top: 10px;
-  margin-left: 15px;
+  display: inline-block;
+  margin: 10px 0 10px 10px;
 }
 
 /* stats */
 .stats {
-  position: absolute;
-  top: 10px;
-  margin-left: 50px;
+  display: inline-block;
+  margin: 10px 0;
 
   button {
     color: #444444;
@@ -147,9 +144,8 @@ body {
 
 /* search */
 .search {
-  position: absolute;
-  top: 10px;
-  margin-left: 185px;
+  display: inline-block;
+  margin: 10px 0 10px 5px;
 
   button {
     opacity: 0.6;
