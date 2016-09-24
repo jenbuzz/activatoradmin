@@ -324,6 +324,9 @@ body .backgroundOverlay {
     top: 0;
     width: 100%;
   }
+  .navbar .search button {
+    margin-top: 5px;
+  }
   .navbar .github {
     float: none;
     text-align: center;
