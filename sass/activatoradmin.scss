@@ -215,6 +215,11 @@ body {
   }
 }
 
+.table > tbody > tr > td {
+    border-top: none;
+    border-bottom: 1px solid #dddddd;
+}
+
 /* info and delete buttons */
 .btn {
   font-size: 15px;
