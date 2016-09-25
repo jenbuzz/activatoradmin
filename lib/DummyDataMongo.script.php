@@ -6,7 +6,7 @@ use \ActivatorAdmin\Lib\ConfigHelper;
 use \ActivatorAdmin\Lib\Mongo;
 
 $objConfigHelper = new ConfigHelper();
-$dbConfig = $objConfigHelper->get('mongo');
+$dbConfig = $objConfigHelper->get('mongodb');
 
 $objMongo = Mongo::getInstance($dbConfig);
 
