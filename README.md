@@ -96,7 +96,7 @@ See the results from PHPLOC at ROOT_DIRECTORY/docs/phploc.csv. Update the result
 
 ##Testing
 
-Test cases have been created and tested using Jasmine v2.3.4, CasperJS v1.1.0-beta3, and PHPUnit 4.0.20.
+Test cases have been created and tested using Jasmine v2.3.4, CasperJS v1.1.0-beta3, and PHPUnit 5.5.4.
 
 Run both Jasmine, CasperJS, and PHPUnit test cases using grunt:
 ```
