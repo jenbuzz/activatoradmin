@@ -32,7 +32,7 @@ casper.test.begin('Login is working', 2, function suite(test) {
   casper.start(url, function() {
     test.assertEquals(this.getCurrentUrl(), urlLogin);
 
-    this.fill('form[action="/activatoradmin/login"]', {
+    this.fill('form[action="'+appConfig.baseUrl+'login"]', {
       'username': 'admin',
       'password': 'admin',
     }, true);
