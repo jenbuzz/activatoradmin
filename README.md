@@ -108,12 +108,12 @@ Run PHPUnit test cases from ROOT_DIRECTORY:
 phpunit test/phpunit
 ```
 
-Run Jasmine test cases at ROOT_DIRECTORY/test/jasmine/SpecRunner.html
-
 Run CasperJS test cases from ROOT_DIRECTORY:
 ```
 casperjs test test/casperjs
 ```
+
+Run Jasmine test cases by opening the following URL in a browser: ROOT_URL/test/jasmine/SpecRunner.html
 
 ##License
 
