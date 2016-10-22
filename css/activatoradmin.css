@@ -258,7 +258,7 @@ body .backgroundOverlay {
 
 /* stats page */
 .statsActivated {
-  overflow: hidden;
+  overflow: auto;
 }
 .statsActivated .bar {
   fill: steelblue;

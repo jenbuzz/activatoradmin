@@ -8,7 +8,7 @@
     left: 40
   };
 
-  var width = 960 - margin.left - margin.right;
+  var width = 500 - margin.left - margin.right;
   var height = 500 - margin.top - margin.bottom;
 
   var x = d3.scale.ordinal().rangeRoundBands([0, width], 0.1);
