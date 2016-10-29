@@ -48,7 +48,7 @@
 
 ##Usage
 
-Login using these fixed credentials: Username = admin & Password = admin. The credentials are set in config/config.ini.
+Login using these fixed credentials: Username = admin & Password = admin. The credentials are set in config/config.ini. To change to password you need to first generate a new one using PHP's password_hash() function. Example: "password_hash('activatoradmin_' . 'your_new_password_goes_here', PASSWORD_DEFAULT)".
 
 A default database structure can be found in docs/db.sql. Use database mapping as explained under Configuration if the default database structure is different.
 
