@@ -64,28 +64,30 @@ activedb = "mysql"
 
 Mapping of column names in tables allows changing the names for "name", "isactive", and "image" to whatever matches the table in use. It must be set up in both configuration files!
 ```
+[db_mapping]
 name = "name"
 isactive = "isactive"
 image = "image"
 ```
 
-Setting up the host and baseurl must also be specified in both configuration files. Baseurl is only needed if ActivatorAdmin is not located in the root directory. Here is the format of "host" and "baseurl" - notice that the protocol http(s) is not needed:
+Setting up the host and baseurl must also be specified in both configuration files (.js and .ini). Baseurl is only needed if ActivatorAdmin is not located in the root directory. Here is the format of "host" and "baseUrl" - notice that the protocol http(s) is not needed:
 ```
+[url]
 host: 'localhost'
 baseUrl: '/activatoradmin/'
-```
-
-It is possible to enable and disable certain frontend features using some configuration variables in config.js:
-```
-showInfo: true // Show info button for each item
-showDelete: true // Show delete button for deleting a single item
-
 ```
 
 Enable/Disable logging in config/config.ini: (logging to docs/activatoradmin.log)
 ```
 [logging]
 log = 0
+```
+
+It is possible to enable and disable certain frontend features using configuration variables in config.js:
+```
+showInfo: true // Show info button for each item
+showDelete: true // Show delete button for deleting a single item
+
 ```
 
 ##Documentation
