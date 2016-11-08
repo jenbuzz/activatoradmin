@@ -1,2 +1,2 @@
 #!/bin/bash
-phploc ../lib --exclude=Slim --exclude=Psr --exclude=Monolog --log-csv phploc.csv
+phploc ../lib --exclude=Slim --exclude=Psr --exclude=Monolog --exclude=FastRoute --exclude=Interop --exclude=Pimple --exclude=Twig --log-csv phploc.csv
