@@ -19,6 +19,7 @@
     "grunt-template-jasmine-requirejs": "0.2.3",
     "gulp": "3.9.1",
     "gulp-concat": "2.6.0",
-    "gulp-uglify": "2.0.0"
+    "gulp-uglify": "2.0.0",
+    "inquirer": "2.0.0"
   }
 }
