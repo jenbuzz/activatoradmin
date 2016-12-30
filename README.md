@@ -13,7 +13,7 @@
 - Twig 1.30.0 (https://github.com/twigphp/Twig)
 - Slim Twig View 2.1.1 (https://github.com/slimphp/Twig-View)
 - Monolog 1.17.2 (https://github.com/Seldaek/monolog)
-- PSR Log 1.0.0 (https://github.com/php-fig/log)
+- PSR Log 1.0.2 (https://github.com/php-fig/log)
 
 **JS**
 - Backbone.js 1.3.3 (http://backbonejs.org/)
