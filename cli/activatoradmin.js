@@ -2,10 +2,10 @@ var inquirer = require('inquirer');
 var mysql = require('mysql');
 
 var connection = mysql.createConnection({
-	host: 'localhost',
-	user: 'root',
-	password: '',
-	database: 'activatoradmin'
+  host: 'localhost',
+  user: 'root',
+  password: '',
+  database: 'activatoradmin'
 });
 connection.connect();
 
@@ -27,8 +27,8 @@ inquirer.prompt([{
 
     connection.query('UPDATE items SET isactive=' + isactive + ' WHERE id=' + id, function (err, result) {
       if (err) {
-  		throw err;
-	  }
+        throw err;
+      }
 
       if (result.changedRows > 0) {
         var msgIsActive = isactive ? 'activated' : 'deactivated';
@@ -36,7 +36,7 @@ inquirer.prompt([{
       	console.log('Item "' + item.name + '" (ID: ' + item.id + ') has been ' + msgIsActive);
       }
 
-	  connection.end();
+      connection.end();
     });
   });
 });
