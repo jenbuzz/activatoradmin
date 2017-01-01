@@ -1,13 +1,17 @@
 'use strict';
 
+var fs = require('fs');
+var ini = require('ini');
 var inquirer = require('inquirer');
 var mysql = require('mysql');
 
+var config = ini.parse(fs.readFileSync('../config/config.ini', 'utf-8'));
+
 var connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'activatoradmin'
+  host: config.mysql.host,
+  user: config.mysql.user,
+  password: config.mysql.password,
+  database: config.mysql.name
 });
 connection.connect();
 
