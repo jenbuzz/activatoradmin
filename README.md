@@ -46,6 +46,11 @@
 - gulp-concat 2.6.0 (https://github.com/wearefractal/gulp-concat)
 - gulp-uglify 2.0.0 (https://github.com/terinjokes/gulp-uglify/)
 
+**NodeJS**
+- inquirer 2.0.0 (https://github.com/SBoudrias/Inquirer.js)
+- mysql 2.12.0 (https://github.com/mysqljs/mysql)
+- ini 1.3.4 (https://github.com/npm/ini)
+
 ##Usage
 
 Login using these fixed credentials: Username = admin & Password = admin. The credentials are set in config/config.ini. To change to password you need to first generate a new one using PHP's password_hash() function. Example: "password_hash('activatoradmin_' . 'your_new_password_goes_here', PASSWORD_DEFAULT)".
