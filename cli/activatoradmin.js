@@ -18,12 +18,19 @@ inquirer.prompt([{
 }]).then(function (answers) {
   var id = answers.id;
 
+  if (!(id % 1 === 0)) {
+    throw new Error('ID must be an integer');
+  }
+
   connection.query('SELECT * FROM items WHERE id=' + id, function (err, rows, fields) {
     if (err) {
       throw err;
     }
 
     var item = rows[0];
+    if (!item) {
+      throw new Error('Item does not exist');
+    }
 
     var isactive = item.isactive ? 0 : 1;
 
