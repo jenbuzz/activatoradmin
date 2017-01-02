@@ -89,7 +89,7 @@ class MySQL implements iDatabase
      * @param string $orderBy      is the column name and direction for sorting records
      * @param int    $limit        is the number of records to return. Not required
      */
-    public function select($columns = '*', $whereColumn = false, $whereValue = false, $orderBy = false, $limit = false)
+    public function select(string $columns = '*', string $whereColumn = '', string $whereValue = '', string $orderBy = '', int $limit = 0)
     {
         $sql = 'SELECT '.$columns.' FROM '.$this->getTable();
         if ($whereColumn && $whereValue) {
@@ -123,7 +123,7 @@ class MySQL implements iDatabase
      *
      * @param array $data is array of data to insert. Array key is column name
      */
-    public function insert($data)
+    public function insert(array $data)
     {
         $fields = array();
         $values = array();
@@ -146,7 +146,7 @@ class MySQL implements iDatabase
      * @param string $whereColumn is the column name for the where clause for specifying what to records to update
      * @param string $whereValue  is the value for the where clause for specifying what to records to update
      */
-    public function update($data, $whereColumn = false, $whereValue = false)
+    public function update(array $data, string $whereColumn = '', string $whereValue = '')
     {
         $fields = array();
 
@@ -168,7 +168,7 @@ class MySQL implements iDatabase
      * @param string $whereColumn is the column name for the where clause for specifying what to records to delete
      * @param string $whereValue  is the value for the where clause for specifying what to records to delete
      */
-    public function delete($whereColumn, $whereValue)
+    public function delete(string $whereColumn, string $whereValue)
     {
         $sql = 'DELETE FROM '.$this->getTable().' WHERE '.$whereColumn.'='.$this->mysqli->real_escape_string($whereValue);
 

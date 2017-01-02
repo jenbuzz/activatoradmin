@@ -57,12 +57,12 @@ class Mongo implements iDatabase
      * @param string $orderBy     is the column name and direction for sorting records. Not required
      * @param int    $limit       is the number of records to return. Not required
      */
-    public function select($columns = '*', $whereColumn = false, $whereValue = false, $orderBy = false, $limit = false)
+    public function select($columns = '*', $whereColumn = '', $whereValue = '', $orderBy = '', $limit = 0)
     {
         $results = array();
 
         $query = array();
-        if ($whereColumn !== false && $whereValue !== false) {
+        if ($whereColumn !== '' && $whereValue !== '') {
             if ($whereColumn === 'id') {
                 $whereColumn = $this->fixWhereColumnForId();
                 $whereValue = $this->fixWhereValueForId($whereValue);
@@ -109,7 +109,7 @@ class Mongo implements iDatabase
      *
      * @param array $document is array of data to insert. Array key is field name
      */
-    public function insert($document)
+    public function insert(array $document)
     {
         if (is_array($document) && !empty($document)) {
             $this->mongoCollection->insert($document);
@@ -123,7 +123,7 @@ class Mongo implements iDatabase
      * @param string $whereColumn is the column name for the where clause for specifying what to records to update
      * @param string $whereValue  is the value for the where clause for specifying what to records to update
      */
-    public function update($data, $whereColumn = false, $whereValue = false)
+    public function update(array $data, string $whereColumn = '', string $whereValue = '')
     {
         if ($whereColumn === 'id') {
             $whereColumn = $this->fixWhereColumnForId();
@@ -149,7 +149,7 @@ class Mongo implements iDatabase
      * @param string $whereColumn is the field name for the query for specifying what to records to delete
      * @param string $whereValue  is the field value for the query for specifying what to records to delete
      */
-    public function delete($whereColumn, $whereValue)
+    public function delete(string $whereColumn, string $whereValue)
     {
         if ($whereColumn === 'id') {
             $whereColumn = $this->fixWhereColumnForId();

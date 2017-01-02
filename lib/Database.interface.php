@@ -7,8 +7,8 @@ namespace ActivatorAdmin\Lib;
  */
 interface iDatabase
 {
-    public function select($columns = '*', $whereColumn = false, $whereValue = false, $orderBy = false, $limit = false);
-    public function insert($data);
-    public function update($data, $whereColumn = false, $whereValue = false);
-    public function delete($whereColumn, $whereValue);
+    public function select(string $columns = '*', string $whereColumn = '', string $whereValue = '', string $orderBy = '', int $limit = 0);
+    public function insert(array $data);
+    public function update(array $data, string $whereColumn = '', string $whereValue = '');
+    public function delete(string $whereColumn, string $whereValue);
 }
