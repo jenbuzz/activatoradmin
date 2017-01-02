@@ -41,9 +41,9 @@ class ModelFacade
             }
 
             return $arrItemObjects;
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     /**
@@ -59,9 +59,9 @@ class ModelFacade
             $this->model->load($id);
 
             return $this->model;
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     /**
@@ -88,9 +88,9 @@ class ModelFacade
             }
 
             return $arrItemObjects;
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     /**
@@ -116,8 +116,8 @@ class ModelFacade
             }
 
             return 0;
-        } else {
-            return false;
         }
+
+        return false;
     }
 }
