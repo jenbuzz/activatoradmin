@@ -23,7 +23,7 @@ class DB
      *
      * @param string $activeDb is to force the active database setting
      */
-    public static function getInstance($activeDb = false)
+    public static function getInstance(string $activeDb = ''): iDatabase
     {
         if (static::$instance === null) {
             $objConfigHelper = new ConfigHelper();
