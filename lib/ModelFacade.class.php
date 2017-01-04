@@ -49,7 +49,7 @@ class ModelFacade
     /**
      * Load a single model by id.
      *
-     * @param int $id is the id of the record to load as a model
+     * @param int|string $id is the id of the record to load as a model
      *
      * @return object model
      */
@@ -98,7 +98,7 @@ class ModelFacade
      *
      * @param int $isActive to count to activated or deactivated items
      *
-     * @return array arrItemObjects
+     * @return int
      */
     public function countActiveStatus(int $isActive = 1)
     {

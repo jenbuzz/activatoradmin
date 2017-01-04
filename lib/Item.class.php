@@ -46,7 +46,7 @@ class Item implements iModel
     /**
      * Load a single item.
      *
-     * @param int $id is the id of the item to load
+     * @param int|string $id is the id of the item to load
      */
     public function load($id)
     {
@@ -123,7 +123,7 @@ class Item implements iModel
     /**
      * Set the id of the item. Private function!
      *
-     * @param int $id
+     * @param int|string $id
      */
     private function setId($id)
     {
@@ -133,7 +133,7 @@ class Item implements iModel
     /**
      * Get the id of the item.
      *
-     * @return int id
+     * @return int|string id
      */
     public function getId()
     {

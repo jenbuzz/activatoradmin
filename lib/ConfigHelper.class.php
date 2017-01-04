@@ -26,7 +26,7 @@ class ConfigHelper
      * @param string $section is the name of the section in the config.ini file. Returns all settings as array
      * @param string $key     is the name of a single key/entry in the config.ini file
      *
-     * @return array/string
+     * @return array|string
      */
     public function get(string $section, string $key = '')
     {

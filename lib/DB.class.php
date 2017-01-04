@@ -22,6 +22,8 @@ class DB
      * The active database set in config.ini will be used as default.
      *
      * @param string $activeDb is to force the active database setting
+     *
+     * @return iDatabase instance
      */
     public static function getInstance(string $activeDb = ''): iDatabase
     {
