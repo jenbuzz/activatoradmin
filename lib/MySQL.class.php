@@ -92,7 +92,7 @@ class MySQL implements iDatabase
     public function select(string $columns = '*', string $whereColumn = '', string $whereValue = '', string $orderBy = '', int $limit = 0)
     {
         $sql = 'SELECT '.$columns.' FROM '.$this->getTable();
-        if ($whereColumn && $whereValue) {
+        if ($whereColumn !== '' && $whereValue !== '') {
             $sql .= ' WHERE '.$whereColumn.'='.$this->mysqli->real_escape_string($whereValue);
         }
         if ($orderBy) {

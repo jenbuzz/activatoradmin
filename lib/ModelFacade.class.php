@@ -96,11 +96,11 @@ class ModelFacade
     /**
      * Return a count of records with the specified active status.
      *
-     * @param int $isActive to count to activated or deactivated items
+     * @param bool $isActive to count to activated or deactivated items
      *
      * @return int
      */
-    public function countActiveStatus(int $isActive = 1)
+    public function countActiveStatus(bool $isActive = true)
     {
         if ($this->model) {
             $isActive = (int) $isActive;
