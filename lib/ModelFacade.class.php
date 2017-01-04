@@ -71,7 +71,7 @@ class ModelFacade
      *
      * @return array arrItemObjects
      */
-    public function search($term)
+    public function search(string $term)
     {
         if ($this->model) {
             $objConfigHelper = new ConfigHelper();
@@ -100,7 +100,7 @@ class ModelFacade
      *
      * @return array arrItemObjects
      */
-    public function countActiveStatus($isActive = true)
+    public function countActiveStatus(int $isActive = 1)
     {
         if ($this->model) {
             $isActive = (int) $isActive;

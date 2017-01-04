@@ -28,7 +28,7 @@ class ConfigHelper
      *
      * @return array/string
      */
-    public function get($section, $key = false)
+    public function get(string $section, string $key = '')
     {
         if (isset($this->config[$section])) {
             if ($key && isset($this->config[$section][$key])) {

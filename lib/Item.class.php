@@ -145,7 +145,7 @@ class Item implements iModel
      *
      * @param string $name
      */
-    public function setName($name)
+    public function setName(string $name)
     {
         $this->name = $name;
     }
@@ -165,7 +165,7 @@ class Item implements iModel
      *
      * @param int $isActive
      */
-    public function setIsActive($isActive)
+    public function setIsActive(int $isActive)
     {
         $this->isActive = $isActive;
     }
@@ -185,7 +185,7 @@ class Item implements iModel
      *
      * @param string $image
      */
-    public function setImage($image)
+    public function setImage(string $image)
     {
         $this->image = $image;
     }
