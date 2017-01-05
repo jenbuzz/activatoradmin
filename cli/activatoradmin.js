@@ -18,13 +18,16 @@ connection.connect();
 inquirer.prompt([{
   type: 'input',
   name: 'id',
-  message: 'What is the ID of the item you want to (de)activate?'
+  message: 'What is the ID of the item you want to (de)activate?',
+  validate: function (value) {
+    if (!(value % 1 === 0)) {
+      return 'ID must be a number';
+    }
+
+    return true;
+  }
 }]).then(function (answers) {
   var id = answers.id;
-
-  if (!(id % 1 === 0)) {
-    throw new Error('ID must be an integer');
-  }
 
   connection.query('SELECT * FROM items WHERE id=' + id, function (err, rows, fields) {
     if (err) {
