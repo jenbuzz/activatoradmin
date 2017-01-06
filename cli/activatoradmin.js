@@ -15,6 +15,8 @@ var connection = mysql.createConnection({
 });
 connection.connect();
 
+var table = config.mysql.table;
+
 inquirer.prompt([{
   type: 'input',
   name: 'id',
@@ -29,7 +31,7 @@ inquirer.prompt([{
 }]).then(function (answers) {
   var id = answers.id;
 
-  connection.query('SELECT * FROM items WHERE id=' + id, function (err, rows, fields) {
+  connection.query('SELECT * FROM ' + table + ' WHERE id=' + id, function (err, rows, fields) {
     if (err) {
       throw err;
     }
@@ -41,7 +43,7 @@ inquirer.prompt([{
 
     var isactive = item[config.db_mapping.isactive] ? 0 : 1;
 
-    connection.query('UPDATE items SET ' + config.db_mapping.isactive + '=' + isactive + ' WHERE id=' + id, function (err, result) {
+    connection.query('UPDATE ' + table + ' SET ' + config.db_mapping.isactive + '=' + isactive + ' WHERE id=' + id, function (err, result) {
       if (err) {
         throw err;
       }
