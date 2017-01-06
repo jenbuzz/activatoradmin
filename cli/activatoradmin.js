@@ -39,9 +39,9 @@ inquirer.prompt([{
       throw new Error('Item does not exist');
     }
 
-    var isactive = item.isactive ? 0 : 1;
+    var isactive = item[config.db_mapping.isactive] ? 0 : 1;
 
-    connection.query('UPDATE items SET isactive=' + isactive + ' WHERE id=' + id, function (err, result) {
+    connection.query('UPDATE items SET ' + config.db_mapping.isactive + '=' + isactive + ' WHERE id=' + id, function (err, result) {
       if (err) {
         throw err;
       }
