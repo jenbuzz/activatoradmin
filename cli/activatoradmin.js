@@ -5,7 +5,7 @@ var ini = require('ini');
 var inquirer = require('inquirer');
 var mysql = require('mysql');
 
-var config = ini.parse(fs.readFileSync('../config/config.ini', 'utf-8'));
+var config = ini.parse(fs.readFileSync(__dirname + '/../config/config.ini', 'utf-8'));
 
 var connection = mysql.createConnection({
   host: config.mysql.host,
