@@ -38,7 +38,7 @@ inquirer.prompt([{
 
     var item = rows[0];
     if (!item) {
-      throw new Error('Item does not exist');
+      throw new Error('Item with ID "' + id + '" does not exist');
     }
 
     var isactive = item[config.db_mapping.isactive] ? 0 : 1;
