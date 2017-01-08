@@ -51,7 +51,7 @@ inquirer.prompt([{
       if (result.changedRows > 0) {
         var msgIsActive = isactive ? 'activated' : 'deactivated';
 
-      	console.log('Item "' + item.name + '" (ID: ' + item.id + ') has been ' + msgIsActive);
+      	console.log('Item "' + item[config.db_mapping.name] + '" (ID: ' + item.id + ') has been ' + msgIsActive);
       }
 
       connection.end();
