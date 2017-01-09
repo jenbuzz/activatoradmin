@@ -81,7 +81,7 @@ body {
     margin: 3px 10px 0px 0px;
 
     a {
-      color: #444444;
+      color: $primary-text-color;
       opacity: 0.6;
 
       &:hover {
@@ -133,7 +133,7 @@ body {
   margin: 10px 0;
 
   button {
-    color: #444444;
+    color: $primary-text-color;
     opacity: 0.6;
 
     &:hover {
