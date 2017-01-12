@@ -61,6 +61,13 @@ Login using these fixed credentials: Username = admin & Password = admin. The cr
 
 A default database structure can be found in docs/db.sql. Use database mapping as explained under Configuration if the default database structure is different.
 
+##Command-Line Usage
+
+It is possible to (de)activate items using the command-line. Node.js is required for this. You need to know the ID of the item to activate beforehand. Enter the following command and follow instructions:
+```
+node cli/activatoradmin.js
+```
+
 ##Configuration
 
 Setup the configuration in config/config.ini and config/config.js. Changes to config/config.js should be followed by "grunt minify" or "gulp minifyConfig" for minifying the javascript.
