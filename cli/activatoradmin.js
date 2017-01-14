@@ -31,6 +31,11 @@ inquirer.prompt([{
 }]).then(function (answers) {
   var id = answers.id;
 
+  if (id == 0) {
+    console.log('ID is zero')
+    connection.end();
+  }
+
   connection.query('SELECT * FROM ' + table + ' WHERE id=' + connection.escape(id), function (err, rows, fields) {
     if (err) {
       throw err;
