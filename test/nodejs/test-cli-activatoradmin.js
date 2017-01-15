@@ -7,7 +7,7 @@ describe('activatoradmin', function() {
 
   it('should run activatoradmin.js command-line script', function(done) {
     var spawn = require( 'child_process' ).spawn;
-    var child = spawn('node', ['../../cli/activatoradmin.js']);
+    var child = spawn('node', [__dirname + '/../../cli/activatoradmin.js']);
 
     child.stdin.setEncoding('utf-8');
     child.stdin.write("0\n");
