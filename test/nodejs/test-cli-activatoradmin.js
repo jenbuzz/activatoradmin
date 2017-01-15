@@ -5,7 +5,7 @@ var expect = require('chai').expect;
 describe('activatoradmin', function() {
   this.timeout(15000);
 
-  it('should ...', function(done) {
+  it('should run activatoradmin.js command-line script', function(done) {
     var spawn = require( 'child_process' ).spawn;
     var child = spawn('node', ['../../cli/activatoradmin.js']);
 
