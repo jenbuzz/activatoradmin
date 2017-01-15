@@ -17,7 +17,10 @@ describe('activatoradmin', function() {
     // child.stdout.pipe(process.stdout);
 
     child.stdout.on('data', function (result) {
-      if (result.toString().indexOf('ID is zero') === 0) {
+      var result = result.toString();
+
+      if (result.indexOf('ID is zero') === 0) {
+      	expect(result).to.equal('ID is zero\n');
         done();
       }
     });
