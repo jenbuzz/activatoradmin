@@ -50,7 +50,6 @@
 - inquirer 2.0.0 (https://github.com/SBoudrias/Inquirer.js)
 - mysql 2.12.0 (https://github.com/mysqljs/mysql)
 - ini 1.3.4 (https://github.com/npm/ini)
-- Mocha 3.2.0 (https://github.com/mochajs/mocha)
 - Chai 3.5.0 (https://github.com/chaijs/chai)
 
 ##Requirements
@@ -116,7 +115,7 @@ See the results from PHPLOC at ROOT_DIRECTORY/docs/phploc.csv. Update the result
 
 ##Testing
 
-Test cases have been created and tested using Jasmine v2.3.4, CasperJS v1.1.3, and PHPUnit 5.5.4.
+Test cases have been created and tested using Jasmine v2.3.4, CasperJS v1.1.3, Mocha v3.2.0, and PHPUnit 5.5.4.
 
 Run both Jasmine, CasperJS, and PHPUnit test cases using grunt:
 ```
@@ -134,6 +133,11 @@ casperjs test test/casperjs
 ```
 
 Run Jasmine test cases by opening the following URL in a browser: ROOT_URL/test/jasmine/SpecRunner.html
+
+Run test of command-line version of activatoradmin using Mocha from ROOT_DIRECTORY:
+```
+mocha test/nodejs/test-cli-activatoradmin.js
+```
 
 ##License
 
