@@ -46,8 +46,10 @@ define([
     },
     gotoFirst: function(e) {
       e.preventDefault();
-      this.ActivatorItems.getPage(1);
-      this.scrollToTop();
+      if (this.ActivatorItems.state.currentPage!==1) {
+        this.ActivatorItems.getPage(1);
+        this.scrollToTop();
+      }
     },
     gotoPrev: function(e) {
       e.preventDefault();
@@ -65,8 +67,10 @@ define([
     },
     gotoLast: function(e) {
       e.preventDefault();
-      this.ActivatorItems.getPage(this.ActivatorItems.state.lastPage);
-      this.scrollToTop();
+      if (this.ActivatorItems.state.currentPage!==this.ActivatorItems.state.lastPage) {
+        this.ActivatorItems.getPage(this.ActivatorItems.state.lastPage);
+        this.scrollToTop();
+      }
     },
     gotoPage: function(e) {
       e.preventDefault();
