@@ -122,18 +122,22 @@ Run both Jasmine, CasperJS, and PHPUnit test cases using grunt:
 grunt test
 ```
 
+**PHPUnit**
 Run PHPUnit test cases from ROOT_DIRECTORY:
 ```
 phpunit test/phpunit
 ```
 
+**CasperJS**
 Run CasperJS test cases from ROOT_DIRECTORY:
 ```
 casperjs test test/casperjs
 ```
 
+**Jasmine**
 Run Jasmine test cases by opening the following URL in a browser: ROOT_URL/test/jasmine/SpecRunner.html
 
+**Mocha**
 Run test of command-line version of activatoradmin using Mocha from ROOT_DIRECTORY:
 ```
 mocha test/nodejs/test-cli-activatoradmin.js
