@@ -1,5 +1,6 @@
 {
   "name": "activatoradmin",
+  "description": "Slim/Backbone application for (de)activating items",
   "license": "MIT",
   "repository": {
     "type": "git",
