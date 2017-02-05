@@ -2,7 +2,7 @@
 
 [![Build Status](https://secure.travis-ci.org/dan-lyn/activatoradmin.png?branch=master)](http://travis-ci.org/dan-lyn/activatoradmin)
 
-(screenshots/docs/ActivatorAdmin.png)
+![Screenshot](docs/ActivatorAdmin.png)
 
 ##Third-Party Libraries
 
