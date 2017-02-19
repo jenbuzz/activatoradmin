@@ -80,7 +80,10 @@ module.exports = function(grunt) {
       }
     },
     jshint: {
-      all: ['js/app/*.js', 'js/app/models/*.js', 'js/app/collections/*.js', 'js/app/views/*.js', 'js/stats.js']
+      options: {
+        node: true
+      },
+      all: ['js/app/*.js', 'js/app/models/*.js', 'js/app/collections/*.js', 'js/app/views/*.js', 'js/stats.js', 'cli/activatoradmin.js']
     },
     casperjs: {
       options: {
