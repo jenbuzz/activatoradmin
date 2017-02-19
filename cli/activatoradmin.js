@@ -22,7 +22,7 @@ inquirer.prompt([{
   name: 'id',
   message: 'What is the ID of the item you want to (de)activate?',
   validate: function (value) {
-    if (!(value % 1 === 0)) {
+    if (value % 1 !== 0) {
       return 'ID must be a number';
     }
 
@@ -31,8 +31,8 @@ inquirer.prompt([{
 }]).then(function (answers) {
   var id = answers.id;
 
-  if (id == 0) {
-    console.log('ID is zero')
+  if (id === 0) {
+    console.log('ID is zero');
     connection.end();
   }
 
