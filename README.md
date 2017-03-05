@@ -14,7 +14,7 @@
 - Container Interoperability 1.1.0 (https://github.com/container-interop/container-interop)
 - Twig 1.30.0 (https://github.com/twigphp/Twig)
 - Slim Twig View 2.1.1 (https://github.com/slimphp/Twig-View)
-- Monolog 1.17.2 (https://github.com/Seldaek/monolog)
+- Monolog 1.22.0 (https://github.com/Seldaek/monolog)
 - PSR Log 1.0.2 (https://github.com/php-fig/log)
 
 **JS**
