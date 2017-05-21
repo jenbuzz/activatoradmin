@@ -56,9 +56,9 @@ $app->get('/', function ($request, $response, $args) {
     $objConfigHelper = $this->config;
     $baseurl = $objConfigHelper->get('url', 'baseurl');
 
-    return $this->view->render($response, 'index.tpl', array(
+    return $this->view->render($response, 'index.tpl', [
         'baseurl' => $baseurl,
-    ));
+    ]);
 });
 
 /*
@@ -68,10 +68,10 @@ $app->get('/login', function ($request, $response, $args) {
     $objConfigHelper = $this->config;
     $baseurl = $objConfigHelper->get('url', 'baseurl');
 
-    return $this->view->render($response, 'login.tpl', array(
+    return $this->view->render($response, 'login.tpl', [
         'baseurl' => $baseurl,
         'isLogin' => true,
-    ));
+    ]);
 });
 $app->post('/login', function ($request, $response, $args) {
     $objConfigHelper = $this->config;
@@ -90,11 +90,11 @@ $app->post('/login', function ($request, $response, $args) {
             $objLogger->addWarning('Login Attempt Failed. Username: '.$request->getParam('username'));
         }
 
-        return $this->view->render($response, 'login.tpl', array(
+        return $this->view->render($response, 'login.tpl', [
             'baseurl' => $baseurl,
             'isLogin' => true,
             'isError' => true,
-        ));
+        ]);
     }
 });
 $app->get('/logout', function ($request, $response, $args) {
@@ -110,7 +110,7 @@ $app->get('/logout', function ($request, $response, $args) {
  * GET all items.
  */
 $app->get('/items', function ($request, $response, $args) {
-    $arrItems = array();
+    $arrItems = [];
 
     $objModelFacade = new ModelFacade(new Item());
     $arrItemObjects = $objModelFacade->loadAll();
@@ -132,7 +132,7 @@ $app->get('/items/{id}', function ($request, $response, $args) {
 
         echo json_encode($objItem->toArray());
     } else {
-        echo json_encode(array('success' => false));
+        echo json_encode(['success' => false]);
     }
 });
 
@@ -150,10 +150,10 @@ $app->put('/item/{id}', function ($request, $response, $args) {
             $objItem->setIsActive($request->isactive);
             $objItem->save();
         } else {
-            echo json_encode(array('success' => false));
+            echo json_encode(['success' => false]);
         }
     } else {
-        echo json_encode(array('success' => false));
+        echo json_encode(['success' => false]);
     }
 });
 
@@ -167,9 +167,9 @@ $app->delete('/item/{id}', function ($request, $response, $args) {
         $objItem = $objModelFacade->load($id);
         $objItem->delete();
 
-        echo json_encode(array('success' => true));
+        echo json_encode(['success' => true]);
     } else {
-        echo json_encode(array('success' => false));
+        echo json_encode(['success' => false]);
     }
 });
 
@@ -179,7 +179,7 @@ $app->delete('/item/{id}', function ($request, $response, $args) {
 $app->get('/search/{term}', function ($request, $response, $args) {
     $term = filter_var($args['term'], FILTER_SANITIZE_STRING);
 
-    $arrItems = array();
+    $arrItems = [];
 
     $objModelFacade = new ModelFacade(new Item());
     $arrItemObjects = $objModelFacade->search($term);
@@ -197,10 +197,10 @@ $app->get('/stats', function ($request, $response, $args) {
     $objConfigHelper = $this->config;
     $baseurl = $objConfigHelper->get('url', 'baseurl');
 
-    return $this->view->render($response, 'stats.tpl', array(
+    return $this->view->render($response, 'stats.tpl', [
         'baseurl' => $baseurl,
         'isStats' => true,
-    ));
+    ]);
 });
 
 /*
@@ -212,16 +212,16 @@ $app->get('/get-stats', function ($request, $response, $args) {
     $countActivate = $objModelFacade->countActiveStatus(true);
     $countInactivate = $objModelFacade->countActiveStatus(false);
 
-    echo json_encode(array(
-        array(
+    echo json_encode([
+        [
             'name' => 'active',
             'value' => $countActivate,
-        ),
-        array(
+        ],
+        [
             'name' => 'inactive',
             'value' => $countInactivate,
-        ),
-    ));
+        ],
+    ]);
 });
 
 // Start slim application.
