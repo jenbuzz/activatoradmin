@@ -40,9 +40,7 @@
        .append('text')
        .attr('transform', 'rotate(-90)')
        .attr('y', 6)
-       .attr('dy', '.71em')
-       .style('text-anchor', 'end')
-       .text('Number of items');
+       .attr('dy', '.71em');
 
     svg.selectAll('.bar')
        .data(data)
@@ -54,6 +52,6 @@
        .attr('y', function(d) { return y(d.value); })
        .attr('height', function(d) { return height - y(d.value); })
        .append('title')
-       .text(function(d) { return d.value; });
+       .text(function(d) { return d.value + ' items'; });
   });
 }());
