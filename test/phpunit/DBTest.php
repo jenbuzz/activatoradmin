@@ -9,7 +9,7 @@ use ActivatorAdmin\Lib\DB;
 /**
  * Test the DB class.
  */
-class DBTest extends \PHPUnit_Framework_TestCase
+class DBTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * Test the if the singleton function getInstance() returns MySQL and MongoDB.

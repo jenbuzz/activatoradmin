@@ -11,7 +11,7 @@ use ActivatorAdmin\Lib\Item;
 /**
  * Test the Item class.
  */
-class ItemTest extends \PHPUnit_Framework_TestCase
+class ItemTest extends \PHPUnit\Framework\TestCase
 {
     private $dbConfig = false;
     private $mysqli = false;

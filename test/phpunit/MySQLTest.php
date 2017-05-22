@@ -10,7 +10,7 @@ use ActivatorAdmin\Lib\MySQL;
 /**
  * Test the MySQL class.
  */
-class MySQLTest extends \PHPUnit_Framework_TestCase
+class MySQLTest extends \PHPUnit\Framework\TestCase
 {
     protected $db;
     protected $dbConfig;

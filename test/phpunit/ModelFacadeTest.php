@@ -12,7 +12,7 @@ use ActivatorAdmin\Lib\DB;
 /**
  * Test the ModelFacade class.
  */
-class ModelFacadeTest extends \PHPUnit_Framework_TestCase
+class ModelFacadeTest extends \PHPUnit\Framework\TestCase
 {
     private $objModelFacade = false;
     private $dbConfig = false;

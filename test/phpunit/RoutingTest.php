@@ -9,7 +9,7 @@ use ActivatorAdmin\Lib\ConfigHelper;
 /**
  * PHPunit test for testing the routing in the Slim app.
  */
-class RoutingTest extends \PHPUnit_Framework_TestCase
+class RoutingTest extends \PHPUnit\Framework\TestCase
 {
     private $response;
 

@@ -9,7 +9,7 @@ use ActivatorAdmin\Lib\ConfigHelper;
 /**
  * Test the ConfigHelper class.
  */
-class ConfigHelperTest extends \PHPUnit_Framework_TestCase
+class ConfigHelperTest extends \PHPUnit\Framework\TestCase
 {
     protected $objConfigHelper;
 
