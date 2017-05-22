@@ -182,7 +182,7 @@ class MySQL implements iDatabase
      * @param string $searchTerm   is the term to search for in searchColumn
      */
     public function search($searchColumn, $searchTerm)
-    {error_log('test');
+    {
         $sql = 'SELECT * FROM '.$this->getTable().' WHERE '.$searchColumn.' LIKE "%'.$searchTerm.'%" ORDER BY id ASC';
 
         $result = $this->mysqli->query($sql);
