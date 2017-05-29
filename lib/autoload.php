@@ -10,6 +10,8 @@ spl_autoload_register(function($class) {
         require __DIR__ . '/Psr/Log/' . str_replace("\\", "/", str_replace("Psr\\Log\\", '', $class)) . '.php';
     } elseif (substr($class, 0, 8)==='Psr\\Http') {
         require __DIR__ . '/Psr/Http-Message/' . str_replace("\\", "/", str_replace("Psr\\Http\\Message\\", '', $class)) . '.php';
+    } elseif (substr($class, 0, 13)==='Psr\\Container') {
+        require __DIR__ . '/Psr/Container/' . str_replace("\\", "/", str_replace("Psr\\Container\\", '', $class)) . '.php';
     } elseif (substr($class, 0, 4)==='Slim') {
         require __DIR__ . '/Slim/' . str_replace("\\", "/", str_replace("Slim\\", '', $class)) . '.php';
     } elseif (substr($class, 0, 6)==='Pimple') {
