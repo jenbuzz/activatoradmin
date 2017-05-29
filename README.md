@@ -51,7 +51,7 @@
 
 **NodeJS**
 - inquirer 2.0.0 (https://github.com/SBoudrias/Inquirer.js)
-- mysql 2.12.0 (https://github.com/mysqljs/mysql)
+- mysql 2.13.0 (https://github.com/mysqljs/mysql)
 - ini 1.3.4 (https://github.com/npm/ini)
 - Chai 3.5.0 (https://github.com/chaijs/chai)
 
