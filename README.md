@@ -7,11 +7,12 @@
 ##Third-Party Libraries
 
 **PHP**
-- Slim Framework 3.7.0 (https://github.com/slimphp/Slim)
+- Slim Framework 3.8.1 (https://github.com/slimphp/Slim)
 - Pimple 3.0.2 (https://github.com/silexphp/Pimple)
 - PSR Http Message 1.0.1 (https://github.com/php-fig/http-message)
 - FastRoute 1.1.0 (https://github.com/nikic/FastRoute)
-- Container Interoperability 1.1.0 (https://github.com/container-interop/container-interop)
+- Container Interoperability 1.2.0 (https://github.com/container-interop/container-interop)
+- PSR Container 1.0.0 (https://github.com/php-fig/container)
 - Twig 1.30.0 (https://github.com/twigphp/Twig)
 - Slim Twig View 2.1.1 (https://github.com/slimphp/Twig-View)
 - Monolog 1.22.0 (https://github.com/Seldaek/monolog)
