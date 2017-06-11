@@ -13,8 +13,8 @@
 - FastRoute 1.1.0 (https://github.com/nikic/FastRoute)
 - Container Interoperability 1.2.0 (https://github.com/container-interop/container-interop)
 - PSR Container 1.0.0 (https://github.com/php-fig/container)
-- Twig 1.30.0 (https://github.com/twigphp/Twig)
-- Slim Twig View 2.1.1 (https://github.com/slimphp/Twig-View)
+- Twig 2.4.3 (https://github.com/twigphp/Twig)
+- Slim Twig View 2.2.0 (https://github.com/slimphp/Twig-View)
 - Monolog 1.22.0 (https://github.com/Seldaek/monolog)
 - PSR Log 1.0.2 (https://github.com/php-fig/log)
 

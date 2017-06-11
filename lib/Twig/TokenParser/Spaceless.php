@@ -3,7 +3,7 @@
 /*
  * This file is part of Twig.
  *
- * (c) 2010 Fabien Potencier
+ * (c) Fabien Potencier
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -21,10 +21,8 @@
  *
  * {# output will be <div><strong>foo</strong></div> #}
  * </pre>
- *
- * @final
  */
-class Twig_TokenParser_Spaceless extends Twig_TokenParser
+final class Twig_TokenParser_Spaceless extends Twig_TokenParser
 {
     public function parse(Twig_Token $token)
     {
@@ -47,3 +45,5 @@ class Twig_TokenParser_Spaceless extends Twig_TokenParser
         return 'spaceless';
     }
 }
+
+class_alias('Twig_TokenParser_Spaceless', 'Twig\TokenParser\SpacelessTokenParser', false);
