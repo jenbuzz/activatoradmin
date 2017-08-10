@@ -50,10 +50,10 @@
 - gulp-uglify 2.1.2 (https://github.com/terinjokes/gulp-uglify/)
 
 **NodeJS**
-- inquirer 2.0.0 (https://github.com/SBoudrias/Inquirer.js)
-- mysql 2.13.0 (https://github.com/mysqljs/mysql)
+- inquirer 3.2.1 (https://github.com/SBoudrias/Inquirer.js)
+- mysql 2.14.1 (https://github.com/mysqljs/mysql)
 - ini 1.3.4 (https://github.com/npm/ini)
-- Chai 3.5.0 (https://github.com/chaijs/chai)
+- Chai 4.1.1 (https://github.com/chaijs/chai)
 
 ## Requirements
 - PHP 7
