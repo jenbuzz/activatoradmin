@@ -13,6 +13,7 @@
     </div>
 
     <script src="config/config.min.js"></script>
+    <script src="js/lib/popper.min.js"></script>
     <script data-main="js/dist/activatoradmin" src="js/lib/require.js"></script>
   </body>
 
