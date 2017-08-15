@@ -18,7 +18,7 @@ body .backgroundOverlay {
 
 .jumbotron {
   padding-bottom: 10px;
-  padding-top: 40px;
+  padding-top: 75px;
 }
 .jumbotron h1 {
   font-size: 50px;
@@ -45,7 +45,7 @@ body .backgroundOverlay {
 .navbar .divider {
   display: inline-block;
   position: absolute;
-  top: 0px;
+  top: 7px;
   width: 2px;
   height: 52px;
   overflow: hidden;
