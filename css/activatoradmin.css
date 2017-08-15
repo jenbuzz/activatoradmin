@@ -287,23 +287,8 @@ body .backgroundOverlay {
   }
 }
 @media screen and (max-width: 768px) {
-  .jumbotron h1 {
-    padding-left: 60px;
-  }
-
   .list-unstyled li input {
     margin-right: 100%;
-  }
-}
-@media screen and (max-width: 550px) {
-  .jumbotron h1 {
-    font-size: 32px;
-    padding-left: 20px;
-    margin-top: 5px;
-  }
-
-  .list-unstyled li label {
-    min-width: 100%;
   }
 
   .navbar {
@@ -335,6 +320,17 @@ body .backgroundOverlay {
   .navbar .github {
     float: none;
     text-align: center;
+  }
+}
+@media screen and (max-width: 550px) {
+  .jumbotron h1 {
+    font-size: 32px;
+    padding-left: 20px;
+    margin-top: 5px;
+  }
+
+  .list-unstyled li label {
+    min-width: 100%;
   }
 
   .itemContainer .imageContainer {
