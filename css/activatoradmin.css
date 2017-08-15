@@ -26,6 +26,7 @@ body .backgroundOverlay {
 
 .navbar .show-menu {
   display: none;
+  width: 100%;
   text-align: center;
   font-size: 1.5em;
   padding: 5px 0;
@@ -36,8 +37,13 @@ body .backgroundOverlay {
 .navbar .show-menu:hover {
   opacity: 0.8;
 }
-.navbar input[type=checkbox]:checked ~ .navbutton {
+.navbar input[type=checkbox]:checked ~ .pull-left {
+  width: 100%;
+}
+.navbar input[type=checkbox]:checked ~ .pull-left .navbutton {
   display: block;
+  width: 100%;
+  margin: 5px 0;
 }
 .navbar input[type=checkbox] {
   display: none;
