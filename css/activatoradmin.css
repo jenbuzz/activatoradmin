@@ -16,6 +16,10 @@ body .backgroundOverlay {
   z-index: 3;
 }
 
+button {
+  cursor: pointer;
+}
+
 .jumbotron {
   padding-bottom: 10px;
   padding-top: 75px;
