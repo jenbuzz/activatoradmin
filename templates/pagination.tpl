@@ -1,4 +1,4 @@
-<ul class="pagination">
+<ul class="pagination flex-wrap">
   <li class="page-item<% if (currentPage == 1) { %> disabled<% } %>"><a href="#" class="page-link first">First</a></li>
   <li class="page-item<% if (currentPage == 1) { %> disabled<% } %>"><a href="#" class="page-link prev" rel="prev">Previous</a></li>
   <% _.each (pageSet, function (p) { %>
