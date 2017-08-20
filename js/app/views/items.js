@@ -59,10 +59,16 @@ define([
       }
       this.$el.html(this.template(json));
 
+      this.$el.find('label').on('click', function() {
+        $(this).tooltip('hide');
+      });
       this.$el.find('label').tooltip({
         placement : 'left'
       });
 
+      this.$el.find('button').on('click', function() {
+        $(this).tooltip('hide');
+      });
       this.$el.find('button').tooltip({
         placement : 'left'
       });
