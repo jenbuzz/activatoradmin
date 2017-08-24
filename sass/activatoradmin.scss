@@ -20,7 +20,7 @@ body {
     height: 100%;
     background-color: #000000;
     opacity: 0.5;
-    z-index: 3;
+    z-index: 1050;
   }
 }
 
@@ -250,7 +250,7 @@ button {
   cursor: zoom-in !important;
 }
 .img-full {
-  z-index: 100;
+  z-index: 1051;
   max-width: 100%;
   height: auto;
 }
