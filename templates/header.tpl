@@ -1,5 +1,5 @@
 {% if isLogin==false %}
-<nav class="navbar navbar-default fixed-top container" role="navigation">
+<nav class="navbar navbar-default fixed-top bg-light border border-top-0 container" role="navigation">
   <label for="show-menu" class="show-menu fa fa-bars"></label>
   <input type="checkbox" id="show-menu" role="button">
 
