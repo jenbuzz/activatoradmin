@@ -63,6 +63,7 @@ define([
         $(this).tooltip('hide');
       });
       this.$el.find('label').tooltip({
+        trigger: 'hover',
         placement : 'left'
       });
 
@@ -70,6 +71,7 @@ define([
         $(this).tooltip('hide');
       });
       this.$el.find('button').tooltip({
+        trigger: 'hover',
         placement : 'left'
       });
 
