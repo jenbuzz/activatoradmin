@@ -194,7 +194,6 @@ button {
 /* info and delete buttons */
 .btn {
   font-size: 15px;
-  line-height: 0.7;
 }
 .btn.btn-info, .btn.btn-danger {
   opacity: 0.5;
