@@ -19,4 +19,4 @@ before_script:
 
 services: mongodb
 
-script: phpunit test/phpunit/
+script: vendor/bin/phpunit test/phpunit/
