@@ -1,0 +1,16 @@
+{
+  "name": "dan-lyn/activatoradmin",
+  "type": "project",
+  "description": "ActivatorAdmin",
+  "homepage": "https://github.com/dan-lyn/activatoradmin/",
+  "license" : "MIT",
+  "authors" : [
+    {
+      "name": "dan-lyn",
+      "homepage": "https://github.com/dan-lyn/"
+    }
+  ],
+  "require-dev": {
+    "phpunit/phpunit": "6.3.*"
+  }
+}
