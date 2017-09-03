@@ -7,6 +7,9 @@ php:
 before_install:
   - if [[ "$TRAVIS_PHP_VERSION" = 5.* ]]; then echo 'extension = "mongo.so"' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini; fi;
 
+install:
+   - composer require global phpunit/phpunit:6.3.0
+
 before_script:
   - composer install
   - sh -c "mysql -e 'CREATE DATABASE activatoradmin;'"
