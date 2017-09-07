@@ -15,6 +15,9 @@ body .backgroundOverlay {
   opacity: 0.5;
   z-index: 1050;
 }
+body.overlayOpen {
+  overflow: hidden;
+}
 
 button {
   cursor: pointer;

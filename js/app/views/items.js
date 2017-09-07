@@ -108,6 +108,7 @@ define([
       }
 
       $('body').append('<div id="background" class="backgroundOverlay"></div>');
+      $('body').addClass('overlayOpen');
 
       var background = $('#background');
       var container = $('#container');
@@ -119,6 +120,7 @@ define([
       background.on('click', function() {
         container.find('.img-full').remove();
         $(this).remove();
+        $('body').removeClass('overlayOpen');
       });
     }
   });
