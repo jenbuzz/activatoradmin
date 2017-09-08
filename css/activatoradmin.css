@@ -338,9 +338,12 @@ button {
   }
 }
 @media screen and (max-width: 550px) {
+  .jumbotron {
+    padding-left: 0.5rem;
+  }
   .jumbotron h1 {
-    font-size: 32px;
-    padding-left: 20px;
+    font-size: 28px;
+    padding-left: 5px;
     margin-top: 5px;
   }
 

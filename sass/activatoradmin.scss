@@ -401,10 +401,14 @@ button {
 }
 
 @media screen and (max-width: $small-width) {
-  .jumbotron h1 {
-    font-size: 32px;
-    padding-left: 20px;
-    margin-top: 5px;
+  .jumbotron {
+    padding-left: 0.5rem;
+
+    h1 {
+      font-size: 28px;
+      padding-left: 5px;
+      margin-top: 5px;
+    }
   }
   .list-unstyled {
     li {
