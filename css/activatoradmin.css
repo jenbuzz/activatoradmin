@@ -23,6 +23,11 @@ button {
   cursor: pointer;
 }
 
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
 .jumbotron {
   padding-bottom: 10px;
   padding-top: 75px;
