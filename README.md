@@ -50,9 +50,9 @@
 - gulp-uglify 2.1.2 (https://github.com/terinjokes/gulp-uglify/)
 
 **NodeJS**
-- inquirer 3.2.1 (https://github.com/SBoudrias/Inquirer.js)
-- mysql 2.14.1 (https://github.com/mysqljs/mysql)
-- ini 1.3.4 (https://github.com/npm/ini)
+- inquirer 4.0.1 (https://github.com/SBoudrias/Inquirer.js)
+- mysql 2.15.0 (https://github.com/mysqljs/mysql)
+- ini 1.3.5 (https://github.com/npm/ini)
 - Chai 4.1.1 (https://github.com/chaijs/chai)
 
 ## Requirements
