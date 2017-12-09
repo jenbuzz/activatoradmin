@@ -48,6 +48,11 @@ define([
           $('#itemlist').empty();
 
           var searchresults = ActivatorItems.search(searchterm);
+
+          if (searchresults.size() === 0) {
+            $('#itemlist').append('<li><span>No search results</span></li>');
+          }
+
           searchresults.each(function(item) {
             var view = new ItemsView({
               model: item
