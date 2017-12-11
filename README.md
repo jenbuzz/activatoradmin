@@ -107,7 +107,6 @@ It is possible to enable and disable certain frontend features using configurati
 ```
 showInfo: true // Show info button for each item
 showDelete: true // Show delete button for deleting a single item
-
 ```
 
 ## Documentation
