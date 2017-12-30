@@ -24,7 +24,7 @@
 - jQuery 3.2.1 (http://jquery.com/)
 - RequireJS 2.3.5 (http://requirejs.org/docs/download.html)
 - RequireJS text 2.0.15 (https://github.com/requirejs/text)
-- D3.js 4.4.1 (https://github.com/mbostock/d3)
+- D3.js 4.12.2 (https://github.com/mbostock/d3)
 
 **CSS**
 - Bootstrap 4.0.0-beta.2 (http://getbootstrap.com/)
