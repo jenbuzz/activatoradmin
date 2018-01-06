@@ -42,16 +42,22 @@
        .attr('y', 6)
        .attr('dy', '.71em');
 
-    svg.selectAll('.bar')
+    var bar = svg.selectAll('.bar')
        .data(data)
        .enter()
        .append('rect')
        .attr('class', 'bar')
        .attr('x', function(d) { return x(d.name); })
        .attr('width', x.bandwidth())
+       .attr('y', height)
+       .attr('height', 0);
+
+    bar.append('title')
+       .text(function(d) { return d.value + ' items'; })
+
+    bar.transition()
+       .duration(750)
        .attr('y', function(d) { return y(d.value); })
-       .attr('height', function(d) { return height - y(d.value); })
-       .append('title')
-       .text(function(d) { return d.value + ' items'; });
+       .attr('height', function(d) { return height - y(d.value); });
   });
 }());
