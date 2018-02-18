@@ -50,7 +50,7 @@
 - Chai 4.1.1 (https://github.com/chaijs/chai)
 
 ## Requirements
-- PHP 7
+- PHP 7.1
 - MySQL or MongoDB
 
 ## Usage
