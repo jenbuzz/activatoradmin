@@ -44,7 +44,7 @@
 - gulp-uglify 3.0.0 (https://github.com/terinjokes/gulp-uglify/)
 
 **NodeJS**
-- inquirer 4.0.1 (https://github.com/SBoudrias/Inquirer.js)
+- inquirer 5.2.0 (https://github.com/SBoudrias/Inquirer.js)
 - mysql 2.15.0 (https://github.com/mysqljs/mysql)
 - ini 1.3.5 (https://github.com/npm/ini)
 - Chai 4.1.1 (https://github.com/chaijs/chai)
