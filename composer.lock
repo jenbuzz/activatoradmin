@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "3e64617535f2af1d7944b6fdd02bd62b",
+    "content-hash": "22e63924afb5b254dc144b24d573b000",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -430,16 +430,16 @@
         },
         {
             "name": "slim/twig-view",
-            "version": "2.2.0",
+            "version": "2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/slimphp/Twig-View.git",
-                "reference": "a743ac45e2a089942159dda499c5ef5bc5f6bfa6"
+                "reference": "f6ff5ec3a24e11866376b8ffa235fbbb7e1d1301"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/slimphp/Twig-View/zipball/a743ac45e2a089942159dda499c5ef5bc5f6bfa6",
-                "reference": "a743ac45e2a089942159dda499c5ef5bc5f6bfa6",
+                "url": "https://api.github.com/repos/slimphp/Twig-View/zipball/f6ff5ec3a24e11866376b8ffa235fbbb7e1d1301",
+                "reference": "f6ff5ec3a24e11866376b8ffa235fbbb7e1d1301",
                 "shasum": ""
             },
             "require": {
@@ -476,7 +476,7 @@
                 "twig",
                 "view"
             ],
-            "time": "2017-01-25T20:38:39+00:00"
+            "time": "2017-09-20T19:47:37+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -539,16 +539,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v2.4.3",
+            "version": "v2.4.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "eab7c3288ae6603d7d6f92b531626af2b162d1f2"
+                "reference": "7b604c89da162034bdf4bb66310f358d313dd16d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/eab7c3288ae6603d7d6f92b531626af2b162d1f2",
-                "reference": "eab7c3288ae6603d7d6f92b531626af2b162d1f2",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/7b604c89da162034bdf4bb66310f358d313dd16d",
+                "reference": "7b604c89da162034bdf4bb66310f358d313dd16d",
                 "shasum": ""
             },
             "require": {
@@ -557,8 +557,8 @@
             },
             "require-dev": {
                 "psr/container": "^1.0",
-                "symfony/debug": "~2.7",
-                "symfony/phpunit-bridge": "~3.3@dev"
+                "symfony/debug": "^2.7",
+                "symfony/phpunit-bridge": "^3.3"
             },
             "type": "library",
             "extra": {
@@ -601,7 +601,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2017-06-07T18:47:58+00:00"
+            "time": "2018-04-02T09:24:19+00:00"
         }
     ],
     "packages-dev": [
@@ -960,16 +960,16 @@
         },
         {
             "name": "phpspec/prophecy",
-            "version": "1.7.4",
+            "version": "1.7.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "9f901e29c93dae4aa77c0bb161df4276f9c9a1be"
+                "reference": "dfd6be44111a7c41c2e884a336cc4f461b3b2401"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/9f901e29c93dae4aa77c0bb161df4276f9c9a1be",
-                "reference": "9f901e29c93dae4aa77c0bb161df4276f9c9a1be",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/dfd6be44111a7c41c2e884a336cc4f461b3b2401",
+                "reference": "dfd6be44111a7c41c2e884a336cc4f461b3b2401",
                 "shasum": ""
             },
             "require": {
@@ -1019,20 +1019,20 @@
                 "spy",
                 "stub"
             ],
-            "time": "2018-02-11T18:49:29+00:00"
+            "time": "2018-02-19T10:16:54+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "5.3.0",
+            "version": "5.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "661f34d0bd3f1a7225ef491a70a020ad23a057a1"
+                "reference": "c89677919c5dd6d3b3852f230a663118762218ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/661f34d0bd3f1a7225ef491a70a020ad23a057a1",
-                "reference": "661f34d0bd3f1a7225ef491a70a020ad23a057a1",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/c89677919c5dd6d3b3852f230a663118762218ac",
+                "reference": "c89677919c5dd6d3b3852f230a663118762218ac",
                 "shasum": ""
             },
             "require": {
@@ -1082,7 +1082,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-12-06T09:29:45+00:00"
+            "time": "2018-04-06T15:36:58+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
