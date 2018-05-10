@@ -4,8 +4,8 @@ requirejs.config({
     jquery: '../../node_modules/jquery/dist/jquery.min',
     bootstrap: '../../node_modules/bootstrap/dist/js/bootstrap.min',
     underscore: '../lib/underscore-min',
-    backbone: '../lib/backbone-min',
-    backbonePaginator: '../lib/backbone.paginator.min'
+    backbone: '../../node_modules/backbone/backbone-min',
+    backbonePaginator: '../../node_modules/backbone.paginator/lib/backbone.paginator.min'
   },
   shim: {
     bootstrap: {
