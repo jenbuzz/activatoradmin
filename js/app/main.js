@@ -1,8 +1,8 @@
 requirejs.config({
   paths: {
     text: '../lib/text',
-    jquery: '../lib/jquery.min',
-    bootstrap: '../lib/bootstrap.min',
+    jquery: '../../node_modules/jquery/dist/jquery.min',
+    bootstrap: '../../node_modules/bootstrap/dist/js/bootstrap.min',
     underscore: '../lib/underscore-min',
     backbone: '../lib/backbone-min',
     backbonePaginator: '../lib/backbone.paginator.min'
