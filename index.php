@@ -57,12 +57,7 @@ $app->get('/', function ($request, $response, $args) {
     $objConfigHelper = $this->config;
     $baseurl = $objConfigHelper->get('url', 'baseurl');
 
-    $tplFile = 'index.tpl';
-    if ($objConfigHelper->get('frontend', 'vuejs')) {
-        $tplFile = 'index-vuejs.tpl';
-    }
-
-    return $this->view->render($response, $tplFile, [
+    return $this->view->render($response, 'index.tpl', [
         'baseurl' => $baseurl,
     ]);
 });
@@ -74,12 +69,7 @@ $app->get('/login', function ($request, $response, $args) {
     $objConfigHelper = $this->config;
     $baseurl = $objConfigHelper->get('url', 'baseurl');
 
-    $tplFile = 'login.tpl';
-    if ($objConfigHelper->get('frontend', 'vuejs')) {
-        $tplFile = 'index-vuejs.tpl';
-    }
-
-    return $this->view->render($response, $tplFile, [
+    return $this->view->render($response, 'login.tpl', [
         'baseurl' => $baseurl,
         'isLogin' => true,
     ]);
@@ -101,12 +91,7 @@ $app->post('/login', function ($request, $response, $args) {
             $objLogger->addWarning('Login Attempt Failed. Username: '.$request->getParam('username'));
         }
 
-        $tplFile = 'login.tpl';
-        if ($objConfigHelper->get('frontend', 'vuejs')) {
-            $tplFile = 'index-vuejs.tpl';
-        }
-
-        return $this->view->render($response, $tplFile, [
+        return $this->view->render($response, 'login.tpl', [
             'baseurl' => $baseurl,
             'isLogin' => true,
             'isError' => true,
