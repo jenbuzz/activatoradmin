@@ -1,6 +1,6 @@
 # ActivatorAdmin
 
-[![Build Status](https://secure.travis-ci.org/dan-lyn/activatoradmin.png?branch=master)](http://travis-ci.org/dan-lyn/activatoradmin)
+[![Build Status](https://secure.travis-ci.org/jenbuzz/activatoradmin.png?branch=master)](http://travis-ci.org/jenbuzz/activatoradmin)
 
 ![Screenshot](docs/ActivatorAdmin.png)
 

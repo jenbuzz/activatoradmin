@@ -22,7 +22,7 @@
   </div>
 
   <div class="github navbutton">
-    <a href="https://github.com/dan-lyn/activatoradmin" target="_blank" title="ActivatorAdmin on GitHub"><span class="fa fa-github"></span></a>
+    <a href="https://github.com/jenbuzz/activatoradmin" target="_blank" title="ActivatorAdmin on GitHub"><span class="fa fa-github"></span></a>
   </div>
 </nav>
 {% endif %}

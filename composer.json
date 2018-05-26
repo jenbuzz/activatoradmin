@@ -1,13 +1,13 @@
 {
-  "name": "dan-lyn/activatoradmin",
+  "name": "jenbuzz/activatoradmin",
   "type": "project",
   "description": "ActivatorAdmin",
-  "homepage": "https://github.com/dan-lyn/activatoradmin/",
+  "homepage": "https://github.com/jenbuzz/activatoradmin/",
   "license" : "MIT",
   "authors" : [
     {
-      "name": "dan-lyn",
-      "homepage": "https://github.com/dan-lyn/"
+      "name": "jenbuzz",
+      "homepage": "https://github.com/jenbuzz/"
     }
   ],
   "config": {
