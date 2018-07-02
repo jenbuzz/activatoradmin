@@ -14,9 +14,9 @@
     "sort-packages": true
   },
   "require": {
-    "monolog/monolog": "1.22.0",
-    "slim/slim": "3.9.2",
-    "slim/twig-view": "2.3.0",
+    "monolog/monolog": "1.23.0",
+    "slim/slim": "3.10.0",
+    "slim/twig-view": "2.4.0",
     "twig/twig": "2.4.8"
   },
   "require-dev": {

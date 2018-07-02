@@ -7,10 +7,10 @@
 ## Third-Party Libraries
 
 **PHP**
-- Slim Framework 3.9.2 (https://github.com/slimphp/Slim)
+- Slim Framework 3.10.0 (https://github.com/slimphp/Slim)
 - Twig 2.4.3 (https://github.com/twigphp/Twig)
-- Slim Twig View 2.2.0 (https://github.com/slimphp/Twig-View)
-- Monolog 1.22.0 (https://github.com/Seldaek/monolog)
+- Slim Twig View 2.4.0 (https://github.com/slimphp/Twig-View)
+- Monolog 1.23.0 (https://github.com/Seldaek/monolog)
 
 **JS**
 - Backbone.js 1.3.3 (http://backbonejs.org/)
