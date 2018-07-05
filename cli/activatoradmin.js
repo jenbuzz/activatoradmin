@@ -9,60 +9,60 @@ const mysql = require('mysql');
 const config = ini.parse(fs.readFileSync(path.join(__dirname, '/../config/config.ini'), 'utf-8'));
 
 const connection = mysql.createConnection({
-  host: config.mysql.host,
-  user: config.mysql.user,
-  password: config.mysql.password,
-  database: config.mysql.name
+    host: config.mysql.host,
+    user: config.mysql.user,
+    password: config.mysql.password,
+    database: config.mysql.name
 });
 connection.connect();
 
 const table = config.mysql.table;
 
 inquirer.prompt([{
-  type: 'input',
-  name: 'id',
-  message: 'What is the ID of the item you want to (de)activate?',
-  validate: value => {
-    if (value % 1 !== 0) {
-      return 'ID must be a number';
-    }
+    type: 'input',
+    name: 'id',
+    message: 'What is the ID of the item you want to (de)activate?',
+    validate: value => {
+        if (value % 1 !== 0) {
+            return 'ID must be a number';
+        }
 
-    return true;
-  }
+        return true;
+    }
 }]).then(answers => {
-  const id = answers.id;
+    const id = answers.id;
 
-  if (id === 0) {
-    console.log('ID is zero');
-    connection.end();
-    return;
-  }
-
-  connection.query('SELECT * FROM ' + table + ' WHERE id=' + connection.escape(id), (err, rows) => {
-    if (err) {
-      throw err;
+    if (id === 0) {
+        console.log('ID is zero');
+        connection.end();
+        return;
     }
 
-    if (rows.length === 0) {
-      throw new Error('Item with ID "' + id + '" does not exist');
-    }
+    connection.query('SELECT * FROM ' + table + ' WHERE id=' + connection.escape(id), (err, rows) => {
+        if (err) {
+            throw err;
+        }
 
-    const item = rows[0];
+        if (rows.length === 0) {
+            throw new Error('Item with ID "' + id + '" does not exist');
+        }
 
-    const isactive = item[config.db_mapping.isactive] ? 0 : 1;
+        const item = rows[0];
 
-    connection.query('UPDATE ' + table + ' SET ' + config.db_mapping.isactive + '=' + isactive + ' WHERE id=' + connection.escape(id), (err, result) => {
-      if (err) {
-        throw err;
-      }
+        const isactive = item[config.db_mapping.isactive] ? 0 : 1;
 
-      if (result.changedRows > 0) {
-        const msgIsActive = isactive ? 'activated' : 'deactivated';
+        connection.query('UPDATE ' + table + ' SET ' + config.db_mapping.isactive + '=' + isactive + ' WHERE id=' + connection.escape(id), (err, result) => {
+            if (err) {
+                throw err;
+            }
 
-        console.log('Item "' + item[config.db_mapping.name] + '" (ID: ' + item.id + ') has been ' + msgIsActive);
-      }
+            if (result.changedRows > 0) {
+                const msgIsActive = isactive ? 'activated' : 'deactivated';
 
-      connection.end();
+                console.log('Item "' + item[config.db_mapping.name] + '" (ID: ' + item.id + ') has been ' + msgIsActive);
+            }
+
+            connection.end();
+        });
     });
-  });
 });
