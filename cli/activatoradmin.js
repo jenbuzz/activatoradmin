@@ -8,15 +8,15 @@ const mysql = require('mysql');
 
 const config = ini.parse(fs.readFileSync(path.join(__dirname, '/../config/config.ini'), 'utf-8'));
 
+const {table, host, user, password, name} = config.mysql;
+
 const connection = mysql.createConnection({
-    host: config.mysql.host,
-    user: config.mysql.user,
-    password: config.mysql.password,
-    database: config.mysql.name
+    host,
+    user,
+    password,
+    database: name
 });
 connection.connect();
-
-const {table} = config.mysql;
 
 inquirer.prompt([{
     type: 'input',
