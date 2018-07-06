@@ -16,7 +16,7 @@ const connection = mysql.createConnection({
 });
 connection.connect();
 
-const table = config.mysql.table;
+const {table} = config.mysql;
 
 inquirer.prompt([{
     type: 'input',
@@ -30,7 +30,7 @@ inquirer.prompt([{
         return true;
     }
 }]).then(answers => {
-    const id = answers.id;
+    const {id} = answers;
 
     if (id === 0) {
         console.log('ID is zero');
