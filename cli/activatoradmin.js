@@ -38,31 +38,46 @@ inquirer.prompt([{
         return;
     }
 
-    connection.query('SELECT * FROM ' + table + ' WHERE id=' + connection.escape(id), (err, rows) => {
-        if (err) {
-            throw err;
-        }
+    let item = null;
 
-        if (rows.length === 0) {
-            throw new Error('Item with ID "' + id + '" does not exist');
-        }
+    query('SELECT * FROM ' + table + ' WHERE id=' + connection.escape(id))
+        .then(
+            rows => {
+                if (rows.length === 0) {
+                    throw new Error('Item with ID "' + id + '" does not exist');
+                }
 
-        const item = rows[0];
+                item = rows[0];
 
-        const isactive = item[config.db_mapping.isactive] ? 0 : 1;
+                const isactive = item[config.db_mapping.isactive] ? 0 : 1;
 
-        connection.query('UPDATE ' + table + ' SET ' + config.db_mapping.isactive + '=' + isactive + ' WHERE id=' + connection.escape(id), (err, result) => {
-            if (err) {
-                throw err;
+                return query('UPDATE ' + table + ' SET ' + config.db_mapping.isactive + '=' + isactive + ' WHERE id=' + connection.escape(id));
             }
+        )
+        .then(
+            result => {
+                if (result.changedRows > 0) {
+                    console.log('Item "' + item[config.db_mapping.name] + '" (ID: ' + item.id + ') has been updated!');
+                }
 
-            if (result.changedRows > 0) {
-                const msgIsActive = isactive ? 'activated' : 'deactivated';
-
-                console.log('Item "' + item[config.db_mapping.name] + '" (ID: ' + item.id + ') has been ' + msgIsActive);
+                connection.end();
             }
-
+        )
+        .catch(err => {
+            console.log(err.message);
             connection.end();
         });
-    });
 });
+
+function query(sql, args) {
+    return new Promise((resolve, reject) => {
+        connection.query( sql, args, (err, rows) => {
+            if (err) {
+                return reject(err);
+            }
+
+            resolve(rows);
+        });
+    });
+}
+
