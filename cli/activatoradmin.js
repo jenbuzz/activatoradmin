@@ -40,24 +40,24 @@ inquirer.prompt([{
 
     let item = null;
 
-    query('SELECT * FROM ' + table + ' WHERE id=' + connection.escape(id))
+    query(`SELECT * FROM ${table} WHERE id= ${connection.escape(id)}`)
         .then(
             rows => {
                 if (rows.length === 0) {
-                    throw new Error('Item with ID "' + id + '" does not exist');
+                    throw new Error(`Item with ID ${id} does not exist`);
                 }
 
                 item = rows[0];
 
                 const isactive = item[config.db_mapping.isactive] ? 0 : 1;
 
-                return query('UPDATE ' + table + ' SET ' + config.db_mapping.isactive + '=' + isactive + ' WHERE id=' + connection.escape(id));
+                return query(`UPDATE ${table} SET ${config.db_mapping.isactive}=${isactive} WHERE id=${connection.escape(id)}`);
             }
         )
         .then(
             result => {
                 if (result.changedRows > 0) {
-                    console.log('Item "' + item[config.db_mapping.name] + '" (ID: ' + item.id + ') has been updated!');
+                    console.log(`Item ${item[config.db_mapping.name]} (ID: ${item.id}) has been updated!`);
                 }
 
                 connection.end();
