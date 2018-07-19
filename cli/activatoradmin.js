@@ -69,9 +69,9 @@ inquirer.prompt([{
         });
 });
 
-function query(sql, args) {
+function query (sql, args) {
     return new Promise((resolve, reject) => {
-        connection.query( sql, args, (err, rows) => {
+        connection.query(sql, args, (err, rows) => {
             if (err) {
                 return reject(err);
             }
