@@ -1,0 +1,35 @@
+version: "3.1"
+
+services:
+  nginx:
+    image: nginx:latest
+    container_name: "activatoradmin_nginx"
+    volumes:
+      - ./:/var/www/html
+    ports:
+      - "80:80"
+    command: /bin/bash -c "cp /var/www/html/docs/activatoradmin-nginx.conf /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
+    depends_on:
+      - php
+      - mysql
+    restart: always
+
+  php:
+    image: php:7.2-fpm
+    container_name: "activatoradmin_php"
+    volumes:
+      - ./:/var/www/html
+    depends_on:
+      - mysql
+    restart: always
+
+  mysql:
+    image: mysql:5.7
+    container_name: "activatoradmin_mysql"
+    environment:
+      - MYSQL_DATABASE=activatoradmin
+      - MYSQL_ROOT_PASSWORD=abcd1234
+      - MYSQL_USER=aauser
+      - MYSQL_PASSWORD=abcd1234
+    restart: always
+    
