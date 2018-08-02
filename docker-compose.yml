@@ -26,6 +26,8 @@ services:
   mysql:
     image: mysql:5.7
     container_name: "activatoradmin_mysql"
+    volumes:
+      - ./:/var/www/html
     environment:
       - MYSQL_DATABASE=activatoradmin
       - MYSQL_ROOT_PASSWORD=abcd1234
