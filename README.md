@@ -62,8 +62,8 @@ A default database structure can be found in docs/db.sql. Use database mapping a
 ## Command-Line Usage
 
 It is possible to (de)activate items using the command-line. Node.js is required for this. You need to know the ID of the item to activate beforehand. Enter the following command and follow instructions:
-```
-node cli/activatoradmin.js
+```bash
+$ node cli/activatoradmin.js
 ```
 
 ## Configuration
@@ -129,22 +129,22 @@ See the results from PHPLOC in ROOT_DIRECTORY/docs/phploc.csv. Update the result
 Test cases have been created and tested using Jasmine v2.3.4, CasperJS v1.1.3, Mocha v3.2.0, and PHPUnit 6.1.4.
 
 Run both Jasmine, CasperJS, and PHPUnit test cases using grunt:
-```
-grunt test
+```bash
+$ grunt test
 ```
 
 **PHPUnit**
 
 Run PHPUnit test cases from ROOT_DIRECTORY:
-```
-phpunit test/phpunit
+```bash
+$ phpunit test/phpunit
 ```
 
 **CasperJS**
 
 Run CasperJS test cases from ROOT_DIRECTORY:
-```
-casperjs test test/casperjs
+```bash
+$ casperjs test test/casperjs
 ```
 
 **Jasmine**
@@ -154,8 +154,8 @@ Run Jasmine test cases by opening the following URL in a browser: ROOT_URL/test/
 **Mocha**
 
 Run test of command-line version of activatoradmin using Mocha from ROOT_DIRECTORY:
-```
-mocha test/nodejs/test-cli-activatoradmin.js
+```bash
+$ mocha test/nodejs/test-cli-activatoradmin.js
 ```
 
 ## License
