@@ -103,6 +103,21 @@ showInfo: true // Show info button for each item
 showDelete: true // Show delete button for deleting a single item
 ```
 
+## Docker
+
+To run the entire application in a Docker environment for further development:
+```bash
+$ docker-compose up --build -d
+```
+Setup database with:
+```bash
+$ make setup-db
+```
+Import dummy data with:
+```
+$ make import-data
+```
+
 ## Documentation
 
 Generate API Documentation locally using phpDocumentor and the script ROOT_DIRECTORY/docs/update_phpdoc.sh and find the results in ROOT_DIRECTORY/docs/phpdoc/
